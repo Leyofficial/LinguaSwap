@@ -3,9 +3,11 @@ import { Outlet } from "react-router-dom";
 const Layout = () => {
   return (
     <div>
-      <header></header>
-      <aside></aside>
-      <main><Outlet><p>Hello Layout </p></Outlet></main>
+      <header>Hello</header>
+      <aside>H@</aside>
+      <main>
+      <Outlet></Outlet>
+      </main>
     </div>
   );
 };
