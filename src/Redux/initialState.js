@@ -1,3 +1,3 @@
 export const initialState = {
-    test : 'Hello'
+   mainData:null
 }

@@ -1,9 +1,9 @@
 import { initialState } from "./initialState";
 
-const mainReducer = (test = initialState.test, action) => {
+const mainReducer = (main = initialState.mainData, action) => {
     switch (action.type) {
         default: {
-            return test
+            return main
         }
     }
 }
