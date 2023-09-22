@@ -1,25 +1,28 @@
-import { Route } from "react-router-dom";
-import "./App.css";
+import {Route} from "react-router-dom";
 import Layout from "./Router/Layout/Layout";
 import { Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
+import {useState} from "react";
+
+import HomePage from "./Pages/HomePage/HomePage.jsx";
 
 
 function App() {
+
+  const [auth] = useState(false)
+
   return (
-
-    
     <>
+      {!auth ?
+          <HomePage></HomePage>
+        :
         <Routes>
-            <Route path={"/layout"} element={<Layout/>}>
+          <Route path={"/"} element={<Layout/>}>
+            <Route path="/" element={<Login/>}/>
+            <Route path="/teacherregister" element={<TeacherRegister/>}/>
           </Route>
-
-          <Route path="/" element={<Login/>}/>
-          <Route path="/teacherregister" element={<TeacherRegister/>}/>
-
-        </Routes>
-      
+        </Routes>}
     </>
   );
 }
