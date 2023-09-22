@@ -3,7 +3,7 @@ import "./App.css";
 import Layout from "./Router/Layout/Layout";
 import { Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
-import TeacherRegister from "./Components/Login/TeacherRegister/TeacherRegister";
+import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 
 
 function App() {

@@ -4,7 +4,7 @@ import './Login.css';
 import appleicon from '../../images/appleicon.svg';
 import facebookicon from '../../images/facebookicon.svg';
 import googleicon from '../../images/googleicon.svg';
-
+import teacherimg from '../../images/teacherimg.jpg';
 function Login() {
 
   const [email, setEmail] = useState('');
@@ -68,90 +68,98 @@ function Login() {
   return (
     <>
     
-      <div className="login-component">
-
-        <h3 className="login-component_title">Вход</h3>
-
-        <nav className="login-component_nav">
-
-          <NavLink className="login-component_nav-link">Зарегистрируйтесь как ученик</NavLink>
-            <span className="login-component_nav-title">или</span> <br />
-          <NavLink to='/teacherregister' className="login-component_nav-link">Зарегистрируйтесь как реппетитор</NavLink>
-
-        </nav>
-
-        <div className="login-component_container">
-
-          <button className="login-component_container-btn google-btn">
-            <img src={googleicon} alt={googleicon} className="btn-icon" />
-            <span className='btn-text'>Продолжить с Google</span>
-          </button>
-
-          <button className="login-component_container-btn facebook-btn">
-            <img src={facebookicon} alt={googleicon} className="btn-icon" />
-            <span className='btn-text'>Продолжить с Facebook</span>
-          </button>
-
-          <button className="login-component_container-btn apple-btn">
-            <img src={appleicon} alt={googleicon} className="btn-icon" />
-            <span className='btn-text'>Продолжить с Apple</span>
-          </button>
-
-        </div>
-
-        <div className="or-block">
-          <hr className='or'/>
-          <span className="or-block_title">или</span>
-          <hr className='or'/>
-        </div>
-
-        <form className="form-login">
-
-          <div className="form-container">
-
-            <div className="form-input_block">
-              <span className="form-input_title">Эл. почта</span>
-              {(emailDirty && emailError) && <div className='email-error'>{emailError}</div>}
-              <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type="email" className="form-input__email" placeholder='Ваш адрес эл. почты'/>
-              
-            </div>
-
-            <div className="form-input_block">
-              <span className="form-input_title">Пароль</span>
-              {(passwordDirty && passwordError) && <div className='password-error'>{passwordError}</div>}
-              <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type="password" className="form-input__email" placeholder='Ваш пароль'/>
-            </div>
-
-            <NavLink className="forgot-password">Забыли пароль?</NavLink>
-            
-            <div className='checkbox-block'>
-              <input  type="checkbox" className='checkbox-login'/>
-              <span className="checkbox-text">Запомнить меня</span>
-            </div>
-
-            <button disabled={!formValid} className="form-btn">отправит</button>
-
+      <div className='login'>
+        <div className="loginComponent">
+  
+          <h3 className="loginComponentTitle">Вход</h3>
+  
+          <nav className="loginComponentNav">
+  
+            <NavLink className="loginComponentNavLink">Зарегистрируйтесь как ученик</NavLink>
+              <span className="loginComponentNavTitle">или</span> <br />
+            <NavLink to='/teacherregister' className="loginComponentNavLink">Зарегистрируйтесь как реппетитор</NavLink>
+  
+          </nav>
+  
+          <div className="loginComponentContainer">
+  
+            <button className="loginComponentContainerBtn googleBtn">
+              <img src={googleicon} alt={googleicon} className="btnIcon" />
+              <span className='btnText'>Продолжить с Google</span>
+            </button>
+  
+            <button className="loginComponentContainerBtn facebookBtn">
+              <img src={facebookicon} alt={googleicon} className="btnIcon" />
+              <span className='btnText'>Продолжить с Facebook</span>
+            </button>
+  
+            <button className="loginComponentContainerBtn appleBtn">
+              <img src={appleicon} alt={googleicon} className="btnIcon" />
+              <span className='btnText'>Продолжить с Apple</span>
+            </button>
+  
           </div>
-
-        </form>
-
-
-        <div className="warnings-block">
-
-          <p className="warnings-info">
-
-            Нажимая <NavLink className='warnings-login'>«Войти»</NavLink> или <NavLink className='warnings-login'>«Продолжить»</NavLink>, вы принимаете <br />
-            Условия использования и <br />
-            Палитику конфидециальности
-
-          </p>
-
+  
+          <div className="orBlock">
+            <hr className='or'/>
+            <span className="orBlockTitle">или</span>
+            <hr className='or'/>
+          </div>
+  
+          <form className="formLogin">
+  
+            <div className="formContainer">
+  
+              <div className="formInputBlock">
+                <span className="formInputTitle">Эл. почта</span>
+                {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
+                <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
+                
+              </div>
+  
+              <div className="formInputBlock">
+                <span className="formInputTitle">Пароль</span>
+                {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
+                <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
+              </div>
+  
+              <NavLink className="forgotPassword">Забыли пароль?</NavLink>
+              
+              <div className='checkboxBlock'>
+                <input  type="checkbox" className='checkboxLogin'/>
+                <span className="checkboxText">Запомнить меня</span>
+              </div>
+  
+              <button disabled={!formValid} className="formBtn">отправит</button>
+  
+            </div>
+  
+          </form>
+  
+  
+          <div className="warningsBlock">
+  
+            <p className="warningInfo">
+  
+              Нажимая <NavLink className='warningsLogin'>«Войти»</NavLink> или <NavLink className='warningsLogin'>«Продолжить»</NavLink>, вы принимаете <br />
+              Условия использования и <br />
+              Палитику конфидециальности
+  
+            </p>
+  
+          </div>
+  
         </div>
 
+        <div className="loginImageContent">
+
+          <img src={teacherimg} alt={teacherimg} className="loginImage" />
+
+        </div>
       </div>
 
     </>
   )
-}
+} 
 
 export default Login;

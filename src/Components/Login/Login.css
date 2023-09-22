@@ -8,10 +8,27 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px    ;
+}
+
+.loginImage {
+    max-width: 800px;
+    height: 600px;
+
 
 }
 
-.login-component {
+.loginComponent {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,7 +37,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 }
 
 
-.login-component_title {
+.loginComponentTitle {
     font-size: 25px;
     font-weight: 600;
     text-align: left;
@@ -28,30 +45,30 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 }
 
 
-.login-component_nav-link {
+.loginComponentNavLink {
     text-decoration: none;
     margin-right: 5px;
 }
 
-.login-component_nav-title {
+.loginComponentNavTitle {
     font-weight: 500;
 }
 
-.login-component_container {
+.loginComponentContainer {
     display: flex;
     flex-direction: column;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.btn-icon {
+.btnIcon {
     width: 20px;
 
     margin-left: -80px;
     margin-right: 80px;
 }
 
-.login-component_container-btn {
+.loginComponentContainerBtn {
     display: flex;
     align-items: center;
     padding-top: 13px;
@@ -63,40 +80,40 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     margin-top: 7px;
 }
 
-.google-btn {
+.googleBtn {
     background-color: rgba(0, 0, 255, 0.653);
     transition: 0.3s;
 }
 
-.google-btn:hover {
+.googleBtn:hover {
     background-color: rgb(0, 0, 255);
 }
 
-.facebook-btn {
+.facebookBtn {
     background-color:rgba(33, 44, 116, 0.747);
     transition: 0.3s;
 }
 
-.facebook-btn:hover {
+.facebookBtn:hover {
     background-color:rgb(33, 44, 116);
     transition: 0.3s;
 }
 
-.apple-btn {
+.appleBtn {
     background-color: rgba(0, 0, 0, 0.804);
     transition: 0.3s;
 }
 
-.apple-btn:hover {
+.appleBtn:hover {
     background-color: rgba(0, 0, 0, 0.973);
     transition: 0.3s;
 }
-.btn-text {
+.btnText {
     color: #fff;
     font-size: 15px;
 }
 
-.or-block {
+.orBlock {
     display: flex;
     align-items: center;
 
@@ -106,18 +123,18 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     width: 155px;
 }
 
-.or-block_title {
+.orBlockTitle {
     margin: 15px;
 }
 
-.form-input_block {
+.formInputBlock {
     display: flex;
     flex-direction: column;
 
     margin-bottom: 10px;
 }
 
-.form-input__email, .form-input__password {
+.formInputEmail, .formInputPassword {
     width: 360px;
     padding: 10px;
     margin-top: 5px;
@@ -129,27 +146,27 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     font-size: 15px;
 }
 
-.form-input__email::after {
+.formInputEmail::after {
     border-top: none;
     border-left: none;
     border-right: none;
 }
 
-.forgot-password {
+.forgotPassword {
     text-decoration: none;
 }
 
-.checkbox-block {
+.checkboxBlock {
     display: flex;
     align-items: center;
     margin-top: 10px;
 }
 
-.checkbox-text {
+.checkboxText {
     margin-left: 5px;
 }
 
-.warnings-block {
+.warningsBlock {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -158,21 +175,21 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     margin-top: 30px;
 }
 
-.warnings-info {
+.warningsInfo {
     max-width: 350px;
     font-size: 15px;
 }
 
-.warnings-login {
+.warningsLogin {
     text-decoration: none;
 }
 
-.password-error, .email-error {
+.passwordError, .emailError {
     color: red;
     font-size: 16px;
 }
 
-.form-btn {
+.formBtn {
     background-color: rgba(0, 0, 0, 0.822);
     color: #fff;
     border: none;
@@ -189,10 +206,10 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     transition: 0.3s;
 }
 
-.checkbox-login {
+.checkboxLogin {
     cursor: pointer;
 }
 
-.form-btn:hover {
+.formB:hover {
     background-color: rgba(0, 0, 0, 0.995);
 }
