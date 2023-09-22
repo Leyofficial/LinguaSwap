@@ -1,0 +1,32 @@
+.header {
+  position: relative;
+  margin: 0 auto 50px;
+  padding: 10px 25px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+}
+
+.headerInner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList {
+  display: flex;
+  gap: 15px;
+}
+
+.iconBlock {
+  gap: 9px;
+  align-items: center;
+  display: flex;
+}
+.iconBlock a {
+  cursor: pointer;
+}/*# sourceMappingURL=Header.module.css.map */

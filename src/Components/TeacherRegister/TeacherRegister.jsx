@@ -1,8 +1,8 @@
 import React from 'react';
 import './TeacherRegister.css';
-import facebookicon from '../../images/facebookicon.svg';
-import googleicon from '../../images/googleicon.svg';
-import appleicon from '../../images/appleicon.svg';
+import facebookicon from '../../img/images/facebookicon.svg';
+import googleicon from '../../img/images/googleicon.svg';
+import appleicon from '../../img/images/appleicon.svg';
 import { NavLink } from 'react-router-dom';
 function TeacherRegister() {
   return (

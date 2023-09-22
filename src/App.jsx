@@ -6,6 +6,7 @@ import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import {useState} from "react";
 
 import HomePage from "./Pages/HomePage/HomePage.jsx";
+import Header from "./Components/Header";
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
 
   return (
     <>
-      {!auth ?
+       <Header></Header>
+      {/* {!auth ?
           <HomePage></HomePage>
         :
         <Routes>
@@ -22,7 +24,7 @@ function App() {
             <Route path="/" element={<Login/>}/>
             <Route path="/teacherregister" element={<TeacherRegister/>}/>
           </Route>
-        </Routes>}
+        </Routes>} */}
     </>
   );
 }
