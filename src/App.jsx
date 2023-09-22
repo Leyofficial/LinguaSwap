@@ -4,8 +4,10 @@ import { Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import {useState} from "react";
+import './App.css'
 
 import HomePage from "./Pages/HomePage/HomePage.jsx";
+
 
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <>
-      {!auth ?
+       {!auth ?
           <HomePage></HomePage>
         :
         <Routes>

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Login.css';
-import appleicon from '../../images/appleicon.svg';
-import facebookicon from '../../images/facebookicon.svg';
-import googleicon from '../../images/googleicon.svg';
-import teacherimg from '../../images/teacherimg.jpg';
+import appleicon from '../../img/images/appleicon.svg';
+import facebookicon from '../../img/images/facebookicon.svg';
+import googleicon from '../../img/images/googleicon.svg';
+import teacherimg from '../../img/images/teacherimg.jpg';
 function Login() {
 
   const [email, setEmail] = useState('');
