@@ -2,7 +2,7 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./Router/Layout/Layout";
 import { Routes } from "react-router-dom";
-import Main from "./Components/Main";
+// import HomePage from "./Pages/HomePage/HomePage.jsx";
 
 
 
@@ -11,7 +11,7 @@ function App() {
     <>
         <Routes>
           <Route path={"/"} element={<Layout />}>
-            <Route path={"/main"} element={<Main />}></Route>
+            {/*<Route index={true} element={<HomePage />}></Route>*/}
           </Route>
         </Routes>
     </>
