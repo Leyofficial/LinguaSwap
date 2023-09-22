@@ -1,8 +1,9 @@
 import style from './HomePage.module.scss'
 import {NavLink} from "react-router-dom";
-import firstImage  from './assets/first.png'
-import secondImage  from './assets/second.png'
-import thirdImage  from './assets/third.png'
+
+import firstImage  from '../../images/HomePage/first.png'
+import secondImage  from '../../images/HomePage/second.png'
+import thirdImage  from '../../images/HomePage/third.png'
 const HomePage = () => {
 
   return (
