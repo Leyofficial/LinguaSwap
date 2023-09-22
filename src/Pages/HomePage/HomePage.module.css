@@ -15,6 +15,7 @@
 .container .wrapperText h1 {
   max-width: 80%;
   font-size: 55px;
+  line-height: 80px;
 }
 .container .wrapperText h1 span {
   color: rgba(12, 60, 218, 0.61);
@@ -30,9 +31,12 @@
   font-style: italic;
   font-weight: bolder;
 }
+.container .wrapperText .wrapperInfo {
+  padding: 5vh 0;
+}
 .container .wrapperText .wrapperInfo p {
-  max-width: 500px;
-  font-size: 17px;
+  max-width: 600px;
+  font-size: 18px;
   color: rgba(54, 86, 152, 0.68);
 }
 .container .containerImages {
@@ -45,7 +49,7 @@
   object-fit: cover;
   outline: none;
   cursor: pointer;
-  box-shadow: rgb(4, 4, 4) 0px 28px 30px 4px;
+  box-shadow: rgba(32, 96, 159, 0.62) 16px 49px 69px 6px;
 }
 .container .containerImages .firstImage {
   position: absolute;
