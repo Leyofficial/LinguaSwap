@@ -6,8 +6,17 @@ import thirdImage from "../../images/HomePage/third.png";
 import Header from "../../Components/Header/index.jsx";
 import {TypeAnimation} from "react-type-animation";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
+import {useDispatch} from "react-redux";
+import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
 
 const HomePage = () => {
+
+  const dispatch = useDispatch()
+
+  const toLogin = () => {
+    dispatch(moveToLogin())
+  }
+
   return (
     <>
 
@@ -29,7 +38,7 @@ const HomePage = () => {
                 practice speaking and monitor your progress while having fun!
               </p>
             </div>
-            <CustomButton title={'Start to learn'} callback={null} typeOfButton={'link'} path={'login'}></CustomButton>
+            <CustomButton title={'Start to learn'} callback={toLogin} typeOfButton={'link'} path={'login'}></CustomButton>
 
           </div>
           <div className={style.containerImages}>
