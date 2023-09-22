@@ -57,18 +57,23 @@ exports.login = catchAsync(async (req,res,next) => {
 })
 
 exports.getAllUsers = catchAsync(async (req,res,next) => {
+
+
   const {typeOfUser} = req.params
 
-  const filter = typeOfUser ? "status.typeOfUser":typeOfUser || null
-
-  const documents = Auth.find({filter})
+  let filter = {}
+  if(typeOfUser) {
+    filter = {
+      "status.typeOfUser":typeOfUser
+    }
+  }
+  const documents = Auth.find(filter);
 
   if(!documents){
     next(new AppError("No documents",400))
   }
-  let doc = await documents.query
 
-  const users = await doc
+  const users = await documents
 
   res.status(200).json({
     status:"Success",
