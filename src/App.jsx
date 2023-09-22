@@ -2,18 +2,24 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Layout from "./Router/Layout/Layout";
 import { Routes } from "react-router-dom";
-import Main from "./Components/Main";
-
+import Login from "./Components/Login/Login";
+import TeacherRegister from "./Components/Login/TeacherRegister/TeacherRegister";
 
 
 function App() {
   return (
+
+    
     <>
         <Routes>
-          <Route path={"/"} element={<Layout />}>
-            <Route path={"/main"} element={<Main />}></Route>
+            <Route path={"/layout"} element={<Layout/>}>
           </Route>
+
+          <Route path="/" element={<Login/>}/>
+          <Route path="/teacherregister" element={<TeacherRegister/>}/>
+
         </Routes>
+      
     </>
   );
 }
