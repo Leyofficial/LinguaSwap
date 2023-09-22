@@ -9,6 +9,7 @@ authRouter.route('/')
   .get(authFunctions.login)
   .post(authFunctions.signup)
 
-
+authRouter.route('/login')
+  .get(authFunctions.login)
 
 module.exports = authRouter;
