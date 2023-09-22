@@ -9,7 +9,7 @@ const Header = () => {
           <div className={style.iconBlock}>
             <a href="#id">
               <h2>
-                Lin<span style={{ color: "rgba(0, 0, 255, 0.653)" }}>gua</span>
+                Lin<span style={{ color: "dodgerblue" }}>gua</span>
               </h2>
               <img src={headerIcon} alt="icon" />
             </a>

@@ -1,9 +1,7 @@
 
-body {
-  margin: 0;
-}
 
 .container {
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -49,7 +47,4 @@ body {
     }
 
   }
-}
-.containerW{
-  height: 150vh;
 }

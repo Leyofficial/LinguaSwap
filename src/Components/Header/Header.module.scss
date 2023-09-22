@@ -1,12 +1,14 @@
 .header {
+  z-index: 5;
   margin: 0 auto 50px;
-  padding: 10px 25px;
+  padding: 15px 25px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(21, 21, 21, 0.99);
   backdrop-filter: blur(1px);
+  border-bottom: 1px solid dodgerblue;
 }
 
 .headerInner {
@@ -18,15 +20,19 @@
 .navList {
   display: flex;
   gap: 15px;
-  li{
-    &:hover{
-      color: dodgerblue;
+  li {
+    a {
+      transition: .4s all;
+      &:hover {
+        color: dodgerblue;
+      }
     }
   }
 }
 
 .iconBlock {
   a {
+    color: white;
     display: flex;
     align-items: center;
     cursor: pointer;

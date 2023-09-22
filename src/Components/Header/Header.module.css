@@ -1,12 +1,15 @@
 .header {
+  z-index: 5;
   margin: 0 auto 50px;
-  padding: 10px 25px;
+  padding: 15px 25px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(1px);
+  background-color: rgba(21, 21, 21, 0.99);
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  border-bottom: 1px solid dodgerblue;
 }
 
 .headerInner {
@@ -19,7 +22,10 @@
   display: flex;
   gap: 15px;
 }
-.navList li:hover {
+.navList li a {
+  transition: 0.4s all;
+}
+.navList li a:hover {
   color: dodgerblue;
 }
 
@@ -29,9 +35,8 @@
   display: flex;
 }
 .iconBlock a {
+  color: white;
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-
-/*# sourceMappingURL=Header.module.css.map */
+}/*# sourceMappingURL=Header.module.css.map */
