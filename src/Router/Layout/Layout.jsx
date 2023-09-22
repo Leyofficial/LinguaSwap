@@ -1,15 +1,19 @@
-import { Outlet } from "react-router-dom";
+import {Outlet} from "react-router-dom";
+import style from './Layout.module.scss'
+
 
 const Layout = () => {
+
   return (
-    <div>
-      <header>Hello</header>
-      <aside>H@</aside>
+    <>
+      <div className={style.container}>
+      <header>HEADER</header>
+      <aside>ASIDE</aside>
       <main>
-      <Outlet></Outlet>
+        <Outlet></Outlet>
       </main>
     </div>
-  );
-};
+  </>)
+}
 
 export default Layout;

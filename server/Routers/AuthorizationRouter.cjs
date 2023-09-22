@@ -5,10 +5,11 @@ const authRouter = express.Router({mergeParams: true});
 const authFunctions = require('../Functions/AuthorizationFunctions.cjs')
 
 
-authRouter.route('/')
-  .get(authFunctions.login)
+authRouter.route('/:typeOfUser?')
+  .get(authFunctions.getAllUsers)
   .post(authFunctions.signup)
 
-
+authRouter.route('/login')
+  .get(authFunctions.login)
 
 module.exports = authRouter;

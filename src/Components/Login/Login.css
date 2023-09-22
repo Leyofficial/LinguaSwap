@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px    ;
+}
+
+.loginImage {
+    max-width: 800px;
+    height: 600px;
+
+
+}
+
+.loginComponent {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+
+
+.loginComponentTitle {
+    font-size: 25px;
+    font-weight: 600;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+
+.loginComponentNavLink {
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.loginComponentNavTitle {
+    font-weight: 500;
+}
+
+.loginComponentContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.btnIcon {
+    width: 20px;
+
+    margin-left: -80px;
+    margin-right: 80px;
+}
+
+.loginComponentContainerBtn {
+    display: flex;
+    align-items: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border: none;
+    border-radius: 23px;
+    margin-top: 7px;
+}
+
+.googleBtn {
+    background-color: rgba(0, 0, 255, 0.653);
+    transition: 0.3s;
+}
+
+.googleBtn:hover {
+    background-color: rgb(0, 0, 255);
+}
+
+.facebookBtn {
+    background-color:rgba(33, 44, 116, 0.747);
+    transition: 0.3s;
+}
+
+.facebookBtn:hover {
+    background-color:rgb(33, 44, 116);
+    transition: 0.3s;
+}
+
+.appleBtn {
+    background-color: rgba(0, 0, 0, 0.804);
+    transition: 0.3s;
+}
+
+.appleBtn:hover {
+    background-color: rgba(0, 0, 0, 0.973);
+    transition: 0.3s;
+}
+.btnText {
+    color: #fff;
+    font-size: 15px;
+}
+
+.orBlock {
+    display: flex;
+    align-items: center;
+
+}
+
+.or {
+    width: 155px;
+}
+
+.orBlockTitle {
+    margin: 15px;
+}
+
+.formInputBlock {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+}
+
+.formInputEmail, .formInputPassword {
+    width: 360px;
+    padding: 10px;
+    margin-top: 5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+
+    font-size: 15px;
+}
+
+.formInputEmail::after {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.forgotPassword {
+    text-decoration: none;
+}
+
+.checkboxBlock {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.checkboxText {
+    margin-left: 5px;
+}
+
+.warningsBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.warningsInfo {
+    max-width: 350px;
+    font-size: 15px;
+}
+
+.warningsLogin {
+    text-decoration: none;
+}
+
+.passwordError, .emailError {
+    color: red;
+    font-size: 16px;
+}
+
+.formBtn {
+    background-color: rgba(0, 0, 0, 0.822);
+    color: #fff;
+    border: none;
+    
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 140px;
+    padding-right: 140px;
+    border: none;
+    border-radius: 23px;
+    font-size: 17px;
+    margin: 0 auto;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.checkboxLogin {
+    cursor: pointer;
+}
+
+.formB:hover {
+    background-color: rgba(0, 0, 0, 0.995);
+}
