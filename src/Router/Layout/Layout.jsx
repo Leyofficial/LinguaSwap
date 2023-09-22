@@ -1,19 +1,19 @@
 import {Outlet} from "react-router-dom";
 import style from './Layout.module.scss'
-import {useState} from "react";
-import HomePage from "../../Pages/HomePage/HomePage.jsx";
+
 
 const Layout = () => {
 
-  const {auth, setAuth} = useState(true)
-
-    return (
-      <div className={style.home}>
-        <HomePage></HomePage>
-      </div>
-    )
-
-
+  return (
+    <>
+      <div className={style.container}>
+      <header>HEADER</header>
+      <aside>ASIDE</aside>
+      <main>
+        <Outlet></Outlet>
+      </main>
+    </div>
+  </>)
 }
 
 export default Layout;
