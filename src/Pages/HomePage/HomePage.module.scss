@@ -1,50 +1,104 @@
-
-
 .container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 100vh;
+  padding: 5px;
+  height: 89vh;
+  margin-top: 5vh;
+
+  .header {
+    height: 50px;
+  }
 
   h1 {
     margin: 0;
   }
 
+  .wrapperText {
+    width: 55%;
+
+    h1 {
+      max-width: 80%;
+      font-size: 55px;
+      line-height: 80px;
+
+      span {
+        color: rgba(12, 60, 218, 0.61);
+        font-style: italic;
+      }
+    }
+
+    .wrapperType {
+
+      padding-left: 40vh;
+      color: #0c3cda;
+
+      span {
+        border-top: 1px solid rgba(19, 64, 238, 0.3);
+        font-size: 60px !important;
+        font-style: italic;
+        font-weight: bolder;
+      }
+    }
+
+    .wrapperInfo {
+      padding: 5vh 0;
+
+      p {
+        max-width: 600px;
+        font-size: 18px;
+        color: rgba(54, 86, 152, 0.68);
+      }
+    }
+  }
+
   .containerImages {
-    width: 100%;
+    width: 45%;
     position: relative;
-    display: flex;
-
-
     img {
-      //max-width: 300px;
-      max-width: 40vh;
-      border-radius: 5px;
+      width: 30vh;
+      height: 30vh;
+      object-fit: cover;
+      outline: none;
+      cursor: pointer;
+      box-shadow: rgb(32 96 159 / 62%) 16px 49px 69px 6px;
     }
 
     .firstImage {
       position: absolute;
-      left: 10vh;
-      //top: 150px;
-      top: 30vh;
+      //left: 10vh;
+      //top: 10vh;
+
+      img {
+        border-radius: 15px 15px 5px 105px;
+      }
     }
 
     .secondImage {
       position: absolute;
-      //left: 190px;
-      //top: 100px;
-      left:45vh;
-      top: 23vh;
+      left: 25vh;
+      top: 3vh;
+
+      img {
+        border-radius: 115px 15px 5px 15px;
+      }
     }
 
     .thirdImage {
       position: absolute;
-      //left: 390px;
-      left:80vh;
-      //top:20px
-      top: 5vh
+      left: 50vh;
+      //top: 10vh;
+
+      img {
+        border-radius: 15px 15px 5px 115px;
+      }
+
     }
+
+  }
+
+
+  .wrapperHome {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
 
   }
 }
