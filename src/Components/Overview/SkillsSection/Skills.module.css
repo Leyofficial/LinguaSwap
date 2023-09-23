@@ -6,6 +6,8 @@
   padding: 40px;
   position: relative;
   border-top: 1px solid rgba(10, 211, 246, 0.6);
+  opacity: 0;
+  transition: 1s ease-in-out;
 }
 .container .header {
   padding-top: 40px;
@@ -41,6 +43,10 @@
 }
 .skillsWrapper svg {
   color: rgba(6, 164, 199, 0.53);
+}
+
+.show {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=Skills.module.css.map */

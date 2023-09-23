@@ -5,10 +5,18 @@ import {VscCommentUnresolved} from "react-icons/vsc";
 import {AiFillCrown} from "react-icons/ai";
 import {SiTeamspeak} from "react-icons/si";
 import brain from "../../../images/Overview/brain.png";
+import {useEffect, useState} from "react";
 
 const Skills = () => {
+
+  const [show,setShow] = useState(false)
+
+  useEffect(() => {
+    setShow(true)
+  },[])
+
   return (
-    <div className={style.container}>
+    <div className={`${style.container} ${show ? style.show : null}`}>
       <div className={style.headerIcon}>
         <img src={brain} alt={'icon'}/>
       </div>

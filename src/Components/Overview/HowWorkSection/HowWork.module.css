@@ -8,6 +8,8 @@
   padding: 40px;
   position: relative;
   border-top: 1px solid rgba(10, 211, 246, 0.6);
+  transition: 1s ease-in-out;
+  opacity: 0;
 }
 .container .headerIcon {
   position: absolute;
@@ -34,6 +36,10 @@
   color: rgba(0, 0, 0, 0.6);
   padding-top: 10px;
   font-size: 20px;
+}
+
+.show {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=HowWork.module.css.map */

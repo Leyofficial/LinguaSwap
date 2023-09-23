@@ -2,6 +2,7 @@ import style from './HowWork.module.scss'
 import tutor from '../../../images/HomePage/third.png'
 import WorkSection from "./WorkSection/WorkSection.jsx";
 import brain from "../../../images/Overview/goal.png";
+import {useEffect, useState} from "react";
 
 const HowWork = () => {
 
@@ -9,8 +10,18 @@ const HowWork = () => {
   const textLessons = "Find the perfect time for your busy schedule. Book lessons in seconds via desktop or mobile"
   const textVirtual = "When it’s lesson time, connect with your tutor through our comprehensive video platform"
   const textEnjoy = "Keep track of your learning progress. Improve your speaking and vocabulary with our Learning plans"
+
+  const [show,setShow] = useState(false)
+
+
+  useEffect(() => {
+    setShow(true)
+  },[])
+
+
+  
   return (
-    <div className={style.container}>
+    <div className={`${style.container} ${show ? style.show : null}`}>
       <div className={style.headerIcon}>
         <img src={brain} alt={'icon'}/>
       </div>

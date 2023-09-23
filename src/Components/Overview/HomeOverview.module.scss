@@ -2,6 +2,7 @@
   position: relative;
   background-color: rgba(126, 173, 206, 0.06);
   padding: 50px 5px;
+  transition: 1s ease-in-out;
 
 
   .textItem {
@@ -10,13 +11,14 @@
     color: rgba(12, 60, 218, 0.61);
     padding: 0 30px;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       color: rgba(14, 96, 236, 0.7);
     }
   }
 
   .sliderItems {
-    padding:50px 0 ;
+    padding: 50px 0;
     margin-bottom: 10vh;
     display: flex;
     align-items: center;
@@ -26,14 +28,15 @@
   .wrapperIcon {
     position: absolute;
     left: 50%;
-    top:-50px;
-  img{
-    max-width: 100px;
-  }
+    top: -50px;
+
+    img {
+      max-width: 100px;
+    }
   }
 }
 
-.active{
+.active {
   border: 2px solid rgba(39, 122, 173, 0.54);
   font-size: 30px;
   border-radius: 5px 15px;

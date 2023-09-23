@@ -2,9 +2,18 @@ import style from './AdvantageSection.module.scss'
 import gear from "../../../images/Overview/gear.png";
 import Skill from "../SkillsSection/Skill/Skill.jsx";
 import {CiGrid2V, CiGrid31, CiGrid32, CiGrid41, CiGrid42} from "react-icons/ci";
+import {useEffect, useState} from "react";
 const AdvantageSection = () => {
+
+  const [show,setShow] = useState(false)
+
+
+  useEffect(() => {
+    setShow(true)
+  },[])
+
   return (
-    <div className={style.container}>
+    <div className={`${style.container} ${show ? style.show : null}`}>
       <div className={style.headerIcon}>
         <img src={gear} alt={'icon'}/>
       </div>
