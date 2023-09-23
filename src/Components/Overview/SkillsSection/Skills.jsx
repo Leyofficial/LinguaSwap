@@ -20,15 +20,15 @@ const Skills = () => {
       <div className={style.skillsWrapper}>
         <div>
           <Skill title={"Immerse yourself in a new culture"}
-                 text={"Connect with language experts from around the world"} icon={<BsBook color={'#0878afbf'}/>}></Skill>
+                 text={"Connect with language experts from around the world"} icon={<BsBook />}></Skill>
           <Skill title={"Get expert help when you need it"}
-                 text={"Learn to solve any problem in any language"} icon={<VscCommentUnresolved color={'#0878afbf'}/>}></Skill>
+                 text={"Learn to solve any problem in any language"} icon={<VscCommentUnresolved />}></Skill>
         </div>
         <div>
           <Skill title={"Succeed in your career"}
-                 text={"Develop your working vocabulary and communicate clearly"} icon={<AiFillCrown color={'#0878afbf'}/>}></Skill>
+                 text={"Develop your working vocabulary and communicate clearly"} icon={<AiFillCrown />}></Skill>
           <Skill title={"Speak naturally, always"}
-                 text={"Make a good impression and build trust in any language"} icon={<SiTeamspeak color={'#0878afbf'}/>}></Skill>
+                 text={"Make a good impression and build trust in any language"} icon={<SiTeamspeak />}></Skill>
         </div>
 
       </div>

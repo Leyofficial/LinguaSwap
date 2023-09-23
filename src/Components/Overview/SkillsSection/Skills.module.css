@@ -39,5 +39,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
 }
+.skillsWrapper svg {
+  color: rgba(6, 164, 199, 0.53);
+}
 
 /*# sourceMappingURL=Skills.module.css.map */
