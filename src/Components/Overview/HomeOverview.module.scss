@@ -11,9 +11,11 @@
     color: rgba(12, 60, 218, 0.61);
     padding: 0 30px;
     cursor: pointer;
+    transition: 1s ease-in-out;
 
     &:hover {
       color: rgba(14, 96, 236, 0.7);
+      transition: 1s ease-in-out;
     }
   }
 
@@ -41,7 +43,7 @@
   font-size: 30px;
   border-radius: 5px 15px;
   font-weight: 900;
-  color: rgba(12, 60, 218, 0.61);
+  color: rgba(13, 106, 171, 0.61);
   padding: 5px 30px;
   cursor: pointer;
 }
