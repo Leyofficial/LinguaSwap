@@ -24,8 +24,6 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 .loginImage {
     max-width: 800px;
     height: 600px;
-
-
 }
 
 .loginComponent {
@@ -108,6 +106,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     background-color: rgba(0, 0, 0, 0.973);
     transition: 0.3s;
 }
+
 .btnText {
     color: #fff;
     font-size: 15px;

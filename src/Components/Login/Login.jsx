@@ -112,15 +112,16 @@ function Login() {
   
               <div className="formInputBlock">
                 <span className="formInputTitle">Эл. почта</span>
-                {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
-                <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
                 
+                <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
+                {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
               </div>
   
               <div className="formInputBlock">
                 <span className="formInputTitle">Пароль</span>
-                {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
+                
                 <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
+                {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
               </div>
   
               <NavLink className="forgotPassword">Забыли пароль?</NavLink>
