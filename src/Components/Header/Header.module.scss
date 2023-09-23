@@ -6,9 +6,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  //background-color: rgba(21, 21, 21, 0.99);
-  backdrop-filter: blur(1px);
-  border-bottom: 1px solid dodgerblue;
+  background: #1f1d2b;
 }
 
 .headerInner {
@@ -18,12 +16,11 @@
 }
 
 .navList {
-
   display: flex;
   gap: 15px;
   li {
     a {
-      transition: .4s all;
+      transition: 1s all;
 
       &:hover {
         color: dodgerblue;

@@ -6,16 +6,18 @@ import thirdImage from "../../images/HomePage/third.png";
 import Header from "../../Components/Header/index.jsx";
 import {TypeAnimation} from "react-type-animation";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
+import Sidebar from "../../Components/Sidebar";
 
 const HomePage = () => {
   return (
     <>
-
-      <div className={style.container}>
+          <Sidebar/>
+      {/* <div className={style.container}>
         <div className={style.header}>
           <Header></Header>
         </div>
         <div className={style.wrapperHome}>
+
           <div className={style.wrapperText}>
             <h1>Lin<span style={{fontStyle:'normal'}}>gua</span> is a service for <span>learning languages</span> using</h1>
             <div className={style.wrapperType}>
@@ -44,7 +46,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
