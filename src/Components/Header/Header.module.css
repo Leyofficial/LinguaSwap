@@ -6,8 +6,7 @@
   width: 100%;
   top: 0;
   left: 0;
-  backdrop-filter: blur(1px);
-  border-bottom: 1px solid dodgerblue;
+  background: #1f1d2b;
 }
 
 .headerInner {
@@ -21,7 +20,7 @@
   gap: 15px;
 }
 .navList li a {
-  transition: 0.4s all;
+  transition: 1s all;
 }
 .navList li a:hover {
   color: dodgerblue;
@@ -36,6 +35,4 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-}
-
-/*# sourceMappingURL=Header.module.css.map */
+}/*# sourceMappingURL=Header.module.css.map */
