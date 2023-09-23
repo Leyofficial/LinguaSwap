@@ -15,6 +15,7 @@
 }
 .container .sliderItems {
   padding: 50px 0;
+  margin-bottom: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;

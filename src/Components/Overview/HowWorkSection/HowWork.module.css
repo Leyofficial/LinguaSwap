@@ -6,6 +6,34 @@
   background-color: white;
   border-radius: 15px;
   padding: 40px;
+  position: relative;
+  border-top: 1px solid rgba(10, 211, 246, 0.6);
+}
+.container .headerIcon {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  background-color: white;
+  border-radius: 40px;
+  padding: 5px;
+}
+.container .headerIcon img {
+  max-width: 80px;
+  z-index: 2;
+}
+.container .header {
+  padding: 50px 0;
+  text-align: center;
+}
+.container .header h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: rgba(30, 96, 194, 0.74);
+}
+.container .header p {
+  color: rgba(0, 0, 0, 0.6);
+  padding-top: 10px;
+  font-size: 20px;
 }
 
 /*# sourceMappingURL=HowWork.module.css.map */

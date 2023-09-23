@@ -1,6 +1,7 @@
 import style from './HowWork.module.scss'
 import tutor from '../../../images/HomePage/third.png'
 import WorkSection from "./WorkSection/WorkSection.jsx";
+import brain from "../../../images/Overview/goal.png";
 
 const HowWork = () => {
 
@@ -10,6 +11,13 @@ const HowWork = () => {
   const textEnjoy = "Keep track of your learning progress. Improve your speaking and vocabulary with our Learning plans"
   return (
     <div className={style.container}>
+      <div className={style.headerIcon}>
+        <img src={brain} alt={'icon'}/>
+      </div>
+      <div className={style.header}>
+        <h2>How Lingua works</h2>
+        <p>Learn online with the worlds best tutors</p>
+      </div>
       <WorkSection image={tutor} title={"Find the best tutor"}
                    text={textTutor} count={1}
       ></WorkSection>

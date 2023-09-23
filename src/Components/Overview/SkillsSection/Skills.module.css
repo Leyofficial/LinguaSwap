@@ -1,3 +1,43 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+  position: relative;
+  border-top: 1px solid rgba(10, 211, 246, 0.6);
+}
+.container .header {
+  padding-top: 40px;
+  text-align: center;
+}
+.container .header h2 {
+  font-size: 40px;
+  font-weight: 600;
+  color: rgba(30, 96, 194, 0.74);
+}
+.container .header p {
+  color: rgba(0, 0, 0, 0.6);
+  padding-top: 10px;
+  font-size: 20px;
+}
+.container .headerIcon {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  background-color: white;
+  border-radius: 40px;
+}
+.container .headerIcon img {
+  max-width: 80px;
+  z-index: 2;
+}
 
+.skillsWrapper {
+  padding-top: 10vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 
 /*# sourceMappingURL=Skills.module.css.map */

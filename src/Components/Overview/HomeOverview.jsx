@@ -13,9 +13,6 @@ const HomeOverview = () => {
 
   return (
     <div className={style.container}>
-      <div className={style.wrapperIcon}>
-        <img src={brain} alt={'icon'}/>
-      </div>
       <div className={style.sliderItems}>
         {sliderItems.map((item, index) => <p onClick={() => setCurrentItem(item)} key={index}
                                              className={currentItem === item ? style.active : style.textItem}>{item}</p>)}
