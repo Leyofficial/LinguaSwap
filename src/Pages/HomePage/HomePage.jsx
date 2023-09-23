@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux";
 import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
 import HomeText from "./HomeText/HomeText.jsx";
 import HomeImages from "./HomeImages/HomeImages.jsx";
+import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
 
 const HomePage = () => {
 
@@ -23,6 +24,9 @@ const HomePage = () => {
         <div className={style.wrapperHome}>
           <HomeText toLogin={toLogin}></HomeText>
           <HomeImages></HomeImages>
+        </div>
+        <div className={style.wrapperOverview}>
+          <HomeOverview></HomeOverview>
         </div>
       </div>
     </>

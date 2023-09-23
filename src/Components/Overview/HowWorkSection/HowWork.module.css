@@ -1,0 +1,11 @@
+.container {
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+/*# sourceMappingURL=HowWork.module.css.map */

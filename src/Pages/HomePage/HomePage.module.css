@@ -10,9 +10,11 @@
   margin: 0;
 }
 .container .wrapperHome {
-  height: 100%;
   display: flex;
   justify-content: space-between;
+}
+.container .wrapperOverview {
+  margin-top: 10vh;
 }
 
 /*# sourceMappingURL=HomePage.module.css.map */
