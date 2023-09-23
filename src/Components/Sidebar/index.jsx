@@ -3,16 +3,22 @@ import { Link, NavLink } from "react-router-dom";
 
 import ukraine from "./../../img/icons/ukraine.png";
 import team from "./../../img/icons/team.png";
-import style from "./Sidebar.module.scss";
+import gear from "./../../img/icons/gear.png";
+import info from "./../../img/icons/info.png";
+import teacher from "./../../img/icons/teacher.png";
+import back from "./../../img/icons/back.png";
+import forward from "./../../img/icons/back-2.png";
 
+import style from "./Sidebar.module.scss";
 import "../../App.css";
+
 
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const manuItems = [
     {
       path: "/findteacher",
-      icon: ukraine,
+      icon: teacher,
       name: "Find teacher",
     },
     {
@@ -22,22 +28,25 @@ const Sidebar = () => {
     },
     {
       path: "/servises",
-      icon: ukraine,
+      icon: gear,
       name: "Servises",
     },
     {
       path: "/aboutus",
-      icon: ukraine,
+      icon: info,
       name: "About us",
     },
   ];
   return (
+    
+    // font-size: 16px;
+    // line-height: 140%;
     <div
-      style={sidebarOpen ? { width: "30%" } : { width: "15%" }}
+      style={sidebarOpen ? { width: "15rem" } : { width: "5rem" }}
       className={style.sidebarContainer}
     >
-      <div className={style.titleBlock}>
-        <Link to={"/"}>
+      <div className={style.titleBlock} style={sidebarOpen ? { flexDirection : 'unset'  } : { flexDirection : 'column'  }}>
+        <Link style={sidebarOpen ? { opacity : '1' , position : 'unset', pointerEvents: 'all'   } : { opacity : '0'  , position : 'absolute' , pointerEvents: 'none'   }} to={"/"}>
           <p>
             Lin<span>gua</span>
           </p>
@@ -46,14 +55,17 @@ const Sidebar = () => {
           className={style.btnArrow}
           onClick={() => setSidebarOpen((prev) => !prev)}
         >
-          {sidebarOpen ? "->" : "<-"}
+          <img style={{maxWidth : '1.5rem'}}src={sidebarOpen ? back : forward} alt="" />
         </button>
       </div>
       <div className={style.sidebarWrapper}>
-        <ul className={style.sidebarItems}>
+        <ul className={style.sidebarItems} >
           {manuItems.map((item) => {
             return (
-              <NavLink style={ sidebarOpen ?  {width: '100%'} : {width : '50%'}} to={item.path}>
+              <NavLink
+                style={sidebarOpen ? { width: "100%" } : { width: "3rem" }}
+                to={item.path}
+              >
                 <li
                   className={style.sidebarItem}
                   style={
@@ -62,11 +74,12 @@ const Sidebar = () => {
                       : { justifyContent: "center" }
                   }
                 >
-                  <img style={{maxWidth : '35px'}} className={style.itemIcon} src={item.icon} alt="" />
-
+                <img src={item.icon} style={{maxWidth : '30px'}} className={style.itemIcon}  alt="" />
+                  
+                
                   <p
                     style={
-                      sidebarOpen ? { display: "block" } : { display: "none"}
+                      sidebarOpen ? {opacity : '1' , position : 'unset' ,  pointerEvents : 'all'  } : {  opacity : '0'  , position : 'absolute' , pointerEvents : 'none' }
                     }
                   >
                     {item.name}
