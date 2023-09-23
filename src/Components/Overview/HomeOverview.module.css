@@ -1,0 +1,42 @@
+.container {
+  position: relative;
+  background-color: rgba(126, 173, 206, 0.06);
+  padding: 50px 5px;
+}
+.container .textItem {
+  font-size: 30px;
+  font-weight: 900;
+  color: rgba(12, 60, 218, 0.61);
+  padding: 0 30px;
+  cursor: pointer;
+}
+.container .textItem:hover {
+  color: rgba(14, 96, 236, 0.7);
+}
+.container .sliderItems {
+  padding: 50px 0;
+  margin-bottom: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .wrapperIcon {
+  position: absolute;
+  left: 50%;
+  top: -50px;
+}
+.container .wrapperIcon img {
+  max-width: 100px;
+}
+
+.active {
+  border: 2px solid rgba(39, 122, 173, 0.54);
+  font-size: 30px;
+  border-radius: 5px 15px;
+  font-weight: 900;
+  color: rgba(12, 60, 218, 0.61);
+  padding: 5px 30px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=HomeOverview.module.css.map */

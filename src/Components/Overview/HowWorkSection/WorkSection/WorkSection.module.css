@@ -1,0 +1,42 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+}
+.wrapper .wrapperCount {
+  padding-right: 20px;
+}
+.wrapper .wrapperCount p {
+  padding: 15px;
+  border-radius: 32px 15px;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(30, 144, 255, 0.42);
+}
+.wrapper .wrapperImages {
+  position: relative;
+}
+.wrapper .wrapperImages .wrapperImageItems img {
+  max-width: 300px;
+  border-radius: 10px;
+}
+.wrapper .wrapperText {
+  display: flex;
+}
+.wrapper .containerInfo .title {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgba(25, 70, 224, 0.73);
+  letter-spacing: 0.8px;
+}
+.wrapper .containerInfo .text {
+  padding-top: 3vh;
+  font-family: Inter;
+  max-width: 500px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.64);
+}
+
+/*# sourceMappingURL=WorkSection.module.css.map */

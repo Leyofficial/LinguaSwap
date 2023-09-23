@@ -3,20 +3,21 @@ import Layout from "./Router/Layout/Layout";
 import { Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
-import {useState} from "react";
+
 import './App.css'
 
 import HomePage from "./Pages/HomePage/HomePage.jsx";
+import {useSelector} from "react-redux";
 
 
 
 function App() {
 
-  const [auth] = useState(false)
+  const isStart = useSelector((state) => state.isStart)
 
   return (
     <>
-       {!auth ?
+       {!isStart ?
           <HomePage></HomePage>
         :
         <Routes>
