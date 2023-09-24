@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
@@ -75,9 +75,9 @@ function Login() {
   
           <nav className="loginComponentNav">
   
-            <NavLink className="loginComponentNavLink">Зарегистрируйтесь как ученик</NavLink>
+            <Link className="loginComponentNavLink">Зарегистрируйтесь как ученик</Link>
               <span className="loginComponentNavTitle">или</span> <br />
-            <NavLink to='/teacherregister' className="loginComponentNavLink">Зарегистрируйтесь как реппетитор</NavLink>
+            <Link to='/teacherregister' className="loginComponentNavLink">Зарегистрируйтесь как реппетитор</Link>
   
           </nav>
   
@@ -123,14 +123,14 @@ function Login() {
                 <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
               </div>
   
-              <NavLink className="forgotPassword">Забыли пароль?</NavLink>
+              <Link className="forgotPassword">Забыли пароль?</Link>
               
               <div className='checkboxBlock'>
                 <input  type="checkbox" className='checkboxLogin'/>
                 <span className="checkboxText">Запомнить меня</span>
               </div>
   
-              <button disabled={!formValid} className="formBtn">отправит</button>
+              <button disabled={!formValid} className="formBtn">Отправить</button>
   
             </div>
   
@@ -141,7 +141,7 @@ function Login() {
   
             <p className="warningInfo">
   
-              Нажимая <NavLink className='warningsLogin'>«Войти»</NavLink> или <NavLink className='warningsLogin'>«Продолжить»</NavLink>, вы принимаете <br />
+              Нажимая <Link className='warningsLogin'>«Войти»</Link> или <Link className='warningsLogin'>«Продолжить»</Link>, вы принимаете <br />
               Условия использования и <br />
               Палитику конфидециальности
   
