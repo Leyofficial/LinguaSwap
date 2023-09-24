@@ -15,4 +15,25 @@
 }
 .container .wrapperOverview {
   margin-top: 10vh;
-}/*# sourceMappingURL=HomePage.module.css.map */
+}
+
+.wrapperQuestion {
+  background-color: rgba(126, 173, 206, 0.06);
+  height: 100%;
+}
+.wrapperQuestion header {
+  text-align: center;
+  padding: 50px 0;
+}
+.wrapperQuestion header h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: rgba(30, 96, 194, 0.74);
+}
+.wrapperQuestion header p {
+  color: rgba(0, 0, 0, 0.6);
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+/*# sourceMappingURL=HomePage.module.css.map */

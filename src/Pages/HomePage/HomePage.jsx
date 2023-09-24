@@ -6,6 +6,7 @@ import HomeText from "./HomeText/HomeText.jsx";
 import HomeImages from "./HomeImages/HomeImages.jsx";
 import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
 import AboutApp from "../../Components/Overview/AboutApp/AboutApp.jsx";
+import QuestionsSection from "../../Components/FAQ/QuestionsSction.jsx";
 
 const HomePage = () => {
   const navItems = [
@@ -39,8 +40,12 @@ const HomePage = () => {
         <div>
           <AboutApp></AboutApp>
         </div>
-        <div>
-          tasdsad
+        <div className={style.wrapperQuestion}>
+          <header>
+            <h1>Got a question?</h1>
+            <p>Some questions that were often asked</p>
+          </header>
+          <QuestionsSection></QuestionsSection>
         </div>
       </div>
     </>

@@ -19,3 +19,23 @@
     margin-top: 10vh;
   }
 }
+.wrapperQuestion{
+  background-color: rgba(126, 173, 206, 0.06);
+  height: 100%;
+  header{
+    text-align: center;
+    padding: 50px 0;
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      color: rgba(30, 96, 194, 0.74);
+    }
+
+    p {
+      color: rgba(0, 0, 0, 0.6);
+      padding-top: 10px;
+      font-size: 20px;
+    }
+  };
+
+}
