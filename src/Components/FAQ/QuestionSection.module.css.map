@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["QuestionSection.module.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EAEA;EACA;EACA","file":"QuestionSection.module.css"}
+{"version":3,"sources":["QuestionSection.module.scss","QuestionSection.module.css"],"names":[],"mappings":"AAAA;EACE,iBAAA;EACA,cAAA;EAEA,uBAAA;EACA,mBAAA;EACA,aAAA;ACAF","file":"QuestionSection.module.css"}
