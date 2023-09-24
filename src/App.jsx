@@ -8,6 +8,7 @@ import './App.css'
 
 import HomePage from "./Pages/HomePage/HomePage.jsx";
 import {useSelector} from "react-redux";
+import CreateProfile from "./Pages/CreateProfile";
 
 
 
@@ -24,6 +25,7 @@ function App() {
           <Route path={"/"} element={<Layout/>}>
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
+            <Route path={"/createprofile"} element={<CreateProfile/>} />
           </Route>
         </Routes>}
     </>

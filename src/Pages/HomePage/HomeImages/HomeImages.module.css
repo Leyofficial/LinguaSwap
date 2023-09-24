@@ -5,7 +5,8 @@
 .containerImages img {
   width: 30vh;
   height: 30vh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   outline: none;
   cursor: pointer;
   box-shadow: rgba(32, 96, 159, 0.62) 16px 17px 69px 6px;
@@ -30,6 +31,4 @@
 }
 .containerImages .thirdImage img {
   border-radius: 15px 15px 5px 115px;
-}
-
-/*# sourceMappingURL=HomeImages.module.css.map */
+}/*# sourceMappingURL=HomeImages.module.css.map */

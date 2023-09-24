@@ -44,7 +44,6 @@
   max-width: 270px;
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
   align-items: center;
   transition: max-width 0.6s ease-in-out 0s, left 0.4s ease-in-out 0s;
   border-bottom: 1px solid grey;
@@ -72,6 +71,4 @@
 
 .itemIcon {
   transition: 1s ease;
-}
-
-/*# sourceMappingURL=Sidebar.module.css.map */
+}/*# sourceMappingURL=Sidebar.module.css.map */
