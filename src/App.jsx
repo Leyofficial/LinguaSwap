@@ -8,13 +8,12 @@ import './App.css'
 
 import HomePage from "./Pages/HomePage/HomePage.jsx";
 import {useSelector} from "react-redux";
-import CreateProfile from "./Pages/CreateProfile";
-
+import CreateProfile from "./Pages/CreateProfilePage/index"
 
 
 function App() {
 
-  const isStart = useSelector((state) => state.isStart)
+  const isStart = useSelector((state) => state.isStart);
 
   return (
     <>

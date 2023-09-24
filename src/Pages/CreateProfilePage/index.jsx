@@ -62,7 +62,6 @@ const CreateProfile = () => {
   };
   return (
     <div>
-      <Header navItems={[]} />
       <div className={style.container}>{renderStep()}</div>
     </div>
   );
