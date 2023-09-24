@@ -11,6 +11,9 @@
     "server": "node server/index.cjs"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.11",
     "@react-icons/all-files": "^4.1.0",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.0",

@@ -4,9 +4,10 @@ const bcrypt = require('bcrypt');
 const authSchema = new mongoose.Schema({
   name: {
     type: String,
-    unique: true,
-    trim: true
-  },
+    trim: true,
+    required: [false,'sda'],
+    unique: [false,'asdsd'],
+  } ,
   password: {
     type: String,
     required: [true, 'Please provide a password'],

@@ -8,6 +8,7 @@ import HomePage from "./Pages/HomePage/HomePage.jsx";
 import {useSelector} from "react-redux";
 import CreateProfile from "./Pages/CreateProfilePage/index"
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
+import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
             <Route path={"/createprofile"} element={<CreateProfile/>} />
+            <Route index={true} element={ <CoursesSection/>}></Route>
           </Route>
         </Routes>}
     </>
