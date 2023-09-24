@@ -5,6 +5,7 @@ import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
 import HomeText from "./HomeText/HomeText.jsx";
 import HomeImages from "./HomeImages/HomeImages.jsx";
 import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
+import AboutApp from "../../Components/Overview/AboutApp/AboutApp.jsx";
 
 const HomePage = () => {
   const navItems = [
@@ -34,6 +35,12 @@ const HomePage = () => {
         </div>
         <div className={style.wrapperOverview}>
           <HomeOverview></HomeOverview>
+        </div>
+        <div>
+          <AboutApp></AboutApp>
+        </div>
+        <div>
+          tasdsad
         </div>
       </div>
     </>

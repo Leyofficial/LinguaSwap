@@ -1,0 +1,32 @@
+.container {
+  background-color: rgba(126, 173, 206, 0.06);
+  header {
+    padding: 50px 0 ;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    h1 {
+      font-size: 40px;
+      font-weight: 600;
+      color: rgba(30, 96, 194, 0.74);
+      letter-spacing: 1px;
+    }
+    p{
+      color: rgba(0, 0, 0, 0.46);
+      padding-top: 10px;
+      font-size: 17px;
+      max-width: 700px;
+      letter-spacing: 1px;
+    }
+  }
+
+  section {
+    background-color: white;
+    padding:20px;
+    display: flex;
+    max-width: 1200px;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
