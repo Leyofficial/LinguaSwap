@@ -1,0 +1,30 @@
+.wrapperText {
+  width: 55%;
+}
+.wrapperText h1 {
+  max-width: 80%;
+  font-size: 55px;
+  line-height: 80px;
+}
+.wrapperText h1 span {
+  color: rgba(12, 60, 218, 0.61);
+  font-style: italic;
+}
+.wrapperText .wrapperType {
+  padding-left: 40vh;
+  color: #0c3cda;
+}
+.wrapperText .wrapperType span {
+  border-top: 1px solid rgba(19, 64, 238, 0.3);
+  font-size: 60px !important;
+  font-style: italic;
+  font-weight: bolder;
+}
+.wrapperText .wrapperInfo {
+  padding: 5vh 0;
+}
+.wrapperText .wrapperInfo p {
+  max-width: 600px;
+  font-size: 18px;
+  color: rgba(54, 86, 152, 0.68);
+}/*# sourceMappingURL=HomeText.module.css.map */

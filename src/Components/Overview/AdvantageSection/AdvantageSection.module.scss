@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  padding: 40px;
+  max-width: 1200px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  border-top: 1px solid rgba(10, 211, 246, 0.6);
+  transition: 1s ease-in-out;
+  opacity: 0;
+  .headerIcon {
+    position: absolute;
+    left: 50%;
+    top: -40px;
+    background-color: white;
+    border-radius: 40px;
+    padding: 5px;
+
+    img {
+      max-width: 80px;
+      z-index: 2;
+
+    }
+  }
+  .header{
+    padding: 50px 0;
+    text-align: center;
+
+    h2 {
+      font-size: 40px;
+      font-weight: 600;
+      color: rgba(30, 96, 194, 0.74);
+    }
+
+    p {
+      color: rgba(0, 0, 0, 0.6);
+      padding-top: 10px;
+      font-size: 20px;
+    }
+  }
+  .wrapperItems{
+    svg{
+      color: rgba(6, 164, 199, 0.53);
+    }
+  }
+
+}
+.show{
+  opacity: 1;
+}
