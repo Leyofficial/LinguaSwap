@@ -46,6 +46,8 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 .loginComponentNavLink {
     text-decoration: none;
     margin-right: 5px;
+
+    color: rgb(59, 59, 234);
 }
 
 .loginComponentNavTitle {
@@ -152,7 +154,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 }
 
 .forgotPassword {
-    text-decoration: none;
+    color: blue;
 }
 
 .checkboxBlock {
@@ -181,6 +183,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 
 .warningsLogin {
     text-decoration: none;
+    color: blue;
 }
 
 .passwordError, .emailError {

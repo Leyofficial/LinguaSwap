@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
@@ -75,7 +75,7 @@ function Login() {
   
           <nav className="loginComponentNav">
   
-            <NavLink className="loginComponentNavLink">Зарегистрируйтесь как ученик</NavLink>
+            <NavLink to='/studentregister' className="loginComponentNavLink">Зарегистрируйтесь как ученик</NavLink>
               <span className="loginComponentNavTitle">или</span> <br />
             <NavLink to='/teacherregister' className="loginComponentNavLink">Зарегистрируйтесь как реппетитор</NavLink>
   

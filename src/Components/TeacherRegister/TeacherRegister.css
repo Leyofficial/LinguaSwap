@@ -137,8 +137,8 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 }
 
 .linkInLogin {
-    text-decoration: none;
     margin-left: 3px;
+    color: blue;
 }
 
 .formSubmit {
@@ -162,24 +162,6 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     background-color: rgb(0, 0, 255);
 }
 
-.checkboxLanguage {
-    display: flex;
-    align-items: center;
-}
-
-.checkbox {
-    cursor: pointer;
-}
-
-
-.languagesCheckboxContent {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    max-width: 360px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
 
 .orBlock {
     display: flex;

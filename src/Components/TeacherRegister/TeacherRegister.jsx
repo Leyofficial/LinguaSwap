@@ -4,7 +4,7 @@ import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import appleicon from '../../img/images/appleicon.svg';
 import { NavLink } from 'react-router-dom';
-
+import teacherimg from '../../img/images/teacherimg.jpg'
 function TeacherRegister() {
 
     const [email, setEmail] = useState('');
@@ -13,7 +13,7 @@ function TeacherRegister() {
     const [passwordDirty, setPasswordDirty] = useState(false);
     const [emailError, setEmailError] = useState('email не может быть пустым');
     const [passwordError, setPasswordError] = useState('password не может быть пустым');
-    const [formValid, setFormValid] = useState(false)
+    const [formValid, setFormValid] = useState(false);
   
     useEffect(() => {
   
@@ -64,186 +64,98 @@ function TeacherRegister() {
       }
     }
 
+
   return (
 
-        <div className='registerComponent'>
+        <div className='login'>
+            <div className='registerComponent'>
+        
+                <h2 className="registerComponentTitle">Регистрация репетитера</h2>
+        
+                <div className="registerJwt">
+        
+                    <button className="registerGoogle">
+                        <img src={googleicon} alt={googleicon} className="registerBtnIcon" />
+                        <span className='registerBtnText'>Зарегистрироваться с Google</span>
+                    </button>
+        
+                    <button className="registerFacebook">
+                        <img src={facebookicon} alt={googleicon} className="registerBtnIcon" />
+                        <span className='registerBtnText'>Зарегистрироваться с Facebook</span>
+                    </button>
+        
+                    <button className="registerApple">
+                        <img src={appleicon} alt={appleicon} className="registerBtnIcon" />
+                        <span className='registerBtnText'>Зарегистрироваться с Apple</span>
+                    </button>
+        
+                </div>
     
-            <h2 className="registerComponentTitle">Регистрация репетитера</h2>
+                <div className="orBlock">
+                    <hr className='or'/>
+                    <span className="orBlockTitle">или</span>
+                    <hr className='or'/>
+                 </div>
+        
+                <form className="formRegister">
+        
+                    <div className="formContainer">
+        
+                       
+                        <div className="blockInput">
+                            <span className="blockInputText">Эл. почта *</span>
+                            
+                            <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} type="email" name='email' className="inputRegister" />
+                            {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
+                        </div>
+        
+                        <div className="blockInput">
+                            <span className="blockInputText">Пароль *</span>
+                            
+                            <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} type="password" name='password' className="inputRegister" />
+                            {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
+                        </div>
+
+                     
+        
+                        <div className="linkInLoginBlock">
+                            <p className="linkInLoginText">
+                                Если есть акаунт можете 
+                                <NavLink to='/login' className='linkInLogin'>Войти</NavLink>
+                            </p>
+                        </div>
     
-            <div className="registerJwt">
+                        
+        
+                    </div>
+        
+        
+                  
     
-                <button className="registerGoogle">
-                    <img src={googleicon} alt={googleicon} className="registerBtnIcon" />
-                    <span className='registerBtnText'>Зарегистрироваться с Google</span>
-                </button>
-    
-                <button className="registerFacebook">
-                    <img src={facebookicon} alt={googleicon} className="registerBtnIcon" />
-                    <span className='registerBtnText'>Зарегистрироваться с Facebook</span>
-                </button>
-    
-                <button className="registerApple">
-                    <img src={appleicon} alt={appleicon} className="registerBtnIcon" />
-                    <span className='registerBtnText'>Зарегистрироваться с Apple</span>
-                </button>
-    
+                    <button disabled={!formValid} className='formSubmit'>Зарегистрироваться</button>
+        
+                </form>
+        
+                <div className="warningsBlock">
+  
+                    <p className="warningInfo">
+
+                        Нажимая <NavLink className='warningsLogin'>«Зарегистрироваться»</NavLink> или <NavLink className='warningsLogin'>«Продолжить»</NavLink>, вы принимаете <br />
+                        Условия использования и <br />
+                        Палитику конфидециальности
+
+                    </p>
+
+                </div>
             </div>
 
-            <div className="orBlock">
-                <hr className='or'/>
-                <span className="orBlockTitle">или</span>
-                <hr className='or'/>
-             </div>
+            
     
-            <form className="formRegister">
+            <div className="loginImageContent">
     
-                <div className="formContainer">
+                 <img src={teacherimg} alt={teacherimg} className="loginImage" />
     
-                    <div className="blockInput">
-                        <span className="blockInputText">Полное имя</span>
-    
-                        <input type="text" name='userName' className="inputRegister" />
-                        
-                    </div>
-    
-                    <div className="blockInput">
-                        <span className="blockInputText">Эл. почта *</span>
-                        
-                        <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} type="email" name='email' className="inputRegister" />
-                        {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
-                    </div>
-    
-                    <div className="blockInput">
-                        <span className="blockInputText">Пароль *</span>
-                        
-                        <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} type="password" name='password' className="inputRegister" />
-                        {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
-                    </div>
-    
-                    <div className="linkInLoginBlock">
-                        <p className="linkInLoginText">
-                            Если есть акаунт можете 
-                            <NavLink to='/login' className='linkInLogin'>Войти</NavLink>
-                        </p>
-                    </div>
-
-                    
-    
-                </div>
-    
-    
-                <div className="languagesContainer">
-    
-                    <h2 className="languagesContainerTitle">На каких языках ведете уроки ?</h2>
-    
-    
-                 <div className='languagesCheckboxContent'>
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Английский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Испанский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Карейский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Японский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Китайский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Турецкий</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Немецкий</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Русский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Украйинский</span>
-                        </div>
-        
-                 </div>
-                </div>
-    
-                <div className="languagesContainer">
-    
-                    <h2 className="languagesContainerTitle">Какие языки препадаете ?</h2>
-    
-    
-                    <div className='languagesCheckboxContent'>
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Английский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Испанский</span>
-                        </div>
-        
-                        <div className="checkbox-language">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Карейский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Японский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Китайский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Турецкий</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Немецкий</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Русский</span>
-                        </div>
-        
-                        <div className="checkboxLanguage">
-                            <input type="checkbox" className='checkbox'/>
-                            <span className="checkboxText">Украйинский</span>
-                        </div>
-                    </div>
-    
-                </div>
-
-                <button disabled={!formValid} className='formSubmit'>Зарегистрироваться</button>
-    
-            </form>
-    
+            </div>
         </div>
     
   )
