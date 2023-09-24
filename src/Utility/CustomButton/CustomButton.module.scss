@@ -1,0 +1,15 @@
+
+.container {
+  max-width: 300px;
+
+  .button {
+    padding: 15px;
+    background-color: dodgerblue;
+    border-radius: 5px 15px;
+    font-size: 20px;
+    color: white;
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}

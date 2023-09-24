@@ -1,0 +1,13 @@
+.container {
+  max-width: 300px;
+}
+.container .button {
+  padding: 15px;
+  background-color: dodgerblue;
+  border-radius: 5px 15px;
+  font-size: 20px;
+  color: white;
+  width: 100%;
+  display: block;
+  text-align: center;
+}/*# sourceMappingURL=CustomButton.module.css.map */

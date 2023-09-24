@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+.container .iconWrapper {
+  margin-right: 2vh;
+  background-color: rgba(30, 144, 255, 0.11);
+  padding: 15px;
+  border-radius: 32px 15px;
+}
+.container .iconWrapper svg {
+  font-size: 50px;
+}
+.container .info .title {
+  padding-bottom: 5px;
+  font-size: 20px;
+  letter-spacing: 0.9px;
+  font-weight: 500;
+  color: rgba(12, 89, 164, 0.69);
+}
+.container .info .text {
+  color: rgba(0, 0, 0, 0.66);
+  font-size: 16px;
+}/*# sourceMappingURL=Skill.module.css.map */

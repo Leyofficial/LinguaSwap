@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import mainReducer from "./MainReducer";
+import isStartToLoginReducer from "./isStartToLogin/isStartToLoginReducer.js";
+
 
 export default (combineReducers)({
-    mainReducer: mainReducer
+isStart : isStartToLoginReducer
 }) 

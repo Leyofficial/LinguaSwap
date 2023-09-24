@@ -1,0 +1,42 @@
+.header {
+  z-index: 5;
+  margin: 0 auto 50px;
+  padding: 15px 25px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #1f1d2b;
+}
+
+.headerInner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList {
+  display: flex;
+  gap: 15px;
+  li {
+    a {
+      transition: 1s all;
+
+      &:hover {
+        color: dodgerblue;
+      }
+    }
+  }
+}
+
+.iconBlock {
+  a {
+    //color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  gap: 9px;
+  align-items: center;
+  display: flex;
+}

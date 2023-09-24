@@ -1,3 +1,3 @@
 export const initialState = {
-   mainData:null
+  isStart: true
 }
