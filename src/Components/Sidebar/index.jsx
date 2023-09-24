@@ -27,7 +27,7 @@ const Sidebar = () => {
       name: "Find team",
     },
     {
-      path: "/servises",
+      path: "/services",
       icon: gear,
       name: "Servises",
     },
