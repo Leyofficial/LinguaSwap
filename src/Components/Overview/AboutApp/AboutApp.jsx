@@ -1,9 +1,7 @@
 import style from './AboutApp.module.scss'
-
 import AboutItem from "./AboutItem/AboutItem.jsx";
 import {PiStudentFill} from "react-icons/pi";
 import {GiTeacher} from "react-icons/gi";
-import {GrUserExpert} from "react-icons/gr";
 import {FaBusinessTime} from "react-icons/fa";
 import {MdOutlineAccessibilityNew, MdPaid} from "react-icons/md";
 import {RiGuideLine} from "react-icons/ri";
