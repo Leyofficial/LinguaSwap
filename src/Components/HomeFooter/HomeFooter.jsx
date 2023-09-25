@@ -3,16 +3,9 @@ import {LiaTelegramPlane} from "react-icons/lia";
 import {BiLogoInstagram, BiLogoTwitter} from "react-icons/bi";
 import logoImage from '../../img/icons/ukraine.png'
 import NetworkItem from "./NetworkItem/NetworkItem.jsx";
+import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
 
 const HomeFooter = () => {
-
-  const scrollUp = () => {
-    window.scrollTo({
-      top: 0,
-      // left: 0,
-      behavior: "smooth",
-    })
-  }
 
   return (
     <div className={style.container}>
