@@ -1,5 +1,7 @@
 .container {
   background-color: rgba(126, 173, 206, 0.06);
+  padding-top: 15vh;
+  padding-bottom: 3vh;
 }
 .container .wrapper {
   display: flex;
@@ -9,7 +11,20 @@
   margin: 0 auto;
 }
 .container .wrapper p {
-  color: rgba(0, 0, 0, 0.55);
+  color: rgba(25, 128, 175, 0.37);
+}
+.container .wrapper .logo {
+  letter-spacing: 1.3px;
+  font-size: 24px;
+}
+.container .wrapper .logo span {
+  color: #0a6ad7;
+  letter-spacing: 1.3px;
+}
+.container .wrapper div {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .container .wrapperIcons svg {
   font-size: 60px;
