@@ -1,11 +1,10 @@
 import style from './StepItem.module.scss'
-import {PiNumberOneBold} from "react-icons/pi";
 import {useEffect, useState} from "react";
-import formImage from '../../../../../images/joinImage.png'
+
 
 const StepItem = (props) => {
 
-  const {icon, indexStart} = props
+  const {image, indexStart, icon, title} = props
   const [showContent, setShowContent] = useState(false)
 
   useEffect(() => {
@@ -14,20 +13,20 @@ const StepItem = (props) => {
       setShowContent(true)
     }
   }, [indexStart])
+
   return (
     <div className={style.container} onClick={() => setShowContent(!showContent)}>
       <div className={style.wrapper}>
-        <PiNumberOneBold></PiNumberOneBold>
+        {icon}
         <p>Step</p>
       </div>
       {showContent ?
         <div className={style.content}>
           <div className={style.wrapperContent}>
-            <p>Register as a Student using registration form</p>
+            <p>{title}</p>
             <div>
-              <img src={formImage} alt={'form'}/>
+              <img src={image} alt={'form'}/>
             </div>
-
           </div>
         </div> : null}
     </div>
