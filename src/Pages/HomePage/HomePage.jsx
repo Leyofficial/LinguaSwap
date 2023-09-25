@@ -14,13 +14,7 @@ import {GiImbricatedArrows} from "react-icons/gi";
 import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
 
 const HomePage = () => {
-  const navItems = [
-    { text: "Overview", link: "#test" },
-    { text: "Features", link: "#test" },
-    { text: "Get in touch", link: "#test" },
-    { text: "FAQ", link: "#test" },
-    { text: "Help", link: "#test" },
-  ];
+
 
   const dispatch = useDispatch()
   const [showScrollUp,setShowScrollUp] = useState(false)
@@ -44,9 +38,9 @@ const HomePage = () => {
   return (
     <>
       <div className={style.container}>
-        <div className={style.header}>
-          <Header navItems={navItems}></Header>
-        </div>
+        {/*<div className={style.header}>*/}
+        {/*  <Header navItems={navItems}></Header>*/}
+        {/*</div>*/}
         <div className={style.wrapperHome}>
           <HomeText toLogin={toLogin}></HomeText>
           <HomeImages></HomeImages>

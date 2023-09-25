@@ -1,18 +1,17 @@
-import {Outlet} from "react-router-dom";
-import style from './Layout.module.scss'
-import SideBar from './../../Components/Sidebar/index'
 
-const Layout = () => {
+import MainLayout from "./MainLayout/MainLayout.jsx";
+import HomeLayout from "./HomeLayout/HomeLayout.jsx";
+
+const Layout = (props) => {
+
+  const {layoutType} = props
+
 
   return (
     <>
-      <div className={style.container}>
-      <SideBar/>
-      <main>
-        <Outlet></Outlet>
-      </main>
-    </div>
-  </>)
+
+      {layoutType === 'main' ? <MainLayout/> : <HomeLayout/>}
+    </>)
 }
 
 export default Layout;

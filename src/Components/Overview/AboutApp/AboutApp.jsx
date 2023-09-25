@@ -45,8 +45,8 @@ const AboutApp = () => {
           develop new skills and build valuable connections in the world of technology.</p>
       </header>
       <section>
-        <AboutItem title={'For Student'} icon={<PiStudentFill fontSize={40} color={'rgba(17, 121, 176, 0.75)'}/>} text={listItemsForStudent}></AboutItem>
-        <AboutItem title={'For Teacher'} icon={<GiTeacher fontSize={40} color={'rgba(17, 121, 176, 0.75)'}/>} text={listItemsForTeacher}></AboutItem>
+        <AboutItem path={'student'} title={'For Student'} icon={<PiStudentFill fontSize={40} color={'rgba(17, 121, 176, 0.75)'}/>} text={listItemsForStudent}></AboutItem>
+        <AboutItem path={'teacher'} title={'For Teacher'} icon={<GiTeacher fontSize={40} color={'rgba(17, 121, 176, 0.75)'}/>} text={listItemsForTeacher}></AboutItem>
       </section>
 
     </div>

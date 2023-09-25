@@ -1,5 +1,6 @@
 .wrapper {
   background-color: rgba(126, 173, 206, 0.06);
+  padding-top: 12vh;
 }
 .wrapper section {
   max-width: 1200px;

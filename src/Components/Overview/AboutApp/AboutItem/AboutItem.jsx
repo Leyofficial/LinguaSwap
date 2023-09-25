@@ -1,13 +1,15 @@
 import style from './AbouItem.module.scss'
 import {GiImbricatedArrows} from "react-icons/gi";
+import {NavLink} from "react-router-dom";
 
 
 const AboutItem = (props) => {
-  const {title, icon,text} = props
+  const {title, icon,text,path} = props
 
 
   return (
     <div className={style.container}>
+      <NavLink to={`aboutApp/${path}`}>
       <p>{title}</p>
       <div className={style.box}>
         {icon}
@@ -20,6 +22,7 @@ const AboutItem = (props) => {
           </div>
         </div>
       </div>
+      </NavLink>
     </div>
 
 
