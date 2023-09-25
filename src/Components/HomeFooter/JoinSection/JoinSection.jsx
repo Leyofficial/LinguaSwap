@@ -1,6 +1,6 @@
 import style from './JoinSection.module.scss'
-import joinUs from '../../../images/hooe.png'
-import free from '../../../images/try.png'
+import joinUs from '../../../images/joinImage.png'
+import free from '../../../images/robo.png'
 import CustomButton from "../../../Utility/CustomButton/CustomButton.jsx";
 const JoinSection = () => {
   return (
