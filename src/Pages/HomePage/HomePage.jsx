@@ -7,6 +7,7 @@ import HomeImages from "./HomeImages/HomeImages.jsx";
 import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
 import AboutApp from "../../Components/Overview/AboutApp/AboutApp.jsx";
 import QuestionsSection from "../../Components/FAQ/QuestionsSction.jsx";
+import JoinSection from "../../Components/HomeFooter/JoinSection/JoinSection.jsx";
 import HomeFooter from "../../Components/HomeFooter/HomeFooter.jsx";
 
 const HomePage = () => {
@@ -47,6 +48,9 @@ const HomePage = () => {
             <p>Some questions that were often asked</p>
           </header>
           <QuestionsSection></QuestionsSection>
+        </div>
+        <div>
+          <JoinSection></JoinSection>
         </div>
         <div>
           <HomeFooter></HomeFooter>
