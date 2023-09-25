@@ -15,6 +15,7 @@
   cursor: pointer;
   height: 200px;
   justify-content: center;
+  padding: 10px;
 }
 .container .box:hover {
   transform: translate3d(0px, 0px, -250px);
@@ -57,4 +58,6 @@
   100% {
     color: rgba(37, 150, 222, 0.87);
   }
-}/*# sourceMappingURL=AbouItem.module.css.map */
+}
+
+/*# sourceMappingURL=AbouItem.module.css.map */
