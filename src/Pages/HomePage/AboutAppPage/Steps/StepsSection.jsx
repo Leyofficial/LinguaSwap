@@ -4,12 +4,15 @@ import {PiNumberFiveBold, PiNumberFourBold, PiNumberOneBold, PiNumberThreeBold, 
 import formImage from '../../../../images/joinImage.png'
 import {GiImbricatedArrows} from "react-icons/gi";
 import {useNavigate} from "react-router";
+import {useState} from "react";
 
 const StepsSection = (props) => {
 
   const {userType} = props
 
   const navigate = useNavigate()
+
+  const [isOpen,setIsOpen] = useState(true)
 
   const moveBack = () => {
     navigate(-1)
@@ -19,23 +22,23 @@ const StepsSection = (props) => {
     <div className={style.container}>
       {userType === 'student' ?
         <>
-          <StepItem indexStart={true} icon={<PiNumberOneBold/>} image={formImage}
+          <StepItem setIsOpen={setIsOpen} callback={isOpen} indexStart={true} icon={<PiNumberOneBold/>} image={formImage}
                     title={"Register as a Student using registration form"}
           ></StepItem>
 
-          <StepItem icon={<PiNumberTwoBold/>} image={formImage}
+          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberTwoBold/>} image={formImage}
                     title={"Find the best tutor"}
           ></StepItem>
 
-          <StepItem icon={<PiNumberThreeBold/>} image={formImage}
+          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberThreeBold/>} image={formImage}
                     title={"Take lessons anytime"}
           ></StepItem>
 
-          <StepItem icon={<PiNumberFourBold/>} image={formImage}
+          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberFourBold/>} image={formImage}
                     title={"Enter virtual classroom"}
           ></StepItem>
 
-          <StepItem icon={<PiNumberFiveBold/>} image={formImage}
+          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberFiveBold/>} image={formImage}
                     title={"Enjoy structured learning"}
           ></StepItem>
         </>
