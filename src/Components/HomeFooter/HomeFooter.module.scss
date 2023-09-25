@@ -1,0 +1,29 @@
+.container {
+  background-color: rgba(126, 173, 206, 0.06);
+  padding-top: 15vh;
+  padding-bottom: 3vh;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1600px;
+    margin: 0 auto;
+    p{
+      color: rgba(25, 128, 175, 0.37);
+    }
+    .logo{
+      letter-spacing: 1.3px;
+      font-size: 24px;
+      span{
+        color: #0a6ad7;
+        letter-spacing: 1.3px;
+      }
+    }
+    div{
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
