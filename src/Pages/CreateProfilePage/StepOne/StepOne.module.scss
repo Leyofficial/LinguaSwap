@@ -1,11 +1,49 @@
+span {
+    color : dodgerblue;
+}
+.title {
+    color : dodgerblue;
+    margin: 70px 0;
+}
 .container {
-    margin-top: 50px;
+  display: flex;
+  width: 100%;
 }
 .buttonOne {
-    position: absolute;
-    padding: 20px;
-    gap: 18px;
-    bottom: 0;
-    right: 0;
+  position: absolute;
+  padding: 20px;
+  gap: 18px;
+  bottom: 0;
+  right: 0;
 }
 
+.textArea {
+  outline: none;  
+  border: 1px solid darkcyan;
+  border-radius: 10px;
+  resize: none;
+  padding: 25px;
+  font-size: large;
+  width: 90%;
+  height: 17rem;
+}
+.areaText {
+    padding: 10px;
+    font-style: italic;
+}
+.leftBlock {
+    min-width: 50%;
+    border-right: 2px #151515 solid;
+}
+
+.wrapper {
+    gap: 50px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+.iconShape {
+    img {
+        border-radius: 20px;
+    }
+}
