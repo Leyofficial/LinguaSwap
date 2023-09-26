@@ -5,7 +5,7 @@ import style from './StepThree.module.scss'
 
 const StepThree = (props) => {
   return (
-    <div>
+    <div className={style.container}>
       Bonjour
       <div className={style.buttonsThree}>
         <CustomButton

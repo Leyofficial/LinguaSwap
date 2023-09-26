@@ -1,3 +1,7 @@
+.container {
+  margin-top: 50px;
+}
+
 .buttonOne {
   position: absolute;
   padding: 20px;
