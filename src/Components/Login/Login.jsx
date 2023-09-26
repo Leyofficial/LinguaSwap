@@ -7,8 +7,13 @@ import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
 function Login() {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+
+  const [userValue, setUserValue] = useState({
+    email: '',
+    password: ''
+  })
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailError, setEmailError] = useState('email не может быть пустым');
@@ -36,33 +41,43 @@ function Login() {
       }
   }
 
-  const emailHandler = e => {
-    setEmail(e.target.value)
+  const dataHandlerChange = e => {
+    
+    setUserValue(data => {
+      return{
+        ...data,
+        [e.target.name]: e.target.value
+      }
+    })
+
     const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-    if (!re.test(String(e.target.value).toLocaleLowerCase())) {
+    
 
-      setEmailError('Некоректный email')
+    if(e.target.email) {
+      
+      if (!re.test(String(e.target.value).toLocaleLowerCase())) {
 
-    }else {
-      setEmailError('')
-    }
-  }
-
-
-  const passwordHandler = e => {
-    setPassword(e.target.value)
-
-    if(e.target.value.length < 3 ||e.target.value.length > 8 ) {
-      setPasswordError('Пароль должен быть длинее 3 и меньше 8');
-
-      if(!e.target.value) {
-        setPasswordError('Поле поля password обязателен!!');
+        setEmailError('Некоректный email')
+  
+      }else {
+        setEmailError('')
       }
+
     }else {
-      setPasswordError('')
+      if(e.target.value.length < 3 ||e.target.value.length > 8 ) {
+        setPasswordError('Пароль должен быть длинее 3 и меньше 8');
+  
+        if(!e.target.value) {
+          setPasswordError('Поле поля password обязателен!!');
+        }
+      }else {
+        setPasswordError('')
+      }
     }
   }
+
+
 
 
   return (
@@ -113,14 +128,14 @@ function Login() {
               <div className="formInputBlock">
                 <span className="formInputTitle">Эл. почта</span>
                 
-                <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
+                <input onChange={e => dataHandlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
                 {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
               </div>
   
               <div className="formInputBlock">
                 <span className="formInputTitle">Пароль</span>
                 
-                <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
+                <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
                 {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
               </div>
   

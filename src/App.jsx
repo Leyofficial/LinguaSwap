@@ -16,9 +16,11 @@ function App() {
 
   return (
     <>
-       {!isStart ?
+       {/* {!isStart ?
           <HomePage></HomePage>
         :
+        } */}
+
         <Routes>
           <Route path={"/"} element={<Layout/>}>
             <Route path={"/login"} element={<Login/>}/>
@@ -26,7 +28,8 @@ function App() {
             <Route path={"/createprofile"} element={<CreateProfile/>} />
             <Route path="/studentregister" element={<StudentRegister/>}/>
           </Route>
-        </Routes>}
+          
+        </Routes> 
     </>
   );
 }

@@ -1,12 +1,14 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import axios from '../api/axios'
+
+import axios from 'axios';
 
 export const fetchUser = createAsyncThunk(
     'register/teacher',
 
     async (user, {rejectWithValue}) => {
         try {
-            const res = await axios.post('authorization', user)
+
+            const res = await axios.post('http://localhost:3000/authorization', user)
 
             if (!res.data) {
                 throw new Error()   
@@ -14,16 +16,14 @@ export const fetchUser = createAsyncThunk(
 
             return res.data
         } catch (error) {
-            return rejectWithValue(error)
+            return rejectWithValue({ message: error.message })
         }
     }
 );
 
 
-
-
 const authSlice = createSlice({
-    name: 'registerTeacher',
+    name: 'teacher',
 
     initialState: {
         loading: '',
@@ -39,7 +39,7 @@ const authSlice = createSlice({
             state.loading = 'complete';
 
             state.user = {
-                token: action.payload.jwt,
+                // token: action.payload.jwt,
                 ...action.payload.user
             }
         },
@@ -50,8 +50,7 @@ const authSlice = createSlice({
 
     }
 
-
 })
 
 
-export default authSlice.reducer; 
+export default authSlice.reducer;

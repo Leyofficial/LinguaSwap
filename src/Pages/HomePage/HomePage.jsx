@@ -8,7 +8,7 @@ import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
 
 const HomePage = () => {
   const navItems = [
-    { text: "Overview", link: "#test" },
+    { text: "Overview", link: "/" },
     { text: "Features", link: "#test" },
     { text: "Get in touch", link: "#test" },
     { text: "FAQ", link: "#test" },

@@ -1,5 +1,3 @@
-
-
 export const MOVE_TO_LOGIN = "MOVE_TO_LOGIN"
 export const BACK_TO_LOGIN = "BACK_TO_LOGIN"
 export const moveToLogin = () => {
