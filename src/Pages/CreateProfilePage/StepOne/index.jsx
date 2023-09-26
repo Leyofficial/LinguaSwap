@@ -3,9 +3,11 @@ import CustomButton from "../../../Utility/CustomButton/CustomButton";
 import style from "./StepOne.module.scss";
 import CustomInput from "../../../Utility/CustomInput/CustomInput";
 import iconImg from "../../../img/images/lilartsy-333oj7zFsdg-unsplash.jpg";
+import { useSelector } from "react-redux";
 
 const StepOne = (props) => {
   const [isClicked, setIsClicked] = useState(false);
+  const name = useSelector((state => state.name))
 
   const handleTextareaClick = () => {
     setIsClicked(true);
@@ -23,7 +25,7 @@ const StepOne = (props) => {
           <div className={style.leftBlock}>
             <div className={style.textAreaBlock}>
               <div className={style.inputBlock}>
-                <CustomInput width={"70%"} placeholder={"Type your name"} />
+                <CustomInput value={name.name} width={"70%"} placeholder={"Type your name"} />
                 <CustomInput
                   width={"70%"}
                   placeholder={"Type your user tag  #"}
