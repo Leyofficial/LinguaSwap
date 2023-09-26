@@ -45,23 +45,23 @@ const HomePage = () => {
           <HomeText toLogin={toLogin}></HomeText>
           <HomeImages></HomeImages>
         </div>
-        <div className={style.wrapperOverview}>
+        <div id={"Overview"} className={style.wrapperOverview}>
           <HomeOverview></HomeOverview>
         </div>
-        <div>
+        <div id={"AboutApp"}>
           <AboutApp></AboutApp>
         </div>
-        <div className={style.wrapperQuestion}>
+        <div id={'FAQ'} className={style.wrapperQuestion}>
           <header>
             <h1>Got a question?</h1>
             <p>Some questions that were often asked</p>
           </header>
           <QuestionsSection></QuestionsSection>
         </div>
-        <div>
+        <div id={"Join"}>
           <JoinSection></JoinSection>
         </div>
-        <div>
+        <div id={"Footer"}>
           <HomeFooter></HomeFooter>
         </div>
         { showScrollUp ? <div onClick={scrollUp} className={`${style.scrollUp}`}>

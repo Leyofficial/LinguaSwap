@@ -6,11 +6,11 @@ const HomeLayout = () => {
 
 
   const navItems = [
-    {text: "Overview", link: "#test"},
-    {text: "Features", link: "#test"},
-    {text: "Get in touch", link: "#test"},
-    {text: "FAQ", link: "#test"},
-    {text: "Help", link: "#test"},
+    {text: "Overview", link: "Overview"},
+    {text: "Features", link: "AboutApp"},
+    {text: "Get in touch", link: "Join"},
+    {text: "FAQ", link: "FAQ"},
+    {text: "Help", link: "Footer"},
   ];
 
   return (

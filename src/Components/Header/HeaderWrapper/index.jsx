@@ -1,6 +1,7 @@
 import style from "./Header.module.css";
 import headerIcon from "../../../img/icons/ukraine.png";
-import { Link } from "react-router-dom";
+import { Link } from 'react-scroll';
+
 
 const HeaderWrapper = (props) => {
   return (
@@ -17,12 +18,15 @@ const HeaderWrapper = (props) => {
           </div>
           <nav className={style.navBlock}>
             <div className={style.navList}>
-              {props.navItems.map((item) => {
+              {props.navItems.map((item,index) => {
                 return (
-                  <li className={style.navItem}>
-                    <a href={item.link}>
+                  <li key={index} className={style.navItem}>
+                    <Link to={item.link} smooth={true}    spy={true}  offset={-70}
+                          duration={500}>
+                    {/*<a href={item.link}>*/}
                       <p>{item.text}</p>
-                    </a>
+                    {/*</a>*/}
+                    </Link>
                   </li>
                 );
               })}
