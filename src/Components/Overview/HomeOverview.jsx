@@ -3,6 +3,7 @@ import {useState} from "react";
 import HowWork from "./HowWorkSection/HowWork.jsx";
 import Skills from "./SkillsSection/Skills.jsx";
 import AdvantageSection from "./AdvantageSection/AdvantageSection.jsx";
+import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
 
 const HomeOverview = () => {
 
@@ -13,6 +14,7 @@ const HomeOverview = () => {
 
   return (
     <div className={style.container}>
+      <div className={style.wrapperButton}><CustomButton title={'Start to learn'}></CustomButton></div>
       <div className={style.sliderItems}>
         {sliderItems.map((item, index) => <p onClick={() => setCurrentItem(item)} key={index}
                                              className={currentItem === item ? style.active : style.textItem}>{item}</p>)}

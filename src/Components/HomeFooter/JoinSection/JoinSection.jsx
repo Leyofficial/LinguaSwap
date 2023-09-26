@@ -19,8 +19,10 @@ const JoinSection = () => {
         <h1>Hundreds of thousands students join us monthly</h1>
         <p>…and achieve their learning goals.
           With our expert tutors, your goals are closer than ever!</p>
+<div>
+  <CustomButton title={"Start learning"}></CustomButton>
+</div>
 
-        <CustomButton title={"Start learning"}></CustomButton>
       </div>
     </section>
     </div>

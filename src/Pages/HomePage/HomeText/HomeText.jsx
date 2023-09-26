@@ -18,7 +18,10 @@ const HomeText = (props) => {
             practice speaking and monitor your progress while having fun!
           </p>
         </div>
-        <CustomButton title={'Start to learn'} callback={toLogin} typeOfButton={'link'} path={'login'}></CustomButton>
+        <div className={style.wrapperButton}>
+        {/*<CustomButton title={'Start to learn'} callback={toLogin} typeOfButton={'link'} path={'login'}></CustomButton>*/}
+
+        </div>
 
       </div>
   );
