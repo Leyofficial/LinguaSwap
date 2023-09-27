@@ -1,5 +1,6 @@
 .container {
-  margin-bottom: 25px;
+  margin-bottom: 5px;
+  position: relative;
 }
 
 .wave-group {
@@ -51,7 +52,8 @@
   width: 200px;
 }
 
-.wave-group .bar:before, .wave-group .bar:after {
+.wave-group .bar:before,
+.wave-group .bar:after {
   content: "";
   height: 2px;
   width: 0;
@@ -74,4 +76,6 @@
 .wave-group .input:focus ~ .bar:before,
 .wave-group .input:focus ~ .bar:after {
   width: 50%;
-}/*# sourceMappingURL=CustomInput.module.css.map */
+}
+
+/*# sourceMappingURL=CustomInput.module.css.map */

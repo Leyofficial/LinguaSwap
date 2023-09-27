@@ -58,4 +58,11 @@ span {
 
 .imgHash {
   position: absolute;
-}/*# sourceMappingURL=StepOne.module.css.map */
+}
+
+.warningMessage {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/*# sourceMappingURL=StepOne.module.css.map */
