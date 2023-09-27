@@ -7,34 +7,43 @@ import { useDispatch, useSelector } from "react-redux";
 import { setBioAC } from "../../../Redux/Profile/Bio/setBioAC";
 import toast, { Toaster } from "react-hot-toast";
 
+
 import { FaHashtag } from "react-icons/fa";
+// creaters 
+import { nameInputEmptyCreater } from "../../../Redux/Profile/Inputs/name/nameInputEmptyCreater";
+import { hashInputEmptyReducer } from "../../../Redux/Profile/Inputs/hash/hashInputEmptyReducer.";
+import { hashInputEmptyAC } from "../../../Redux/Profile/Inputs/hash/hashInputEmptyAC";
 
 const StepOne = (props) => {
+  //dispatch
+
   const dispatch = useDispatch();
+  // useState
+
   const [isClicked, setIsClicked] = useState(false);
+
+  // useSelector to get information about state
 
   const name = useSelector((state) => state.name);
   const userTag = useSelector((state) => state.userTag);
   const bio = useSelector((state) => state.bio);
+  const dirtyName = useSelector((state) => state.nameDirty);
+  const dirtyHash = useSelector((state) => state.hashDirty);
 
-  const [dirtyName, setDirtyName] = useState(true);
-  const [dirtyHash, setDirtyHash] = useState(true);
-  const [emptyInputs, setEmptyInputs] = useState([]);
-  console.log(emptyInputs)
   function checkNameDirty(name) {
     if (name.trim().length > 1) {
-      setEmptyInputs((prevEmptyInputs) =>
-        prevEmptyInputs.filter((inputName) => inputName !== name)
-      );
-      setDirtyName(false);
+      dispatch(nameInputEmptyCreater(false));
     } else {
-      setEmptyInputs((prevEmptyInputs) => [...prevEmptyInputs, name]);
-      setDirtyName(true);
+      dispatch(nameInputEmptyCreater(true));
     }
   }
-  const checkHashDirty = (hash) => {
-    setDirtyHash(hash.trim().length <= 1);
-  };
+  function checkHashDirty(hash) {
+    if (hash.trim().length > 1) {
+      dispatch(hashInputEmptyAC(false));
+    } else {
+      dispatch(hashInputEmptyAC(true));
+    }
+  }
 
   function errorToaster(text) {
     toast.error(text);
@@ -43,11 +52,9 @@ const StepOne = (props) => {
   const handleTextareaClick = () => {
     setIsClicked(true);
   };
-
   const handleTextareaBlur = () => {
     setIsClicked(false);
   };
-
   return (
     <>
       <h2 className={style.title}>
@@ -65,7 +72,8 @@ const StepOne = (props) => {
                   width={"70%"}
                   placeholder={"Type your name"}
                 />
-                {dirtyName ? <p>Поле ввода не должно быть пустым</p> : null}
+                {dirtyName ? <p className={style.warningMessage}><b>Поле ввода не должно быть пустым или меньше  <br /> 
+                 двух символов..</b></p> : null}
                 <>
                   <FaHashtag className={style.imgHash} />
                   <CustomInput
@@ -76,7 +84,8 @@ const StepOne = (props) => {
                     placeholder={"Type your user tag"}
                     heg={true}
                   />
-                  {dirtyHash ? <p>Поле ввода не должно быть пустым</p> : null}
+                  {dirtyHash ? <p className={style.warningMessage}><b>Поле ввода не должно быть пустым или меньше  <br /> 
+                 двух символов..</b></p> : null}
                 </>
               </div>
               <p className={style.areaText}>

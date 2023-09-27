@@ -21,6 +21,7 @@ const CustomInput = (props) => {
   const { width = 500, callback, placeholder,  value } = props
   return (
     <div className={style.container}>
+      <div className={style.wrapperContainer}></div>
       <div className={style['wave-group']} style={{ width: width }}>
         <input
           onChange={handleChange}
