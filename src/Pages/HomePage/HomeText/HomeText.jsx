@@ -1,9 +1,7 @@
 import style from './HomeText.module.scss'
 import {TypeAnimation} from "react-type-animation";
-import CustomButton from "../../../Utility/CustomButton/CustomButton.jsx";
-const HomeText = (props) => {
 
-  const {toLogin} = props
+const HomeText = () => {
   return (
       <div className={style.wrapperText}>
         <h1>Lin<span style={{fontStyle:'normal'}}>gua</span> is a service for <span>learning languages</span> using</h1>
@@ -18,11 +16,6 @@ const HomeText = (props) => {
             practice speaking and monitor your progress while having fun!
           </p>
         </div>
-        <div className={style.wrapperButton}>
-        {/*<CustomButton title={'Start to learn'} callback={toLogin} typeOfButton={'link'} path={'login'}></CustomButton>*/}
-
-        </div>
-
       </div>
   );
 };
