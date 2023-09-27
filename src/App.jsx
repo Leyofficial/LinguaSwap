@@ -14,6 +14,8 @@ import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 function App() {
 
   const isStart = useSelector((state) => state.isStart);
+  const name = useSelector((state) => state);
+  console.log(name)
 
   return (
     <>
