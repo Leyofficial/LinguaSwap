@@ -59,7 +59,7 @@ const StepOne = (props) => {
     return (
         <>
             <h2 className={style.title}>
-                <b>About</b>
+                <b>About your :</b>
             </h2>
             <div className={style.container}>
                 <div className={style.wrapper}>
