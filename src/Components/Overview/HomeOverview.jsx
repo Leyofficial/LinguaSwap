@@ -18,8 +18,6 @@ const HomeOverview = () => {
                                              className={currentItem === item ? style.active : style.textItem}>{item}</p>)}
       </div>
       {currentItem === 'How it works' ? <HowWork></HowWork> : currentItem === 'What skills can you achieve' ?  <Skills></Skills> : <AdvantageSection></AdvantageSection>}
-
-
     </div>
   );
 };

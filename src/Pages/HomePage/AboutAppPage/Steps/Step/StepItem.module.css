@@ -1,0 +1,65 @@
+.container {
+  cursor: pointer;
+  background-color: rgba(126, 173, 206, 0.06);
+  padding: 20px;
+  border-bottom: 1px solid rgba(57, 144, 206, 0.11);
+  border-radius: 5px 15px;
+  transition: 1s ease-in-out;
+}
+.container:hover {
+  background-color: rgba(83, 170, 201, 0.24);
+}
+.container .wrapper {
+  display: flex;
+  align-items: center;
+}
+.container .wrapper p {
+  padding-left: 2vh;
+  font-size: 20px;
+  color: rgba(8, 95, 147, 0.62);
+}
+.container .wrapper svg {
+  font-size: 30px;
+  color: rgba(0, 0, 0, 0.51);
+  border: 1px solid rgba(39, 131, 166, 0.32);
+  border-radius: 5px;
+  padding: 5px;
+}
+.container .content {
+  height: 0;
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
+.container .content .wrapperContent {
+  transition: 1s ease-in-out;
+  padding-left: 5vh;
+  margin-top: 3vh;
+}
+.container .content .wrapperContent p {
+  color: rgba(36, 37, 38, 0.64);
+  font-size: 18px;
+}
+.container .content .wrapperContent div {
+  padding-top: 15px;
+  text-align: center;
+}
+.container .content .wrapperContent div img {
+  max-width: 600px;
+  border-radius: 20px 5px 35px;
+}
+.container .showContent {
+  height: 400px;
+  opacity: 1;
+  transition-delay: 0.5s;
+  overflow: auto;
+}
+.container .showContent::-webkit-scrollbar {
+  background-color: rgba(106, 167, 222, 0.31);
+  width: 0;
+}
+.container .showContent::-webkit-scrollbar-thumb {
+  background-color: rgba(61, 146, 178, 0.33);
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=StepItem.module.css.map */

@@ -2,6 +2,7 @@
   padding: 5px;
   height: 89vh;
   margin-top: 5vh;
+  position: relative;
 }
 .container .header {
   height: 50px;
@@ -15,4 +16,52 @@
 }
 .container .wrapperOverview {
   margin-top: 10vh;
-}/*# sourceMappingURL=HomePage.module.css.map */
+}
+.container .scrollUp {
+  cursor: pointer;
+  position: fixed;
+  bottom: 150px;
+  right: 130px;
+}
+.container .scrollUp svg {
+  rotate: -137deg;
+  font-size: 40px;
+  color: rgba(28, 108, 169, 0.33);
+  animation: color-change 3s infinite;
+  transition: 1s ease-in-out;
+}
+.container .scrollUp:hover svg {
+  color: #054ab2;
+}
+
+.wrapperQuestion {
+  background-color: rgba(126, 173, 206, 0.06);
+}
+.wrapperQuestion header {
+  text-align: center;
+  padding: 50px 0;
+}
+.wrapperQuestion header h1 {
+  font-size: 40px;
+  font-weight: 600;
+  color: rgba(30, 96, 194, 0.74);
+}
+.wrapperQuestion header p {
+  color: rgba(0, 0, 0, 0.6);
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+@keyframes color-change {
+  0% {
+    font-size: 40px;
+  }
+  50% {
+    font-size: 50px;
+  }
+  100% {
+    font-size: 40px;
+  }
+}
+
+/*# sourceMappingURL=HomePage.module.css.map */

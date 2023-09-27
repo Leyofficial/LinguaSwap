@@ -1,0 +1,20 @@
+.container {
+  position: relative;
+}
+.container .backButton {
+  position: absolute;
+  top: -100px;
+  left: -150px;
+}
+.container .backButton svg {
+  rotate: 135deg;
+  font-size: 30px;
+  color: rgba(20, 151, 232, 0.34);
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.container .backButton svg:hover {
+  color: rgba(30, 88, 208, 0.72);
+}
+
+/*# sourceMappingURL=StepsSection.module.css.map */

@@ -1,14 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
 .login {
     display: flex;
@@ -19,6 +8,12 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     padding-right: 20px;
     padding-top: 50px;
     padding-bottom: 50px    ;
+}
+
+.login a {
+    color : black;
+    text-decoration: underline;
+    padding: 5px; 
 }
 
 .loginImage {
@@ -117,7 +112,6 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 .orBlock {
     display: flex;
     align-items: center;
-
 }
 
 .or {
@@ -125,7 +119,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 }
 
 .orBlockTitle {
-    margin: 15px;
+    margin: 5px;
 }
 
 .formInputBlock {
@@ -173,7 +167,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .warningsInfo {
@@ -214,4 +208,10 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 
 .formB:hover {
     background-color: rgba(0, 0, 0, 0.995);
+}
+
+.loginComponentText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }

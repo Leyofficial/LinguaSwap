@@ -49,10 +49,11 @@ function TeacherRegister() {
   }, [emailError, passwordError])
 
   const submitPostData = e => {
-    e.preventDefault();
+    // e.preventDefault();
 
     // сразу после успешной регистрации проходит на страницу курсы*
    
+    navigate('/login')
 
     dispatch(fetchUser(userValue))  
   }
@@ -68,9 +69,11 @@ function TeacherRegister() {
       }
     });
     
-    const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
+    if(e.target.name === 'email') {
 
-    if(e.target.email) {
+      const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
       if (!re.test(String(e.target.value).toLocaleLowerCase())) {
 
         setEmailError('Некоректный email')
@@ -79,9 +82,9 @@ function TeacherRegister() {
         setEmailError('')
       }
       
-    } else {
+    }else if (e.target.name === 'password') {
       if(e.target.value.length < 3 || e.target.value.length > 8 ) {
-        setPasswordError('Пароль должен быть длинее 3 и меньше 8');
+        setPasswordError('Пароль должен быть больше 6 символов');
   
         if(!e.target.value) {
           setPasswordError('Поле поля password обязателен!!');
@@ -98,7 +101,7 @@ function TeacherRegister() {
             
           <div className='registerComponent'>
         
-        <h2 className="registerComponentTitle">Регистрация репетитора</h2>
+        <h2 className="registerComponentTitle">Регистрация</h2>
 
         <div className="registerJwt">
 

@@ -1,0 +1,63 @@
+.container {
+  text-align: center;
+  width: 50%;
+}
+.container p {
+  font-size: 25px;
+  color: rgba(35, 123, 185, 0.73);
+}
+.container .box {
+  transform: perspective(750px) translate3d(0px, 0px, -250px) rotateX(27deg) scale(0.9, 0.9);
+  border-radius: 20px;
+  border: 1px solid rgba(62, 176, 194, 0.38);
+  box-shadow: 0 70px 40px -20px rgba(22, 195, 232, 0.09);
+  transition: 0.4s ease-in-out transform;
+  cursor: pointer;
+  height: 200px;
+  justify-content: center;
+  padding: 10px;
+}
+.container .box:hover {
+  transform: translate3d(0px, 0px, -250px);
+}
+.container .listWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .listWrapper ul li {
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  padding: 5px;
+  color: rgba(101, 101, 101, 0.75);
+}
+.container .listWrapper ul li svg {
+  font-size: 30px;
+  color: rgba(17, 121, 176, 0.75);
+  padding-right: 1vh;
+}
+.container .listWrapper .navigateArrow {
+  width: 50%;
+}
+.container .listWrapper .navigateArrow svg {
+  font-size: 50px;
+  rotate: -45deg;
+  color: rgba(37, 150, 222, 0.87);
+  transition: 1s ease-in-out;
+  animation: color-change 2s infinite;
+}
+
+@keyframes color-change {
+  0% {
+    color: rgba(37, 150, 222, 0.87);
+  }
+  50% {
+    color: #064b83;
+  }
+  100% {
+    color: rgba(37, 150, 222, 0.87);
+  }
+}
+
+/*# sourceMappingURL=AbouItem.module.css.map */

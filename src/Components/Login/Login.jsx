@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink, Link } from 'react-router-dom'
+
+import { NavLink } from 'react-router-dom'
+
+import { Link } from 'react-router-dom'
+
 import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
-function Login() {
 
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+function Login() {
 
   const [userValue, setUserValue] = useState({
     email: '',
     password: ''
-  })
+  });
+
+
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailError, setEmailError] = useState('email не может быть пустым');
@@ -54,7 +58,7 @@ function Login() {
 
     
 
-    if(e.target.email) {
+    if(e.target.name === 'email') {
       
       if (!re.test(String(e.target.value).toLocaleLowerCase())) {
 
@@ -64,9 +68,9 @@ function Login() {
         setEmailError('')
       }
 
-    }else {
+    }else if(e.target.name === 'password') {
       if(e.target.value.length < 3 ||e.target.value.length > 8 ) {
-        setPasswordError('Пароль должен быть длинее 3 и меньше 8');
+        setPasswordError('Пароль должен быть больше 6 символов');
   
         if(!e.target.value) {
           setPasswordError('Поле поля password обязателен!!');
@@ -77,9 +81,6 @@ function Login() {
     }
   }
 
-
-
-
   return (
     <>
     
@@ -89,10 +90,16 @@ function Login() {
           <h3 className="loginComponentTitle">Вход</h3>
   
           <nav className="loginComponentNav">
-  
-            <NavLink to='/studentregister' className="loginComponentNavLink">Зарегистрируйтесь как ученик</NavLink>
-              <span className="loginComponentNavTitle">или</span> <br />
-            <NavLink to='/teacherregister' className="loginComponentNavLink">Зарегистрируйтесь как реппетитор</NavLink>
+
+            <p className="loginComponentText">
+
+            Если еще не регистрировались можете 
+            <Link to='/teacherregister' className="loginComponentNavLink"> Зарегистрироваться </Link>
+
+
+
+            </p>
+
   
           </nav>
   
@@ -112,7 +119,7 @@ function Login() {
               <img src={appleicon} alt={googleicon} className="btnIcon" />
               <span className='btnText'>Продолжить с Apple</span>
             </button>
-  
+
           </div>
   
           <div className="orBlock">
@@ -138,16 +145,16 @@ function Login() {
                 <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
                 {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
               </div>
-  
-              <NavLink className="forgotPassword">Забыли пароль?</NavLink>
+
+              <Link className="forgotPassword">Забыли пароль?</Link>
               
               <div className='checkboxBlock'>
                 <input  type="checkbox" className='checkboxLogin'/>
                 <span className="checkboxText">Запомнить меня</span>
               </div>
   
-              <button disabled={!formValid} className="formBtn">отправит</button>
-  
+              <button disabled={!formValid} className="formBtn">Отправить</button>
+
             </div>
   
           </form>
@@ -157,7 +164,7 @@ function Login() {
   
             <p className="warningInfo">
   
-              Нажимая <NavLink className='warningsLogin'>«Войти»</NavLink> или <NavLink className='warningsLogin'>«Продолжить»</NavLink>, вы принимаете <br />
+              Нажимая <Link className='warningsLogin'>«Войти»</Link> или <Link className='warningsLogin'>«Продолжить»</Link>, вы принимаете <br />
               Условия использования и <br />
               Палитику конфидециальности
   
@@ -176,6 +183,6 @@ function Login() {
 
     </>
   )
-} 
+}
 
 export default Login;
