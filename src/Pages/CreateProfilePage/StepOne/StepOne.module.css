@@ -50,4 +50,12 @@ span {
 
 .iconShape img {
   border-radius: 20px;
+}
+
+.inputHash {
+  position: relative;
+}
+
+.imgHash {
+  position: absolute;
 }/*# sourceMappingURL=StepOne.module.css.map */
