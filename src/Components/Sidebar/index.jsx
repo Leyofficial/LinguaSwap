@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink  } from "react-router-dom";
 
 import ukraine from "./../../img/icons/ukraine.png";
 import team from "./../../img/icons/team.png";
@@ -46,7 +46,7 @@ const Sidebar = () => {
       className={style.sidebarContainer}
     >
       <div className={style.titleBlock} style={sidebarOpen ? { flexDirection : 'unset'  } : { flexDirection : 'column'  }}>
-        <Link style={sidebarOpen ? { opacity : '1' , position : 'unset', pointerEvents: 'all'   } : { opacity : '0'  , position : 'absolute' , pointerEvents: 'none'   }} to={"/"}>
+        <Link style={sidebarOpen ? { opacity : '1' , position : 'unset', pointerEvents: 'all'   } : { opacity : '0'  , position : 'absolute' , pointerEvents: 'none'   }} >
           <p>
             Lin<span>gua</span>
           </p>

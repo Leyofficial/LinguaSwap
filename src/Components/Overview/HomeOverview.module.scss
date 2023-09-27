@@ -20,7 +20,7 @@
   }
 
   .sliderItems {
-    padding: 50px 0;
+    padding: 200px 0 0 ;
     margin-bottom: 10vh;
     display: flex;
     align-items: center;
@@ -34,6 +34,26 @@
 
     img {
       max-width: 100px;
+    }
+  }
+  .wrapperButton{
+
+    position: absolute;
+    top:-30px;
+    left: 40%;
+
+    div{
+      a{
+        background: white;
+        border-radius: 55px;
+        border-top: 1px solid rgba(7, 151, 204, 0.28);
+        transition: 1s ease-in-out;
+        &:hover{
+          border-top: 1px solid transparent;
+          transition: 1s ease-in-out;
+        }
+      }
+
     }
   }
 }

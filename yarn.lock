@@ -821,7 +821,7 @@
 
 "@esbuild/darwin-arm64@0.18.20":
   version "0.18.20"
-  resolved "https://registry.npmjs.org/@esbuild/darwin-arm64/-/darwin-arm64-0.18.20.tgz"
+  resolved "https://registry.yarnpkg.com/@esbuild/darwin-arm64/-/darwin-arm64-0.18.20.tgz#08172cbeccf95fbc383399a7f39cfbddaeb0d7c1"
   integrity sha512-bxRHW5kHU38zS2lPTPOyuyTm+S+eobPUnTNkdJEfAddYgEcll4xkT8DB9d2008DtTbl7uJag2HuE5NZAZgnNEA==
 
 "@esbuild/darwin-x64@0.18.20":
@@ -911,7 +911,7 @@
 
 "@esbuild/win32-x64@0.18.20":
   version "0.18.20"
-  resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz#786c5f41f043b07afb1af37683d7c33668858f6d"
+  resolved "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.18.20.tgz"
   integrity sha512-kTdfRcSiDfQca/y9QIkng02avJ+NCaQvrMejlsB3RRv5sE9rRoeBPISaZpKxHELzRxZyLvNts1P27W3wV+8geQ==
 
 "@eslint-community/eslint-utils@^4.2.0":
@@ -1042,6 +1042,7 @@
   integrity sha512-vm1G+/WRWmXGyE9ZnhDv9toe+LRu1x0F/lGEwqWESfBiUUUuVZhj25fS2o4IL7H4pJ31sFxr7/gu+ER8OkmtzA==
 
 "@mongodb-js/saslprep@^1.1.0", "saslprep@npm:@mongodb-js/saslprep@^1.1.0":
+  name saslprep
   version "1.1.0"
   resolved "https://registry.npmjs.org/@mongodb-js/saslprep/-/saslprep-1.1.0.tgz"
   integrity sha512-Xfijy7HvfzzqiOAhAepF4SGN5e9leLkMvg/OPOF97XemjfVCYN/oWa75wnkc6mltMSTwY+XlbhWgUOJmkFspSw==
@@ -3112,7 +3113,7 @@ fs.realpath@^1.0.0:
 
 fsevents@~2.3.2:
   version "2.3.3"
-  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.3.tgz#cac6407785d03675a2a5e1a5305c697b347d90d6"
   integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
 
 function-bind@^1.1.1:
@@ -3241,6 +3242,11 @@ globalthis@^1.0.3:
   integrity sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==
   dependencies:
     define-properties "^1.1.3"
+
+goober@^2.1.10:
+  version "2.1.13"
+  resolved "https://registry.yarnpkg.com/goober/-/goober-2.1.13.tgz#e3c06d5578486212a76c9eba860cbc3232ff6d7c"
+  integrity sha512-jFj3BQeleOoy7t93E9rZ2de+ScC4lQICLwiAQmKMg9F6roKGaLSHoCDYKkWlSafg138jejvq/mTdvmnwDQgqoQ==
 
 gopd@^1.0.1:
   version "1.0.1"
@@ -3442,7 +3448,7 @@ ipaddr.js@1.9.1:
 
 ipv6-normalize@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.npmjs.org/ipv6-normalize/-/ipv6-normalize-1.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/ipv6-normalize/-/ipv6-normalize-1.0.1.tgz#1b3258290d365fa83239e89907dde4592e7620a8"
   integrity sha512-Bm6H79i01DjgGTCWjUuCjJ6QDo1HB96PT/xCYuyJUP9WFbVDrLSbG4EZCvOCun2rNswZb0c3e4Jt/ws795esHA==
 
 is-array-buffer@^3.0.1, is-array-buffer@^3.0.2:
@@ -3877,6 +3883,11 @@ lodash.once@^4.0.0:
   resolved "https://registry.npmjs.org/lodash.once/-/lodash.once-4.1.1.tgz"
   integrity sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==
 
+lodash.throttle@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
+  integrity sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==
+
 lodash@^4.17.15:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
@@ -3913,7 +3924,7 @@ lru-cache@^6.0.0:
 
 macos-export-certificate-and-key@^1.1.1:
   version "1.1.1"
-  resolved "https://registry.npmjs.org/macos-export-certificate-and-key/-/macos-export-certificate-and-key-1.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/macos-export-certificate-and-key/-/macos-export-certificate-and-key-1.1.1.tgz#12ccea64944c4cca16d422d6ed1481efc764a1e6"
   integrity sha512-J2g0dJRLG3DghmdCkbJnif/zPmSylj6ql//xBYff5allzNlHPnWxRoyho9XznBYLbPJw4jZlKjMO69jtV8VC7Q==
   dependencies:
     bindings "^1.5.0"
@@ -4060,7 +4071,7 @@ mongodb-connection-string-url@^2.2.0, mongodb-connection-string-url@^2.6.0:
 
 mongodb-crypt-library-version@^1.0.3:
   version "1.0.3"
-  resolved "https://registry.npmjs.org/mongodb-crypt-library-version/-/mongodb-crypt-library-version-1.0.3.tgz"
+  resolved "https://registry.yarnpkg.com/mongodb-crypt-library-version/-/mongodb-crypt-library-version-1.0.3.tgz#67eddf08a3ebfd6728c3ead11778b986d5742ee3"
   integrity sha512-w+T89kF9fC7npcf7m/+OUeXasf5TSL0GlugOCxzdXQFykV5MdU2yvcuuDZz4MD1pJickvGxBcw41jGg2s4lJ0g==
   dependencies:
     bindings "^1.5.0"
@@ -4394,7 +4405,7 @@ optionator@^0.9.3:
 
 os-dns-native@^1.2.0:
   version "1.2.0"
-  resolved "https://registry.npmjs.org/os-dns-native/-/os-dns-native-1.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/os-dns-native/-/os-dns-native-1.2.0.tgz#a034bb97aaf5b5175afc47234f22ba6f2dca8d27"
   integrity sha512-pnq7NYCsuZixeIOFjerXIXXFNpqJyDqiIHTu9TzefKtu+8ReUROA9OB2VQE+qk3uYhkXtxe1tf8b4dqPINtStw==
   dependencies:
     bindings "^1.5.0"
@@ -4525,7 +4536,7 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -4615,6 +4626,13 @@ react-dom@^18.2.0:
     loose-envify "^1.1.0"
     scheduler "^0.23.0"
 
+react-hot-toast@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-hot-toast/-/react-hot-toast-2.4.1.tgz#df04295eda8a7b12c4f968e54a61c8d36f4c0994"
+  integrity sha512-j8z+cQbWIM5LY37pR6uZR6D4LfseplqnuAO4co4u8917hBUvXlEqyP1ZzqVLcqoyUesZZv/ImreoCeHVDpE5pQ==
+  dependencies:
+    goober "^2.1.10"
+
 react-icons@^4.11.0:
   version "4.11.0"
   resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.11.0.tgz"
@@ -4671,6 +4689,14 @@ react-router@6.16.0, react-router@^6.16.0:
   integrity sha512-VT4Mmc4jj5YyjpOi5jOf0I+TYzGpvzERy4ckNSvSh2RArv8LLoCxlsZ2D+tc7zgjxcY34oTz2hZaeX5RVprKqA==
   dependencies:
     "@remix-run/router" "1.9.0"
+
+react-scroll@^1.8.9:
+  version "1.8.9"
+  resolved "https://registry.npmjs.org/react-scroll/-/react-scroll-1.8.9.tgz"
+  integrity sha512-9m7ztraiX/l6L7erzYAD3fhnveNckei6/NkWfqwN2e0FRdoE2W6Pk4oi2Nah7mWpPCPAeIgegfaqZACTimPOwg==
+  dependencies:
+    lodash.throttle "^4.1.1"
+    prop-types "^15.7.2"
 
 react-type-animation@^3.1.0:
   version "3.1.0"

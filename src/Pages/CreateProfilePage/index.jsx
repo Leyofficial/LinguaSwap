@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import style from "./CreateProfile.module.scss";
 
 import Header from "../../Components/Header";
@@ -19,16 +18,22 @@ const CreateProfile = () => {
     setCurrentStep(currentStep - 1);
   };
 
+  const renderPoints = (step1, step2, step3) => {
+    return (
+      <div className={style.points}>
+        <Points checked={step1} />
+        <Points checked={step2} />
+        <Points checked={step3} />
+      </div>
+    );
+  };
+
   const renderStep = () => {
     switch (currentStep) {
       case 1:
         return (
           <>
-            <div className={style.points}>
-              <Points checked={false} />
-              <Points checked={false} />
-              <Points checked={false} />
-            </div>
+            {renderPoints(false, false, false)}
             <StepOne nextStep={nextStep} />
           </>
         );
@@ -36,23 +41,15 @@ const CreateProfile = () => {
       case 2:
         return (
           <>
-            <div className={style.points}>
-              <Points checked={true} />
-              <Points checked={false} />
-              <Points checked={false} />
-            </div>
-            <StepTwo  previousStep={previousStep} nextStep={nextStep} />
+            {renderPoints(true, false, false)}
+            <StepTwo previousStep={previousStep} nextStep={nextStep} />
           </>
         );
 
       case 3:
         return (
           <>
-            <div className={style.points}>
-              <Points checked={true} />
-              <Points checked={true} />
-              <Points checked={false} />
-            </div>
+            {renderPoints(true, true, false)}
             <StepThree previousStep={previousStep} />
           </>
         );
@@ -60,6 +57,7 @@ const CreateProfile = () => {
         return null;
     }
   };
+  
   return (
     <div>
       <div className={style.container}>{renderStep()}</div>

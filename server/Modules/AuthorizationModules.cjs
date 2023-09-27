@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const authSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "The user must have a name"],
     unique: true,
     trim: true
   },
@@ -37,7 +36,7 @@ const authSchema = new mongoose.Schema({
     aboutMe: String,
     language: [String] || String,
     goal: String
-  },
+  } | null,
 })
 
 
