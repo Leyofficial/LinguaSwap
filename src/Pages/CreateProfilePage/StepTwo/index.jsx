@@ -1,10 +1,9 @@
-import React from "react";
+
 import CustomButton from "../../../Utility/CustomButton/CustomButton";
 import style from "./StepTwo.module.scss";
 const StepTwo = (props) => {
   return (
     <>
-      {" "}
       <h2 className={style.title}>
         <b>Education</b> (option)
       </h2>
