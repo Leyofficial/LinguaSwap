@@ -3,6 +3,7 @@ import {useState} from "react";
 import Pagination from "../../Utility/Pagination/Pagination.jsx";
 import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
+import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
 
 const CoursesSection = () => {
 
@@ -20,7 +21,7 @@ const CoursesSection = () => {
         <div>
           filter
           <div>
-
+            <CreateCourse></CreateCourse>
           </div>
         </div>
       </div>
