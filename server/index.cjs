@@ -27,9 +27,11 @@ mongoose.connect("mongodb+srv://temcenkovova8:brFMAZAjzkX4ighR@cluster0.4dgfzzn.
 
 const languageRouter = require('./Routers/LanguageRouter.cjs')
 const authRouter = require('./Routers/AuthorizationRouter.cjs')
+const coursesRouter = require('./Routers/CoursesRouter.cjs')
 
 app.use('/languages', languageRouter)
 app.use('/authorization', authRouter)
+app.use('/courses',coursesRouter)
 
 app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
