@@ -1,6 +1,12 @@
 import React from 'react';
 import {Box, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
+const styleSelector = {
+  color:'rgba(9, 89, 134, 0.75)',
+  border:"none",
+  outline:"none",
+  background:"white"
+}
 const CourseSelect = (props) => {
   const {items,title,callback,value} = props
 
@@ -8,12 +14,14 @@ const CourseSelect = (props) => {
     callback(event.target.value);
   };
 
+
   return (
     <div>
       <Box sx={{ minWidth: 120 }}>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">{title}</InputLabel>
           <Select
+            style={styleSelector}
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={value}

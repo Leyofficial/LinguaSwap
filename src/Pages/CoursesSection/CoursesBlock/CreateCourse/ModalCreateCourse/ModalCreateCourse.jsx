@@ -1,18 +1,21 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {Box, Button, Modal, Typography} from "@mui/material";
 import CourseInput from "./CourseInput/CourseInput.jsx";
 import CourseSelect from "./CourseSelect/CourseSelect.jsx";
+import style from './ModalCreateCourse.module.scss'
+import {BsImages, BsPlusSquareDotted} from "react-icons/bs";
 
 
-const style = {
+const styleModal = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: "80%",
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  // border: '2px solid #000',
   boxShadow: 24,
+  borderRadius: "15px",
   p: 4,
 };
 
@@ -24,25 +27,43 @@ const ModalCreateCourse = () => {
 
   const [subjectsCourse, setSubjectsCourse] = useState('')
   const [courseName, setCourseName] = useState('')
-  const [courseDuration, setCourseDuration] = useState('')
+  const [startCourse, setStartCourse] = useState('')
+  const [finishCourse, setFinishCourse] = useState('')
   const [imageCourse, setImageCourse] = useState('')
-  const [courseLevel,setCourseLevel] = useState('')
-  const [descriptionCourse,setDescriptionCourse] = useState('')
-  const [courseLanguage,setCourseLanguage] = useState('')
+  const [courseLevel, setCourseLevel] = useState('')
+  const [descriptionCourse, setDescriptionCourse] = useState('')
+  const [courseLanguage, setCourseLanguage] = useState('')
+
+  const [topics, setTopics] = useState([])
 
 
   //select level
   const [levelListSelect, setLevelListSelect] = useState('');
-  const levelsList = ['Beginner',"Elementary","Pre-Intermediate","Intermediate","Upper-Intermediate"]
+  const levelsList = ['Beginner', "Elementary", "Pre-Intermediate", "Intermediate", "Upper-Intermediate"]
 
   // select time
-  const [timesCourse,setTimesCourse] = useState("")
-  const timesList = ["10 minutes","30 minutes","1 hour","2 hours"]
+  const [timesCourse, setTimesCourse] = useState("")
+  const timesList = ["10 minutes", "30 minutes", "1 hour", "2 hours"]
 
   // select languages
 
-  const [language,setLanguage] = useState("")
-  const languagesList = ['English','Turkish',"Germany","Poland","Italy","Spanish","Japan"]
+  const [language, setLanguage] = useState("")
+  const languagesList = ['English', 'Turkish', "Germany", "Poland", "Italy", "Spanish", "Japan"]
+
+  const fileInputRef = useRef(null);
+
+  const handleClickOpenInputFile = () => {
+    fileInputRef.current.click()
+  }
+
+  const addTopic = (topic) => {
+
+    if (topics.length < 3) {
+      setTopics(prev => [...prev, topic])
+      setSubjectsCourse("")
+    }
+  }
+  console.log(imageCourse)
   return (
 
     <div>
@@ -54,24 +75,63 @@ const ModalCreateCourse = () => {
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
-        <Box sx={style}>
-          <div>
-            <CourseInput name={'Course Title'} placeholder={"course name"} value={courseName} callback={setCourseName}></CourseInput>
-            <CourseInput name={'Time of course'} value={courseDuration} callback={setCourseDuration}></CourseInput>
+        <Box sx={styleModal}>
+          <div className={style.container}>
+            <div className={style.sectionOne}>
+              <CourseInput name={'Course Title'} placeholder={"course name"} value={courseName}
+                           callback={setCourseName}></CourseInput>
+              <div className={style.wrapeprSelects}>
+                <CourseSelect value={language} callback={setLanguage} items={languagesList}
+                              title={'Languages'}></CourseSelect>
+                <CourseSelect value={levelListSelect} callback={setLevelListSelect} items={levelsList}
+                              title={'Level'}></CourseSelect>
+              </div>
 
-            <CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList} title={'Duration Course'}></CourseSelect>
-            <CourseSelect value={language} callback={setLanguage} items={languagesList} title={'Languages'}></CourseSelect>
+              <div className={style.wrapperTopics}>
+                <label htmlFor={'topics'}>Write 3 topics about this course</label>
+                <div className={style.wrapperInput}>
+                  <input name={'topics'} value={subjectsCourse} onChange={(e) => setSubjectsCourse(e.target.value)}/>
+                  <BsPlusSquareDotted onClick={() => addTopic(subjectsCourse)}></BsPlusSquareDotted>
+                </div>
+                <div className={style.wrapperTopicItems}>
+                  <ul>
+                    {topics.map((topic, index) => <li key={index}><span>{index + 1}</span> {topic}</li>)}
+                  </ul>
+                </div>
+              </div>
 
-            <CourseInput name={'What we will learn'} value={subjectsCourse} callback={setSubjectsCourse}></CourseInput>
+
+              <CourseInput changeElement={true} heightInput={'200px'} name={'Description'} value={descriptionCourse}
+                           callback={setDescriptionCourse}></CourseInput>
+            </div>
+            <div className={style.sectionTwo}>
+              {/*<CourseInput type={'file'} name={'Image'} value={imageCourse} callback={setImageCourse}></CourseInput>*/}
+              <div className={style.imageWrapper}>
+                <label htmlFor={'image'}>Image</label>
+                <div className={style.wrapper} onClick={handleClickOpenInputFile}>
+                  <BsImages></BsImages>
+                  <input ref={fileInputRef} type={'file'} value={imageCourse}
+                         onChange={(e) => setImageCourse(e.target.value)}/>
+                </div>
+
+              </div>
+              <div className={style.wrapperDate}>
+              <CourseInput type={'date'} name={'Start'} value={startCourse}
+                           callback={setStartCourse}></CourseInput>
+                <CourseInput type={'date'} name={'Finish'} value={finishCourse}
+                             callback={setFinishCourse}></CourseInput>
+              </div>
+              <CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList}
+                            title={'Duration Course'}></CourseSelect>
+            </div>
+
+
+            {/*<CourseInput name={'Course Title'} placeholder={"course name"} value={courseName} callback={setCourseName}></CourseInput>*/}
             {/*<CourseInput name={'Level'} value={courseLevel} callback={setCourseLevel}></CourseInput>*/}
-            <CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList} title={'Duration Course'}></CourseSelect>
-            <CourseInput type={'file'} name={'image'} value={imageCourse} callback={setImageCourse}></CourseInput>
-            <CourseInput heightInput={'200px'} name={'Description'} value={descriptionCourse} callback={setDescriptionCourse}></CourseInput>
-
-            <CourseSelect value={levelListSelect} callback={setLevelListSelect} items={levelsList} title={'Level'}></CourseSelect>
+            {/*<CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList} title={'Duration Course'}></CourseSelect>*/}
           </div>
-          <div>
-            <button>create course</button>
+          <div className={style.button}>
+            <button>Create Course</button>
           </div>
         </Box>
       </Modal>
