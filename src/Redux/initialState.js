@@ -3,6 +3,7 @@ export const initialState = {
   name: '',
   userTag : '',
   bio : '',
+  status : '',
   nameDirty :true,
   hashDirty : true
 }
