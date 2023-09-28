@@ -1,6 +1,5 @@
 import style from "./HomePage.module.scss";
-import Header from "../../Components/Header/index.jsx";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
 import HomeText from "./HomeText/HomeText.jsx";
 import HomeImages from "./HomeImages/HomeImages.jsx";
@@ -47,9 +46,6 @@ const HomePage = () => {
   return (
     <>
       <div className={style.container}>
-        {/*<div className={style.header}>*/}
-        {/*  <Header navItems={navItems}></Header>*/}
-        {/*</div>*/}
         <div className={style.wrapperHome}>
           <HomeText toLogin={toLogin}></HomeText>
           <HomeImages></HomeImages>

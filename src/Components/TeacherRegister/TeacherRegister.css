@@ -173,3 +173,25 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
 .or {
     width: 155px;
 }
+
+.eyePasswordRegister {
+    border: none;
+    width: 15px;
+    position: absolute;
+    top: 532px;
+    left: 430px;
+    background: none;
+}
+
+.eyePasswordRegisterConfirm {
+    border: none;
+    width: 15px;
+    position: absolute;
+    top: 467px;
+    left: 430px;
+    background: none;
+}
+
+.confirmErrorText {
+    color: red;
+}

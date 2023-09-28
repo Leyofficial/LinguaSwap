@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
 import {NavLink} from 'react-router-dom';
 
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
@@ -16,6 +18,10 @@ function TeacherRegister() {
     password: '',
     confirmPassword: ''
   })
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [confirmError, setConfirmError] = useState('');
+  const [confirmShow, setConfirmShow] = useState(false);
 
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
@@ -24,7 +30,9 @@ function TeacherRegister() {
   const [formValid, setFormValid] = useState(false);
 
 
-
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
   const dispatch = useDispatch();
 
   const blurHandler = e => {
@@ -55,7 +63,9 @@ function TeacherRegister() {
    
     navigate('/login')
 
-    dispatch(fetchUser(userValue))  
+    dispatch(fetchUser(userValue));
+    
+    
   }
 
   const navigate = useNavigate();
@@ -83,7 +93,7 @@ function TeacherRegister() {
       }
       
     }else if (e.target.name === 'password') {
-      if(e.target.value.length < 3 || e.target.value.length > 8 ) {
+      if(e.target.value.length < 6 || e.target.value.length > 8 ) {
         setPasswordError('Пароль должен быть больше 6 символов');
   
         if(!e.target.value) {
@@ -93,10 +103,20 @@ function TeacherRegister() {
         setPasswordError('')
       }  
     }
+
+    if(userValue.password === userValue.confirmPassword) {
+      setConfirmError('');
+      setConfirmShow(true);
+    }else {
+      setConfirmError('*** Пароли не совпадают!! ***');
+      setConfirmShow(false);
+    }
+   
   }
 
-  return (
+ 
 
+  return (
         <div className='login'>
             
           <div className='registerComponent'>
@@ -143,15 +163,22 @@ function TeacherRegister() {
                 <div className="blockInput">
                     <span className="blockInputText">Пароль *</span>
                     
-                    <input onChange={e => handlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} type="password" name='password' className="inputRegister" />
+                    <input onChange={e => handlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} type={showPassword ? "text" : "password"} name='password' className="inputRegister" />
+                    <button className='eyePasswordRegister' type="button" onClick={togglePasswordVisibility}>
+                        {!showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
                     {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
                 </div>
 
                 <div className="blockInput">
                     <span className="blockInputText">Повторный пароль *</span>
-                    
-                    <input onChange={e => handlerChange(e)} value={userValue.confirmPassword} onBlur={e => blurHandler(e)} type="password" name='confirmPassword' className="inputRegister" />
+                    <button className='eyePasswordRegisterConfirm' type="button" onClick={togglePasswordVisibility}>
+                        {!showPassword ? <FaEyeSlash /> : <FaEye />}
+                    </button>
+                    <input onChange={e => handlerChange(e)} value={userValue.confirmPassword} onBlur={e => blurHandler(e)} type={showPassword ? "text" : "password"} name='confirmPassword' className="inputRegister" />
                     {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
+                    {(confirmShow == false) && <span className="confirmErrorText"> {confirmError} </span>}
+                    
                 </div>
 
              

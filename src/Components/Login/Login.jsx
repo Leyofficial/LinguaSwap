@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react'
 
-import { NavLink } from 'react-router-dom'
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../Redux/login.reducer';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 function Login() {
 
@@ -16,6 +18,9 @@ function Login() {
     email: '',
     password: ''
   });
+
+  const [showPassword, setShowPassword] = useState(false);
+  
 
 
   const [emailDirty, setEmailDirty] = useState(false);
@@ -54,12 +59,12 @@ function Login() {
       }
     })
 
-    const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    
 
     
 
     if(e.target.name === 'email') {
-      
+      const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (!re.test(String(e.target.value).toLocaleLowerCase())) {
 
         setEmailError('Некоректный email')
@@ -69,7 +74,7 @@ function Login() {
       }
 
     }else if(e.target.name === 'password') {
-      if(e.target.value.length < 3 ||e.target.value.length > 8 ) {
+      if(e.target.value.length < 6 ||e.target.value.length > 8 ) {
         setPasswordError('Пароль должен быть больше 6 символов');
   
         if(!e.target.value) {
@@ -80,6 +85,18 @@ function Login() {
       }
     }
   }
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const loginSubmit = () => {
+
+    dispatch(loginUser(userValue));
+    navigate('/');
+  }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <>
@@ -128,7 +145,7 @@ function Login() {
             <hr className='or'/>
           </div>
   
-          <form className="formLogin">
+          <form onSubmit={loginSubmit} className="formLogin">
   
             <div className="formContainer">
   
@@ -142,7 +159,11 @@ function Login() {
               <div className="formInputBlock">
                 <span className="formInputTitle">Пароль</span>
                 
-                <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
+                
+                  <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type={showPassword ? "text" : "password"} className="formInputEmail" placeholder='Ваш пароль'/>
+                  <button className='eyePassword' type="button" onClick={togglePasswordVisibility}>
+                  {!showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
                 {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
               </div>
 
@@ -153,7 +174,7 @@ function Login() {
                 <span className="checkboxText">Запомнить меня</span>
               </div>
   
-              <button disabled={!formValid} className="formBtn">Отправить</button>
+              <button className="formBtn">Отправить</button>
 
             </div>
   

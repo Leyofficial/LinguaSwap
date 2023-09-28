@@ -1,3 +1,8 @@
 export const initialState = {
-  isStart: false
+  isStart: true,
+  name: '',
+  userTag : '',
+  bio : '',
+  nameDirty :true,
+  hashDirty : true
 }

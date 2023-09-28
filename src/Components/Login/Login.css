@@ -147,6 +147,10 @@
     border-right: none;
 }
 
+.formInputEmail {
+    position: relative;
+}
+
 .forgotPassword {
     color: blue;
 }
@@ -214,4 +218,13 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.eyePassword {
+    border: none;
+    width: 15px;
+    position: absolute;
+    top: 532px;
+    left: 430px;
+    background: none;
 }

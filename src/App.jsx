@@ -15,6 +15,8 @@ import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 function App() {
 
   const isStart = useSelector((state) => state.isStart);
+  const name = useSelector((state) => state);
+  console.log(name)
 
   return (
     <>
