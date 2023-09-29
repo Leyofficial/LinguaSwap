@@ -65,7 +65,7 @@ const ModalCreateCourse = () => {
   }
 
   const createCourse = () => {
-    console.log(imageCourse)
+
     const data = {
       teacher: {
         id: 'default',
@@ -77,7 +77,7 @@ const ModalCreateCourse = () => {
         finishCourse: finishCourse,
         durationCourse: timesCourse,
         members: [],
-        image: imageCourse,
+        image: courseImage,
         subjects: topics
       }
     }
@@ -92,7 +92,10 @@ const ModalCreateCourse = () => {
 
     data.append('image', e)
 
-    Course.saveImage(data).then(res => setCourseImage(res.data.image.path))
+    Course.saveImage(data).then(res => {
+      console.log(res.data.image.path)
+      setCourseImage(res.data.image.path)
+    })
 
   }
   return (
