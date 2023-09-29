@@ -72,10 +72,11 @@ const StepOne = (props) => {
                         <div className={style.textAreaBlock}>
                             <div className={style.inputBlock}>
                                 <CustomInput
+                                    necessarily={true}
                                     callback={checkNameDirty}
                                     heg={false}
                                     value={name}
-                                    width={"70%"}
+                                    width={"44%"}
                                     placeholder={"Type your name"}
                                 />
                                 {dirtyName ? <p className={style.warningMessage}><b>Поле ввода не должно быть пустым или
@@ -85,6 +86,7 @@ const StepOne = (props) => {
                                   <div className={style.hashBlock}>
                                       <FaHashtag className={style.hashImg}/>
                                       <CustomInput
+                                          necessarily={true}
                                           callback={checkHashDirty}
                                           value={userTag}
                                           width={"100%"}
@@ -126,12 +128,6 @@ const StepOne = (props) => {
                             ></textarea>
                         </div>
                     </div>
-                    <div className={style.rightBlock}>
-                        <div className={style.iconShape}>
-                            <img max-width={50} src={iconImg} alt=""/>
-                        </div>
-                    </div>
-
                     <div
                         onClick={() => errorToaster("Поля ввода не должны быть пустыми!")}
                         className={style.buttonOne}

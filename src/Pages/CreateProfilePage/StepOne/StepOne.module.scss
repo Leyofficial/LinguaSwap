@@ -11,19 +11,17 @@ span {
   margin: 50px 0;
 }
 .container {
-  display: flex;
   width: 100%;
 }
 .buttonOne {
   position: absolute;
   padding: 20px;
   gap: 18px;
-  bottom: 0;
   right: 0;
 }
 
 .textArea {
-  outline: none;  
+  outline: none;
   border: 1px solid darkcyan;
   border-radius: 10px;
   resize: none;
@@ -34,20 +32,12 @@ span {
 }
 .areaText {
   position: relative;
-    padding: 10px;
-    font-style: italic;
-}
-.leftBlock {
-    min-width: 50%;
-    border-right: 2px #151515 solid;
+  padding: 10px;
+  font-style: italic;
 }
 
 .wrapper {
     position: relative;
-    gap: 50px;
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
 }
 .iconShape {
     img {
