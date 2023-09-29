@@ -87,8 +87,11 @@ const ModalCreateCourse = () => {
 
   const handleImage = (e) => {
     setImageCourse(e.name)
+
     const data = new FormData()
+
     data.append('image', e)
+
     Course.saveImage(data).then(res => setCourseImage(res.data.image.path))
 
   }
