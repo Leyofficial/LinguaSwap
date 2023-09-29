@@ -4,7 +4,7 @@ import style from "./CreateProfile.module.scss";
 import Header from "../../Components/Header";
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
-import StepThree from "./StepThree";
+import StepThree from "./StepThree/index.jsx";
 import Points from "../../Utility/Points";
 
 const CreateProfile = () => {

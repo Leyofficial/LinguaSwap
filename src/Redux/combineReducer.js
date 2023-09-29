@@ -5,6 +5,9 @@ import { setUserTagReducer } from "./Profile/UserTag/setUserTagReducer.js";
 import { setBioReducer } from "./Profile/Bio/setBioReducer.js";
 import { nameInputEmptyReducer } from "./Profile/Inputs/name/nameInputEmptyReducer.js";
 import { hashInputEmptyReducer } from "./Profile/Inputs/hash/hashInputEmptyReducer..js";
+import {setStatusReducer} from "./Profile/Status/setStatusReducer.js";
+import {setLanguagesKnowReducer} from "./Profile/Languages/languagesKnow/setLanguagesKnowReducer.js";
+import {setLanguagesLearnReducer} from "./Profile/Languages/languagesLearn/setLanguagesLearnReducer.js";
 
 
 export default (combineReducers)({
@@ -14,4 +17,7 @@ export default (combineReducers)({
     bio : setBioReducer,
     nameDirty : nameInputEmptyReducer,
     hashDirty : hashInputEmptyReducer,
+    status : setStatusReducer,
+    languagesKnow : setLanguagesKnowReducer,
+    languagesLearn : setLanguagesLearnReducer,
 }) 
