@@ -1,9 +1,10 @@
 import React, {useRef, useState} from 'react';
-import {Box, Button, Modal, Typography} from "@mui/material";
+import {Box, Button, duration, Modal, Typography} from "@mui/material";
 import CourseInput from "./CourseInput/CourseInput.jsx";
 import CourseSelect from "./CourseSelect/CourseSelect.jsx";
 import style from './ModalCreateCourse.module.scss'
 import {BsImages, BsPlusSquareDotted} from "react-icons/bs";
+import {Course} from "../../../../../ApiRequests/CreateCourse.js";
 
 
 const styleModal = {
@@ -13,7 +14,6 @@ const styleModal = {
   transform: 'translate(-50%, -50%)',
   width: "80%",
   bgcolor: 'background.paper',
-  // border: '2px solid #000',
   boxShadow: 24,
   borderRadius: "15px",
   p: 4,
@@ -29,13 +29,13 @@ const ModalCreateCourse = () => {
   const [courseName, setCourseName] = useState('')
   const [startCourse, setStartCourse] = useState('')
   const [finishCourse, setFinishCourse] = useState('')
-  const [imageCourse, setImageCourse] = useState('')
-  const [courseLevel, setCourseLevel] = useState('')
+  const [imageCourse, setImageCourse] = useState("")
   const [descriptionCourse, setDescriptionCourse] = useState('')
-  const [courseLanguage, setCourseLanguage] = useState('')
+
+  const [courseImage,setCourseImage] = useState('')
+
 
   const [topics, setTopics] = useState([])
-
 
   //select level
   const [levelListSelect, setLevelListSelect] = useState('');
@@ -63,7 +63,35 @@ const ModalCreateCourse = () => {
       setSubjectsCourse("")
     }
   }
-  console.log(imageCourse)
+
+  const createCourse = () => {
+    console.log(imageCourse)
+    const data = {
+      teacher: {
+        id: 'default',
+        name: 'default'
+      },
+      course: {
+        name: courseName,
+        startCourse: startCourse,
+        finishCourse: finishCourse,
+        durationCourse: timesCourse,
+        members: [],
+        image: imageCourse,
+        subjects: topics
+      }
+    }
+    Course.create(data).then(res => console.log(res)).catch(error => console.log(error))
+  }
+
+
+  const handleImage = (e) => {
+    setImageCourse(e.name)
+    const data = new FormData()
+    data.append('image', e)
+    Course.saveImage(data).then(res => setCourseImage(res.data.image.path))
+
+  }
   return (
 
     <div>
@@ -110,14 +138,16 @@ const ModalCreateCourse = () => {
                 <label htmlFor={'image'}>Image</label>
                 <div className={style.wrapper} onClick={handleClickOpenInputFile}>
                   <BsImages></BsImages>
-                  <input ref={fileInputRef} type={'file'} value={imageCourse}
-                         onChange={(e) => setImageCourse(e.target.value)}/>
+                  <input name={'image'} ref={fileInputRef} type={'file'}
+                         onChange={(e) => handleImage(e.target.files[0])}/>
+
+                  <img src={courseImage}/>
                 </div>
 
               </div>
               <div className={style.wrapperDate}>
-              <CourseInput type={'date'} name={'Start'} value={startCourse}
-                           callback={setStartCourse}></CourseInput>
+                <CourseInput type={'date'} name={'Start'} value={startCourse}
+                             callback={setStartCourse}></CourseInput>
                 <CourseInput type={'date'} name={'Finish'} value={finishCourse}
                              callback={setFinishCourse}></CourseInput>
               </div>
@@ -131,7 +161,7 @@ const ModalCreateCourse = () => {
             {/*<CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList} title={'Duration Course'}></CourseSelect>*/}
           </div>
           <div className={style.button}>
-            <button>Create Course</button>
+            <button onClick={createCourse}>Create Course</button>
           </div>
         </Box>
       </Modal>

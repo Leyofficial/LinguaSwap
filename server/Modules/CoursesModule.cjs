@@ -7,8 +7,10 @@ const CoursesSchema = new mongoose.Schema({
   },
   course: {
     name: String,
-    hour: String,
-    members:[String],
+    startCourse: String,
+    finishCourse: String,
+    durationCourse:String,
+    members:[String] ,
     image:String,
     subjects:[String]
   }

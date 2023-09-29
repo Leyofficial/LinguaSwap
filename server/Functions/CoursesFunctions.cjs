@@ -1,56 +1,64 @@
-
 const Courses = require('../Modules/CoursesModule.cjs')
+const ErrorHandler = require("../APIFeatures/ErrorHandler.cjs");
 
-exports.createCourse = async (req,res) => {
-
-  const createCourse = await Courses.create(req.body)
-
-  try{
-    const response = await createCourse.save()
+exports.createCourse = async (req, res, next) => {
+console.log(req.body.data.course)
+  const createCourse = await Courses.create({
+    teacher: req.body.data.teacher,
+    course: {
+      durationCourse: req.body.data.course.durationCourse,
+      finishCourse: req.body.data.course.finishCourse,
+      image: req.body.data.course.image,
+      members: req.body.data.course.members,
+      name: req.body.data.course.name,
+      startCourse: req.body.data.course.startCourse,
+      subjects: req.body.data.course.subjects
+    }
+  })
+  try {
+    await createCourse.save()
     res.status(200).json({
-      status:"Created",
-      response
+      status: "Created",
+      createCourse
     })
-  } catch (error) {
-    res.status(500).json({
-      status:'Failed create language',
-      error
-    })
+  }catch (err) {
+    return next(new ErrorHandler(err, 400))
   }
+
 }
 
-exports.getCourses = async (req,res) => {
+exports.getCourses = async (req, res) => {
 
   const courses = await Courses.find()
 
-  if(courses) {
+  if (courses) {
     res.status(200).json({
-      status:"Succeed",
+      status: "Succeed",
       courses
     })
-  }else{
+  } else {
     res.status(400).json({
-      status:"Clear",
-      message:"Courses were not found"
+      status: "Clear",
+      message: "Courses were not found"
     })
   }
 }
 
-exports.getCourse = async (req,res) => {
+exports.getCourse = async (req, res) => {
 
   const {courseId} = req.params
 
   const course = await Courses.findById(courseId)
 
-  if(course) {
+  if (course) {
     res.status(200).json({
-      status:"Succeed",
+      status: "Succeed",
       course
     })
-  }else{
+  } else {
     res.status(400).json({
-      status:"Clear",
-      message:"Course was not found"
+      status: "Clear",
+      message: "Course was not found"
     })
   }
 
