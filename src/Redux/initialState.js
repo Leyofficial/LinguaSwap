@@ -8,4 +8,5 @@ export const initialState = {
   hashDirty : true,
   languagesKnow : [],
   languagesLearn : [],
+  courses:[]
 }

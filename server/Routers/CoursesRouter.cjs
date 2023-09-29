@@ -12,11 +12,11 @@ coursesRouter.route('/:courseId')
   .get(coursesFunctions.getCourse)
 
 coursesRouter.route('/image')
-  .post(file.single('image'),(req,res) => {
+  .post(file.single('image'), (req, res) => {
     console.log(req.file)
     res.status(200).json({
-      status:'succeed',
-      image:req.file
+      status: 'succeed',
+      image: req.file
     })
   })
 

@@ -4,7 +4,7 @@ import CourseInput from "./CourseInput/CourseInput.jsx";
 import CourseSelect from "./CourseSelect/CourseSelect.jsx";
 import style from './ModalCreateCourse.module.scss'
 import {BsImages, BsPlusSquareDotted} from "react-icons/bs";
-import {Course} from "../../../../../ApiRequests/CreateCourse.js";
+import {Course} from "../../../../../ApiRequests/Courses/Courses.js";
 
 
 const styleModal = {
@@ -81,7 +81,21 @@ const ModalCreateCourse = () => {
         subjects: topics
       }
     }
-    Course.create(data).then(res => console.log(res)).catch(error => console.log(error))
+    Course.create(data).then(res => {
+      if(res.status === 200) {
+        setLevelListSelect("")
+        setTimesCourse("")
+        setLanguage("")
+        setTopics([])
+        setCourseImage('')
+        setDescriptionCourse('')
+        setStartCourse('')
+        setCourseName("")
+        setFinishCourse("")
+        setOpen(false)
+
+      }
+    }).catch(error => console.log(error))
   }
 
 
@@ -112,7 +126,7 @@ const ModalCreateCourse = () => {
         <Box sx={styleModal}>
           <div className={style.container}>
             <div className={style.sectionOne}>
-              <CourseInput name={'Course Title'} placeholder={"course name"} value={courseName}
+              <CourseInput name={'Courses Title'} placeholder={"course name"} value={courseName}
                            callback={setCourseName}></CourseInput>
               <div className={style.wrapeprSelects}>
                 <CourseSelect value={language} callback={setLanguage} items={languagesList}
@@ -158,13 +172,13 @@ const ModalCreateCourse = () => {
                              callback={setFinishCourse}></CourseInput>
               </div>
               <CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList}
-                            title={'Duration Course'}></CourseSelect>
+                            title={'Duration Courses'}></CourseSelect>
             </div>
 
 
-            {/*<CourseInput name={'Course Title'} placeholder={"course name"} value={courseName} callback={setCourseName}></CourseInput>*/}
+            {/*<CourseInput name={'Courses Title'} placeholder={"course name"} value={courseName} callback={setCourseName}></CourseInput>*/}
             {/*<CourseInput name={'Level'} value={courseLevel} callback={setCourseLevel}></CourseInput>*/}
-            {/*<CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList} title={'Duration Course'}></CourseSelect>*/}
+            {/*<CourseSelect value={timesCourse} callback={setTimesCourse} items={timesList} title={'Duration Courses'}></CourseSelect>*/}
           </div>
           <div className={style.button}>
             <button onClick={createCourse}>Create Course</button>

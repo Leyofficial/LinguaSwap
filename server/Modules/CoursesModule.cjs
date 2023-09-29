@@ -12,7 +12,9 @@ const CoursesSchema = new mongoose.Schema({
     durationCourse:String,
     members:[String] ,
     image:String,
-    subjects:[String]
+    subjects:[String],
+    level:String,
+    language:String,
   }
 })
 

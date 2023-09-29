@@ -1,14 +1,29 @@
 import style from './CoursesSection.module.scss'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Pagination from "../../Utility/Pagination/Pagination.jsx";
 import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
 import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
+import {Course} from "../../ApiRequests/Courses/Courses.js";
+import {useDispatch, useSelector} from "react-redux";
+import {getCoursesAC} from "../../Redux/Courses/coursesAC.js";
+import {countryFlag} from "../../Utility/CoutryFlag/CountryFlag.js";
 
 const CoursesSection = () => {
 
   const [searchValue, setSearchValue] = useState("")
   const test = [1, 2, 3, 4, 5, 6, 7, 8]
+
+  const dispatch = useDispatch()
+
+  const courses = useSelector((state) => state.courses)
+
+  useEffect(() => {
+    Course.getCourses().then(res => dispatch(getCoursesAC(res.data.courses)))
+  }, [])
+
+
+
   return (
     <div className={style.container}>
 
@@ -26,14 +41,14 @@ const CoursesSection = () => {
         </div>
       </div>
       <div className={style.coursesWrapper}>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
-        <CoursesBlock></CoursesBlock>
+        {courses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+                                             language={course.course.language}
+                                             courseTitle={course.course.name}
+                                             date={{startDate:course.course.startCourse, finishDate:course.course.finishCourse}}
+                                             members={course.course.members} teacher={course.teacher} level={course.course.level}
+
+
+        ></CoursesBlock>)}
       </div>
     </div>
   );

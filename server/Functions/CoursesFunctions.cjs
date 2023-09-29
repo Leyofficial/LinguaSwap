@@ -58,7 +58,7 @@ exports.getCourse = async (req, res) => {
   } else {
     res.status(400).json({
       status: "Clear",
-      message: "Course was not found"
+      message: "Courses was not found"
     })
   }
 

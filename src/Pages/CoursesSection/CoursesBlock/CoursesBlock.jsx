@@ -1,39 +1,39 @@
 import style from './CoursesBlock.module.scss'
-import courseImage from '../../../images/joinImage.png'
-import {AiOutlineClockCircle} from "react-icons/ai";
-import {PiStudentFill} from "react-icons/pi";
-import CustomButton from "../../../Utility/CustomButton/CustomButton.jsx";
-import {NavLink} from "react-router-dom";
-import {BiCheckDouble} from "react-icons/bi";
+import {dateOfCourse} from "../../../Utility/CoutryFlag/DateOfCourse/dateOfCourse.js";
+import memberImage from '../../../images/member.png';
+import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
+import {BsFillCalendarCheckFill, BsFillCalendarXFill} from "react-icons/bs";
 
-const CoursesBlock = () => {
+const CoursesBlock = (props) => {
+
+  const membersDefault = [1,2,3]
+
+  const {flag,language,courseTitle,date,members,teacher,level} = props
+
+  console.log(date.startDate)
   return (
-    <div className={style.container}>
+
+    <div className={style.container} style={{background:`url(${flag})`}}>
       <div className={style.imageWrapper}>
-        <img alt={'course'} src={courseImage}/>
+        <h3>{language} <span className={style.text}>with</span> <span className={style.name}>{teacher.name}</span></h3>
       </div>
       <div className={style.wrapper}>
         <div className={style.titleWrapper}>
-          <span>Information course</span>
-          <p>ISO/IEC 27001 - Dynamics of Information Security Management System (ISMS)</p>
+          <h3>{courseTitle}</h3>
         </div>
-        <div className={style.hours}>
-          <p className={style.hour}><AiOutlineClockCircle/>2-3 hrs</p>
-          <p className={style.learners}><PiStudentFill></PiStudentFill>33,768 learners</p>
+        <div className={style.members}>
+          {/*{members.length < 1 ? 'members' : members}*/}
+          {membersDefault.map(member => <img src={memberImage}/>)}
         </div>
         <div className={style.infoWrapper}>
-          <h3>You Will Learn How To</h3>
-          <ul>
-            <li><BiCheckDouble/>Demonstrate the business case for information security</li>
-            <li><BiCheckDouble/>Demonstrate the business case for information security</li>
-            <li><BiCheckDouble/>Demonstrate the business case for information security</li>
-            <li><BiCheckDouble/>Demonstrate the business case for information security</li>
-            <li><BiCheckDouble/>Demonstrate the business case for information security</li>
-          </ul>
+          <p style={levelEducation(level)}>{level}</p>
+          <div className={style.wrapperLevel}>
+            {dateOfCourse(date.startDate) ? <BsFillCalendarCheckFill/> : <BsFillCalendarXFill/> }
+            <div>{dateOfCourse(date.startDate) ? <p className={style.start}>{date.startDate}</p> : <p className={style.finish}>{date.finishDate}</p>}</div>
+          </div>
+          {/*<div>{dateOfCourse(date.startDate) ? <p className={style.start}>{date.startDate}</p> : <p className={style.finish}><BsFillCalendarXFill/>{date.finishDate}</p>}</div>*/}
         </div>
         <div className={style.buttons}>
-          <NavLink className={style.moreInfo} to={'#'}>More Info</NavLink>
-          <NavLink className={style.startLearn} to={'#'}>Start Learning</NavLink>
         </div>
       </div>
     </div>

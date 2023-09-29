@@ -8,6 +8,7 @@ import { hashInputEmptyReducer } from "./Profile/Inputs/hash/hashInputEmptyReduc
 import {setStatusReducer} from "./Profile/Status/setStatusReducer.js";
 import {setLanguagesKnowReducer} from "./Profile/Languages/languagesKnow/setLanguagesKnowReducer.js";
 import {setLanguagesLearnReducer} from "./Profile/Languages/languagesLearn/setLanguagesLearnReducer.js";
+import coursesReducer from "./Courses/coursesReducer.js";
 
 
 export default (combineReducers)({
@@ -20,4 +21,5 @@ export default (combineReducers)({
     status : setStatusReducer,
     languagesKnow : setLanguagesKnowReducer,
     languagesLearn : setLanguagesLearnReducer,
+    courses:coursesReducer,
 }) 
