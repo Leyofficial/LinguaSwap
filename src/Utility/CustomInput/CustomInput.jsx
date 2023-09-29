@@ -23,15 +23,18 @@ const CustomInput = (props) => {
     <div className={style.container}>
       <div className={style.wrapperContainer}></div>
       <div className={style['wave-group']} style={{ width: width }}>
-        <input
-          onChange={handleChange}
-          value={value}
-          style={{ width: width }}
-          placeholder={placeholder}
-          required=""
-          type="text"
-          className={style.input}
-        />
+        <div  className={style.inputWrapper}>
+          <input
+              onChange={handleChange}
+              value={value}
+              style={{ width: width }}
+              placeholder={placeholder}
+              required=""
+              type="text"
+              className={style.input}
+          />
+          {props.necessarily ? <b className={style.necessarily}>*</b> : null}
+        </div>
         <span className={style.bar} style={{ width: width }}></span>
         <label className={style.label} style={{ width: width }}></label>
       </div>
