@@ -1,11 +1,9 @@
 import {useDropzone} from 'react-dropzone';
 import style from './InputImage.module.scss'
 import {Avatar} from "@mui/material";
-import {useSelector} from "react-redux";
 import {stringAvatar} from "../AvatarColor/Avatar.js";
 
-export const ImageInput = () => {
-    const firstLetterName = useSelector((state) => state.name)
+export const ImageInput = ({ avatarText }) => {
     const {getRootProps, getInputProps, acceptedFiles} = useDropzone();
 
     const files = acceptedFiles.map(file => (
@@ -17,7 +15,7 @@ export const ImageInput = () => {
 
     return (
         <div className={style.dragBlock}>
-            <div>{files.length > 0 ? files : <Avatar  {...stringAvatar(firstLetterName)} ></Avatar> }</div>
+            <div>{files.length > 0 ? files : <Avatar  {...stringAvatar(avatarText)} ></Avatar> }</div>
             <div {...getRootProps()}>
                 <label>
                     JPG or PNG file:</label>
