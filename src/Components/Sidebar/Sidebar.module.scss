@@ -38,13 +38,27 @@
     opacity: 0;
   }
 }
-.sidebarItems {
+.sidebarItem {
+  p {
+    transition: 0.2s linear ;
+  }
+  padding: 0.4rem 0.9rem;
+}
+.itemIcon {
+  transition: 1s ease;
+}
+
+.activeSideBarLink {
+  background-color: dodgerblue;
+}
+.sidebarItemBlock {
   li {
     gap: 15px;
     display: flex;
     align-items: center;
   }
   a {
+    transition: .4s ease;
     color: white;
     border-radius: 10px;
     cursor: pointer;
@@ -61,15 +75,5 @@
   flex-direction: column;
   -webkit-box-align: center;
   align-items: center;
-  border-bottom: 1px solid grey;
-  padding-bottom: 50px;
-}
-.sidebarItem {
-  p {
-    transition: 0.2s linear ;
-  }
-  padding: 0.4rem 0.9rem;
-}
-.itemIcon {
-  transition: 1s ease;
+  margin-bottom: 20px;
 }

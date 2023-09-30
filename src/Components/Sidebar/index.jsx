@@ -8,6 +8,7 @@ import info from "./../../img/icons/info.png";
 import teacher from "./../../img/icons/teacher.png";
 import back from "./../../img/icons/back.png";
 import forward from "./../../img/icons/back-2.png";
+import courses from "./../../img/icons/elearning-2.png"
 
 import style from "./Sidebar.module.scss";
 import "../../App.css";
@@ -16,6 +17,11 @@ import "../../App.css";
 const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const manuItems = [
+    {
+      path: "/",
+      icon: courses,
+      name: "Courses",
+    },
     {
       path: "/findteacher",
       icon: teacher,
@@ -29,7 +35,7 @@ const Sidebar = () => {
     {
       path: "/services",
       icon: gear,
-      name: "Servises",
+      name: "Profile",
     },
     {
       path: "/aboutus",
@@ -37,16 +43,14 @@ const Sidebar = () => {
       name: "About us",
     },
   ];
+
   return (
-    
-    // font-size: 16px;
-    // line-height: 140%;
     <div
       style={sidebarOpen ? { width: "15rem" } : { width: "5rem" }}
       className={style.sidebarContainer}
     >
       <div className={style.titleBlock} style={sidebarOpen ? { flexDirection : 'unset'  } : { flexDirection : 'column'  }}>
-        <Link style={sidebarOpen ? { opacity : '1' , position : 'unset', pointerEvents: 'all'   } : { opacity : '0'  , position : 'absolute' , pointerEvents: 'none'   }} >
+        <Link to={'/'} style={sidebarOpen ? { opacity : '1' , position : 'unset', pointerEvents: 'all'   } : { opacity : '0'  , position : 'absolute' , pointerEvents: 'none'   }} >
           <p>
             Lin<span>gua</span>
           </p>
@@ -55,14 +59,16 @@ const Sidebar = () => {
           className={style.btnArrow}
           onClick={() => setSidebarOpen((prev) => !prev)}
         >
-          <img style={{maxWidth : '1.5rem'}}src={sidebarOpen ? back : forward} alt="" />
+          <img style={{maxWidth : '1.5rem'}} src={sidebarOpen ? back : forward} alt="" />
         </button>
       </div>
       <div className={style.sidebarWrapper}>
         <ul className={style.sidebarItems} >
           {manuItems.map((item) => {
             return (
-              <NavLink
+                <div className={style.sidebarItemBlock}>
+                  <NavLink
+                className={({isActive}) => isActive ? style.activeSideBarLink : '' }
                 style={sidebarOpen ? { width: "100%" } : { width: "3rem" }}
                 to={item.path}
               >
@@ -75,8 +81,6 @@ const Sidebar = () => {
                   }
                 >
                 <img src={item.icon} style={{maxWidth : '30px'}} className={style.itemIcon}  alt="" />
-                  
-                
                   <p
                     style={
                       sidebarOpen ? {opacity : '1' , position : 'unset' ,  pointerEvents : 'all'  } : {  opacity : '0'  , position : 'absolute' , pointerEvents : 'none' }
@@ -84,8 +88,9 @@ const Sidebar = () => {
                   >
                     {item.name}
                   </p>
-                </li>{" "}
+                </li>
               </NavLink>
+                </div>
             );
           })}
         </ul>
