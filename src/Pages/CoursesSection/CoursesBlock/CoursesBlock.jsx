@@ -3,6 +3,7 @@ import {dateOfCourse} from "../../../Utility/CoutryFlag/DateOfCourse/dateOfCours
 import memberImage from '../../../images/member.png';
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import {BsFillCalendarCheckFill, BsFillCalendarXFill} from "react-icons/bs";
+import author from '../../../images/writer.png'
 
 const CoursesBlock = (props) => {
 
@@ -13,9 +14,11 @@ const CoursesBlock = (props) => {
   console.log(date.startDate)
   return (
 
-    <div className={style.container} style={{background:`url(${flag})`}}>
+    <div className={style.container}>
+      <div className={style.containerWrapper}>
       <div className={style.imageWrapper}>
-        <h3>{language} <span className={style.text}>with</span> <span className={style.name}>{teacher.name}</span></h3>
+        <h3>{language}</h3>
+        <img src={flag} alt={'flag'}/>
       </div>
       <div className={style.wrapper}>
         <div className={style.titleWrapper}>
@@ -28,13 +31,15 @@ const CoursesBlock = (props) => {
         <div className={style.infoWrapper}>
           <p style={levelEducation(level)}>{level}</p>
           <div className={style.wrapperLevel}>
-            {dateOfCourse(date.startDate) ? <BsFillCalendarCheckFill/> : <BsFillCalendarXFill/> }
-            <div>{dateOfCourse(date.startDate) ? <p className={style.start}>{date.startDate}</p> : <p className={style.finish}>{date.finishDate}</p>}</div>
+            <div>{dateOfCourse(date.startDate) ? <p className={style.start}><BsFillCalendarCheckFill/>{date.startDate}</p> : <p className={style.finish}><BsFillCalendarXFill/>{date.finishDate}</p>}</div>
           </div>
           {/*<div>{dateOfCourse(date.startDate) ? <p className={style.start}>{date.startDate}</p> : <p className={style.finish}><BsFillCalendarXFill/>{date.finishDate}</p>}</div>*/}
         </div>
-        <div className={style.buttons}>
+        <div className={style.author}>
+          <img src={author} alt={'teacher'}/>
+          <p>{teacher.name}</p>
         </div>
+      </div>
       </div>
     </div>
   );

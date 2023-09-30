@@ -7,18 +7,32 @@
   background-position: center !important;
   object-fit: contain;
   color: #ffffff;
-  box-shadow: rgba(0, 0, 0, 0.8) 171px 165px 69px 165px inset, rgba(0, 0, 0, 0.65) 0px 18px 36px -18px inset;
-  border-radius: 15px;
   cursor: pointer;
+  background-image: linear-gradient(163deg, rgba(18, 181, 203, 0.76) 0%, #0ec44e 100%);
+  border-radius: 10px;
+  transition: all 0.5s;
+  position: relative;
+}
+.container .containerWrapper {
+  border-radius: 10px;
+  height: 20rem;
+  width: 20rem;
+  background-color: #1a1a1a;
+  transition: all 0.5s;
+}
+.container .containerWrapper:hover {
+  transform: scale(0.98);
+  border-radius: 20px;
 }
 .container .imageWrapper {
   padding: 10px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid rgba(9, 145, 229, 0.24);
+  border-bottom: 2px solid rgba(180, 180, 180, 0.09);
 }
 .container .imageWrapper img {
-  max-width: 60px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
 }
 .container .imageWrapper h3 {
@@ -38,10 +52,14 @@
 .container .wrapper {
   padding: 10px;
 }
+.container .wrapper .titleWrapper {
+  overflow: hidden;
+  height: 50px;
+}
 .container .wrapper .titleWrapper h3 {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bolder;
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(131, 201, 218, 0.67);
 }
 .container .wrapper .members {
   padding-top: 5px;
@@ -51,11 +69,13 @@
   border-radius: 50%;
 }
 .container .infoWrapper {
+  padding-top: 2vh;
   display: flex;
   justify-content: space-between;
 }
 .container .infoWrapper p {
-  padding: 5px 25px;
+  text-align: center;
+  padding: 5px 20px;
   border-radius: 5px;
 }
 .container .infoWrapper .start {
@@ -68,8 +88,36 @@
   display: flex;
   align-items: center;
 }
+.container .infoWrapper .wrapperLevel div p {
+  display: flex;
+  align-items: center;
+}
 .container .infoWrapper .wrapperLevel svg {
   font-size: 20px;
+  padding-right: 3px;
+}
+.container:hover {
+  box-shadow: 0px 0px 30px 1px rgba(7, 221, 227, 0.42);
+  border-radius: 20px;
+}
+.container .author {
+  border-top: 1px solid rgba(180, 180, 180, 0.09);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  bottom: 0;
+  width: 90%;
+  left: 15px;
+  padding-top: 10px;
+}
+.container .author img {
+  max-width: 40px;
+}
+.container .author p {
+  padding: 10px 30px;
+  margin-left: 4vh;
 }
 
 /*# sourceMappingURL=CoursesBlock.module.css.map */
