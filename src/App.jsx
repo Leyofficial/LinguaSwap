@@ -9,6 +9,7 @@ import {useSelector} from "react-redux";
 import CreateProfile from "./Pages/CreateProfilePage/index"
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
+import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
 
 
 function App() {
@@ -24,16 +25,18 @@ function App() {
            <Route path={'/'} element={<Layout layoutType={'home'}/>}>
              <Route index={true} element={<HomePage/>}></Route>
              <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
+             <Route path={"*"} element={<ErrorUrl/>} />
            </Route>
          </Routes>
 
         :
         <Routes>
           <Route path={"/"} element={<Layout layoutType={'main'}/>}>
+            <Route index={true} element={ <CoursesSection/>}></Route>
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
             <Route path={"/createprofile"} element={<CreateProfile/>} />
-            <Route index={true} element={ <CoursesSection/>}></Route>
+            <Route path={"*"} element={<ErrorUrl/>} />
           </Route>
         </Routes>}
     </>
