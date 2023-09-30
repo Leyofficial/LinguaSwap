@@ -54,7 +54,15 @@ function TeacherRegister() {
       setFormValid(true)
     }
 
-  }, [emailError, passwordError])
+    if(userValue.password === userValue.confirmPassword) {
+      setConfirmError('');
+      setConfirmShow(true);
+    }else {
+      setConfirmError('*** Пароли не совпадают!! ***');
+      setConfirmShow(false);
+    }
+
+  }, [emailError, passwordError, userValue]);
 
   const submitPostData = e => {
     // e.preventDefault();
@@ -104,13 +112,7 @@ function TeacherRegister() {
       }  
     }
 
-    if(userValue.password === userValue.confirmPassword) {
-      setConfirmError('');
-      setConfirmShow(true);
-    }else {
-      setConfirmError('*** Пароли не совпадают!! ***');
-      setConfirmShow(false);
-    }
+    
    
   }
 

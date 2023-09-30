@@ -9,6 +9,7 @@ import CreateProfile from "./Pages/CreateProfilePage/index"
 
 
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
+import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 
 
 
@@ -41,6 +42,7 @@ function App() {
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
             <Route path={"/createprofile"} element={<CreateProfile/>} />
+            <Route index={true} element={ <CoursesSection/>}></Route>
           </Route>
           
         </Routes> 

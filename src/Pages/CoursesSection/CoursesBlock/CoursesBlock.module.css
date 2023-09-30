@@ -1,0 +1,134 @@
+.container {
+  position: relative;
+  width: 30vh;
+  height: 400px;
+  background-color: rgba(78, 167, 224, 0.15);
+  margin: 0 20px 10px;
+  border-radius: 5px;
+}
+.container .wrapper {
+  padding: 10px;
+}
+.container .wrapper .titleWrapper span {
+  color: rgba(0, 0, 0, 0.51);
+  font-family: Candara;
+  letter-spacing: 0.8px;
+  padding-bottom: 20px;
+  display: block;
+}
+.container .wrapper .titleWrapper p {
+  font-weight: bolder;
+  color: rgba(53, 126, 140, 0.45);
+  font-size: 15px;
+}
+.container .wrapper .hours {
+  padding-top: 20px;
+  margin-bottom: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+}
+.container .wrapper .hours .hour {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.container .wrapper .hours .hour svg {
+  font-size: 25px;
+  color: rgba(57, 116, 152, 0.6);
+  padding-right: 5px;
+}
+.container .wrapper .hours .learners {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.container .wrapper .hours .learners svg {
+  padding-right: 5px;
+  font-size: 25px;
+  color: rgba(57, 116, 152, 0.6);
+}
+.container .imageWrapper img {
+  border-radius: 5px 5px 0 0;
+}
+.container .infoWrapper {
+  display: none;
+  opacity: 0;
+  transition: 1s;
+  overflow: hidden;
+  height: 100%;
+}
+.container:hover .imageWrapper {
+  display: none;
+}
+.container:hover .infoWrapper {
+  padding-top: 15px;
+  display: block;
+  opacity: 1;
+  transition: 1s;
+  overflow: hidden;
+  height: 22vh;
+  border-top: 1px solid rgba(28, 153, 178, 0.22);
+}
+.container:hover .infoWrapper h3 {
+  font-weight: 600;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.68);
+  padding-bottom: 5px;
+}
+.container:hover .infoWrapper ul li {
+  padding: 5px 0;
+  color: rgba(1, 26, 40, 0.47);
+  font-size: 14px;
+  display: flex;
+}
+.container:hover .infoWrapper ul li svg {
+  font-size: 25px !important;
+  color: rgba(42, 142, 180, 0.4) !important;
+  margin-right: 5px;
+}
+.container:hover .hours {
+  margin-bottom: 5px;
+  padding-top: 5px;
+}
+.container .buttons {
+  display: flex;
+  position: absolute;
+  margin-bottom: 10px;
+  bottom: 0;
+  width: 100%;
+}
+.container .buttons .moreInfo {
+  color: rgba(39, 89, 194, 0.43);
+  border: 2px solid rgba(46, 133, 201, 0.24);
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  width: 40%;
+}
+.container .buttons .moreInfo:hover {
+  border: 2px solid rgba(3, 45, 141, 0.65);
+  transition: 0.5s ease-in-out;
+  color: rgba(3, 45, 141, 0.65);
+}
+.container .buttons .startLearn {
+  margin-left: 3px;
+  width: 50%;
+  background-color: rgba(48, 117, 194, 0.48);
+  border-radius: 5px;
+  padding: 10px;
+  letter-spacing: 1px;
+  transition: 1s;
+}
+.container .buttons .startLearn:hover {
+  background-color: rgba(82, 150, 229, 0.35);
+  transition: 1s;
+  color: rgba(10, 10, 10, 0.33);
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=CoursesBlock.module.css.map */
