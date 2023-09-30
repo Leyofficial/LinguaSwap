@@ -30,7 +30,7 @@ const StepOne = (props) => {
                             <TextArea/>
                         </div>
                         <div
-                            onClick={() => errorToaster("Поля ввода не должны быть пустыми!")}
+                            onClick={() => errorToaster("Input fields must not be empty!")}
                             className={style.buttonOne}
                         >
                             {dirtyName || dirtyHash ? (

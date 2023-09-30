@@ -39,9 +39,8 @@ export function  Inputs () {
                 width={"44%"}
                 placeholder={"Type your name"}
             />
-            {dirtyName ? <p className={style.warningMessage}><b>Поле ввода не должно быть пустым или
-                меньше <br/>
-                двух символов..</b></p> : null}
+            {dirtyName ? <p className={style.warningMessage}><b>The input field must not be empty or less<br/>
+                two characters..</b></p> : null}
 
             <div className={style.hashBlock}>
                 <FaHashtag className={style.hashImg}/>
@@ -54,10 +53,8 @@ export function  Inputs () {
                     heg={true}
                 />
             </div>
-            {dirtyHash ?
-                <p className={style.warningMessage}><b>Поле ввода не должно быть пустым или
-                    меньше <br/>
-                    двух символов..</b></p> : null}
+            {dirtyHash ? <p className={style.warningMessage}><b>The input field must not be empty or less<br/>
+                two characters..</b></p> : null}
         </>
     )
 }

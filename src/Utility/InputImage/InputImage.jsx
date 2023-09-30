@@ -19,9 +19,10 @@ export const ImageInput = () => {
         <div className={style.dragBlock}>
             <div>{files.length > 0 ? files : <Avatar  {...stringAvatar(firstLetterName)} ></Avatar> }</div>
             <div {...getRootProps()}>
-                <label>Файл JPG или PNG:</label>
+                <label>
+                    JPG or PNG file:</label>
                 <input {...getInputProps()} type="file"  accept=".jpg, .png"/>
-                <p className={style.dragButton}>Перетащите файлы сюда или нажмите для выбора файлов.</p>
+                <p className={style.dragButton}>Drag files here or click to select files.</p>
             </div>
         </div>
     );
