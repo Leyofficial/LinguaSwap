@@ -129,6 +129,15 @@
 .imageWrapper .wrapper:hover svg {
   color: rgba(6, 34, 63, 0.62);
 }
+.imageWrapper .wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.imageWrapper .wrapper .hiddenSvg {
+  display: none;
+}
 
 .wrapperDate {
   margin-top: 5vh;

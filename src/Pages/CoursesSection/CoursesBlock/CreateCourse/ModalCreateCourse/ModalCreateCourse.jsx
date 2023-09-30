@@ -5,6 +5,7 @@ import CourseSelect from "./CourseSelect/CourseSelect.jsx";
 import style from './ModalCreateCourse.module.scss'
 import {BsImages, BsPlusSquareDotted} from "react-icons/bs";
 import {Course} from "../../../../../ApiRequests/Courses/Courses.js";
+import {levelEducation} from "../../../../../Utility/CoutryFlag/LevelEducation.js";
 
 
 const styleModal = {
@@ -69,7 +70,7 @@ const ModalCreateCourse = () => {
     const data = {
       teacher: {
         id: 'default',
-        name: 'default'
+        name: 'Tamara Vasilyevna'
       },
       course: {
         name: courseName,
@@ -78,7 +79,9 @@ const ModalCreateCourse = () => {
         durationCourse: timesCourse,
         members: [],
         image: courseImage,
-        subjects: topics
+        subjects: topics,
+        level:levelListSelect,
+        language:language
       }
     }
     Course.create(data).then(res => {
@@ -157,11 +160,11 @@ const ModalCreateCourse = () => {
               <div className={style.imageWrapper}>
                 <label htmlFor={'image'}>Image</label>
                 <div className={style.wrapper} onClick={handleClickOpenInputFile}>
-                  <BsImages></BsImages>
+                  <BsImages className={courseImage ? style.hiddenSvg : null}></BsImages>
                   <input name={'image'} ref={fileInputRef} type={'file'}
                          onChange={(e) => handleImage(e.target.files[0])}/>
 
-                  <img src={courseImage}/>
+                  {courseImage ? <img src={courseImage} alt={'course image'}/> : null }
                 </div>
 
               </div>

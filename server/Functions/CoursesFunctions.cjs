@@ -12,7 +12,9 @@ console.log(req.body.data.course)
       members: req.body.data.course.members,
       name: req.body.data.course.name,
       startCourse: req.body.data.course.startCourse,
-      subjects: req.body.data.course.subjects
+      subjects: req.body.data.course.subjects,
+      level:req.body.data.course.level,
+      language:req.body.data.course.language
     }
   })
   try {

@@ -11,7 +11,6 @@ const CoursesBlock = (props) => {
 
   const {flag,language,courseTitle,date,members,teacher,level} = props
 
-  console.log(date.startDate)
   return (
 
     <div className={style.container}>

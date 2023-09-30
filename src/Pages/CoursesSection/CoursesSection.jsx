@@ -22,11 +22,10 @@ const CoursesSection = () => {
     Course.getCourses().then(res => dispatch(getCoursesAC(res.data.courses)))
   }, [])
 
-
+  // courses.length = 6
 
   return (
     <div className={style.container}>
-
       <div className={style.searchWrapper}>
         <SearchInput value={searchValue} callback={setSearchValue} placeholder={'Courses'}></SearchInput>
         <Pagination test={test}></Pagination>

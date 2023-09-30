@@ -1,4 +1,4 @@
-import england from '../../images/Flags/england.png'
+import england from '../../images/Flags/GreatBritan.png'
 import turkish from '../../images/Flags/Turkish.png'
 import germany from '../../images/Flags/Germany.png'
 import poland from '../../images/Flags/poland.png'
