@@ -9,5 +9,6 @@ export const initialState = {
   hashDirty : true,
   languagesKnow : [],
   languagesLearn : [],
-  courses:[]
+  courses:[],
+  loginUser:null,
 }
