@@ -1,0 +1,16 @@
+.warningMessage {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.hashBlock {
+  gap: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.hashImg {
+  margin-bottom: 9px;
+}
+
+/*# sourceMappingURL=Inputs.module.css.map */
