@@ -1,0 +1,14 @@
+.container {
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.points {
+  text-align: center;
+}
+
+button {
+  border: none;
+}
+
+/*# sourceMappingURL=CreateProfile.module.css.map */

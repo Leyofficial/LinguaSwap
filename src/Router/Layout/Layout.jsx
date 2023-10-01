@@ -1,15 +1,13 @@
-import { Outlet } from "react-router-dom";
+import MainLayout from "./MainLayout/MainLayout.jsx";
+import HomeLayout from "./HomeLayout/HomeLayout.jsx";
 
-const Layout = () => {
+const Layout = (props) => {
+
+  const {layoutType} = props
   return (
-    <div>
-      <header>Hello</header>
-      <aside>H@</aside>
-      <main>
-      <Outlet></Outlet>
-      </main>
-    </div>
-  );
-};
+    <>
+      {layoutType === 'main' ? <MainLayout/> : <HomeLayout/>}
+    </>)
+}
 
 export default Layout;

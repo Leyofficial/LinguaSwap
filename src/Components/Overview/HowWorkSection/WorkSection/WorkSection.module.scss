@@ -1,0 +1,47 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+
+  .wrapperCount {
+    padding-right: 20px;
+    p {
+      padding: 15px;
+      border-radius: 32px 15px;
+      font-size: 30px;
+      color: rgba(6, 164, 199, 0.53);
+      background-color: rgba(30, 144, 255, 0.11);
+    }
+  }
+
+  .wrapperImages {
+    position: relative;
+
+    .wrapperImageItems {
+      img {
+        max-width: 300px;
+        border-radius: 10px;
+      }
+    }
+  }
+  .wrapperText{
+    display: flex;
+  }
+  .containerInfo{
+    .title{
+      font-size: 20px;
+      font-weight: 900;
+      color: rgba(25, 70, 224, 0.73);
+      letter-spacing: 0.8px;
+    }
+    .text{
+      padding-top: 3vh;
+      font-family: Inter;
+      max-width: 500px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      color: rgba(0, 0, 0, 0.64);
+    }
+  }
+}

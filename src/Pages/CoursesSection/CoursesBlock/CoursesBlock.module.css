@@ -1,0 +1,207 @@
+.container {
+  margin: 20px;
+  height: 37rem;
+  width: 25%;
+  cursor: pointer;
+  background-image: linear-gradient(163deg, rgba(31, 172, 192, 0.13) 0%, rgba(20, 162, 220, 0.3) 100%);
+  border-radius: 10px;
+  transition: all 0.5s;
+  position: relative;
+}
+.container .containerWrapper {
+  border-radius: 10px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.45);
+  transition: all 0.5s;
+}
+.container .containerWrapper:hover {
+  border-radius: 20px;
+}
+.container .containerWrapper .courseHeader {
+  width: 100%;
+  position: relative;
+}
+.container .containerWrapper .courseHeader img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+.container .containerWrapper .courseHeader .language {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.container .containerWrapper .courseHeader .language p {
+  color: rgba(0, 0, 0, 0.53);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.container .containerWrapper .authorWrapper {
+  position: absolute;
+  top: 170px;
+  left: 20px;
+}
+.container .containerWrapper .authorWrapper img {
+  max-width: 70px;
+  border-radius: 5px;
+  border: 1px solid rgba(252, 248, 252, 0.6);
+}
+.container .containerWrapper .nameOfAuthor {
+  padding-left: 12vh;
+  padding-top: 8px;
+}
+.container .containerWrapper .nameOfAuthor p {
+  color: rgba(0, 0, 0, 0.68);
+  font-weight: bold;
+  max-width: 200px;
+  font-size: 13px;
+  height: 20px;
+  overflow: hidden;
+}
+.container .imageWrapper {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid rgba(22, 166, 189, 0.11);
+}
+.container .imageWrapper img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+.container .imageWrapper h3 {
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.67);
+  font-size: 17px;
+}
+.container .wrapper {
+  padding: 20px;
+  margin-top: 5px;
+}
+.container .wrapper .titleWrapper {
+  height: 35px;
+  overflow: hidden;
+  margin-bottom: 1.9vh;
+}
+.container .wrapper .titleWrapper h3 {
+  font-size: 16px;
+  font-weight: bolder;
+  color: rgba(0, 0, 0, 0.9);
+}
+.container .wrapper .members {
+  padding: 15px 5px;
+}
+.container .wrapper .members img {
+  max-width: 50px;
+  border-radius: 50%;
+}
+.container .wrapper .members div span {
+  border: none !important;
+}
+.container .infoWrapper {
+  padding-top: 2vh;
+  display: flex;
+  justify-content: space-between;
+}
+.container .infoWrapper p {
+  text-align: center;
+  padding: 10px 10px;
+  border-radius: 5px;
+}
+.container .infoWrapper .start {
+  background-color: rgba(21, 173, 49, 0.44);
+}
+.container .infoWrapper .finish {
+  background-color: rgba(173, 21, 39, 0.57);
+}
+.container .wrapperLevel {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.container .wrapperLevel div {
+  width: 100%;
+}
+.container .wrapperLevel div p {
+  font-size: 15px;
+}
+.container .wrapperLevel svg {
+  font-size: 20px;
+  padding-right: 5px;
+}
+.container .wrapperLevel .startDate {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: rgba(10, 119, 119, 0.6);
+}
+.container .wrapperLevel .startDate span {
+  color: rgba(3, 3, 3, 0.73);
+  font-weight: normal;
+}
+.container .wrapperLevel .startDate .icon {
+  display: flex;
+  align-items: center;
+  color: #070707;
+}
+.container .wrapperLevel .startDate .icon svg {
+  font-size: 30px;
+}
+.container .wrapperLevel .finishDate {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(10, 119, 119, 0.6);
+  font-weight: bold;
+}
+.container .wrapperLevel .finishDate span {
+  color: rgba(3, 3, 3, 0.73);
+  font-weight: normal;
+}
+.container .wrapperLevel .finishDate .icon {
+  display: flex;
+  align-items: center;
+  color: #070707;
+}
+.container .wrapperLevel .finishDate .icon svg {
+  font-size: 30px;
+}
+.container:hover {
+  box-shadow: 0px 0px 30px 1px rgba(48, 50, 51, 0.42);
+  border-radius: 20px;
+}
+.container:hover .author {
+  border-radius: 0 0 20px 20px;
+  transition: 1s all;
+}
+.container .author {
+  transition: 1s all;
+  border-top: 1px solid rgba(180, 180, 180, 0.09);
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-radius: 5px;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding-top: 5px;
+  background: rgba(21, 186, 206, 0.25); /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(13, 167, 185, 0.21), rgba(9, 193, 220, 0.14)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(13, 89, 143, 0.5), rgba(16, 200, 239, 0.14)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.container .author img {
+  max-width: 40px;
+}
+.container .author p {
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px 30px;
+}
+
+/*# sourceMappingURL=CoursesBlock.module.css.map */

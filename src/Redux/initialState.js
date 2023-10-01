@@ -1,3 +1,13 @@
 export const initialState = {
-   mainData:null
+  isStart: true,
+  name: '',
+  userTag : '',
+  bio : '',
+  photo : '',
+  status : '',
+  nameDirty : true,
+  hashDirty : true,
+  languagesKnow : [],
+  languagesLearn : [],
+  courses:[]
 }

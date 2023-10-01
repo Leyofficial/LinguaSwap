@@ -1,0 +1,39 @@
+.dragButton {
+  padding: 35px;
+  border-radius: 15px;
+  border: 3px dotted gray;
+  width: 25rem;
+  margin: 15px 0;
+}
+.dragCancel {
+  z-index: 2;
+  border: none;
+  background-color: transparent;
+  transition: .4s ease;
+  left: 73px;
+  position: absolute;
+  opacity: 0;
+  top: 75px;
+}
+.avatar {
+  z-index: 1;
+  transition: .4s ease;
+  opacity: 1;
+}
+.dragBlock {
+  flex-wrap: wrap;
+  gap: 50px;
+  align-items: center;
+  display: flex;
+}
+.avatarBlock {
+  position: relative;
+  &:hover {
+    .avatar {
+      opacity: 0;
+    }
+    .dragCancel {
+      opacity: 1;
+    }
+  }
+}

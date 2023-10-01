@@ -1,0 +1,37 @@
+.item {
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  border-radius: 5px 15px;
+  outline: none;
+  color: rgba(14, 101, 185, 0.62);
+  font-size: 17px;
+
+  &::placeholder {
+    color: rgba(2, 2, 2, 0.48);
+  }
+}
+
+.textarea {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px 15px;
+  padding: 5px;
+  color: rgba(10, 83, 157, 0.56);
+  letter-spacing: 1px;
+  font-size: 16px;
+  resize: none;
+}
+
+.container {
+  margin: 10px 0;
+  label {
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(6, 88, 128, 0.3);
+  }
+}

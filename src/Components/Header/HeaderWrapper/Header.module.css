@@ -1,0 +1,38 @@
+.header {
+  z-index: 5;
+  margin: 0 auto 50px;
+  padding: 15px 25px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: #1f1d2b;
+}
+
+.headerInner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navList {
+  display: flex;
+  gap: 15px;
+}
+.navList li a {
+  transition: 1s all;
+}
+.navList li a:hover {
+  color: dodgerblue;
+}
+
+.iconBlock {
+  gap: 9px;
+  align-items: center;
+  display: flex;
+}
+.iconBlock a {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}/*# sourceMappingURL=Header.module.css.map */

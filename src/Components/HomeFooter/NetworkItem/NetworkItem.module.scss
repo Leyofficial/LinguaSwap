@@ -1,0 +1,14 @@
+.item{
+  svg{
+    font-size: 60px;
+    color: rgba(126, 173, 206, 0.52);
+    background-color: white;
+    padding:10px;
+    margin: 0 5px;
+    border-radius: 15px;
+    cursor: pointer;
+    &:hover{
+      background-color: rgba(30, 144, 255, 0.22);
+    }
+  }
+}

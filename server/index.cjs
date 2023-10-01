@@ -6,12 +6,15 @@ const PORT = process.env.PORT || 3000
 const helmet = require("helmet");
 const http = require('http')
 const ErrorHandler = require("./APIFeatures/ErrorHandler.cjs");
-
+const fileUpload = require("express-fileupload")
 const server = http.createServer(app);
+const multer = require('multer')
+const upload = require('./APIFeatures/fileController.cjs')
+const path = require('path')
 
 
+app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 app.use(cors());
-
 app.options("*", cors());
 app.use(helmet());
 app.use(express.json())
@@ -27,9 +30,11 @@ mongoose.connect("mongodb+srv://temcenkovova8:brFMAZAjzkX4ighR@cluster0.4dgfzzn.
 
 const languageRouter = require('./Routers/LanguageRouter.cjs')
 const authRouter = require('./Routers/AuthorizationRouter.cjs')
+const coursesRouter = require('./Routers/CoursesRouter.cjs')
 
 app.use('/languages', languageRouter)
 app.use('/authorization', authRouter)
+app.use('/courses',coursesRouter)
 
 app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
