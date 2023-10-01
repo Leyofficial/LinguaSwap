@@ -1,40 +1,37 @@
 .container {
-  margin: 5px;
+  margin: 10px;
   height: 24rem;
-  width: 20rem;
+  width: 21%;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
   object-fit: contain;
   color: #ffffff;
-  //box-shadow: rgba(0, 0, 0, 0.8) 171px 165px 69px 165px inset, rgba(0, 0, 0, 0.65) 0px 18px 36px -18px inset;
   cursor: pointer;
   background-image: linear-gradient(163deg, rgba(18, 181, 203, 0.76) 0%, #0ec44e 100%);
-  //padding: 15px;
   border-radius: 10px;
   transition: all 0.5s;
   position: relative;
-  .containerWrapper{
-    padding: 15px;
+
+  .containerWrapper {
+    //padding: 15px;
     border-radius: 10px;
-    height: 24rem;
-    width: 20rem;
-    background: rgba(0, 0, 0, 0.14);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #434343, rgba(0, 0, 0, 0.5));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #434343, rgba(0, 0, 0, 0.91)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.45);
 
     transition: all 0.5s;
-    &:hover{
+
+    &:hover {
       transform: scale(0.98);
       border-radius: 20px;
     }
   }
 
   .imageWrapper {
-    padding: 10px;
+    padding: 15px;
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid rgba(180, 180, 180, 0.09);
+    border-bottom: 3px solid rgba(22, 166, 189, 0.11);
 
     img {
       width: 40px;
@@ -45,32 +42,23 @@
     h3 {
       letter-spacing: 1.5px;
       font-weight: bold;
-      color: rgb(255, 255, 255);
+      color: rgba(0, 0, 0, 0.67);
       font-size: 17px;
-
-      .text {
-        font-size: 16px;
-        color: rgba(6, 215, 250, 0.76);
-      }
-
-      .name {
-        font-size: 17px;
-        color: rgba(3, 215, 252, 0.78);
-      }
     }
   }
 
   .wrapper {
-
-    padding: 10px;
+    padding: 15px;
 
     .titleWrapper {
+      margin-bottom: 1.9vh;
       overflow: hidden;
-      height: 50px;
+      height: 40px;
+
       h3 {
         font-size: 17px;
         font-weight: bolder;
-        color: rgb(248, 248, 248);
+        color: rgba(0, 0, 0, 0.9);
       }
     }
 
@@ -80,6 +68,12 @@
       img {
         max-width: 50px;
         border-radius: 50%;
+      }
+      div{
+          span{
+            border: none !important;
+          
+        }
       }
     }
   }
@@ -102,48 +96,61 @@
     .finish {
       background-color: rgba(173, 21, 39, 0.57);
     }
-    div{
+
+    div {
 
     }
-    .wrapperLevel{
+
+    .wrapperLevel {
       display: flex;
       align-items: center;
-      div{
-        p{
+
+      div {
+        p {
           display: flex;
           align-items: center;
         }
       }
-      svg{
+
+      svg {
         font-size: 20px;
         padding-right: 3px;
       }
     }
   }
 
-  &:hover{
+  &:hover {
     box-shadow: 0px 0px 30px 1px rgba(7, 221, 227, 0.42);
     border-radius: 20px;
-  }
   .author{
+    border-radius: 20px;
+    transition: 1s all;
+  }
+  }
+
+  .author {
+    transition: 1s all;
     border-top: 1px solid rgba(180, 180, 180, 0.09);;
     display: flex;
     align-items: center;
     position: absolute;
-    //padding: 5px 30px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    bottom: 15px;
-    width: 90%;
-    left: 15px;
-    padding-top: 10px;
+    border-radius: 5px;
+    //margin-bottom: 10px;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    padding-top: 5px;
+    background: #c2e59c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 
-    img{
+    img {
       max-width: 40px;
     }
-    p{
 
+    p {
+      color: rgba(0, 0, 0, 0.81);
       padding: 10px 30px;
       margin-left: 4vh;
     }

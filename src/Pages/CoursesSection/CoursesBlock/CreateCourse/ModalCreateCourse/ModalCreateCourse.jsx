@@ -110,7 +110,7 @@ const ModalCreateCourse = () => {
     data.append('image', e)
 
     Course.saveImage(data).then(res => {
-      console.log(res.data.image.path)
+
       setCourseImage(res.data.image.path)
     })
 

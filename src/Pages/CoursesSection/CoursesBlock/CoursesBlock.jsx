@@ -3,7 +3,8 @@ import {dateOfCourse} from "../../../Utility/CoutryFlag/DateOfCourse/dateOfCours
 import memberImage from '../../../images/member.png';
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import {BsFillCalendarCheckFill, BsFillCalendarXFill} from "react-icons/bs";
-import author from '../../../images/writer.png'
+import author from '../../../images/presentation.png'
+import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
 
 const CoursesBlock = (props) => {
 
@@ -25,7 +26,9 @@ const CoursesBlock = (props) => {
         </div>
         <div className={style.members}>
           {/*{members.length < 1 ? 'members' : members}*/}
-          {membersDefault.map(member => <img src={memberImage}/>)}
+          {membersDefault.map(member =>  <AvatarGroupSection icon={memberImage}></AvatarGroupSection> )}
+          {/*<AvatarGroupSection></AvatarGroupSection>*/}
+          {/*<AvatarGroupSection></AvatarGroupSection>*/}
         </div>
         <div className={style.infoWrapper}>
           <p style={levelEducation(level)}>{level}</p>

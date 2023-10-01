@@ -1,15 +1,14 @@
 .container {
   max-width: 1500px;
   margin: 0 auto;
-  //height: 100vh;
-
   .coursesWrapper {
-    width: 100%;
+    max-width: 1400px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    padding-bottom: 6px;
   }
 
   .searchWrapper {
@@ -30,6 +29,12 @@
         color: rgba(10, 124, 159, 0.41);
         font-weight: bolder;
       }
+    }
+    div{
+      //width: 100%;
+      display: flex;
+
+
     }
   }
 }

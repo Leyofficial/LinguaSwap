@@ -1,7 +1,7 @@
 .container {
-  margin: 5px;
+  margin: 10px;
   height: 24rem;
-  width: 20rem;
+  width: 21%;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   background-position: center !important;
@@ -14,13 +14,9 @@
   position: relative;
 }
 .container .containerWrapper {
-  padding: 15px;
   border-radius: 10px;
-  height: 24rem;
-  width: 20rem;
-  background: rgba(0, 0, 0, 0.14); /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #434343, rgba(0, 0, 0, 0.5)); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, rgba(0, 0, 0, 0.91)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.45);
   transition: all 0.5s;
 }
 .container .containerWrapper:hover {
@@ -28,10 +24,10 @@
   border-radius: 20px;
 }
 .container .imageWrapper {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid rgba(180, 180, 180, 0.09);
+  border-bottom: 3px solid rgba(22, 166, 189, 0.11);
 }
 .container .imageWrapper img {
   width: 40px;
@@ -41,28 +37,21 @@
 .container .imageWrapper h3 {
   letter-spacing: 1.5px;
   font-weight: bold;
-  color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.67);
   font-size: 17px;
-}
-.container .imageWrapper h3 .text {
-  font-size: 16px;
-  color: rgba(6, 215, 250, 0.76);
-}
-.container .imageWrapper h3 .name {
-  font-size: 17px;
-  color: rgba(3, 215, 252, 0.78);
 }
 .container .wrapper {
-  padding: 10px;
+  padding: 15px;
 }
 .container .wrapper .titleWrapper {
+  margin-bottom: 1.9vh;
   overflow: hidden;
-  height: 50px;
+  height: 40px;
 }
 .container .wrapper .titleWrapper h3 {
   font-size: 17px;
   font-weight: bolder;
-  color: rgb(248, 248, 248);
+  color: rgba(0, 0, 0, 0.9);
 }
 .container .wrapper .members {
   padding-top: 5px;
@@ -70,6 +59,9 @@
 .container .wrapper .members img {
   max-width: 50px;
   border-radius: 50%;
+}
+.container .wrapper .members div span {
+  border: none !important;
 }
 .container .infoWrapper {
   padding-top: 2vh;
@@ -103,22 +95,30 @@
   box-shadow: 0px 0px 30px 1px rgba(7, 221, 227, 0.42);
   border-radius: 20px;
 }
+.container:hover .author {
+  border-radius: 20px;
+  transition: 1s all;
+}
 .container .author {
+  transition: 1s all;
   border-top: 1px solid rgba(180, 180, 180, 0.09);
   display: flex;
   align-items: center;
   position: absolute;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  bottom: 15px;
-  width: 90%;
-  left: 15px;
-  padding-top: 10px;
+  border-radius: 5px;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  padding-top: 5px;
+  background: #c2e59c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .container .author img {
   max-width: 40px;
 }
 .container .author p {
+  color: rgba(0, 0, 0, 0.81);
   padding: 10px 30px;
   margin-left: 4vh;
 }

@@ -8,13 +8,17 @@ import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {useDispatch, useSelector} from "react-redux";
 import {getCoursesAC} from "../../Redux/Courses/coursesAC.js";
 import {countryFlag} from "../../Utility/CoutryFlag/CountryFlag.js";
+import CourseSelect from "./CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.jsx";
 
 const CoursesSection = () => {
 
   const [searchValue, setSearchValue] = useState("")
-  const test = [1, 2, 3, 4, 5, 6, 7, 8]
+  // const test = [1, 2, 3, 4, 5, 6, 7, 8]
 
   const dispatch = useDispatch()
+
+  const languages = ['English','Poland','Germany','Spanish','Italy','Japan','Turkish']
+  const [languageFilter,setLanguageFilter] = useState('')
 
   const courses = useSelector((state) => state.courses)
 
@@ -28,12 +32,11 @@ const CoursesSection = () => {
     <div className={style.container}>
       <div className={style.searchWrapper}>
         <SearchInput value={searchValue} callback={setSearchValue} placeholder={'Courses'}></SearchInput>
-        <Pagination test={test}></Pagination>
+        {/*<Pagination test={test}></Pagination>*/}
       </div>
       <div className={style.titleWrapper}>
-        <h1>Find course which <span>match you</span></h1>
         <div>
-          filter
+          <CourseSelect items={languages} title={"Language"} callback={setLanguageFilter} value={languageFilter}></CourseSelect>
           <div>
             <CreateCourse></CreateCourse>
           </div>
@@ -43,8 +46,12 @@ const CoursesSection = () => {
         {courses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
                                              language={course.course.language}
                                              courseTitle={course.course.name}
-                                             date={{startDate:course.course.startCourse, finishDate:course.course.finishCourse}}
-                                             members={course.course.members} teacher={course.teacher} level={course.course.level}
+                                             date={{
+                                               startDate: course.course.startCourse,
+                                               finishDate: course.course.finishCourse
+                                             }}
+                                             members={course.course.members} teacher={course.teacher}
+                                             level={course.course.level}
 
 
         ></CoursesBlock>)}

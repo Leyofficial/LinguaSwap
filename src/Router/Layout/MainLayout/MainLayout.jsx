@@ -8,7 +8,7 @@ const MainLayout = () => {
   return (
     <div className={style.container}>
       <SideBar/>
-      <main>
+      <main >
         <Outlet></Outlet>
       </main>
     </div>

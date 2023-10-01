@@ -1,3 +1,11 @@
+.container {
+  height: 100%;
+}
 .container .header {
   height: 50px;
-}/*# sourceMappingURL=Layout.module.css.map */
+}
+.container main {
+  min-height: 100%;
+}
+
+/*# sourceMappingURL=Layout.module.css.map */
