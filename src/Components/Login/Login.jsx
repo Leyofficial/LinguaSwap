@@ -1,14 +1,28 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
+
+import { Link, useNavigate } from 'react-router-dom'
+
 import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../Redux/login.reducer';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+
 function Login() {
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [userValue, setUserValue] = useState({
+    email: '',
+    password: ''
+  });
+
+  const [showPassword, setShowPassword] = useState(false);
+  
+
+
   const [emailDirty, setEmailDirty] = useState(false);
   const [passwordDirty, setPasswordDirty] = useState(false);
   const [emailError, setEmailError] = useState('email не может быть пустым');
@@ -36,34 +50,53 @@ function Login() {
       }
   }
 
-  const emailHandler = e => {
-    setEmail(e.target.value)
-    const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-    if (!re.test(String(e.target.value).toLocaleLowerCase())) {
-
-      setEmailError('Некоректный email')
-
-    }else {
-      setEmailError('')
-    }
-  }
-
-
-  const passwordHandler = e => {
-    setPassword(e.target.value)
-
-    if(e.target.value.length < 3 ||e.target.value.length > 8 ) {
-      setPasswordError('Пароль должен быть длинее 3 и меньше 8');
-
-      if(!e.target.value) {
-        setPasswordError('Поле поля password обязателен!!');
+  const dataHandlerChange = e => {
+    
+    setUserValue(data => {
+      return{
+        ...data,
+        [e.target.name]: e.target.value
       }
-    }else {
-      setPasswordError('')
+    })
+
+    
+
+    
+
+    if(e.target.name === 'email') {
+      const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      if (!re.test(String(e.target.value).toLocaleLowerCase())) {
+
+        setEmailError('Некоректный email')
+  
+      }else {
+        setEmailError('')
+      }
+
+    }else if(e.target.name === 'password') {
+      if(e.target.value.length < 6 ||e.target.value.length > 8 ) {
+        setPasswordError('Пароль должен быть больше 6 символов');
+  
+        if(!e.target.value) {
+          setPasswordError('Поле поля password обязателен!!');
+        }
+      }else {
+        setPasswordError('')
+      }
     }
   }
 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const loginSubmit = () => {
+
+    dispatch(loginUser(userValue));
+    navigate('/');
+  }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <>
@@ -74,10 +107,16 @@ function Login() {
           <h3 className="loginComponentTitle">Вход</h3>
   
           <nav className="loginComponentNav">
-  
-            <Link className="loginComponentNavLink">Зарегистрируйтесь как ученик</Link>
-              <span className="loginComponentNavTitle">или</span> <br />
-            <Link to='/teacherregister' className="loginComponentNavLink">Зарегистрируйтесь как реппетитор</Link>
+
+            <p className="loginComponentText">
+
+            Если еще не регистрировались можете 
+            <Link to='/teacherregister' className="loginComponentNavLink"> Зарегистрироваться </Link>
+
+
+
+            </p>
+
   
           </nav>
   
@@ -97,7 +136,7 @@ function Login() {
               <img src={appleicon} alt={googleicon} className="btnIcon" />
               <span className='btnText'>Продолжить с Apple</span>
             </button>
-  
+
           </div>
   
           <div className="orBlock">
@@ -106,23 +145,28 @@ function Login() {
             <hr className='or'/>
           </div>
   
-          <form className="formLogin">
+          <form onSubmit={loginSubmit} className="formLogin">
   
             <div className="formContainer">
   
               <div className="formInputBlock">
                 <span className="formInputTitle">Эл. почта</span>
-                {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
-                <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
                 
+                <input onChange={e => dataHandlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
+                {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
               </div>
   
               <div className="formInputBlock">
                 <span className="formInputTitle">Пароль</span>
+                
+                
+                  <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type={showPassword ? "text" : "password"} className="formInputEmail" placeholder='Ваш пароль'/>
+                  <button className='eyePassword' type="button" onClick={togglePasswordVisibility}>
+                  {!showPassword ? <FaEyeSlash /> : <FaEye />}
+                </button>
                 {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
-                <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type="password" className="formInputEmail" placeholder='Ваш пароль'/>
               </div>
-  
+
               <Link className="forgotPassword">Забыли пароль?</Link>
               
               <div className='checkboxBlock'>
@@ -130,8 +174,8 @@ function Login() {
                 <span className="checkboxText">Запомнить меня</span>
               </div>
   
-              <button disabled={!formValid} className="formBtn">Отправить</button>
-  
+              <button className="formBtn">Отправить</button>
+
             </div>
   
           </form>
@@ -160,6 +204,6 @@ function Login() {
 
     </>
   )
-} 
+}
 
 export default Login;

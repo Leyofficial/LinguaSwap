@@ -22,6 +22,8 @@ const CoursesSection = () => {
   const languages = ['English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
   const [languageFilter, setLanguageFilter] = useState('')
 
+  const [foundForLanguageCourses,setFoundForLanguageCourses] = useState(null)
+
   const enrolmentType = ['Free', 'Paid']
   const [enrolment, setEnrolment] = useState("")
 
@@ -35,7 +37,7 @@ const CoursesSection = () => {
   useEffect(() => {
     Course.getCourses().then(res => dispatch(getCoursesAC(res.data.courses)))
   }, [])
-  console.log(courses)
+
 
 
   const searchCoursesItem = () => courses.filter(item => item.course.name.toLowerCase().includes(searchValue.toLowerCase()))
@@ -48,10 +50,24 @@ const CoursesSection = () => {
       setFoundCourse(null)
     }
 
-
   }, [courses, searchValue])
 
-  console.log(foundCourse)
+  const languageFilterFoundItems = () => courses.filter(item => item.course.language === languageFilter)
+  const searchCourseForFilter = () => foundCourse.filter(item => item.course.language === languageFilter)
+
+  useEffect(() => {
+    if(foundCourse && languageFilter) {
+      const items = searchCourseForFilter()
+      setFoundForLanguageCourses(items)
+
+    }else if(courses && languageFilter) {
+      const items = languageFilterFoundItems()
+      setFoundForLanguageCourses(items)
+    }
+
+  },[languageFilter,courses,foundCourse])
+
+console.log(foundForLanguageCourses)
 
   return (
     <div className={style.container}>
@@ -101,7 +117,7 @@ const CoursesSection = () => {
                                              image={course.course.image}
 
 
-        ></CoursesBlock>) : foundCourse.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+        ></CoursesBlock>) : !foundForLanguageCourses ? foundCourse.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
                                                                     language={course.course.language}
                                                                     courseTitle={course.course.name}
                                                                     date={{
@@ -112,6 +128,19 @@ const CoursesSection = () => {
                                                                     level={course.course.level}
                                                                     duration={course.course.durationCourse}
                                                                     image={course.course.image}
+
+
+        ></CoursesBlock>) : foundForLanguageCourses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+                                                                                language={course.course.language}
+                                                                                courseTitle={course.course.name}
+                                                                                date={{
+                                                                                  startDate: course.course.startCourse,
+                                                                                  finishDate: course.course.finishCourse
+                                                                                }}
+                                                                                members={course.course.members} teacher={course.teacher}
+                                                                                level={course.course.level}
+                                                                                duration={course.course.durationCourse}
+                                                                                image={course.course.image}
 
 
         ></CoursesBlock>)}
