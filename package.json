@@ -15,11 +15,8 @@
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.14.11",
     "@react-icons/all-files": "^4.1.0",
-
-    "antd": "^5.9.4",
-
     "@reduxjs/toolkit": "^1.9.6",
-
+    "antd": "^5.9.4",
     "axios": "^1.5.0",
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
@@ -50,6 +47,7 @@
     "react-type-animation": "^3.1.0",
     "redux": "^4.2.1",
     "redux-forms": "^1.0.0-3",
+    "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.68.0",
     "socket.io": "^4.7.2",
     "yarn": "^1.22.19"

@@ -9,7 +9,7 @@ export const loginUser = createAsyncThunk(
         try {
             const res = await axios.get('http://localhost:3000/authorization/login', user);
             
-            console.log(res);
+            
             
 
             if(!res.data) {
@@ -30,6 +30,7 @@ const loginSlice = createSlice({
         loading: null,
         user: null
     },
+
 
     extraReducers: {
         [loginUser.pending]: (state) => {
