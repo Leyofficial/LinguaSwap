@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import style from "./CreateProfile.module.scss";
 
-import Header from "../../Components/Header";
+import style from "./CreateProfile.module.scss";
+import firework from '../../img/icons/firework.jpg'
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree/index.jsx";
 import Points from "../../Utility/Points";
+import ModalWindow from "../../Utility/ModalWindow/ModalWindow.jsx";
+import {useState} from "react";
 
 const CreateProfile = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -50,9 +51,18 @@ const CreateProfile = () => {
         return (
           <>
             {renderPoints(true, true, false)}
-            <StepThree previousStep={previousStep} />
+            <StepThree previousStep={previousStep} nextStep={nextStep} />
           </>
         );
+      case 4 :
+        return (
+            <>
+                {renderPoints(true, true, true)}
+                <img className={style.firework} width={'100%'} src={firework} alt=""/>
+                <ModalWindow children={ 'Congratulations on registering for our language learning platform! 🎉🥳 We are thrilled to have you join our community! 😀💪'} />
+
+            </>
+        )
       default:
         return null;
     }

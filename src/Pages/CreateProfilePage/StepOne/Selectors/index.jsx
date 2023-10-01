@@ -12,9 +12,9 @@ export function  Selectors () {
         <>
             <form className={style["radio-form"]}>
                 <input onChange={() => selectStatus(event.target.value)} checked={status === 'Student'} value="Student" name="hopping" type="radio" id="a"/>
-                <label htmlFor="a"><span></span>Student</label>
+                <label htmlFor="a"><span className={style.span}></span>Student</label>
                 <input onChange={() => selectStatus(event.target.value)} checked={status === 'Teacher'}  value="Teacher" name="hopping" type="radio" id="b"/>
-                <label htmlFor="b"><span></span>Teacher</label>
+                <label htmlFor="b"><span className={style.span}></span>Teacher</label>
                 <div className={style.worm}>
                     <div className={style.worm__segment}></div>
                 </div>
