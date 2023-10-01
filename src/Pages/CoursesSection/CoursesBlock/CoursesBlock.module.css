@@ -1,14 +1,9 @@
 .container {
-  margin: 9px;
-  height: 24rem;
-  width: 21%;
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  background-position: center !important;
-  object-fit: contain;
-  color: #ffffff;
+  margin: 20px;
+  height: 37rem;
+  width: 25%;
   cursor: pointer;
-  background-image: linear-gradient(163deg, rgba(14, 201, 126, 0.45) 0%, rgba(20, 163, 215, 0.66) 100%);
+  background-image: linear-gradient(163deg, rgba(31, 172, 192, 0.13) 0%, rgba(20, 162, 220, 0.3) 100%);
   border-radius: 10px;
   transition: all 0.5s;
   position: relative;
@@ -20,11 +15,54 @@
   transition: all 0.5s;
 }
 .container .containerWrapper:hover {
-  transform: scale(0.98);
   border-radius: 20px;
 }
+.container .containerWrapper .courseHeader {
+  width: 100%;
+  position: relative;
+}
+.container .containerWrapper .courseHeader img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+.container .containerWrapper .courseHeader .language {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.container .containerWrapper .courseHeader .language p {
+  color: rgba(0, 0, 0, 0.53);
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.container .containerWrapper .authorWrapper {
+  position: absolute;
+  top: 170px;
+  left: 20px;
+}
+.container .containerWrapper .authorWrapper img {
+  max-width: 70px;
+  border-radius: 5px;
+  border: 1px solid rgba(252, 248, 252, 0.6);
+}
+.container .containerWrapper .nameOfAuthor {
+  padding-left: 12vh;
+  padding-top: 8px;
+}
+.container .containerWrapper .nameOfAuthor p {
+  color: rgba(0, 0, 0, 0.68);
+  font-weight: bold;
+  max-width: 200px;
+  font-size: 13px;
+  height: 20px;
+  overflow: hidden;
+}
 .container .imageWrapper {
-  padding: 15px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   border-bottom: 3px solid rgba(22, 166, 189, 0.11);
@@ -41,20 +79,21 @@
   font-size: 17px;
 }
 .container .wrapper {
-  padding: 15px;
+  padding: 20px;
+  margin-top: 5px;
 }
 .container .wrapper .titleWrapper {
-  margin-bottom: 1.9vh;
+  height: 35px;
   overflow: hidden;
-  height: 40px;
+  margin-bottom: 1.9vh;
 }
 .container .wrapper .titleWrapper h3 {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bolder;
   color: rgba(0, 0, 0, 0.9);
 }
 .container .wrapper .members {
-  padding-top: 5px;
+  padding: 15px 5px;
 }
 .container .wrapper .members img {
   max-width: 50px;
@@ -79,24 +118,64 @@
 .container .infoWrapper .finish {
   background-color: rgba(173, 21, 39, 0.57);
 }
-.container .infoWrapper .wrapperLevel {
+.container .wrapperLevel {
+  margin: 15px 0;
   display: flex;
   align-items: center;
 }
-.container .infoWrapper .wrapperLevel div p {
-  display: flex;
-  align-items: center;
+.container .wrapperLevel div {
+  width: 100%;
 }
-.container .infoWrapper .wrapperLevel svg {
+.container .wrapperLevel div p {
+  font-size: 15px;
+}
+.container .wrapperLevel svg {
   font-size: 20px;
-  padding-right: 3px;
+  padding-right: 5px;
+}
+.container .wrapperLevel .startDate {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: rgba(10, 119, 119, 0.6);
+}
+.container .wrapperLevel .startDate span {
+  color: rgba(3, 3, 3, 0.73);
+  font-weight: normal;
+}
+.container .wrapperLevel .startDate .icon {
+  display: flex;
+  align-items: center;
+  color: #070707;
+}
+.container .wrapperLevel .startDate .icon svg {
+  font-size: 30px;
+}
+.container .wrapperLevel .finishDate {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(10, 119, 119, 0.6);
+  font-weight: bold;
+}
+.container .wrapperLevel .finishDate span {
+  color: rgba(3, 3, 3, 0.73);
+  font-weight: normal;
+}
+.container .wrapperLevel .finishDate .icon {
+  display: flex;
+  align-items: center;
+  color: #070707;
+}
+.container .wrapperLevel .finishDate .icon svg {
+  font-size: 30px;
 }
 .container:hover {
-  box-shadow: 0px 0px 30px 1px rgba(7, 221, 227, 0.42);
+  box-shadow: 0px 0px 30px 1px rgba(48, 50, 51, 0.42);
   border-radius: 20px;
 }
 .container:hover .author {
-  border-radius: 20px;
+  border-radius: 0 0 20px 20px;
   transition: 1s all;
 }
 .container .author {
@@ -106,21 +185,23 @@
   align-items: center;
   position: absolute;
   border-radius: 5px;
+  justify-content: center;
   bottom: 0;
   width: 100%;
   left: 0;
   padding-top: 5px;
-  background: #c2e59c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #64b3f4, rgba(25, 145, 164, 0.78)); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #64b3f4, rgba(16, 200, 239, 0.42)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgba(21, 186, 206, 0.25); /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(13, 167, 185, 0.21), rgba(9, 193, 220, 0.14)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(13, 89, 143, 0.5), rgba(16, 200, 239, 0.14)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .container .author img {
   max-width: 40px;
 }
 .container .author p {
-  color: rgba(0, 0, 0, 0.81);
+  color: rgba(0, 0, 0, 0.82);
+  font-weight: bold;
+  font-size: 18px;
   padding: 10px 30px;
-  margin-left: 4vh;
 }
 
 /*# sourceMappingURL=CoursesBlock.module.css.map */

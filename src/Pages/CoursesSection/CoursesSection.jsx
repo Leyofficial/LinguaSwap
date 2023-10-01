@@ -65,13 +65,6 @@ const CoursesSection = () => {
               options={categoryTypes.map((category) => ({ label: category, value: category }))}
             />
           </Space>
-
-          {/*<CourseSelect items={languages} title={"Language"} callback={setLanguageFilter}*/}
-          {/*              value={languageFilter}></CourseSelect>*/}
-          {/*<CourseSelect items={enrolmentType} title={"Enrolment types"} callback={setEnrolment}*/}
-          {/*              value={enrolment}></CourseSelect>*/}
-          {/*<CourseSelect items={categoryTypes} title={"Category"} callback={setCategory}*/}
-          {/*              value={category}></CourseSelect>*/}
           <div>
             {/*<CreateCourse></CreateCourse>*/}
           </div>
@@ -87,6 +80,8 @@ const CoursesSection = () => {
                                              }}
                                              members={course.course.members} teacher={course.teacher}
                                              level={course.course.level}
+                                             duration={course.course.durationCourse}
+                                             image={course.course.image}
 
 
         ></CoursesBlock>)}

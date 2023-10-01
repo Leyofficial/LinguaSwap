@@ -2,12 +2,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
 const authSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: [false,'sda'],
-    unique: [false,'asdsd'],
-  } ,
   password: {
     type: String,
     required: [true, 'Please provide a password'],
@@ -31,12 +25,20 @@ const authSchema = new mongoose.Schema({
     lowercase: true,
   },
   date: String,
-  status: {
-    typeOfUser: String,
+  user: {
+    name: {
+      type: String,
+      trim: true,
+      required: [false,'Not a required'],
+      unique: [false,'Not a unique'],
+    },
+    status: String,
     experience: String,
-    aboutMe: String,
-    language: [String] || String,
-    goal: String
+    bio: String,
+    languagesKnow: [String] | [],
+    languagesLearn: [String] | [],
+    userTag:String,
+    photo:String,
   } | null,
 })
 
