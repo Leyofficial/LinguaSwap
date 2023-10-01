@@ -14,6 +14,12 @@ export const Course = {
         'content-type':'multipart/form-data'
       }
     })
+  },
+
+  getCourses() {
+    return axios.get(`http://localhost:3000/courses`)
   }
 }
+
+
 

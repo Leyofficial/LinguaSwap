@@ -1,161 +1,265 @@
 .container {
+  margin: 20px;
+  height: 37rem;
+  width: 25%;
+  cursor: pointer;
+  background-image: linear-gradient(163deg, rgba(31, 172, 192, 0.13) 0%, rgba(20, 162, 220, 0.3) 100%);
+  border-radius: 10px;
+  transition: all 0.5s;
   position: relative;
-  width: 30vh;
-  height: 400px;
-  background-color: rgba(78, 167, 224, 0.15);
-  margin: 0 20px 10px;
 
-  border-radius: 5px;
+  .containerWrapper {
+    border-radius: 10px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.45);
+    transition: all 0.5s;
 
-  .wrapper {
-    padding: 10px;
+    &:hover {
+      //transform: scale(0.98);
+      border-radius: 20px;
+    }
 
-    .titleWrapper {
-      span {
-        color: rgba(0, 0, 0, 0.51);
-        font-family: Candara;
-        letter-spacing: 0.8px;
-        padding-bottom: 20px;
-        display: block;
+    .courseHeader {
+      width: 100%;
+      position: relative;
+
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
       }
 
-      p {
-        font-weight: bolder;
-        color: rgba(53, 126, 140, 0.45);
-        font-size: 15px;
+      .language {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        p {
+          color: rgba(0, 0, 0, 0.53);
+          background-color: rgba(255, 255, 255, 0.6);
+          padding: 10px;
+          border-radius: 10px;
+          font-weight: bold;
+        }
       }
     }
 
-    .hours {
-      padding-top: 20px;
-      margin-bottom: 5vh;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: rgba(0, 0, 0, 0.3);
-      font-size: 16px;
+    .authorWrapper {
+      position: absolute;
+      top: 170px;
+      left: 20px;
 
-      .hour {
-        display: flex;
-        align-items: center;
-        font-weight: bold;
-
-        svg {
-          font-size: 25px;
-          color: rgba(57, 116, 152, 0.6);
-          padding-right: 5px;
-        }
+      img {
+        max-width: 70px;
+        border-radius: 5px;
+        border: 1px solid rgba(252, 248, 252, 0.6);
       }
+    }
 
-      .learners {
+    .nameOfAuthor {
+      padding-left: 12vh;
+      padding-top: 8px;
+
+      p {
+        color: rgba(0, 0, 0, 0.68);
         font-weight: bold;
-        display: flex;
-        align-items: center;
-
-        svg {
-          padding-right: 5px;
-          font-size: 25px;
-          color: rgba(57, 116, 152, 0.6);
-        }
-
+        max-width: 200px;
+        font-size: 13px;
+        height: 20px;
+        overflow: hidden;
       }
     }
   }
 
   .imageWrapper {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid rgba(22, 166, 189, 0.11);
+
     img {
-      border-radius: 5px 5px 0 0;
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+
+    h3 {
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.67);
+      font-size: 17px;
+    }
+  }
+
+  .wrapper {
+    padding: 20px;
+    margin-top: 5px;
+
+    .titleWrapper {
+      height: 35px;
+      overflow: hidden;
+      margin-bottom: 1.9vh;
+      //overflow: hidden;
+      //height: 65px;
+
+      h3 {
+        font-size: 16px;
+        font-weight: bolder;
+        color: rgba(0, 0, 0, 0.9);
+      }
+    }
+
+    .members {
+      padding: 15px 5px;
+
+      img {
+        max-width: 50px;
+        border-radius: 50%;
+      }
+
+      div {
+        span {
+          border: none !important;
+
+        }
+      }
     }
   }
 
   .infoWrapper {
-    display: none;
-    opacity: 0;
-    transition: 1s;
-    overflow: hidden;
-    height: 100%;
+    padding-top: 2vh;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      text-align: center;
+      padding: 10px 10px;
+      border-radius: 5px;
+    }
+
+    .start {
+      background-color: rgba(21, 173, 49, 0.44);
+    }
+
+    .finish {
+      background-color: rgba(173, 21, 39, 0.57);
+    }
+
+    div {
+
+    }
   }
 
-  &:hover {
+  .wrapperLevel {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
 
-    .imageWrapper {
-      display: none;
+    div {
+      width: 100%;
+
+      p {
+        font-size: 15px;
+      }
+    }
+
+    svg {
+      font-size: 20px;
+      padding-right: 5px;
+    }
+
+    .startDate {
+      display: flex;
+      justify-content: space-between;
+
+      padding-bottom: 10px;
+      font-weight: bold;
+      color: rgba(10, 119, 119, 0.6);
+
+      span {
+        color: rgba(3, 3, 3, 0.73);
+        font-weight: normal;
+        //padding-left: 5vh;
+      }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        color: #070707;
+
+        svg {
+          font-size: 30px;
+        }
+      }
 
     }
 
-    .infoWrapper {
-      padding-top: 15px;
-      display: block;
-      opacity: 1;
-      transition: 1s;
-      overflow: hidden;
-      height: 22vh;
-      border-top: 1px solid rgba(28, 153, 178, 0.22);
+    .finishDate {
+      display: flex;
+      justify-content: space-between;
+      color: rgba(10, 119, 119, 0.6);
+      font-weight: bold;
 
-      h3 {
-        font-weight: 600;
-        font-size: 18px;
-        color: rgba(0, 0, 0, 0.68);
-        padding-bottom: 5px;
+      span {
+        color: rgba(3, 3, 3, 0.73);
+        font-weight: normal;
+        //padding-left: 5.5vh;
+
       }
-      ul{
-        li{
-          padding: 5px 0;
-          color: rgba(1, 26, 40, 0.47);
-          font-size: 14px;
-          display: flex;
-          svg{
-            font-size: 25px !important;
-            color: rgba(42, 142, 180, 0.4) !important;
-            margin-right: 5px;
-          }
+
+      .icon {
+        display: flex;
+        align-items: center;
+        color: #070707;
+
+        svg {
+          font-size: 30px;
         }
       }
     }
+  }
 
-    .hours {
-      margin-bottom: 5px;
-      padding-top: 5px;
+  &:hover {
+    box-shadow: 0px 0px 30px 1px rgba(48, 50, 51, 0.42);
+    border-radius: 20px;
+
+    .author {
+      border-radius: 0 0 20px 20px;
+      transition: 1s all;
     }
   }
 
-  .buttons {
+  .author {
+    transition: 1s all;
+    border-top: 1px solid rgba(180, 180, 180, 0.09);;
     display: flex;
+    align-items: center;
     position: absolute;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    //margin-bottom: 10px;
     bottom: 0;
     width: 100%;
-    .moreInfo {
-      color: rgba(39, 89, 194, 0.43);
-      border: 2px solid rgba(46, 133, 201, 0.24);
-      padding: 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bolder;
-      letter-spacing: 1px;
-      width: 40%;
-      &:hover{
-        border: 2px solid rgba(3, 45, 141, 0.65);
-        transition: 0.5s ease-in-out;
-        color: rgba(3, 45, 141, 0.65);
-      }
+    left: 0;
+    padding-top: 5px;
+    background: rgba(21, 186, 206, 0.25); /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, rgba(13, 167, 185, 0.21), rgba(9, 193, 220, 0.14)); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(13, 89, 143, 0.5), rgba(16, 200, 239, 0.14)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+    img {
+      max-width: 40px;
     }
 
-    .startLearn {
-      margin-left: 3px;
-      width: 50%;
-      background-color: rgba(48, 117, 194, 0.48);
-      border-radius: 5px;
-      padding: 10px;
-      letter-spacing: 1px;
-      transition: 1s;
-      &:hover{
-        background-color: rgba(82, 150, 229, 0.35);
-        transition: 1s;
-        color: rgba(10, 10, 10, 0.33);
-        font-weight: bold;
-      }
+    p {
+      color: rgba(0, 0, 0, 0.82);
+      font-weight: bold;
+      font-size: 18px;
+      padding: 10px 30px;
+      //margin-left: 4vh;
     }
   }
 }
+

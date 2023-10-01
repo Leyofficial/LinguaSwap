@@ -11,24 +11,22 @@ exports.signup = catchAsync(async (req,res,next) => {
       email:req.body.email,
       password:req.body.password,
       confirmPassword:req.body.confirmPassword,
+      date:new Date().toLocaleDateString(),
+      user:{
+        name:"",
+        status:"",
+        userTag:"",
+        experience:"",
+        bio:"",
+        photo:"",
+        languagesKnow:[],
+        languagesLearn:[],
+
+
+      }
 
     })
     createSendToken(newUser,201,res)
-
-  // }else if(req.body.status.typeOfUser === 'Student') {
-  //   const newUser = await Auth.create({
-  //     name:req.body.name,
-  //     email:req.body.email,
-  //     password:req.body.password,
-  //     confirmPassword:req.body.confirmPassword,
-  //     date:new Date().toLocaleDateString(),
-  //     status:{
-  //       typeOfUser: req.body.status.typeOfUser,
-  //       language:req.body.status.language,
-  //       goal:req.body.status.goal
-  //     }
-  //   })
-  // createSendToken(newUser,201,res)
 })
 
 exports.login = catchAsync(async (req,res,next) => {
@@ -54,7 +52,7 @@ exports.getAllUsers = catchAsync(async (req,res,next) => {
   let filter = {}
   if(typeOfUser) {
     filter = {
-      "status.typeOfUser":typeOfUser
+      "user.status":typeOfUser
     }
   }
   const documents = Auth.find(filter);
