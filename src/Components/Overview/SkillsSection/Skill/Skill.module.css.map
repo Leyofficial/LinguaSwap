@@ -1,1 +1,1 @@
-{"version":3,"sources":["Skill.module.scss","Skill.module.css"],"names":[],"mappings":"AAAA;EACE,aAAA;EACA,mBAAA;EACA,eAAA;ACCF;ADCE;EACE,iBAAA;EACA,0CAAA;EACA,aAAA;EACA,wBAAA;ACCJ;ADCI;EACE,eAAA;ACCN;ADII;EACE,mBAAA;EACA,eAAA;EACA,qBAAA;EACA,gBAAA;EACA,8BAAA;ACFN;ADKI;EACE,0BAAA;EACA,eAAA;ACHN","file":"Skill.module.css"}
+{"version":3,"sourceRoot":"","sources":["Skill.module.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;AAEA;EACE;EACA;EACA;EACA;;AAEA;EACE;;AAKF;EACE;EACA;EACA;EACA;EACA;;AAGF;EACE;EACA","file":"Skill.module.css"}

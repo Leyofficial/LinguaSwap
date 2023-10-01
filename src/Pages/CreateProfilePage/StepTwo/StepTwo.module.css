@@ -13,7 +13,11 @@ span {
 
 .title {
   color: dodgerblue;
-  margin: 70px 0;
+  margin: 50px 0;
+}
+
+.wholeContent {
+  padding: 40px 10px;
 }
 
 /*# sourceMappingURL=StepTwo.module.css.map */

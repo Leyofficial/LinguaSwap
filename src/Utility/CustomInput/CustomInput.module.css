@@ -78,4 +78,15 @@
   width: 50%;
 }
 
+.necessarily {
+  left: -5px;
+  top: -2px;
+  position: absolute;
+  color: red;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
 /*# sourceMappingURL=CustomInput.module.css.map */

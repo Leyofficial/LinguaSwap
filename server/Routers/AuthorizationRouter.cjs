@@ -12,4 +12,7 @@ authRouter.route('/:typeOfUser?')
 authRouter.route('/login')
   .get(authFunctions.login)
 
+authRouter.route('/profile/:idUser')
+  .patch(authFunctions.updateProfile)
+
 module.exports = authRouter;

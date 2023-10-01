@@ -40,33 +40,6 @@
   opacity: 0;
 }
 
-.sidebarItems {
-  pointer-events: all;
-  width: 100%;
-  height: 100%;
-  max-width: 270px;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-align: center;
-  align-items: center;
-  border-bottom: 1px solid grey;
-  padding-bottom: 50px;
-}
-.sidebarItems li {
-  gap: 15px;
-  display: flex;
-  align-items: center;
-}
-.sidebarItems a {
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 19px;
-}
-.sidebarItems a:hover {
-  background-color: rgb(1, 102, 202);
-}
-
 .sidebarItem {
   padding: 0.4rem 0.9rem;
 }
@@ -76,6 +49,37 @@
 
 .itemIcon {
   transition: 1s ease;
+}
+
+.activeSideBarLink {
+  background-color: dodgerblue;
+}
+
+.sidebarItemBlock {
+  pointer-events: all;
+  width: 100%;
+  height: 100%;
+  max-width: 270px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.sidebarItemBlock li {
+  gap: 15px;
+  display: flex;
+  align-items: center;
+}
+.sidebarItemBlock a {
+  transition: 0.4s ease;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 19px;
+}
+.sidebarItemBlock a:hover {
+  background-color: rgb(1, 102, 202);
 }
 
 /*# sourceMappingURL=Sidebar.module.css.map */

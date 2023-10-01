@@ -2,6 +2,7 @@ const AppError = require('../APIFeatures/appError.cjs')
 const catchAsync = require("../APIFeatures/catchAsync.cjs");
 const {createSendToken} = require("../APIFeatures/CreateToken.cjs");
 const Auth = require('../Modules/AuthorizationModules.cjs')
+const {ErrorHandler} = require("yarn/lib/cli.js");
 
 
 
@@ -67,5 +68,40 @@ exports.getAllUsers = catchAsync(async (req,res,next) => {
     status:"Success",
     results:users.length,
     users
+  })
+})
+
+exports.updateProfile = catchAsync(async (req,res,next) => {
+
+  const user = await Auth.findByIdAndUpdate(req.params.idUser,req.body, {
+    new:true, runValidators:true
+  });
+
+  if(!document) {
+    return next(new ErrorHandler('No user found by id to update',400))
+  }
+  res.status(200).json({
+    status:"succeed",
+    user
+  })
+
+
+})
+
+exports.updateHandler = Model => catchAsync(async (req, res, next) => {
+
+  const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+    new: true, runValidators: true
+  });
+
+  if (!doc) {
+    return next(new ErrorHandler('No document found by ID to update', 400))
+  }
+  console.log(doc)
+  res.status(200).json({
+    status: 'success',
+    data: {
+      date: doc
+    }
   })
 })
