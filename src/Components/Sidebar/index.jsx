@@ -25,9 +25,6 @@ const Sidebar = () => {
     },
     {
       path: "/findteacher",
-
-      path: "/login",
-
       icon: teacher,
       name: "Find teacher",
     },
