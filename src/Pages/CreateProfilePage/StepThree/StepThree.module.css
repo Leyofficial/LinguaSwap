@@ -1,9 +1,9 @@
-span {
-  color: dodgerblue;
-}
-
 .wholeContent {
   padding: 40px 10px;
+}
+
+.span {
+  color: dodgerblue;
 }
 
 .title {
