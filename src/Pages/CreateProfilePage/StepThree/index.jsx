@@ -23,11 +23,11 @@ const StepThree = (props) => {
             </h2>
             <div className={style.container}>
                 <div className={style.selectBlock}>
-                    <h3 style={{marginBottom: '15px'}}>Language/s you <span>speak</span> :</h3>
+                    <h3 style={{marginBottom: '15px'}}>Language/s you <span className={style.span}>speak</span> :</h3>
                     <CustomSelector selecter={languagesKnow} actionCreater={setLanguagesKnowActionCreater}/>
                 </div>
                 <div className={style.selectBlock}>
-                    <h3 style={{marginBottom: '15px'}}>Language/s you are <span>learning</span> :</h3>
+                    <h3 style={{marginBottom: '15px'}}>Language/s you are <span className={style.span}>learning</span> :</h3>
                     <CustomSelector selecter={languagesLearn} actionCreater={setLanguagesLearnActionCreater}/>
                 </div>
                 <div className={style.buttonsThree}>
@@ -37,9 +37,9 @@ const StepThree = (props) => {
                         callback={props.previousStep}
                     />
                     <CustomButton
-                        callback={() => console.log(userChoice)}
                         title={"Save"}
                         typeOfButton={"button"}
+                        callback={props.nextStep}
                     />
                 </div>
             </div>
