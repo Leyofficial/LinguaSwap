@@ -4,7 +4,7 @@ export const initialState = {
   userTag : '',
   bio : '',
   photo : '',
-  status : '',
+  status : 'Student',
   nameDirty : true,
   hashDirty : true,
   languagesKnow : [],
