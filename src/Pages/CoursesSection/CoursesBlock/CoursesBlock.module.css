@@ -1,5 +1,5 @@
 .container {
-  margin: 10px;
+  margin: 9px;
   height: 24rem;
   width: 21%;
   background-repeat: no-repeat !important;
@@ -8,7 +8,7 @@
   object-fit: contain;
   color: #ffffff;
   cursor: pointer;
-  background-image: linear-gradient(163deg, rgba(18, 181, 203, 0.76) 0%, #0ec44e 100%);
+  background-image: linear-gradient(163deg, rgba(14, 201, 126, 0.45) 0%, rgba(20, 163, 215, 0.66) 100%);
   border-radius: 10px;
   transition: all 0.5s;
   position: relative;
@@ -70,7 +70,7 @@
 }
 .container .infoWrapper p {
   text-align: center;
-  padding: 5px 10px;
+  padding: 10px 10px;
   border-radius: 5px;
 }
 .container .infoWrapper .start {
@@ -111,8 +111,8 @@
   left: 0;
   padding-top: 5px;
   background: #c2e59c; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #64b3f4, #c2e59c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(to right, #64b3f4, rgba(25, 145, 164, 0.78)); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #64b3f4, rgba(16, 200, 239, 0.42)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .container .author img {
   max-width: 40px;

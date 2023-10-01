@@ -26,7 +26,7 @@ const CoursesBlock = (props) => {
         </div>
         <div className={style.members}>
           {/*{members.length < 1 ? 'members' : members}*/}
-          {membersDefault.map(member =>  <AvatarGroupSection icon={memberImage}></AvatarGroupSection> )}
+          { <AvatarGroupSection items={membersDefault} image={memberImage}></AvatarGroupSection> }
           {/*<AvatarGroupSection></AvatarGroupSection>*/}
           {/*<AvatarGroupSection></AvatarGroupSection>*/}
         </div>

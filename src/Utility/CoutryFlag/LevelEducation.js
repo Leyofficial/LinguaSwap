@@ -2,6 +2,12 @@ export const levelEducation = (level) => {
 
   let levelStyle = {}
   switch (level) {
+    case 'Pre-Intermediate' : {
+      return levelStyle = {
+        backgroundColor:"yellow",
+        color:"#000000"
+      }
+    }
     case 'Pre-intermediate' : {
       return levelStyle = {
         backgroundColor:"yellow",

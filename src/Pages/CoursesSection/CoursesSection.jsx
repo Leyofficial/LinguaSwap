@@ -4,6 +4,7 @@ import Pagination from "../../Utility/Pagination/Pagination.jsx";
 import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
 import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
+import { Select, Space } from 'antd';
 import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {useDispatch, useSelector} from "react-redux";
 import {getCoursesAC} from "../../Redux/Courses/coursesAC.js";
@@ -17,8 +18,15 @@ const CoursesSection = () => {
 
   const dispatch = useDispatch()
 
-  const languages = ['English','Poland','Germany','Spanish','Italy','Japan','Turkish']
-  const [languageFilter,setLanguageFilter] = useState('')
+  // selectors
+  const languages = ['English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
+  const [languageFilter, setLanguageFilter] = useState('')
+
+  const enrolmentType = ['Free', 'Paid']
+  const [enrolment, setEnrolment] = useState("")
+
+  const categoryTypes = ['Popular', 'Recent']
+  const [category, setCategory] = useState('')
 
   const courses = useSelector((state) => state.courses)
 
@@ -31,14 +39,41 @@ const CoursesSection = () => {
   return (
     <div className={style.container}>
       <div className={style.searchWrapper}>
-        <SearchInput value={searchValue} callback={setSearchValue} placeholder={'Courses'}></SearchInput>
+        <SearchInput value={searchValue} callback={setSearchValue}
+                     placeholder={'Type course or teacher name'}></SearchInput>
         {/*<Pagination test={test}></Pagination>*/}
       </div>
       <div className={style.titleWrapper}>
         <div>
-          <CourseSelect items={languages} title={"Language"} callback={setLanguageFilter} value={languageFilter}></CourseSelect>
+          <Space wrap>
+            <Select
+              defaultValue={'Language'}
+              style={{ width: 120 }}
+              onChange={setLanguageFilter}
+              options={languages.map((language) => ({ label: language, value: language }))}
+            />
+            <Select
+              style={{ width: 120 }}
+              defaultValue={'Enrolment Type'}
+              onChange={setEnrolment}
+              options={enrolmentType.map((enrol) => ({ label: enrol, value: enrol }))}
+            />
+            <Select
+              style={{ width: 120 }}
+              defaultValue={'Category'}
+              onChange={setCategory}
+              options={categoryTypes.map((category) => ({ label: category, value: category }))}
+            />
+          </Space>
+
+          {/*<CourseSelect items={languages} title={"Language"} callback={setLanguageFilter}*/}
+          {/*              value={languageFilter}></CourseSelect>*/}
+          {/*<CourseSelect items={enrolmentType} title={"Enrolment types"} callback={setEnrolment}*/}
+          {/*              value={enrolment}></CourseSelect>*/}
+          {/*<CourseSelect items={categoryTypes} title={"Category"} callback={setCategory}*/}
+          {/*              value={category}></CourseSelect>*/}
           <div>
-            <CreateCourse></CreateCourse>
+            {/*<CreateCourse></CreateCourse>*/}
           </div>
         </div>
       </div>
