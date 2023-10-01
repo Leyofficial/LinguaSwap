@@ -19,8 +19,6 @@
 .loginImage {
     max-width: 800px;
     height: 600px;
-
-
 }
 
 .loginComponent {
@@ -43,6 +41,8 @@
 .loginComponentNavLink {
     text-decoration: none;
     margin-right: 5px;
+
+    color: rgb(59, 59, 234);
 }
 
 .loginComponentNavTitle {
@@ -103,6 +103,7 @@
     background-color: rgba(0, 0, 0, 0.973);
     transition: 0.3s;
 }
+
 .btnText {
     color: #fff;
     font-size: 15px;
@@ -111,7 +112,6 @@
 .orBlock {
     display: flex;
     align-items: center;
-
 }
 
 .or {
@@ -119,7 +119,7 @@
 }
 
 .orBlockTitle {
-    margin: 15px;
+    margin: 5px;
 }
 
 .formInputBlock {
@@ -147,8 +147,12 @@
     border-right: none;
 }
 
+.formInputEmail {
+    position: relative;
+}
+
 .forgotPassword {
-    text-decoration: none;
+    color: blue;
 }
 
 .checkboxBlock {
@@ -167,7 +171,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 5px;
 }
 
 .warningsInfo {
@@ -177,6 +181,7 @@
 
 .warningsLogin {
     text-decoration: none;
+    color: blue;
 }
 
 .passwordError, .emailError {
@@ -207,4 +212,19 @@
 
 .formB:hover {
     background-color: rgba(0, 0, 0, 0.995);
+}
+
+.loginComponentText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.eyePassword {
+    border: none;
+    width: 15px;
+    position: absolute;
+    top: 532px;
+    left: 430px;
+    background: none;
 }

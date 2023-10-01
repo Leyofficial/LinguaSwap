@@ -4,12 +4,12 @@ import { Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import './App.css'
-import HomePage from "./Pages/HomePage/HomePage.jsx";
 import {useSelector} from "react-redux";
 import CreateProfile from "./Pages/CreateProfilePage/index"
+
+
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
-import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
 
 
 function App() {
@@ -20,6 +20,10 @@ function App() {
 
   return (
     <>
+
+       {/* {!isStart ?
+          <HomePage></HomePage>
+
        {!isStart ?
          <Routes>
            <Route path={'/'} element={<Layout layoutType={'home'}/>}>
@@ -29,16 +33,20 @@ function App() {
            </Route>
          </Routes>
 
+
         :
+        } */}
+
         <Routes>
           <Route path={"/"} element={<Layout layoutType={'main'}/>}>
             <Route index={true} element={ <CoursesSection/>}></Route>
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
             <Route path={"/createprofile"} element={<CreateProfile/>} />
-            <Route path={"*"} element={<ErrorUrl/>} />
+            <Route index={true} element={ <CoursesSection/>}></Route>
           </Route>
-        </Routes>}
+          
+        </Routes> 
     </>
   );
 }

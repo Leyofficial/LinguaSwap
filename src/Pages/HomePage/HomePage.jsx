@@ -14,6 +14,15 @@ import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
 
 const HomePage = () => {
 
+  const navItems = [
+    { text: "Overview", link: "/" },
+    { text: "Features", link: "#test" },
+    { text: "Get in touch", link: "#test" },
+    { text: "FAQ", link: "#test" },
+    { text: "Help", link: "#test" },
+  ];
+
+
 
   const dispatch = useDispatch()
   const [showScrollUp,setShowScrollUp] = useState(false)
