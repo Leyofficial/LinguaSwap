@@ -4,7 +4,7 @@ import Pagination from "../../Utility/Pagination/Pagination.jsx";
 import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
 import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
-import { Select, Space } from 'antd';
+import {Select, Space} from 'antd';
 import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {useDispatch, useSelector} from "react-redux";
 import {getCoursesAC} from "../../Redux/Courses/coursesAC.js";
@@ -28,13 +28,30 @@ const CoursesSection = () => {
   const categoryTypes = ['Popular', 'Recent']
   const [category, setCategory] = useState('')
 
+  const [foundCourse, setFoundCourse] = useState(null)
+
   const courses = useSelector((state) => state.courses)
 
   useEffect(() => {
     Course.getCourses().then(res => dispatch(getCoursesAC(res.data.courses)))
   }, [])
+  console.log(courses)
 
-  // courses.length = 6
+
+  const searchCoursesItem = () => courses.filter(item => item.course.name.toLowerCase().includes(searchValue.toLowerCase()))
+
+  useEffect(() => {
+    if (searchValue) {
+      const item = searchCoursesItem()
+      setFoundCourse(item)
+    } else {
+      setFoundCourse(null)
+    }
+
+
+  }, [courses, searchValue])
+
+  console.log(foundCourse)
 
   return (
     <div className={style.container}>
@@ -48,21 +65,21 @@ const CoursesSection = () => {
           <Space wrap>
             <Select
               defaultValue={'Language'}
-              style={{ width: 120 }}
+              style={{width: 120}}
               onChange={setLanguageFilter}
-              options={languages.map((language) => ({ label: language, value: language }))}
+              options={languages.map((language) => ({label: language, value: language}))}
             />
             <Select
-              style={{ width: 120 }}
+              style={{width: 120}}
               defaultValue={'Enrolment Type'}
               onChange={setEnrolment}
-              options={enrolmentType.map((enrol) => ({ label: enrol, value: enrol }))}
+              options={enrolmentType.map((enrol) => ({label: enrol, value: enrol}))}
             />
             <Select
-              style={{ width: 120 }}
+              style={{width: 120}}
               defaultValue={'Category'}
               onChange={setCategory}
-              options={categoryTypes.map((category) => ({ label: category, value: category }))}
+              options={categoryTypes.map((category) => ({label: category, value: category}))}
             />
           </Space>
           <div>
@@ -71,7 +88,7 @@ const CoursesSection = () => {
         </div>
       </div>
       <div className={style.coursesWrapper}>
-        {courses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+        {!foundCourse ? courses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
                                              language={course.course.language}
                                              courseTitle={course.course.name}
                                              date={{
@@ -82,6 +99,19 @@ const CoursesSection = () => {
                                              level={course.course.level}
                                              duration={course.course.durationCourse}
                                              image={course.course.image}
+
+
+        ></CoursesBlock>) : foundCourse.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+                                                                    language={course.course.language}
+                                                                    courseTitle={course.course.name}
+                                                                    date={{
+                                                                      startDate: course.course.startCourse,
+                                                                      finishDate: course.course.finishCourse
+                                                                    }}
+                                                                    members={course.course.members} teacher={course.teacher}
+                                                                    level={course.course.level}
+                                                                    duration={course.course.durationCourse}
+                                                                    image={course.course.image}
 
 
         ></CoursesBlock>)}
