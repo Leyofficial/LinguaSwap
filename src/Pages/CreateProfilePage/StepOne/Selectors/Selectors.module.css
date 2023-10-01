@@ -5,6 +5,10 @@
   position: relative;
 }
 
+.span {
+  color: #151515;
+}
+
 .radio-form input {
   position: fixed;
   top: -1.5em;
