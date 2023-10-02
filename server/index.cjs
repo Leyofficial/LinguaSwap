@@ -6,10 +6,7 @@ const PORT = process.env.PORT || 3000
 const helmet = require("helmet");
 const http = require('http')
 const ErrorHandler = require("./APIFeatures/ErrorHandler.cjs");
-const fileUpload = require("express-fileupload")
 const server = http.createServer(app);
-const multer = require('multer')
-const upload = require('./APIFeatures/fileController.cjs')
 const path = require('path')
 
 

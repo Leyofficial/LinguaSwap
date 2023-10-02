@@ -61,11 +61,11 @@ const CoursesSection = () => {
 
   useEffect(() => {
 
-    if (languageFilter) {
-      dispatch(filterCourseThunkCreator(languageFilter))
+    if (languageFilter || enrolment) {
+      dispatch(filterCourseThunkCreator(languageFilter,enrolment))
     }
 
-  }, [languageFilter])
+  }, [languageFilter,enrolment])
 
 
 

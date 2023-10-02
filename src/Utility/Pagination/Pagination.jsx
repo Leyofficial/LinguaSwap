@@ -11,8 +11,8 @@ const Pagination = (props) => {
       pageNumbers.push(i)
     }
 
-
   const changeActivePage = (pageNumber) => {
+
     paginate(pageNumber)
     setCurrentCoursePage(pageNumber)
   }
