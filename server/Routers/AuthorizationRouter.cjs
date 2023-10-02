@@ -9,7 +9,7 @@ authRouter.route('/:typeOfUser?')
   .get(authFunctions.getAllUsers)
   .post(authFunctions.signup)
 
-authRouter.route('/login')
+authRouter.route('/auth/login')
   .get(authFunctions.login)
 
 authRouter.route('/profile/:idUser')

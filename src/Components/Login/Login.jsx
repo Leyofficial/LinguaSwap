@@ -9,8 +9,9 @@ import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../Redux/login.reducer';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { fetchUserAC } from '../../Redux/login/loginactions';
+import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
 
 function Login() {
 
@@ -88,9 +89,14 @@ function Login() {
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const loginSubmit = () => {
+  const loginSubmit = e => {
+    e.preventDefault()
+    loginUser(userValue).then(res => {
+      console.log(res);
+    })
 
-    dispatch(loginUser(userValue));
+
+    dispatch(fetchUserAC(userValue));
     navigate('/');
   }
 

@@ -42,7 +42,7 @@ exports.login = catchAsync(async (req,res,next) => {
     return next(new AppError('Incorrect email or password', 401));
   }
   createSendToken(user, 200, res);
-  next()
+
 })
 
 exports.getAllUsers = catchAsync(async (req,res,next) => {
