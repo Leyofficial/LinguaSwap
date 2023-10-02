@@ -7,9 +7,10 @@ import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
 import {Select, Space} from 'antd';
 import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {useDispatch, useSelector} from "react-redux";
-import {getCoursesAC} from "../../Redux/Courses/coursesAC.js";
+import {filterCourseAC, getCoursesAC} from "../../Redux/Courses/coursesAC.js";
 import {countryFlag} from "../../Utility/CoutryFlag/CountryFlag.js";
 import CourseSelect from "./CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.jsx";
+import {filterCourseThunkCreator} from "../../Redux/Courses/coursesReducer.js";
 
 const CoursesSection = () => {
 
@@ -22,7 +23,7 @@ const CoursesSection = () => {
   const languages = ['English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
   const [languageFilter, setLanguageFilter] = useState('')
 
-  const [foundForLanguageCourses,setFoundForLanguageCourses] = useState(null)
+  const [foundForLanguageCourses, setFoundForLanguageCourses] = useState(null)
 
   const enrolmentType = ['Free', 'Paid']
   const [enrolment, setEnrolment] = useState("")
@@ -39,7 +40,6 @@ const CoursesSection = () => {
   }, [])
 
 
-
   const searchCoursesItem = () => courses.filter(item => item.course.name.toLowerCase().includes(searchValue.toLowerCase()))
 
   useEffect(() => {
@@ -52,22 +52,19 @@ const CoursesSection = () => {
 
   }, [courses, searchValue])
 
-  const languageFilterFoundItems = () => courses.filter(item => item.course.language === languageFilter)
-  const searchCourseForFilter = () => foundCourse.filter(item => item.course.language === languageFilter)
+  // const languageFilterFoundItems = () => courses.filter(item => item.course.language === languageFilter)
 
   useEffect(() => {
-    if(foundCourse && languageFilter) {
-      const items = searchCourseForFilter()
-      setFoundForLanguageCourses(items)
 
-    }else if(courses && languageFilter) {
-      const items = languageFilterFoundItems()
-      setFoundForLanguageCourses(items)
+    if (languageFilter) {
+      dispatch(filterCourseThunkCreator(languageFilter))
     }
+    // const items = languageFilterFoundItems()
+    // setFoundForLanguageCourses(items)
 
-  },[languageFilter,courses,foundCourse])
+  }, [languageFilter])
 
-console.log(foundForLanguageCourses)
+  // console.log(foundForLanguageCourses)
 
   return (
     <div className={style.container}>
@@ -105,42 +102,30 @@ console.log(foundForLanguageCourses)
       </div>
       <div className={style.coursesWrapper}>
         {!foundCourse ? courses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
-                                             language={course.course.language}
-                                             courseTitle={course.course.name}
-                                             date={{
-                                               startDate: course.course.startCourse,
-                                               finishDate: course.course.finishCourse
-                                             }}
-                                             members={course.course.members} teacher={course.teacher}
-                                             level={course.course.level}
-                                             duration={course.course.durationCourse}
-                                             image={course.course.image}
+                                                            language={course.course.language}
+                                                            courseTitle={course.course.name}
+                                                            date={{
+                                                              startDate: course.course.startCourse,
+                                                              finishDate: course.course.finishCourse
+                                                            }}
+                                                            members={course.course.members} teacher={course.teacher}
+                                                            level={course.course.level}
+                                                            duration={course.course.durationCourse}
+                                                            image={course.course.image}
 
 
-        ></CoursesBlock>) : !foundForLanguageCourses ? foundCourse.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+        ></CoursesBlock>) : foundCourse.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
                                                                     language={course.course.language}
                                                                     courseTitle={course.course.name}
                                                                     date={{
                                                                       startDate: course.course.startCourse,
                                                                       finishDate: course.course.finishCourse
                                                                     }}
-                                                                    members={course.course.members} teacher={course.teacher}
+                                                                    members={course.course.members}
+                                                                    teacher={course.teacher}
                                                                     level={course.course.level}
                                                                     duration={course.course.durationCourse}
                                                                     image={course.course.image}
-
-
-        ></CoursesBlock>) : foundForLanguageCourses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
-                                                                                language={course.course.language}
-                                                                                courseTitle={course.course.name}
-                                                                                date={{
-                                                                                  startDate: course.course.startCourse,
-                                                                                  finishDate: course.course.finishCourse
-                                                                                }}
-                                                                                members={course.course.members} teacher={course.teacher}
-                                                                                level={course.course.level}
-                                                                                duration={course.course.durationCourse}
-                                                                                image={course.course.image}
 
 
         ></CoursesBlock>)}

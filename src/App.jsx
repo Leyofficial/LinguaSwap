@@ -15,9 +15,6 @@ import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
 function App() {
 
   const isStart = useSelector((state) => state.isStart);
-  const name = useSelector((state) => state);
-  console.log(name)
-
   return (
     <>
        {!isStart ?
