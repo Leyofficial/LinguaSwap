@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, {useEffect, useState} from 'react'
 
 
-import { Link, useNavigate } from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
-import { useDispatch } from 'react-redux';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { fetchUserAC } from '../../Redux/login/loginactions';
+import {useDispatch} from 'react-redux';
+import {FaEye, FaEyeSlash} from 'react-icons/fa';
+import {fetchUserAC} from '../../Redux/login/loginactions';
 import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
 
 function Login() {
@@ -21,7 +21,6 @@ function Login() {
   });
 
   const [showPassword, setShowPassword] = useState(false);
-  
 
 
   const [emailDirty, setEmailDirty] = useState(false);
@@ -32,9 +31,9 @@ function Login() {
 
   useEffect(() => {
 
-    if(emailError || passwordError) {
+    if (emailError || passwordError) {
       setFormValid(false)
-    }else {
+    } else {
       setFormValid(true)
     }
 
@@ -48,40 +47,37 @@ function Login() {
       case 'password':
         setPasswordDirty(true);
         break;
-      }
+    }
   }
 
   const dataHandlerChange = e => {
-    
+
     setUserValue(data => {
-      return{
+      return {
         ...data,
         [e.target.name]: e.target.value
       }
     })
 
-    
 
-    
-
-    if(e.target.name === 'email') {
+    if (e.target.name === 'email') {
       const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (!re.test(String(e.target.value).toLocaleLowerCase())) {
 
         setEmailError('Некоректный email')
-  
-      }else {
+
+      } else {
         setEmailError('')
       }
 
-    }else if(e.target.name === 'password') {
-      if(e.target.value.length < 6 ||e.target.value.length > 8 ) {
+    } else if (e.target.name === 'password') {
+      if (e.target.value.length < 6 || e.target.value.length > 8) {
         setPasswordError('Пароль должен быть больше 6 символов');
-  
-        if(!e.target.value) {
+
+        if (!e.target.value) {
           setPasswordError('Поле поля password обязателен!!');
         }
-      }else {
+      } else {
         setPasswordError('')
       }
     }
@@ -90,14 +86,14 @@ function Login() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const loginSubmit = e => {
+
     e.preventDefault()
     loginUser(userValue).then(res => {
-      console.log(res);
     })
 
 
     dispatch(fetchUserAC(userValue));
-    navigate('/');
+    // navigate('/');
   }
 
   const togglePasswordVisibility = () => {
@@ -106,104 +102,107 @@ function Login() {
 
   return (
     <>
-    
+
       <div className='login'>
         <div className="loginComponent">
-  
+
           <h3 className="loginComponentTitle">Вход</h3>
-  
+
           <nav className="loginComponentNav">
 
             <p className="loginComponentText">
 
-            Если еще не регистрировались можете 
-            <Link to='/teacherregister' className="loginComponentNavLink"> Зарегистрироваться </Link>
-
+              Если еще не регистрировались можете
+              <Link to='/teacherregister' className="loginComponentNavLink"> Зарегистрироваться </Link>
 
 
             </p>
 
-  
+
           </nav>
-  
+
           <div className="loginComponentContainer">
-  
+
             <button className="loginComponentContainerBtn googleBtn">
-              <img src={googleicon} alt={googleicon} className="btnIcon" />
+              <img src={googleicon} alt={googleicon} className="btnIcon"/>
               <span className='btnText'>Продолжить с Google</span>
             </button>
-  
+
             <button className="loginComponentContainerBtn facebookBtn">
-              <img src={facebookicon} alt={googleicon} className="btnIcon" />
+              <img src={facebookicon} alt={googleicon} className="btnIcon"/>
               <span className='btnText'>Продолжить с Facebook</span>
             </button>
-  
+
             <button className="loginComponentContainerBtn appleBtn">
-              <img src={appleicon} alt={googleicon} className="btnIcon" />
+              <img src={appleicon} alt={googleicon} className="btnIcon"/>
               <span className='btnText'>Продолжить с Apple</span>
             </button>
 
           </div>
-  
+
           <div className="orBlock">
             <hr className='or'/>
             <span className="orBlockTitle">или</span>
             <hr className='or'/>
           </div>
-  
+
           <form onSubmit={loginSubmit} className="formLogin">
-  
+
             <div className="formContainer">
-  
+
               <div className="formInputBlock">
                 <span className="formInputTitle">Эл. почта</span>
-                
-                <input onChange={e => dataHandlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
+
+                <input onChange={e => dataHandlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)}
+                       name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
                 {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
               </div>
-  
+
               <div className="formInputBlock">
                 <span className="formInputTitle">Пароль</span>
-                
-                
-                  <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type={showPassword ? "text" : "password"} className="formInputEmail" placeholder='Ваш пароль'/>
-                  <button className='eyePassword' type="button" onClick={togglePasswordVisibility}>
-                  {!showPassword ? <FaEyeSlash /> : <FaEye />}
+
+
+                <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)}
+                       name='password' type={showPassword ? "text" : "password"} className="formInputEmail"
+                       placeholder='Ваш пароль'/>
+                <button className='eyePassword' type="button" onClick={togglePasswordVisibility}>
+                  {!showPassword ? <FaEyeSlash/> : <FaEye/>}
                 </button>
                 {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
               </div>
 
               <Link className="forgotPassword">Забыли пароль?</Link>
-              
+
               <div className='checkboxBlock'>
-                <input  type="checkbox" className='checkboxLogin'/>
+                <input type="checkbox" className='checkboxLogin'/>
                 <span className="checkboxText">Запомнить меня</span>
               </div>
-  
+
               <button className="formBtn">Отправить</button>
 
             </div>
-  
+
           </form>
-  
-  
+
+
           <div className="warningsBlock">
-  
+
             <p className="warningInfo">
-  
-              Нажимая <Link className='warningsLogin'>«Войти»</Link> или <Link className='warningsLogin'>«Продолжить»</Link>, вы принимаете <br />
-              Условия использования и <br />
+
+              Нажимая <Link className='warningsLogin'>«Войти»</Link> или <Link
+              className='warningsLogin'>«Продолжить»</Link>, вы принимаете <br/>
+              Условия использования и <br/>
               Палитику конфидециальности
-  
+
             </p>
-  
+
           </div>
-  
+
         </div>
 
         <div className="loginImageContent">
 
-          <img src={teacherimg} alt={teacherimg} className="loginImage" />
+          <img src={teacherimg} alt={teacherimg} className="loginImage"/>
 
         </div>
       </div>
