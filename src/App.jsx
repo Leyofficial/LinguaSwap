@@ -15,8 +15,13 @@ import HomePage from "./Pages/HomePage/HomePage.jsx";
 
 
 function App() {
-
+  
+  const userData = useSelector(state => state.auth)
+  console.log(userData)
   const isStart = useSelector((state) => state.isStart);
+  const name = useSelector((state) => state);
+  console.log(name)
+
   return (
     <>
        {!isStart ?

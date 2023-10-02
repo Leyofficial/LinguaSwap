@@ -10,7 +10,8 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
-import { fetchUser } from '../../Redux/auth.reducer';
+import { fetchUserAC } from '../../Redux/login/loginactions';
+import { registerNewUser } from '../../ApiRequests/Courses/AuthUser';
 function TeacherRegister() {
 
   const [userValue, setUserValue] = useState({
@@ -65,14 +66,17 @@ function TeacherRegister() {
   }, [emailError, passwordError, userValue]);
 
   const submitPostData = e => {
-    // e.preventDefault();
+    e.preventDefault();
+
+
+    registerNewUser(userValue).then(res => {
+      dispatch(fetchUserAC(res.data.user));
+    });
 
     // сразу после успешной регистрации проходит на страницу курсы*
    
-    navigate('/login')
+    navigate('/');
 
-    dispatch(fetchUser(userValue));
-    
     
   }
 

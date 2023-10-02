@@ -9,8 +9,8 @@ authRouter.route('/:typeOfUser?')
   .get(authFunctions.getAllUsers)
   .post(authFunctions.signup)
 
-authRouter.route('/login')
-  .get(authFunctions.login)
+authRouter.route('/auth/login')
+  .post(authFunctions.login)
 
 authRouter.route('/profile/:idUser')
   .patch(authFunctions.updateProfile)
