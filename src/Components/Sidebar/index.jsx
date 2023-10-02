@@ -18,6 +18,7 @@ const Sidebar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const manuItems = [
     {
+
       path: "/",
       icon: courses,
       name: "Courses",

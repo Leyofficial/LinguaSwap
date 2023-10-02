@@ -1,5 +1,6 @@
 .container {
   max-width: 1500px;
+  padding-bottom: 40px;
   margin: 0 auto;
 }
 .container .coursesWrapper {
@@ -12,7 +13,6 @@
   padding-bottom: 6px;
 }
 .container .searchWrapper {
-  max-width: 1230px;
   padding-top: 1vh;
   margin: 0 auto;
 }
@@ -20,6 +20,11 @@
   max-width: 1225px;
   margin: 0 auto;
   text-align: end;
+}
+.container .paginationWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=CoursesSection.module.css.map */

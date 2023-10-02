@@ -1,6 +1,6 @@
 const express = require("express");
 
-const authRouter = express.Router({mergeParams: true});
+const authRouter = express.Router();
 
 const authFunctions = require('../Functions/AuthorizationFunctions.cjs')
 
