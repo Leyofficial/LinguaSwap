@@ -22,7 +22,7 @@ export default coursesReducer
 
 
 export const filterCourseThunkCreator = (language, enrolment) => {
-  console.log(enrolment)
+
   return async (dispatch) => {
     let coursesResponse = await Course.getCourses()
 
@@ -33,23 +33,14 @@ export const filterCourseThunkCreator = (language, enrolment) => {
         filterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
         filterData = filterData.filter(item => item.course.language === language)
         dispatch(filterCourseAC(filterData))
-        //
-        // dispatch(filterCourseAC(filterData))
       }else if(language) {
-        const filterData = filterData.filter(item => item.course.language === language)
+        const filterData = coursesResponse.data.courses.filter(item => item.course.language === language)
         dispatch(filterCourseAC(filterData))
       } else if(enrolment) {
         const filterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
         dispatch(filterCourseAC(filterData))
       }
-      // const enrolFilterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
-      // if (enrolFilterData) {
-      //   const filterData = enrolFilterData.filter(item => item.course.language === language)
-      //   dispatch(filterCourseAC(filterData))
-      // } else {
-      //   const filterData = coursesResponse.data.courses.filter(item => item.course.language === language)
-      //   dispatch(filterCourseAC(filterData))
-      // }
+
 
 
     }

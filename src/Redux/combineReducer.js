@@ -10,7 +10,6 @@ import {setLanguagesKnowReducer} from "./Profile/Languages/languagesKnow/setLang
 import {setLanguagesLearnReducer} from "./Profile/Languages/languagesLearn/setLanguagesLearnReducer.js";
 import coursesReducer from "./Courses/coursesReducer.js";
 import {setPhotoReducer} from "./Profile/Photo/setPhotoReducer.js";
-import loginReducer from "./LoginUser/loginReducer.js";
 import login from './login/loginuser.reducer.js'
 
 export default (combineReducers)({
