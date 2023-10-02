@@ -20,7 +20,7 @@ function App() {
   console.log(userData)
   const isStart = useSelector((state) => state.isStart);
   const name = useSelector((state) => state);
-  console.log(name)
+ 
 
   return (
     <>
