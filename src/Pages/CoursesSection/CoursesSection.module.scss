@@ -1,11 +1,11 @@
 .container {
-  max-width: 1500px;
+  max-width: calc(1400px - 15rem);
   padding-bottom: 40px;
 
   margin: 0 auto;
 
   .coursesWrapper {
-    max-width: 1200px;
+    //max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -16,14 +16,19 @@
 
   .searchWrapper {
     //width: calc(1230px + 5rem);
+    //max-width: 1225px;
+    max-width: 950px;
+
     padding-top: 1vh;
     margin: 0 auto;
+
   }
 
   .titleWrapper {
-    max-width: 1225px;
+    //max-width: 1225px;
     margin: 0 auto;
     text-align: end;
+    max-width: 950px;
   }
 
   .paginationWrapper {
