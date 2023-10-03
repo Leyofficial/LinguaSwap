@@ -10,6 +10,7 @@ import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
+import CourseSection from "./Pages/CourseSection/CourseSection.jsx";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Route path={"/login"} element={<Login/>}/>
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
             <Route path={"/createprofile"} element={<CreateProfile/>} />
+            <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
             <Route path={"*"} element={<ErrorUrl/>} />
           </Route>
         </Routes>}

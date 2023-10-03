@@ -5,16 +5,17 @@ import test from '../../../images/test.png'
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
 import {GiClockwork} from "react-icons/gi";
+import {NavLink} from "react-router-dom";
 
 const CoursesBlock = (props) => {
 
   const membersDefault = [1, 2, 3]
 
-  const {language, courseTitle, date, members, teacher, level,duration,image} = props
+  const {language, courseTitle, date, members, teacher, level,duration,image,idCourse} = props
 
   return (
-
     <div className={style.container}>
+      <NavLink to={`/course/${idCourse}`}>
       <div className={style.containerWrapper}>
         <div className={style.courseHeader}>
           <img  src={image} alt={'course'}/>
@@ -38,7 +39,7 @@ const CoursesBlock = (props) => {
           <div className={style.infoWrapper}>
             <p style={levelEducation(level)}>{level}</p>
             {/*<p>{language}</p>*/}
-           <p>{duration}</p>
+           <p className={style.duration}>{duration}</p>
           </div>
           <div className={style.wrapperLevel}>
             <div>
@@ -53,6 +54,7 @@ const CoursesBlock = (props) => {
           </div>
         </div>
       </div>
+      </NavLink>
     </div>
   );
 };

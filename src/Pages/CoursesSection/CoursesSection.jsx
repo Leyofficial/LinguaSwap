@@ -103,7 +103,7 @@ const CoursesSection = () => {
         </div>
       </div>
       <div className={style.coursesWrapper}>
-        {!foundCourse ? currentCourses.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+        {!foundCourse ? currentCourses.map(course => <CoursesBlock idCourse={course._id} flag={countryFlag(course.course.language)}
                                                             language={course.course.language}
                                                             courseTitle={course.course.name}
                                                             date={{
@@ -116,7 +116,7 @@ const CoursesSection = () => {
                                                             image={course.course.image}
 
 
-        ></CoursesBlock>) : foundCourse.map(course => <CoursesBlock flag={countryFlag(course.course.language)}
+        ></CoursesBlock>) : foundCourse.map(course => <CoursesBlock idCourse={course._id} flag={countryFlag(course.course.language)}
                                                                     language={course.course.language}
                                                                     courseTitle={course.course.name}
                                                                     date={{
