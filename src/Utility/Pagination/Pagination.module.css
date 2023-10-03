@@ -8,12 +8,16 @@
   background-color: rgba(48, 138, 175, 0.35);
   transition: 0.5s ease-in-out;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 13px;
   color: rgba(28, 78, 117, 0.56);
 }
 .container ul li:hover {
   background-color: rgba(48, 138, 175, 0.52);
   color: rgba(34, 52, 66, 0.34);
+}
+.container .active {
+  background-color: rgba(4, 98, 218, 0.55);
+  color: #000000;
 }
 
 /*# sourceMappingURL=Pagination.module.css.map */

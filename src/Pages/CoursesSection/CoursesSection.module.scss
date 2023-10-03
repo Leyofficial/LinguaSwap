@@ -1,7 +1,9 @@
 .container {
   max-width: 1500px;
+  padding-bottom: 40px;
 
   margin: 0 auto;
+
   .coursesWrapper {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,6 +24,12 @@
     max-width: 1225px;
     margin: 0 auto;
     text-align: end;
+  }
+
+  .paginationWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

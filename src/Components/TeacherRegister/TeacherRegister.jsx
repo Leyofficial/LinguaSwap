@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from 'react';
-import './TeacherRegister.css';
+import style from './TeacherRegister.module.css';
 import teacherimg from '../../img/images/teacherimg.jpg'
 import { useNavigate } from 'react-router';
 import { useDispatch } from 'react-redux';
@@ -123,76 +123,76 @@ function TeacherRegister() {
  
 
   return (
-        <div className='login'>
+        <div className={style.login}>
             
-          <div className='registerComponent'>
+          <div className={style.registerComponent}>
         
-        <h2 className="registerComponentTitle">Регистрация</h2>
+        <h2 className={style.registerComponentTitle}>Регистрация</h2>
 
-        <div className="registerJwt">
+        <div className={style.registerJwt}>
 
-            <button className="registerGoogle">
-                <img src={googleicon} alt={googleicon} className="registerBtnIcon" />
-                <span className='registerBtnText'>Зарегистрироваться с Google</span>
+            <button className={style.registerGoogle}>
+                <img src={googleicon} alt={googleicon} className={style.registerBtnIcon} />
+                <span className={style.registerBtnText}>Зарегистрироваться с Google</span>
             </button>
 
-            <button className="registerFacebook">
-                <img src={facebookicon} alt={googleicon} className="registerBtnIcon" />
-                <span className='registerBtnText'>Зарегистрироваться с Facebook</span>
+            <button className={style.registerFacebook}>
+                <img src={facebookicon} alt={googleicon} className={style.registerBtnIcon} />
+                <span className={style.registerBtnText}>Зарегистрироваться с Facebook</span>
             </button>
 
-            <button className="registerApple">
-                <img src={appleicon} alt={appleicon} className="registerBtnIcon" />
-                <span className='registerBtnText'>Зарегистрироваться с Apple</span>
+            <button className={style.registerApple}>
+                <img src={appleicon} alt={appleicon} className={style.registerBtnIcon} />
+                <span className={style.registerBtnText}>Зарегистрироваться с Apple</span>
             </button>
 
         </div>
 
-        <div className="orBlock">
-            <hr className='or'/>
-            <span className="orBlockTitle">или</span>
-            <hr className='or'/>
+        <div className={style.orBlock}>
+            <hr className={style.or}/>
+            <span className={style.orBlockTitle}>или</span>
+            <hr className={style.or}/>
          </div>
 
-        <form onSubmit={submitPostData} className="formRegister">
+        <form onSubmit={submitPostData} className={style.formRegister}>
 
-            <div className="formContainer">
+            <div className={style.formContainer}>
 
                
-                <div className="blockInput">
-                    <span className="blockInputText">Эл. почта *</span>
+                <div className={style.blockInput}>
+                    <span className={style.blockInputText}>Эл. почта *</span>
                     
-                    <input onChange={e => handlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} type="email" name='email' className="inputRegister" />
-                    {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
+                    <input onChange={e => handlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} type="email" name='email' className={style.inputRegister} />
+                    {(emailDirty && emailError) && <div className={style.emailError}>{emailError}</div>}
                 </div>
 
-                <div className="blockInput">
-                    <span className="blockInputText">Пароль *</span>
+                <div className={style.blockInput}>
+                    <span className={style.blockInputText}>Пароль *</span>
                     
-                    <input onChange={e => handlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} type={showPassword ? "text" : "password"} name='password' className="inputRegister" />
-                    <button className='eyePasswordRegister' type="button" onClick={togglePasswordVisibility}>
+                    <input onChange={e => handlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} type={showPassword ? "text" : "password"} name='password' className={style.inputRegister} />
+                    <button className={style.eyePasswordRegister} type="button" onClick={togglePasswordVisibility}>
                         {!showPassword ? <FaEyeSlash /> : <FaEye />}
                     </button>
-                    {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
+                    {(passwordDirty && passwordError) && <div className={style.passwordError}>{passwordError}</div>}
                 </div>
 
-                <div className="blockInput">
-                    <span className="blockInputText">Повторный пароль *</span>
-                    <button className='eyePasswordRegisterConfirm' type="button" onClick={togglePasswordVisibility}>
+                <div className={style.blockInput}>
+                    <span className={style.blockInputText}>Повторный пароль *</span>
+                    <button className={style.eyePasswordRegisterConfirm} type="button" onClick={togglePasswordVisibility}>
                         {!showPassword ? <FaEyeSlash /> : <FaEye />}
                     </button>
-                    <input onChange={e => handlerChange(e)} value={userValue.confirmPassword} onBlur={e => blurHandler(e)} type={showPassword ? "text" : "password"} name='confirmPassword' className="inputRegister" />
-                    {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
-                    {(confirmShow == false) && <span className="confirmErrorText"> {confirmError} </span>}
+                    <input onChange={e => handlerChange(e)} value={userValue.confirmPassword} onBlur={e => blurHandler(e)} type={showPassword ? "text" : "password"} name='confirmPassword' className={style.inputRegister} />
+                    {(passwordDirty && passwordError) && <div className={style.passwordError}>{passwordError}</div>}
+                    {(confirmShow == false) && <span className={style.confirmErrorText}> {confirmError} </span>}
                     
                 </div>
 
              
 
-                <div className="linkInLoginBlock">
-                    <p className="linkInLoginText">
+                <div className={style.linkInLoginBlock}>
+                    <p className={style.linkInLoginText}>
                         Если есть акаунт можете 
-                        <NavLink to='/login' className='linkInLogin'>Войти</NavLink>
+                        <NavLink to='/login' className={style.linkInLogin}>Войти</NavLink>
                     </p>
                 </div>
 
@@ -203,15 +203,15 @@ function TeacherRegister() {
 
           
 
-            <button className='formSubmit'>Зарегистрироваться</button>
+            <button className={style.formSubmit}>Зарегистрироваться</button>
 
         </form>
 
-        <div className="warningsBlock">
+        <div className={style.warningsBlock}>
 
-            <p className="warningInfo">
+            <p className={style.warningInfo}>
 
-                Нажимая <NavLink className='warningsLogin'>«Зарегистрироваться»</NavLink> или <NavLink className='warningsLogin'>«Продолжить»</NavLink>, вы принимаете <br />
+                Нажимая <NavLink className={style.warningsLogin}>«Зарегистрироваться»</NavLink> или <NavLink className={style.warningsLogin}>«Продолжить»</NavLink>, вы принимаете <br />
                 Условия использования и <br />
                 Палитику конфидециальности
 
@@ -219,9 +219,9 @@ function TeacherRegister() {
 
         </div>
           </div>
-            <div className="loginImageContent">
+            <div className={style.loginImageContent}>
     
-                 <img src={teacherimg} alt={teacherimg} className="loginImage" />
+                 <img src={teacherimg} alt={teacherimg} className={style.loginImage} />
     
             </div>
         </div>

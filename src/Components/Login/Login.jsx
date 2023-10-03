@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Link, useNavigate } from 'react-router-dom'
 
-import './Login.css';
+import style from './Login.module.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
@@ -87,6 +87,7 @@ function Login() {
     }
   }
 
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -95,27 +96,31 @@ function Login() {
     e.preventDefault();
     
     loginUser(userValue).then(res => dispatch(fetchUserAC(res.data.user)));
+
     navigate('/');
   }
 
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
+  
+
   return (
     <>
     
-      <div className='login'>
-        <div className="loginComponent">
+      <div className={style.login}>
+        <div className={style.loginComponent}>
   
-          <h3 className="loginComponentTitle">Вход</h3>
+          <h3 className={style.loginComponentTitle}>Вход</h3>
   
-          <nav className="loginComponentNav">
+          <nav className={style.loginComponentNav}>
 
-            <p className="loginComponentText">
+            <p className={style.loginComponentText}>
 
             Если еще не регистрировались можете 
-            <Link to='/teacherregister' className="loginComponentNavLink"> Зарегистрироваться </Link>
+            <Link to='/teacherregister' className={style.loginComponentNavLink}> Зарегистрироваться </Link>
 
 
 
@@ -124,72 +129,72 @@ function Login() {
   
           </nav>
   
-          <div className="loginComponentContainer">
+          <div className={style.loginComponentContainer}>
   
-            <button className="loginComponentContainerBtn googleBtn">
-              <img src={googleicon} alt={googleicon} className="btnIcon" />
-              <span className='btnText'>Продолжить с Google</span>
+            <button className={`${style.loginComponentContainerBtn} ${style.googleBtn}`}>
+              <img src={googleicon} alt={googleicon} className={style.btnIcon} />
+              <span className={style.btnText}>Продолжить с Google</span>
             </button>
   
-            <button className="loginComponentContainerBtn facebookBtn">
-              <img src={facebookicon} alt={googleicon} className="btnIcon" />
-              <span className='btnText'>Продолжить с Facebook</span>
+            <button className={`${style.loginComponentContainerBtn} ${style.facebookBtn}`}>
+              <img src={facebookicon} alt={googleicon} className={style.btnIcon} />
+              <span className={style.btnText}>Продолжить с Facebook</span>
             </button>
   
-            <button className="loginComponentContainerBtn appleBtn">
-              <img src={appleicon} alt={googleicon} className="btnIcon" />
-              <span className='btnText'>Продолжить с Apple</span>
+            <button className={`${style.loginComponentContainerBtn} ${style.appleBtn}`}>
+              <img src={appleicon} alt={googleicon} className={style.btnIcon} />
+              <span className={style.btnText}>Продолжить с Apple</span>
             </button>
 
           </div>
   
-          <div className="orBlock">
-            <hr className='or'/>
-            <span className="orBlockTitle">или</span>
-            <hr className='or'/>
+          <div className={style.orBlock}>
+            <hr className={style.or}/>
+            <span className={style.orBlockTitle}>или</span>
+            <hr className={style.or}/>
           </div>
   
-          <form onSubmit={loginSubmit} className="formLogin">
+          <form onSubmit={loginSubmit} className={style.formLogin}>
   
-            <div className="formContainer">
+            <div className={style.formContainer}>
   
-              <div className="formInputBlock">
-                <span className="formInputTitle">Эл. почта</span>
+              <div className={style.formInputBlock}>
+                <span className={style.formInputTitle}>Эл. почта</span>
                 
-                <input onChange={e => dataHandlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} name='email' type="email" className="formInputEmail" placeholder='Ваш адрес эл. почты'/>
-                {(emailDirty && emailError) && <div className='emailError'>{emailError}</div>}
+                <input onChange={e => dataHandlerChange(e)} value={userValue.email} onBlur={e => blurHandler(e)} name='email' type="email" className={style.formInputEmail} placeholder='Ваш адрес эл. почты'/>
+                {(emailDirty && emailError) && <div className={style.emailError}>{emailError}</div>}
               </div>
   
-              <div className="formInputBlock">
-                <span className="formInputTitle">Пароль</span>
+              <div className={style.formInputBlock}>
+                <span className={style.formInputTitle}>Пароль</span>
                 
                 
-                  <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type={showPassword ? "text" : "password"} className="formInputEmail" placeholder='Ваш пароль'/>
-                  <button className='eyePassword' type="button" onClick={togglePasswordVisibility}>
+                  <input onChange={e => dataHandlerChange(e)} value={userValue.password} onBlur={e => blurHandler(e)} name='password' type={showPassword ? "text" : "password"} className={style.formInputEmail} placeholder='Ваш пароль'/>
+                  <button className={style.eyePassword} type="button" onClick={togglePasswordVisibility}>
                   {!showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
-                {(passwordDirty && passwordError) && <div className='passwordError'>{passwordError}</div>}
+                {(passwordDirty && passwordError) && <div className={style.passwordError}>{passwordError}</div>}
               </div>
 
-              <Link className="forgotPassword">Забыли пароль?</Link>
+              <Link className={style.forgotPassword}>Забыли пароль?</Link>
               
-              <div className='checkboxBlock'>
-                <input  type="checkbox" className='checkboxLogin'/>
-                <span className="checkboxText">Запомнить меня</span>
+              <div className={style.checkboxBlock}>
+                <input  type="checkbox" className={style.checkboxLogin}/>
+                <span className={style.checkboxText}>Запомнить меня</span>
               </div>
   
-              <button className="formBtn">Отправить</button>
+              <button className={style.formBtn}>Отправить</button>
 
             </div>
   
           </form>
   
   
-          <div className="warningsBlock">
+          <div className={style.warningsBlock}>
   
-            <p className="warningInfo">
+            <p className={style.warningInfo}>
   
-              Нажимая <Link className='warningsLogin'>«Войти»</Link> или <Link className='warningsLogin'>«Продолжить»</Link>, вы принимаете <br />
+              Нажимая <Link className={style.warningsLogin}>«Войти»</Link> или <Link className={style.warningsLogin}>«Продолжить»</Link>, вы принимаете <br />
               Условия использования и <br />
               Палитику конфидециальности
   
@@ -199,9 +204,9 @@ function Login() {
   
         </div>
 
-        <div className="loginImageContent">
+        <div className={style.loginImageContent}>
 
-          <img src={teacherimg} alt={teacherimg} className="loginImage" />
+          <img src={teacherimg} alt={teacherimg} className={style.loginImage} />
 
         </div>
       </div>

@@ -6,21 +6,21 @@ import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import './App.css'
 import {useSelector} from "react-redux";
 import CreateProfile from "./Pages/CreateProfilePage/index"
-
-
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
+import Teachers from "./Components/Teachers/Teachers";
 
 
 function App() {
-  
+
   const userData = useSelector(state => state.auth)
-  console.log(userData)
+  
   const isStart = useSelector((state) => state.isStart);
+
   const name = useSelector((state) => state);
- 
+  
 
   return (
     <>
@@ -32,6 +32,7 @@ function App() {
              <Route path={"*"} element={<ErrorUrl/>} />
            </Route>
          </Routes>
+
         :
         <Routes>
           <Route path={"/"} element={<Layout layoutType={'main'}/>}>
@@ -40,9 +41,9 @@ function App() {
             <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
             <Route path={"/createprofile"} element={<CreateProfile/>} />
             <Route path={"*"} element={<ErrorUrl/>} />
+            <Route path={"/teachers"} element={<Teachers/>} />
           </Route>
-        </Routes>
-       }
+        </Routes>}
     </>
   );
 }

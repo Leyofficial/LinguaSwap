@@ -1,7 +1,9 @@
-// import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-// import { initialState } from "./initialState";
+
+export const loginUser = createAsyncThunk(
+    'login/user',
 
 
 // export const loginUser = createAsyncThunk(
@@ -12,34 +14,34 @@
 //             const res = await axios.get('http://localhost:3000/authorization/login', user);
             
             // console.log(res);
+
+    async (user, {rejectWithValue}) => {
+        try {
+            const res = await axios.get('http://localhost:3000/authorization/login', user);
+
             
 
-//             if(!res.data) {
-//                 throw new Error()
-//             }
+            
 
-//             return res.data;
-//         } catch (error) {
-//             return rejectWithValue({ message: error.message })
-//         }
-//     }
-// )
+            if(!res.data) {
+                throw new Error()
+            }
 
-// const loginSlice = createSlice({
-//     name: 'login',
+            return res.data;
+        } catch (error) {
+            return rejectWithValue({ message: error.message })
+        }
+    }
+)
 
-//     initialState: {
-//         loading: null,
-//         user: null
-//     },
+const loginSlice = createSlice({
+    name: 'login',
 
-//     extraReducers: {
-//         [loginUser.pending]: (state) => {
-//             state.loading = 'loading';
-//         },
+    initialState: {
+        loading: null,
+        user: null
+    },
 
-//         [loginUser.fulfilled]: (state, action) => {
-//             state.loading = 'complete';
 
 //             state.user = {
 //                 token: action.payload.jwt,
@@ -47,26 +49,34 @@
 //             }
 //         },
 
-//         [loginUser.rejected]: (state) => {
-//             state.loading = 'error';
-//         },
 
-//     }
-// })
+    extraReducers: {
+        [loginUser.pending]: (state) => {
+            state.loading = 'loading';
+        },
+
+
+        [loginUser.fulfilled]: (state, action) => {
+            state.loading = 'complete';
+
+            state.user = {
+                token: action.payload.jwt,
+                ...action.payload.user
+            }
+        },
+
 
     // initialState: {
     //     loading: null,
     //     user: null
     // },
 
+        [loginUser.rejected]: (state) => {
+            state.loading = 'error';
+        },
 
-// export const loginReducer = (loginUser = initialState.loginUser, action) => {
-//     switch (action.type) {
-//         case :
-            
-            
-    
-//         default: return loginUser; 
-            
-//     }
-// } 
+
+    }
+})
+
+export default loginSlice.reducer;

@@ -10,6 +10,27 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     box-sizing: border-box;
 }
 
+.login {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px    ;
+}
+
+.login a {
+    color : black;
+    text-decoration: underline;
+    padding: 5px; 
+}
+
+.loginImage {
+    max-width: 700px;
+    height: 500px;
+}
 
 .registerComponentTitle {
     margin-top: 20px;
@@ -154,7 +175,7 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     text-align: center;
     margin: 0 auto;
     color: #fff;
-    margin-top: 20px;
+    /* margin-top: 10px; */
     margin-bottom: 10px;
     font-size: 15px;
 }
@@ -178,8 +199,8 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     border: none;
     width: 15px;
     position: absolute;
-    top: 532px;
-    left: 430px;
+    top: 530px;
+    left: 480px;
     background: none;
 }
 
@@ -187,11 +208,19 @@ h1, h2, h3, h4, h5, h6, p, button, div, a, header, main, form, input {
     border: none;
     width: 15px;
     position: absolute;
-    top: 467px;
-    left: 430px;
+    top: 465px;
+    left: 480px;
     background: none;
 }
 
 .confirmErrorText {
+    color: red;
+}
+
+.warningsBlock {
+    text-align: center  ;
+}
+
+.passwordError, .confirmErrorText, .emailError {
     color: red;
 }
