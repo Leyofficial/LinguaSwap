@@ -6,9 +6,10 @@ import AdvantageSection from "./AdvantageSection/AdvantageSection.jsx";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
 import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
 import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const HomeOverview = () => {
-
+    const navigate = useNavigate()
   const [currentItem, setCurrentItem] = useState("How it works")
 
   const sliderItems = ["How it works", "What skills can you achieve", "Advantages"]
