@@ -7,8 +7,11 @@ const MainLayout = () => {
 
   return (
     <div className={style.container}>
-      <SideBar/>
-      <main >
+       <aside>
+          <SideBar/>
+       </aside>
+
+      <main>
         <Outlet></Outlet>
       </main>
     </div>

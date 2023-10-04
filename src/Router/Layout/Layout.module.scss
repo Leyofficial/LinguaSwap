@@ -1,17 +1,17 @@
 
 .container {
  height: 100%;
+  display: flex;
   //background: linear-gradient(to right, #434343, rgba(0, 0, 0, 0.91)) !important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   .header {
     height: 50px;
   }
 
   main {
-    //max-width: calc(1250px - 15rem);
-    padding-left: 16rem;
-    //margin: 0 auto;
-    //height: 1900px;
-    //min-height: 100%;
-    //background: linear-gradient(to right, #434343, rgba(0, 0, 0, 0.91)) !important;
+    width: 100%
+  }
+  aside{
+    //width:16rem;
+    width: 2rem;
   }
 }

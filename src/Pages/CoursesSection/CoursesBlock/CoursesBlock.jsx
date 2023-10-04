@@ -34,7 +34,7 @@ const CoursesBlock = (props) => {
             <h3>{courseTitle}</h3>
           </div>
           <div className={style.members}>
-            {<AvatarGroupSection items={membersDefault} image={memberImage}></AvatarGroupSection>}
+            {<AvatarGroupSection maxCount={2} items={membersDefault} image={memberImage}></AvatarGroupSection>}
           </div>
           <div className={style.infoWrapper}>
             <p style={levelEducation(level)}>{level}</p>
