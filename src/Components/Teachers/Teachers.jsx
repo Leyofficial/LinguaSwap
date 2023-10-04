@@ -4,7 +4,7 @@ function Teachers() {
 
 
   return (
-    <div className={teachersComponent}> 
+    <div className={style.teachersComponent}> 
         
         hello teachers
 
