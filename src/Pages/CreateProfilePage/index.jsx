@@ -60,7 +60,6 @@ const CreateProfile = () => {
                 {renderPoints(true, true, true)}
                 <img className={style.firework} width={'100%'} src={firework} alt=""/>
                 <ModalWindow children={ 'Congratulations on registering for our language learning platform! 🎉🥳 We are thrilled to have you join our community! 😀💪'} />
-
             </>
         )
       default:

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import CustomButton from "../../../Utility/CustomButton/CustomButton";
 import style from './StepThree.module.scss'
 
@@ -23,6 +23,9 @@ const StepThree = (props) => {
     const photo = useSelector((state) => state.photo)
     const state = useSelector(state => state)
     const id = useSelector((state) => state.loginUser._id)
+
+    const [isOpen , setOpen]  = useState(false)
+
     function sendDataToServer() {
         const obj = {
             name: name,
@@ -35,7 +38,15 @@ const StepThree = (props) => {
             languagesLearn: languagesLearn,
         }
         ProfileUser.createProfile(id ,  obj).then(res => {
-            console.log(res)
+            if (res.status === 200) {
+                setTimeout(() => {
+                    props.nextStep()
+                    setOpen(false)
+                } , 500)
+
+            } else {
+                setOpen(true)
+            }
 
         })
     }
@@ -55,7 +66,7 @@ const StepThree = (props) => {
                     </h3>
                     <CustomSelector selecter={languagesLearn} actionCreater={setLanguagesLearnActionCreater}/>
                 </div>
-                <Spinner loaderIsOpen={false}/>
+                <Spinner loaderIsOpen={isOpen}/>
                 {/*loaderIsOpen*/}
                 <div className={style.buttonsThree}>
                     <CustomButton
@@ -69,7 +80,7 @@ const StepThree = (props) => {
                         callback={() => {
                             event.preventDefault()
                             sendDataToServer()
-                            props.nextStep()
+                            setOpen(true)
                             console.log(state)
                         }}
                     />

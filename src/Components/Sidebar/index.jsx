@@ -24,7 +24,7 @@ const Sidebar = () => {
       name: "Courses",
     },
     {
-      path: "/createprofile",
+      path: "/findteacher",
       icon: teacher,
       name: "Find teacher",
     },
@@ -34,7 +34,7 @@ const Sidebar = () => {
       name: "Find team",
     },
     {
-      path: "/services",
+      path: "/createprofile",
       icon: gear,
       name: "Profile",
     },
