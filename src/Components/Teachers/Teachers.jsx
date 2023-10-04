@@ -6,7 +6,7 @@ function Teachers() {
   return (
     <div className={teachersComponent}> 
         
-
+        hello teachers
 
     </div>
   )
