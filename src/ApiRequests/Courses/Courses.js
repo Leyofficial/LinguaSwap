@@ -3,7 +3,6 @@ import axios from "axios";
 export const Course = {
 
   create(data) {
-
     return axios.post(`http://localhost:3000/courses`, {
       data
     })

@@ -22,8 +22,6 @@ exports.signup = catchAsync(async (req, res, next) => {
       photo: "",
       languagesKnow: [],
       languagesLearn: [],
-
-
     }
 
   })
@@ -77,11 +75,11 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
 
 exports.updateProfile = catchAsync(async (req, res, next) => {
 
-  const user = await Auth.findByIdAndUpdate(req.params.idUser, req.body, {
+  const user = await Auth.findByIdAndUpdate(req.params.idUser, {user : req.body} , {
     new: true, runValidators: true
   });
 
-  if (!document) {
+  if (!user) {
     return next(new ErrorHandler('No user found by id to update', 400))
   }
   res.status(200).json({
@@ -92,20 +90,20 @@ exports.updateProfile = catchAsync(async (req, res, next) => {
 
 })
 
-exports.updateHandler = Model => catchAsync(async (req, res, next) => {
-
-  const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
-    new: true, runValidators: true
-  });
-
-  if (!doc) {
-    return next(new ErrorHandler('No document found by ID to update', 400))
-  }
-  console.log(doc)
-  res.status(200).json({
-    status: 'success',
-    data: {
-      date: doc
-    }
-  })
-})
+// exports.updateHandler = Model => catchAsync(async (req, res, next) => {
+//
+//   const doc = await Model.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true, runValidators: true
+//   });
+//
+//   if (!doc) {
+//     return next(new ErrorHandler('No document found by ID to update', 400))
+//   }
+//   console.log(doc)
+//   res.status(200).json({
+//     status: 'success',
+//     data: {
+//       date: doc
+//     }
+//   })
+// })

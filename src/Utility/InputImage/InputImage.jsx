@@ -12,6 +12,7 @@ export const ImageInput = ({avatarText, actionCreater, selector}) => {
 
     const {getRootProps, getInputProps, acceptedFiles = selector} = useDropzone({
         onDrop: (acceptedFiles) => {
+            console.log(acceptedFiles)
             dispatch(actionCreater(acceptedFiles[0]));
         },
     });
@@ -64,7 +65,7 @@ export const ImageInput = ({avatarText, actionCreater, selector}) => {
             </div>
             <div {...getRootProps()}>
                 <label>JPG or PNG file:</label>
-                <input {...getInputProps()} type="file" multiple={'false'} accept=".jpg, .png"/>
+                <input  {...getInputProps()} type="file" multiple={false} accept=".jpg, .png"/>
                 <p className={style.dragButton}>Drag files here or click to select files.</p>
             </div>
         </div>

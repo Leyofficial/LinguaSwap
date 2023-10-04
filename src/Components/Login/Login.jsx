@@ -17,7 +17,7 @@ function Login() {
 
   const [userValue, setUserValue] = useState({
     email: '',
-    password: ''
+    password: '',
   });
 
   const [showPassword, setShowPassword] = useState(false);
@@ -92,11 +92,9 @@ function Login() {
   const loginSubmit = e => {
     e.preventDefault()
     loginUser(userValue).then(res => {
-      console.log(res);
+      console.log(res)
+      dispatch(fetchUserAC(res.data.user));
     })
-
-
-    dispatch(fetchUserAC(userValue));
     navigate('/');
   }
 
