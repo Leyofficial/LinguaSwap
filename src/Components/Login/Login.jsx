@@ -198,12 +198,6 @@ function Login() {
           </div>
   
         </div>
-
-        <div className="loginImageContent">
-
-          <img src={teacherimg} alt={teacherimg} className="loginImage" />
-
-        </div>
       </div>
 
     </>
