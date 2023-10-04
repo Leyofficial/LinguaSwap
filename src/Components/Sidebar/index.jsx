@@ -14,36 +14,9 @@ import style from "./Sidebar.module.scss";
 import "../../App.css";
 
 
-const Sidebar = () => {
+const Sidebar = ({menuItems}) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const manuItems = [
-    {
 
-      path: "/",
-      icon: courses,
-      name: "Courses",
-    },
-    {
-      path: "/findteacher",
-      icon: teacher,
-      name: "Find teacher",
-    },
-    {
-      path: "/teams",
-      icon: team,
-      name: "Find team",
-    },
-    {
-      path: "/createprofile",
-      icon: gear,
-      name: "Profile",
-    },
-    {
-      path: "/aboutus",
-      icon: info,
-      name: "About us",
-    },
-  ];
 
   return (
     <div
@@ -65,7 +38,7 @@ const Sidebar = () => {
       </div>
       <div className={style.sidebarWrapper}>
         <ul className={style.sidebarItems} >
-          {manuItems.map((item) => {
+          {menuItems.map((item) => {
             return (
                 <div className={style.sidebarItemBlock}>
                   <NavLink
