@@ -1,21 +1,15 @@
 import { useState } from "react";
 import { Link, NavLink  } from "react-router-dom";
-
-import ukraine from "./../../img/icons/ukraine.png";
-import team from "./../../img/icons/team.png";
-import gear from "./../../img/icons/gear.png";
-import info from "./../../img/icons/info.png";
-import teacher from "./../../img/icons/teacher.png";
 import back from "./../../img/icons/back.png";
 import forward from "./../../img/icons/back-2.png";
-import courses from "./../../img/icons/elearning-2.png"
 
 import style from "./Sidebar.module.scss";
 import "../../App.css";
 
 
-const Sidebar = ({menuItems}) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const Sidebar = ({menuItems , defaultOpen}) => {
+debugger
+  const [sidebarOpen, setSidebarOpen] = useState(defaultOpen);
 
 
   return (

@@ -1,12 +1,16 @@
-import courses from "../../../img/icons/elearning-2.png";
-import teacher from "../../../img/icons/teacher.png";
-import team from "../../../img/icons/team.png";
-import gear from "../../../img/icons/gear.png";
-import info from "../../../img/icons/info.png";
+import courses from "../../img/icons/elearning-2.png";
+import teacher from "../../img/icons/teacher.png";
+import team from "../../img/icons/team.png";
+import gear from "../../img/icons/gear.png";
+import profile from "../../img/icons/profile-user.png";
 
 export const sidebarList = [
     {
-
+      path : "/login",
+        icon: profile,
+        name : 'Your profile'
+    },
+    {
         path: "/",
         icon: courses,
         name: "Courses",
@@ -25,10 +29,5 @@ export const sidebarList = [
         path: "/createprofile",
         icon: gear,
         name: "Profile",
-    },
-    {
-        path: "/aboutus",
-        icon: info,
-        name: "About us",
     },
 ];
