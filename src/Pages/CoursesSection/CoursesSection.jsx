@@ -16,6 +16,8 @@ const CoursesSection = () => {
   const [searchValue, setSearchValue] = useState("")
 
   const dispatch = useDispatch()
+  const currentUser = useSelector((state) => state.loginUser)
+  console.log(currentUser)
 
   // selectors
   const languages = ['English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']

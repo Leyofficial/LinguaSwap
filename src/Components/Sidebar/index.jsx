@@ -8,7 +8,7 @@ import "../../App.css";
 
 
 const Sidebar = ({menuItems , defaultOpen}) => {
-debugger
+
   const [sidebarOpen, setSidebarOpen] = useState(defaultOpen);
 
 

@@ -37,7 +37,7 @@ const CourseSection = () => {
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
    const joinToCourse = (userId) => {
-      Course.addNewMember(userId).then(res => console.log(res))
+      Course.addNewMember(userId,currentCourse._id).then(res => console.log(res))
    }
 
    console.log(loginUser)
