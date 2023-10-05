@@ -5,7 +5,7 @@ const authRouter = express.Router();
 const authFunctions = require('../Functions/AuthorizationFunctions.cjs')
 
 
-authRouter.route('/:typeOfUser?')
+authRouter.route('/filterUser/:typeOfUser?')
   .get(authFunctions.getAllUsers)
   .post(authFunctions.signup)
 

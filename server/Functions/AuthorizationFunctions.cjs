@@ -2,7 +2,6 @@ const AppError = require('../APIFeatures/appError.cjs')
 const catchAsync = require("../APIFeatures/catchAsync.cjs");
 const {createSendToken} = require("../APIFeatures/CreateToken.cjs");
 const Auth = require('../Modules/AuthorizationModules.cjs')
-const {ErrorHandler} = require("yarn/lib/cli.js");
 
 
 exports.signup = catchAsync(async (req, res, next) => {
@@ -53,11 +52,12 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
    const {typeOfUser} = req.params
 
    let filter = {}
-   if (typeOfUser) {
+   if(typeOfUser) {
       filter = {
-         "user.status": typeOfUser
+      "user.token" : typeOfUser.token
       }
    }
+
    const documents = Auth.find(filter);
 
    if (!documents) {

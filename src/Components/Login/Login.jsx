@@ -12,6 +12,7 @@ import {useDispatch} from 'react-redux';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import {fetchUserAC} from '../../Redux/login/loginactions';
 import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
+import {authAC} from "../../Redux/isAuth/isAuthAC.js";
 
 function Login() {
 
@@ -90,9 +91,10 @@ function Login() {
       e.preventDefault()
       loginUser(userValue).then(res => {
          if (res.status === 200) {
-            console.log(res)
+
             dispatch(fetchUserAC(res.data.user));
-            // localStorage.setItem('loginUser',res.data.user)
+            localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
+            dispatch(authAC())
             navigate('/');
          } else {
 

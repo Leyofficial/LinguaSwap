@@ -20,3 +20,7 @@ export const saveToken = (token,idUser) => {
     })
 
 }
+
+export const getUserByToken = (token) => {
+    return axios.get(`http://localhost:3000/authorization/filterUser/${token}`)
+}

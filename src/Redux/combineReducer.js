@@ -11,6 +11,7 @@ import {setLanguagesLearnReducer} from "./Profile/Languages/languagesLearn/setLa
 import coursesReducer from "./Courses/coursesReducer.js";
 import {setPhotoReducer} from "./Profile/Photo/setPhotoReducer.js";
 import login from './login/loginuser.reducer.js'
+import {isAuthReducer} from "./isAuth/isAuthReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -24,5 +25,6 @@ export default (combineReducers)({
     languagesKnow : setLanguagesKnowReducer,
     languagesLearn : setLanguagesLearnReducer,
     courses:coursesReducer,
-    loginUser: login
+    loginUser: login,
+    isAuth:isAuthReducer
 })
