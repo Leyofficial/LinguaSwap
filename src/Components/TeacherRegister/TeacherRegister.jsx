@@ -11,7 +11,7 @@ import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import {fetchUserAC} from '../../Redux/login/loginactions';
-import {registerNewUser} from '../../ApiRequests/Courses/AuthUser';
+import {registerNewUser, saveToken} from '../../ApiRequests/Courses/AuthUser';
 
 function TeacherRegister() {
 
@@ -67,19 +67,28 @@ function TeacherRegister() {
     }, [emailError, passwordError, userValue]);
 
     const submitPostData = e => {
+
         e.preventDefault();
-
-
         registerNewUser(userValue).then(res => {
-            console.log(res);
+
+            if(res.status === 201){
+
+                saveToken(res.data.token,res.data.user._id).then(res => {
+                    if(res.status === 'Succeed') {
+                        localStorage.setItem('loginUser',res.data.token)
+                        navigate('/')
+                    }
+                })
+
+                dispatch(fetchUserAC(userValue))
+            }
+
         });
 
         // сразу после успешной регистрации проходит на страницу курсы*
-
-        navigate('/login')
+        // navigate('/login')
 
         // dispatch(fetchUser(userValue));
-        dispatch(fetchUserAC(userValue))
 
     }
 

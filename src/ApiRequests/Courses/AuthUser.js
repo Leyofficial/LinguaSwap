@@ -12,3 +12,11 @@ export const loginUser = (user) => {
 export const registerNewUser = (user) => {
     return axios.post('http://localhost:3000/authorization', user);
 }
+
+export const saveToken = (token,idUser) => {
+    console.log('s')
+    return axios.patch(`http://localhost:3000/authorization/${idUser}`,{
+        token
+    })
+
+}

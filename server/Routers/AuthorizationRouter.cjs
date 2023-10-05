@@ -15,4 +15,7 @@ authRouter.route('/auth/login')
 authRouter.route('/profile/:idUser')
   .patch(authFunctions.updateProfile)
 
+authRouter.route('/:idUser')
+   .patch(authFunctions.saveToken)
+
 module.exports = authRouter;
