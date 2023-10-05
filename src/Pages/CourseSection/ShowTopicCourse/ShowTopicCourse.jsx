@@ -5,7 +5,7 @@ import {GiImbricatedArrows} from "react-icons/gi";
 const ShowTopicCourse = (props) => {
 
    const {topic, changeTopic, curIndex, currentTopicIndex} = props
-   const [open, setOpen] = useState(false)
+   const [open, setOpen] = useState(true)
 
    const changeTopicStatus = (topicIndex) => {
       if (curIndex === topicIndex) {

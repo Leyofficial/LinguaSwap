@@ -27,6 +27,7 @@ function App() {
 
     useEffect(() => {
         const userToken = JSON.parse(localStorage.getItem('loginUser'))
+
         getUserByToken(userToken).then(res => {
             if(res.status === 200) {
                 dispatch(fetchUserAC(...res.data.users));

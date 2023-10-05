@@ -7,7 +7,7 @@ const AvatarGroupSection = ({items,image,maxCount}) => {
   return (
     <>
     <Avatar.Group maxCount={maxCount}   maxStyle={{ color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer' }}  size="large">
-      {items.length >= 1 ? items?.map(item => <Avatar src={image} />) : <p>You will be first</p>}
+      {items?.length >= 1 ? items?.map(item => <Avatar src={image} />) : <p>You will be first</p>}
     </Avatar.Group>
     </>
   );
