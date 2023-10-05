@@ -37,7 +37,15 @@ const CourseSection = () => {
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
    const joinToCourse = (userId) => {
-      Course.addNewMember(userId,currentCourse._id).then(res => console.log(res))
+      Course.addNewMember(userId,currentCourse._id).then(res => {
+         if(res.status === 200) {
+            Course.getCourse(idCourse).then(res => {
+               if (res.status === 200) {
+                  setCurrentCourse(res.data.course)
+               }
+            })
+         }
+      })
    }
 
    console.log(loginUser)
