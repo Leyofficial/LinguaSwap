@@ -115,7 +115,7 @@ const CourseSection = () => {
 
                   <div className={style.members}>
                      <h3>Registered Students </h3>
-                     <AvatarGroupSection maxCount={8} items={membersDefault} image={memberImage}></AvatarGroupSection>
+                     <AvatarGroupSection maxCount={8} items={currentCourse?.course.members} image={memberImage}></AvatarGroupSection>
                   </div>
                </div>
             </div>
