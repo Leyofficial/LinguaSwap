@@ -30,6 +30,29 @@
     border-radius: 20px;
     padding-left: 2vh;
 
+    .wrapperTitle {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      button {
+        padding: 10px 45px;
+        font-size: 16px;
+        border-radius: 5px 15px 15px;
+        letter-spacing: 1px;
+        background: rgba(0, 0, 0, 0.07);
+        cursor: pointer;
+        color: rgba(7, 7, 7, 0.69);
+        animation-name: color-change;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(17, 86, 136, 0.4) 0px 2px 6px 2px;
+      &:hover{
+        color: #f1f1f1;
+      }
+      }
+    }
+
     .image {
       display: flex;
       align-items: center;
@@ -51,6 +74,7 @@
 
   .stepsWrapper {
     margin: 3vh 0;
+    padding: 3vh 0;
   }
 
   .main {
@@ -142,3 +166,10 @@
 
 }
 
+@keyframes color-change {
+  0%   {background-color: rgba(21, 145, 199, 0.42);}
+  25%   {background-color: rgba(21, 145, 199, 0.7);}
+  50%  {background-color: rgba(21, 145, 199, 0.92);}
+  75%   {background-color: rgba(21, 145, 199, 0.7);}
+  100%   {background-color: rgba(21, 145, 199, 0.42);}
+}

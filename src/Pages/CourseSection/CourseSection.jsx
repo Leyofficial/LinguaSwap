@@ -12,6 +12,7 @@ import finishCourseDate from '../../images/course/finishDate.png'
 import duration from '../../images/course/duration.png'
 import AvatarGroupSection from "../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
 import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
+import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
 
 
 
@@ -40,7 +41,11 @@ const CourseSection = () => {
          <div className={style.containerHeader}>
 
             <div className={style.headerTitle}>
-               <h1>{currentCourse?.course.name}</h1>
+               <div className={style.wrapperTitle}>
+                  <h1>{currentCourse?.course.name}</h1>
+                 <button>Join to course</button>
+               </div>
+
 
                <div className={style.image}>
                   <img src={memberImage}/>
