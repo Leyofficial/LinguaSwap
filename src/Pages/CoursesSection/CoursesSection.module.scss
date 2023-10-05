@@ -1,36 +1,32 @@
 .container {
-  //max-width: calc(1400px);
+  max-width: calc(1300px - 15rem);
   padding-bottom: 40px;
-  //padding-left: 16rem;
-
-  //margin: 0 auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  //gap: 20px;
 
   .coursesWrapper {
-    //max-width: 1200px;
-    //margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    //align-items: center;
-    //justify-content: center;
     padding-bottom: 6px;
+    justify-content: space-between;
+
+    width: 100%;
   }
 
   .searchWrapper {
-    //width: calc(1230px + 5rem);
-    //max-width: 1225px;
-    max-width: 1213px;
-
     padding-top: 1vh;
     margin: 0 auto;
+    width: 100%;
 
   }
 
   .titleWrapper {
-    //max-width: 1225px;
     padding-top: 1vh;
     margin: 0 auto;
     text-align: end;
-    max-width: 823px
+    width: 100%;
   }
 
   .paginationWrapper {
