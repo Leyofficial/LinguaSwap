@@ -21,8 +21,17 @@ export const Course = {
   },
   getCourse(courseId) {
     return axios.get(`http://localhost:3000/courses/${courseId}`)
+  },
+
+  addNewMember(idUser,courseId){
+    return axios.patch(`http://localhost:3000/courses/${courseId}`,{
+      idUser
+    })
   }
 }
+
+
+
 
 
 

@@ -13,7 +13,7 @@ import duration from '../../images/course/duration.png'
 import AvatarGroupSection from "../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
 import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
-
+import {useSelector} from "react-redux";
 
 
 const CourseSection = () => {
@@ -21,9 +21,10 @@ const CourseSection = () => {
 
    const [currentCourse, setCurrentCourse] = useState(null)
    const membersDefault = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+   const loginUser = useSelector((state) => state.loginUser)
 
 
-   const [currentTopic,setCurrentTopic] = useState(0)
+   const [currentTopic, setCurrentTopic] = useState(0)
 
    useEffect(() => {
       Course.getCourse(idCourse).then(res => {
@@ -35,7 +36,11 @@ const CourseSection = () => {
 
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
+   const joinToCourse = (userId) => {
+      Course.addNewMember(userId).then(res => console.log(res))
+   }
 
+   console.log(loginUser)
    return (
       <div className={style.container}>
          <div className={style.containerHeader}>
@@ -43,7 +48,7 @@ const CourseSection = () => {
             <div className={style.headerTitle}>
                <div className={style.wrapperTitle}>
                   <h1>{currentCourse?.course.name}</h1>
-                 <button>Join to course</button>
+                  <button onClick={() => joinToCourse(loginUser._id)}>Join to course</button>
                </div>
 
 
@@ -78,7 +83,10 @@ const CourseSection = () => {
                         totam! Dolorum, iste?</p>
                   </div>
                   <div className={style.topics}>
-                     {currentCourse?.course.subjects.map((topic,index) => <ShowTopicCourse curIndex={currentTopic} topic={topic} currentTopicIndex={index} changeTopic={setCurrentTopic}></ShowTopicCourse>) }
+                     {currentCourse?.course.subjects.map((topic, index) => <ShowTopicCourse curIndex={currentTopic}
+                                                                                            topic={topic}
+                                                                                            currentTopicIndex={index}
+                                                                                            changeTopic={setCurrentTopic}></ShowTopicCourse>)}
                   </div>
                </div>
                <div className={style.wrapperSideInfo}>
