@@ -38,7 +38,6 @@ const CoursesBlock = (props) => {
           </div>
           <div className={style.infoWrapper}>
             <p style={levelEducation(level)}>{level}</p>
-            {/*<p>{language}</p>*/}
            <p className={style.duration}>{duration}</p>
           </div>
           <div className={style.wrapperLevel}>

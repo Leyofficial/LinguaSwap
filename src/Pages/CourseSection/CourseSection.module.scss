@@ -21,15 +21,7 @@
       }
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      top: 50%; /* Затемнение начинается с середины изображения */
-      left: 0;
-      right: 0;
-      bottom: 0;
-      //background: linear-gradient(to top, rgba(138, 135, 135, 0.97), transparent);
-    }
+
   }
 
   .headerTitle {
@@ -63,13 +55,21 @@
 
   .main {
     padding-left: 4vh;
+    padding-top: 5vh;
+
 
     .description {
       max-width: 600px;
-      margin-bottom: 3vh;
+      margin-bottom: 7vh;
 
       h2 {
         padding-bottom: 2vh;
+
+
+      }
+
+      p {
+        color: rgba(89, 89, 91, 0.89);
 
       }
     }
@@ -77,6 +77,10 @@
     .wrapperDescription {
       display: flex;
       justify-content: space-between;
+
+      .descriptionContainer {
+        width: 85%;
+      }
     }
 
     .wrapperLevel {
@@ -93,35 +97,47 @@
 
     .containerDate {
       display: flex;
+
       .wrapperDate {
         display: flex;
         padding-right: 4vh;
       }
     }
-    .duration{
+
+    .duration {
       display: flex;
       align-items: center;
 
     }
   }
-  .wrapperSideInfo{
+
+  .wrapperSideInfo {
     width: 40%;
-    div{
+
+    div {
       padding-bottom: 4vh;
-      img{
-        padding-right: 1vh;
-        max-width: 40px;
+
+      img {
+        padding-right: 3vh;
+        max-width: 50px;
       }
     }
   }
-  .members{
-    h3{
+
+  .members {
+    h3 {
       color: rgba(45, 113, 136, 0.54);
       padding-bottom: 2vh;
     }
-    img{
+
+    img {
       padding-right: 0 !important;
     }
+  }
+
+  .topics {
+    max-width: 600px;
+    cursor: pointer;;
   }
 
 }

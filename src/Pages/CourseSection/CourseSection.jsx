@@ -11,6 +11,8 @@ import startCourseDate from '../../images/course/startDate.png'
 import finishCourseDate from '../../images/course/finishDate.png'
 import duration from '../../images/course/duration.png'
 import AvatarGroupSection from "../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
+import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
+
 
 
 const CourseSection = () => {
@@ -18,6 +20,9 @@ const CourseSection = () => {
 
    const [currentCourse, setCurrentCourse] = useState(null)
    const membersDefault = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+
+
+   const [currentTopic,setCurrentTopic] = useState(0)
 
    useEffect(() => {
       Course.getCourse(idCourse).then(res => {
@@ -29,7 +34,7 @@ const CourseSection = () => {
 
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
-   console.log(currentCourse)
+
    return (
       <div className={style.container}>
          <div className={style.containerHeader}>
@@ -67,10 +72,8 @@ const CourseSection = () => {
                         nulla provident saepe sequi, totam. Animi aut laborum natus optio porro repellendus, repudiandae
                         totam! Dolorum, iste?</p>
                   </div>
-                  <div>
-                     <ul>
-                        {currentCourse?.course.subjects.map((item, index) => <li key={index}>{item}</li>)}
-                     </ul>
+                  <div className={style.topics}>
+                     {currentCourse?.course.subjects.map((topic,index) => <ShowTopicCourse curIndex={currentTopic} topic={topic} currentTopicIndex={index} changeTopic={setCurrentTopic}></ShowTopicCourse>) }
                   </div>
                </div>
                <div className={style.wrapperSideInfo}>
