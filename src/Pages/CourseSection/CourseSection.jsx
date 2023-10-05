@@ -12,17 +12,16 @@ import finishCourseDate from '../../images/course/finishDate.png'
 import duration from '../../images/course/duration.png'
 import AvatarGroupSection from "../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
 import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
-import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
 import {useSelector} from "react-redux";
+import toast, {Toaster} from "react-hot-toast";
 
 
 const CourseSection = () => {
    const {idCourse} = useParams()
 
    const [currentCourse, setCurrentCourse] = useState(null)
-   const membersDefault = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
    const loginUser = useSelector((state) => state.loginUser)
-
+   const [errorJoin, setErrorJoin] = useState(false)
 
    const [currentTopic, setCurrentTopic] = useState(0)
 
@@ -34,21 +33,34 @@ const CourseSection = () => {
       })
    }, [idCourse])
 
+   toast.error("You've already joined the course");
+
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
    const joinToCourse = (userId) => {
-      Course.addNewMember(userId,currentCourse._id).then(res => {
-         if(res.status === 200) {
-            Course.getCourse(idCourse).then(res => {
-               if (res.status === 200) {
-                  setCurrentCourse(res.data.course)
-               }
-            })
-         }
-      })
+
+      const isAlreadyJoin = currentCourse.course.members.find((member) => member === userId)
+
+      if (isAlreadyJoin) {
+         setErrorJoin(true)
+         setTimeout(() => {
+            setErrorJoin(false)
+         }, 3000)
+      } else {
+         Course.addNewMember(userId, currentCourse._id).then(res => {
+            if (res.status === 200) {
+               Course.getCourse(idCourse).then(res => {
+                  if (res.status === 200) {
+                     setCurrentCourse(res.data.course)
+                  }
+               })
+            }
+         })
+      }
+
    }
 
-   console.log(loginUser)
+
    return (
       <div className={style.container}>
          <div className={style.containerHeader}>
@@ -57,6 +69,7 @@ const CourseSection = () => {
                <div className={style.wrapperTitle}>
                   <h1>{currentCourse?.course.name}</h1>
                   <button onClick={() => joinToCourse(loginUser._id)}>Join to course</button>
+                  {errorJoin ? <Toaster position="top-right" reverseOrder={false}/> : null}
                </div>
 
 
@@ -123,7 +136,8 @@ const CourseSection = () => {
 
                   <div className={style.members}>
                      <h3>Registered Students </h3>
-                     <AvatarGroupSection maxCount={8} items={currentCourse?.course.members} image={memberImage}></AvatarGroupSection>
+                     <AvatarGroupSection maxCount={8} items={currentCourse?.course.members}
+                                         image={memberImage}></AvatarGroupSection>
                   </div>
                </div>
             </div>
