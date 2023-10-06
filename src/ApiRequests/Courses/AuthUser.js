@@ -22,8 +22,6 @@ export const saveToken = (token,idUser) => {
 }
 
 export const savePhoto = (imagePath,idUser) => {
-    console.log(imagePath)
-    console.log(idUser)
     return axios.patch(`http://localhost:3000/authorization/${idUser}`,{
         imagePath
     })
@@ -31,7 +29,7 @@ export const savePhoto = (imagePath,idUser) => {
 
 
 export const getUserByToken = (token) => {
-    return axios.get(`http://localhost:3000/authorization/filterUser/${token}`)
+    return axios.get(`http://localhost:3000/authorization/user/${token}`)
 }
 
 export const getUser = async (idUser) => {

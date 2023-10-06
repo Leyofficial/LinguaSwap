@@ -57,6 +57,7 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
       "token": params.token
     }
   }
+
   const documents = Auth.find(filter);
 
   if (!documents) {
@@ -71,6 +72,28 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     users
   })
 })
+
+exports.getUsersByFilter = catchAsync(async (req, res, next) => {
+
+  const {typeOfUser} = req.params
+
+console.log(typeOfUser)
+
+  const documents = Auth.find({"user.data.status" : typeOfUser});
+
+  if (!documents) {
+    next(new AppError("No documents", 400))
+  }
+
+  const users = await documents
+
+  res.status(200).json({
+    status: "Success",
+    results: users.length,
+    users
+  })
+})
+
 
 exports.updateProfile = catchAsync(async (req, res, next) => {
 

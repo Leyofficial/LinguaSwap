@@ -6,9 +6,12 @@ const authFunctions = require('../Functions/AuthorizationFunctions.cjs')
 const file = require("../APIFeatures/fileController.cjs");
 
 
-authRouter.route('/filterUser/:token')
+authRouter.route('/user/:token?')
   .get(authFunctions.getAllUsers)
   // .post(authFunctions.signup)
+
+authRouter.route('/users/:typeOfUser?')
+  .get(authFunctions.getUsersByFilter)
 
 authRouter.route('/')
   .post(authFunctions.signup)
