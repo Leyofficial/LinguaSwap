@@ -1,0 +1,55 @@
+.container {
+  display: flex;
+  height: 100vh;
+
+
+  .wrapperChat {
+    margin-left: 11vh;
+    width: 75%;
+    position: relative;
+    height: 100%;
+
+
+    .wrapperTextarea {
+      position: absolute;
+      bottom: 7px;
+      width: 95%;
+      //border: 1px solid rgba(0, 0, 0, 0.19);
+      border-radius: 5px;
+      background-color: rgba(203, 201, 201, 0.39);
+      padding: 10px;
+      left: 3.7vh;
+      display: flex;
+      justify-content: space-between;
+      textarea {
+        outline: none;
+        resize: none;
+        width: 90%;
+        background-color: transparent;
+        border: none;
+        border-right: 3px solid rgba(49, 47, 47, 0.09);
+      }
+      svg{
+        cursor: pointer;
+      }
+    }
+    h2{
+      border-bottom: 2px solid rgba(0, 0, 0, 0.13);;
+      padding: 10px 5px;
+      font-size: 17px;
+      color: rgba(0, 0, 0, 0.58);
+      span{
+        //padding-right: 4vh;
+        color: rgba(24, 156, 208, 0.84);
+        font-size: 17px;
+      }
+    }
+  }
+
+  .wrapperMebmers {
+    width: 25%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.13);
+    padding: 20px;
+  }
+}

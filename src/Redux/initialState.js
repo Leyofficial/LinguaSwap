@@ -12,5 +12,6 @@ export const initialState = {
   courses:[],
   loginUser:null,
   registerUser: null,
-  isAuth:false
+  isAuth:false,
+  currentCourse:null,
 }

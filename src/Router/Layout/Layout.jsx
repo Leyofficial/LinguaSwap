@@ -21,7 +21,7 @@ const Layout = (props) => {
   return (
     <>
       <div className={style.container}>
-          {isStart ? <SideBar defaultOpen={params.idCourse ? true : false} menuItems={params.idCourse ? sidebarCourses : sidebarList}/> : <Header navItems={navItemsIcons} />}
+          {isStart ? <SideBar defaultOpen={params.idCourse ? true : false} menuItems={params.idCourse ? sidebarCourses(params.idCourse) : sidebarList}/> : <Header navItems={navItemsIcons} />}
         <main >
           <Outlet></Outlet>
         </main>

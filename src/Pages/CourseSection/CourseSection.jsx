@@ -12,13 +12,14 @@ import finishCourseDate from '../../images/course/finishDate.png'
 import duration from '../../images/course/duration.png'
 import AvatarGroupSection from "../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
 import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import toast, {Toaster} from "react-hot-toast";
+import {courseAC} from "../../Redux/Course/CourseAC.js";
 
 
 const CourseSection = () => {
    const {idCourse} = useParams()
-
+   const dispatch = useDispatch()
    const [currentCourse, setCurrentCourse] = useState(null)
    const loginUser = useSelector((state) => state.loginUser)
    const [errorJoin, setErrorJoin] = useState(false)
@@ -28,6 +29,7 @@ const CourseSection = () => {
    useEffect(() => {
       Course.getCourse(idCourse).then(res => {
          if (res.status === 200) {
+            dispatch(courseAC(res.data.course))
             setCurrentCourse(res.data.course)
          }
       })

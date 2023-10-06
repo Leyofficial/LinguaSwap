@@ -16,6 +16,7 @@ import {getUserByToken} from "./ApiRequests/Courses/AuthUser.js";
 
 import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
+import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
 
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.loginUser)
-    console.log(currentUser)
+
 
     useEffect(() => {
         const userToken = JSON.parse(localStorage.getItem('loginUser'))
@@ -46,6 +47,7 @@ function App() {
                         <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
                         <Route path={"/createprofile"} element={<CreateProfile/>} />
                         <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
+                        <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                     <Route path={"*"} element={<ErrorUrl/>}/>
                 </Route>
             </Routes>
