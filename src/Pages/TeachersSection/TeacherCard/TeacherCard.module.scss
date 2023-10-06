@@ -4,7 +4,7 @@
 .card {
   padding: 20px;
   width: 230px;
-  height: 280px;
+  height: 100%;
   border-radius: 15px;
   transition: .2s linear;
   cursor: pointer;
@@ -26,6 +26,7 @@
   flex-wrap: wrap;
   margin-top: 25px;
   display: flex;
+  margin-bottom: 20px;
 }
 .languages {
   color : white;
