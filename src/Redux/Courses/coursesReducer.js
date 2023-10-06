@@ -25,19 +25,24 @@ export const filterCourseThunkCreator = (language, enrolment) => {
 
   return async (dispatch) => {
     let coursesResponse = await Course.getCourses()
-
+    let filterData = null
     if (coursesResponse.status === 200) {
 
-      if (language && enrolment) {
-        let filterData = null
+      if (language !== 'All' && enrolment !== 'All') {
         filterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
         filterData = filterData.filter(item => item.course.language === language)
         dispatch(filterCourseAC(filterData))
-      }else if(language) {
+      }else if(language && language !== 'All') {
         const filterData = coursesResponse.data.courses.filter(item => item.course.language === language)
         dispatch(filterCourseAC(filterData))
-      } else if(enrolment) {
+      } else if(enrolment && enrolment !== 'All') {
         const filterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
+        dispatch(filterCourseAC(filterData))
+      }else if (language === 'All') {
+        filterData = coursesResponse.data.courses
+        dispatch(filterCourseAC(filterData))
+      }else if (enrolment === 'All') {
+        filterData = coursesResponse.data.courses
         dispatch(filterCourseAC(filterData))
       }
 

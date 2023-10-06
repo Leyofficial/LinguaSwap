@@ -33,7 +33,6 @@ const CourseSection = () => {
       })
    }, [idCourse])
 
-   toast.error("You've already joined the course");
 
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
@@ -42,11 +41,10 @@ const CourseSection = () => {
       const isAlreadyJoin = currentCourse.course.members.find((member) => member === userId)
 
       if (isAlreadyJoin) {
+         toast.error("You've already joined the course");
          setErrorJoin(true)
-         setTimeout(() => {
-            setErrorJoin(false)
-         }, 3000)
       } else {
+
          Course.addNewMember(userId, currentCourse._id).then(res => {
             if (res.status === 200) {
                Course.getCourse(idCourse).then(res => {

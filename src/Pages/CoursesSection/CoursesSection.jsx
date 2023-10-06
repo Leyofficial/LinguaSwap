@@ -17,14 +17,14 @@ const CoursesSection = () => {
 
   const dispatch = useDispatch()
   const currentUser = useSelector((state) => state.loginUser)
-  console.log(currentUser)
+
 
   // selectors
-  const languages = ['English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
+  const languages = ['All','English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
   const [languageFilter, setLanguageFilter] = useState('')
-  const enrolmentType = ['Free', 'Paid']
+  const enrolmentType = ["All",'Free', 'Paid']
   const [enrolment, setEnrolment] = useState("")
-  const categoryTypes = ['Popular', 'Recent']
+  const categoryTypes = ["All",'Popular', 'Recent']
   const [category, setCategory] = useState('')
 
   const [courseForOnePage,setCourseForOnePage] = useState(6)
