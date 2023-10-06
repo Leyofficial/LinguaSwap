@@ -10,6 +10,7 @@ export const initialState = {
   languagesKnow : [],
   languagesLearn : [],
   courses:[],
+  teachers : [],
   loginUser:null,
   registerUser: null,
   isAuth:false,

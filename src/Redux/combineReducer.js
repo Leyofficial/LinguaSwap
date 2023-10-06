@@ -13,6 +13,7 @@ import {setPhotoReducer} from "./Profile/Photo/setPhotoReducer.js";
 import login from './login/loginuser.reducer.js'
 import {isAuthReducer} from "./isAuth/isAuthReducer.js";
 import courseReducer from "./Course/courseReducer.js";
+import {teachersReducer} from "./Teachers/teachersReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -29,4 +30,5 @@ export default (combineReducers)({
     loginUser: login,
     isAuth:isAuthReducer,
     currentCourse:courseReducer,
+    teachers : teachersReducer,
 })
