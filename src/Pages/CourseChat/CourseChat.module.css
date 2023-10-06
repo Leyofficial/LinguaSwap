@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+.container .wrapperChat {
+  margin-left: 11vh;
+  width: 75%;
+  position: relative;
+  height: 100%;
+}
+.container .wrapperChat .wrapperTextarea {
+  position: absolute;
+  bottom: 7px;
+  width: 95%;
+  border-radius: 5px;
+  background-color: rgba(203, 201, 201, 0.39);
+  padding: 10px;
+  left: 3.7vh;
+  display: flex;
+  justify-content: space-between;
+}
+.container .wrapperChat .wrapperTextarea textarea {
+  outline: none;
+  resize: none;
+  width: 90%;
+  background-color: transparent;
+  border: none;
+  border-right: 3px solid rgba(49, 47, 47, 0.09);
+}
+.container .wrapperChat .wrapperTextarea svg {
+  cursor: pointer;
+}
+.container .wrapperChat h2 {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.13);
+  padding: 10px 5px;
+  font-size: 17px;
+  color: rgba(0, 0, 0, 0.58);
+}
+.container .wrapperChat h2 span {
+  color: rgba(24, 156, 208, 0.84);
+  font-size: 17px;
+}
+.container .wrapperMebmers {
+  width: 25%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.13);
+  padding: 20px;
+}
+
+/*# sourceMappingURL=CourseChat.module.css.map */

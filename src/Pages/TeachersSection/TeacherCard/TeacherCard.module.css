@@ -1,0 +1,35 @@
+.card {
+  padding: 20px;
+  width: 230px;
+  height: 280px;
+  border-radius: 15px;
+  transition: 0.2s linear;
+  cursor: pointer;
+  border: 1px #151515 dotted;
+}
+.card:hover {
+  transform: translateY(-9px);
+  border: 1px dodgerblue solid;
+}
+.card:active {
+  transform: translateY(16px);
+}
+
+.avatar {
+  margin-bottom: 1rem;
+}
+
+.languagesBlock {
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  display: flex;
+}
+
+.languages {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+/*# sourceMappingURL=TeacherCard.module.css.map */
