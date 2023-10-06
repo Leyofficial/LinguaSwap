@@ -3,7 +3,7 @@ import React from 'react';
 import {Avatar} from "@mui/material";
 const TeacherCard = ( {name , photo , hash , languages} ) => {
     return (
-        <div  className={style.cardBlock}>
+        <>
                 <li className={style.card}>
                     <div className={style.avatar}>
                         <Avatar sx={{ width: 74, height: 74, textAlign: 'center' }} src={photo}/>
@@ -17,7 +17,7 @@ const TeacherCard = ( {name , photo , hash , languages} ) => {
                         })}
                     </div>
                 </li>
-        </div>
+        </>
     );
 };
 
