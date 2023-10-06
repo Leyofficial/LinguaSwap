@@ -5,7 +5,10 @@
   height: 50px;
 }
 .container main {
-  min-height: 100%;
+  width: 100%;
+}
+.container aside {
+  width: 2rem;
 }
 
 /*# sourceMappingURL=Layout.module.css.map */

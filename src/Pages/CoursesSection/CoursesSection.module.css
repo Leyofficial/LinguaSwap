@@ -1,25 +1,27 @@
 .container {
-  max-width: 1500px;
+  max-width: calc(1300px - 11rem);
   padding-bottom: 40px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 .container .coursesWrapper {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   padding-bottom: 6px;
+  justify-content: space-around;
+  width: 100%;
 }
 .container .searchWrapper {
   padding-top: 1vh;
   margin: 0 auto;
+  width: 100%;
 }
 .container .titleWrapper {
-  max-width: 1225px;
+  padding-top: 1vh;
   margin: 0 auto;
   text-align: end;
+  width: 100%;
 }
 .container .paginationWrapper {
   display: flex;

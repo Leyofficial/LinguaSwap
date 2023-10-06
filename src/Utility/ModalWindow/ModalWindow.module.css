@@ -12,4 +12,11 @@
   padding: 50px 20px;
 }
 
+.button {
+  padding: 20px;
+  bottom: 0;
+  position: absolute;
+  right: 0;
+}
+
 /*# sourceMappingURL=ModalWindow.module.css.map */

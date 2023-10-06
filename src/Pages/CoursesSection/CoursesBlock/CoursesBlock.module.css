@@ -1,7 +1,7 @@
 .container {
-  margin: 20px;
+  margin: 20px 0;
   height: 37rem;
-  width: 25%;
+  width: 30%;
   cursor: pointer;
   background-image: linear-gradient(163deg, rgba(31, 172, 192, 0.13) 0%, rgba(20, 162, 220, 0.3) 100%);
   border-radius: 10px;
@@ -54,6 +54,7 @@
   padding-top: 8px;
 }
 .container .containerWrapper .nameOfAuthor p {
+  padding-left: 15px;
   color: rgba(0, 0, 0, 0.68);
   font-weight: bold;
   max-width: 200px;
@@ -117,6 +118,9 @@
 }
 .container .infoWrapper .finish {
   background-color: rgba(173, 21, 39, 0.57);
+}
+.container .infoWrapper .duration {
+  color: #000000;
 }
 .container .wrapperLevel {
   margin: 15px 0;

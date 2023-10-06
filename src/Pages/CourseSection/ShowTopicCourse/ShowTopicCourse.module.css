@@ -1,0 +1,47 @@
+.wrapper p {
+  cursor: pointer;
+}
+.wrapper span {
+  display: block;
+  width: 100%;
+  border-bottom: 2px solid rgba(37, 175, 225, 0.19);
+  margin-bottom: 2vh;
+}
+.wrapper .show {
+  overflow: visible;
+  width: 100%;
+  opacity: 1;
+}
+.wrapper .hidden {
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  display: block;
+}
+.wrapper .topic {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .topic svg {
+  transition: 0.3s ease-in-out;
+  rotate: 43deg;
+  font-size: 30px;
+  color: rgba(18, 117, 154, 0.59);
+}
+.wrapper .topic svg:hover {
+  color: rgba(13, 59, 157, 0.56);
+}
+.wrapper .topic p {
+  font-size: 18px;
+  color: rgba(18, 117, 154, 0.59);
+}
+.wrapper .open {
+  rotate: 224deg !important;
+  color: rgba(13, 59, 157, 0.56) !important;
+}
+.wrapper span {
+  color: rgba(64, 69, 70, 0.66);
+  padding: 3vh 0;
+}
+
+/*# sourceMappingURL=ShowTopicCourse.module.css.map */

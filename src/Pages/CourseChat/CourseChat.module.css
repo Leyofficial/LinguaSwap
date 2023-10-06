@@ -1,21 +1,25 @@
 .container {
   display: flex;
   height: 100vh;
+  width: 100%;
+  padding-left: 6rem;
 }
 .container .wrapperChat {
-  margin-left: 11vh;
-  width: 75%;
+  width: 80%;
+  margin: 0 auto;
   position: relative;
   height: 100%;
+  padding-right: 1rem;
+  border-radius: 5px;
 }
 .container .wrapperChat .wrapperTextarea {
   position: absolute;
   bottom: 7px;
-  width: 95%;
+  width: 99%;
+  height: 70px;
   border-radius: 5px;
   background-color: rgba(203, 201, 201, 0.39);
   padding: 10px;
-  left: 3.7vh;
   display: flex;
   justify-content: space-between;
 }
@@ -31,20 +35,38 @@
   cursor: pointer;
 }
 .container .wrapperChat h2 {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.13);
-  padding: 10px 5px;
-  font-size: 17px;
-  color: rgba(0, 0, 0, 0.58);
+  padding: 20px 5px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.6);
 }
 .container .wrapperChat h2 span {
   color: rgba(24, 156, 208, 0.84);
-  font-size: 17px;
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid rgba(8, 138, 178, 0.19);
+}
+.container .wrapperChat .contentMessage {
+  border-radius: 5px;
+  background-size: contain !important;
+  width: 100%;
+  height: 84.5%;
+  overflow-y: auto;
 }
 .container .wrapperMebmers {
-  width: 25%;
+  width: 20%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.13);
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .wrapperMebmers .members {
+  height: 88%;
+  margin-bottom: 1.7vh;
+  border-radius: 5px;
+  padding: 25px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.13);
 }
 
 /*# sourceMappingURL=CourseChat.module.css.map */
