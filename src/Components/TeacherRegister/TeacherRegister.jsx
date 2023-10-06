@@ -73,15 +73,18 @@ function TeacherRegister() {
       registerNewUser(userValue).then(res => {
 
          if (res.status === 201) {
+            dispatch(fetchUserAC(res.data.user))
+            dispatch(authAC())
 
-            saveToken(res.data.token, res.data.user._id).then(res => {
-               if (res.status === 'Succeed') {
+            saveToken(res.data.token, res.data.user._id).then(response => {
+
+               if (response.status === 200) {
                   localStorage.setItem('loginUser', JSON.stringify(res.data.token))
                   navigate('/')
                }
             })
-            dispatch(authAC())
-            dispatch(fetchUserAC(userValue))
+
+
          }
 
       });

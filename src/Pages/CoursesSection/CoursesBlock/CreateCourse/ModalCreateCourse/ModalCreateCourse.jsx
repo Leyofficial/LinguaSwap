@@ -103,6 +103,7 @@ const ModalCreateCourse = () => {
 
 
   const handleImage = (e) => {
+    console.log(e)
     setImageCourse(e.name)
 
     const data = new FormData()

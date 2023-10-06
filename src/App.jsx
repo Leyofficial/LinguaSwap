@@ -25,18 +25,20 @@ function App() {
     const dispatch = useDispatch()
     const currentUser = useSelector((state) => state.loginUser)
 
+    console.log(currentUser)
 
+    const userToken = JSON.parse(localStorage.getItem('loginUser'))
     useEffect(() => {
-        const userToken = JSON.parse(localStorage.getItem('loginUser'))
 
         getUserByToken(userToken).then(res => {
+            console.log(res)
             if(res.status === 200) {
                 dispatch(fetchUserAC(...res.data.users));
                 dispatch(authAC())
             }
         })
 
-    },[])
+    },[userToken])
     return (
         <>
             <Routes>

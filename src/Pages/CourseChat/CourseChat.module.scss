@@ -1,26 +1,34 @@
 .container {
   display: flex;
   height: 100vh;
+  width: 100%;
+  padding-left: 6rem;
 
 
   .wrapperChat {
-    margin-left: 11vh;
-    width: 75%;
+
+    width: 80%;
+    margin: 0 auto;
     position: relative;
     height: 100%;
+    padding-right: 1rem;
+    border-radius: 5px;
 
 
     .wrapperTextarea {
+
       position: absolute;
       bottom: 7px;
-      width: 95%;
+      width: 99%;
+      height: 70px;
       //border: 1px solid rgba(0, 0, 0, 0.19);
       border-radius: 5px;
       background-color: rgba(203, 201, 201, 0.39);
       padding: 10px;
-      left: 3.7vh;
+      //left: 3.7vh;
       display: flex;
       justify-content: space-between;
+
       textarea {
         outline: none;
         resize: none;
@@ -29,27 +37,53 @@
         border: none;
         border-right: 3px solid rgba(49, 47, 47, 0.09);
       }
-      svg{
+
+      svg {
         cursor: pointer;
       }
     }
-    h2{
-      border-bottom: 2px solid rgba(0, 0, 0, 0.13);;
-      padding: 10px 5px;
-      font-size: 17px;
-      color: rgba(0, 0, 0, 0.58);
-      span{
+
+    h2 {
+      //border-bottom: 2px solid rgba(0, 0, 0, 0.13);;
+      padding: 20px 5px;
+      font-size: 20px;
+      color: rgba(0, 0, 0, 0.6);
+
+      span {
         //padding-right: 4vh;
         color: rgba(24, 156, 208, 0.84);
-        font-size: 17px;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        border-bottom: 2px solid rgba(8, 138, 178, 0.19);
       }
+    }
+
+    .contentMessage {
+      border-radius: 5px;
+     background-size: contain !important;
+
+      width: 100%;
+      height: 84.5%;
+
+      overflow-y: auto;
     }
   }
 
   .wrapperMebmers {
-    width: 25%;
+    width: 20%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.13);
     padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .members{
+      height: 88%;
+      margin-bottom: 1.7vh;
+      border-radius: 5px;
+      padding: 25px;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.13);
+    }
   }
 }

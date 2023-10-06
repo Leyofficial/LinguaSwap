@@ -11,7 +11,8 @@ import {
 } from "../../../Redux/Profile/Languages/languagesLearn/setLanguagesLearnActionCreater.js";
 import CustomSelector from "../../../Utility/CustomSelector/CustomSelector.jsx";
 import Spinner from "../../../Utility/Spinner/Spinner.jsx";
-import {ProfileUser} from "../../../ApiRequests/CreateProfile/Profile.js";
+import {ProfileUser, saveProfileImage} from "../../../ApiRequests/CreateProfile/Profile.js";
+import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
 
 const StepThree = (props) => {
     const languagesKnow = useSelector((state) => state.languagesKnow);
@@ -33,12 +34,22 @@ const StepThree = (props) => {
             userTag: userTag,
             experience: '0',
             bio: bio,
-            photo: photo,
+            photo:"",
             languagesKnow: languagesKnow,
             languagesLearn: languagesLearn,
         }
         ProfileUser.createProfile(id ,  obj).then(res => {
             if (res.status === 200) {
+                const data = new FormData()
+
+                data.append('image', photo)
+                saveProfileImage(data).then(res => {
+                    if(res.status === 200) {
+                        savePhoto(res.data.image.path,id)
+                        console.log(res.data.image.path)
+                 }
+                })
+
                 setTimeout(() => {
                     props.nextStep()
                     setOpen(false)
