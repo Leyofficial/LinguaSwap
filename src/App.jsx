@@ -17,6 +17,7 @@ import {getUserByToken} from "./ApiRequests/Courses/AuthUser.js";
 import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
+import TeachersSection from "./Pages/TeachersSection/index.jsx";
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
                         <Route path={"/login"} element={<Login/>}/>
                         <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
                         <Route path={"/createprofile"} element={<CreateProfile/>} />
+                        <Route path={"/findteacher"} element={<TeachersSection/>} />
                         <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
                         <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                     <Route path={"*"} element={<ErrorUrl/>}/>
