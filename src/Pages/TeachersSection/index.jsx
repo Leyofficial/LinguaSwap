@@ -8,6 +8,8 @@ import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
 import TeacherCard from "./TeacherCard/TeacherCard.jsx";
 
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
+import toast, {Toaster} from "react-hot-toast";
+import {Skeleton, Stack} from "@mui/material";
 
 const TeachersSection = () => {
     const languages = ['All', 'English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
@@ -19,9 +21,20 @@ const TeachersSection = () => {
     const dispatch = useDispatch()
     const teachers = useSelector((state) => state.teachers);
 
+    function errorToaster(text) {
+        toast.error(text);
+    }
+
     useEffect(() => {
-       Teachers.getTeachers().then(res => dispatch(teachersActionCreater(res.data.users)))
-    }, [])
+        Teachers.getTeachers().then(res => {
+            console.log(res.status)
+            if (res.status === 200) {
+                dispatch(teachersActionCreater(res.data.users))
+            } else {
+                errorToaster('Ошибка!')
+            }
+        })
+    }, []);
 
     useEffect(() => {
         if (searchValue) {
@@ -40,6 +53,7 @@ const TeachersSection = () => {
         <>
             <div className={style.container}>
                 <div className={style.topBlock}>
+                    <Toaster position="top-right" reverseOrder={false}/>
                     <div className={style.titleBlock}>
                         <h2>Find your dream <span className={style.span}>teacher</span> : </h2>
                     </div>
@@ -70,6 +84,6 @@ const TeachersSection = () => {
             </div>
         </>
     );
-};
+}
 
 export default TeachersSection;

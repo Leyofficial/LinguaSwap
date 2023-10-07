@@ -45,7 +45,7 @@ const StepThree = (props) => {
                 data.append('image', photo)
                 saveProfileImage(data).then(res => {
                     if(res.status === 200) {
-                        savePhoto(res.data.image.path,id)
+                        savePhoto(res.data.image.path.id)
                         console.log(res.data.image.path)
                  }
                 })
