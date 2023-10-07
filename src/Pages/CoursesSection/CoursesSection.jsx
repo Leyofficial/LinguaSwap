@@ -100,7 +100,7 @@ const CoursesSection = () => {
             />
           </Space>
           <div>
-            {/*<CreateCourse></CreateCourse>*/}
+            <CreateCourse></CreateCourse>
           </div>
         </div>
       </div>

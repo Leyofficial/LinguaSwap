@@ -40,7 +40,7 @@ const CourseSection = () => {
 
    const joinToCourse = (userId) => {
 
-      const isAlreadyJoin = currentCourse.course.members.find((member) => member === userId)
+      const isAlreadyJoin = currentCourse.course?.members?.find((member) => member === userId)
 
       if (isAlreadyJoin) {
          toast.error("You've already joined the course");

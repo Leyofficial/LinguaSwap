@@ -6,6 +6,7 @@ import style from './ModalCreateCourse.module.scss'
 import {BsImages, BsPlusSquareDotted} from "react-icons/bs";
 import {Course} from "../../../../../ApiRequests/Courses/Courses.js";
 import {levelEducation} from "../../../../../Utility/CoutryFlag/LevelEducation.js";
+import axios from "axios";
 
 
 const styleModal = {
@@ -66,7 +67,6 @@ const ModalCreateCourse = () => {
   }
 
   const createCourse = () => {
-
     const data = {
       teacher: {
         id: 'default',
@@ -86,6 +86,10 @@ const ModalCreateCourse = () => {
     }
     Course.create(data).then(res => {
       if(res.status === 200) {
+        axios.post('http://localhost:3000/chat/chatroom' , {
+            idCourse : res.data.createCourse._id
+        })
+
         setLevelListSelect("")
         setTimesCourse("")
         setLanguage("")
