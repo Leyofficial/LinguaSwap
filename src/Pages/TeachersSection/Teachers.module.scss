@@ -5,7 +5,16 @@
 .span {
   color: dodgerblue;
 }
-
+.notFound {
+  line-height: 40px;
+  position: absolute;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  top: 45%;
+  left: calc(50% + 3rem);
+  transform: translate(-50%, -50%);
+}
 .topBlock {
   padding-left: 2rem;
 }

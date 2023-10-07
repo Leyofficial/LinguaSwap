@@ -10,6 +10,7 @@ import TeacherCard from "./TeacherCard/TeacherCard.jsx";
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
+import {TypeAnimation} from "react-type-animation";
 
 const TeachersSection = () => {
     const languages = ['All', 'English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
@@ -17,7 +18,7 @@ const TeachersSection = () => {
     const [searchValue, setSearchValue] = useState("")
     const [languageFilter, setLanguageFilter] = useState('')
     const [foundTeacher, setFoundTeacher] = useState(null)
-
+    const [loadTeacher , setLoadTeacher] = useState(false)
     const dispatch = useDispatch()
     const teachers = useSelector((state) => state.teachers);
 
@@ -27,10 +28,13 @@ const TeachersSection = () => {
 
     useEffect(() => {
         Teachers.getTeachers().then(res => {
-            console.log(res.status)
             if (res.status === 200) {
+                setTimeout(() => {
+                    setLoadTeacher(true)
+                } , 1000)
                 dispatch(teachersActionCreater(res.data.users))
             } else {
+                dispatch(teachersActionCreater([]))
                 errorToaster('Ошибка!')
             }
         })
@@ -75,10 +79,23 @@ const TeachersSection = () => {
                 <>
                     <ul className={style.cardsItems}>
                         { !foundTeacher ?  teachers.map((item) => {
+                            if (!loadTeacher) {
+                               return  <Stack spacing={4}>
+                                    <Skeleton variant="circular" width={75} height={75} />
+                                    <Skeleton variant="rectangular" width={210} height={60} />
+                                    <Skeleton variant="rounded" width={210} height={60} />
+                                </Stack>
+                            } else {
+                                return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
+                            }
+                        }) : (foundTeacher.length < 0 ? foundTeacher.map((item) => {
                             return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
-                        }) : foundTeacher.map((item) => {
-                            return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
-                        })}
+                        }):
+                            <div className={style.notFound}>
+                                No results <span className={style.span}>found</span> :( <br/>
+                                We <span className={style.span}>can’t find </span> any item matching your <span className={style.span}>search .</span>
+                            </div>
+                        )}
                     </ul>
                 </>
             </div>
