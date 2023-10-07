@@ -88,7 +88,7 @@ const TeachersSection = () => {
                             } else {
                                 return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
                             }
-                        }) : (foundTeacher.length > 0 ? foundTeacher.map((item) => {
+                        }) : (foundTeacher.length >  0 ? foundTeacher.map((item) => {
                             return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
                         }):
                             <div className={style.notFound}>
