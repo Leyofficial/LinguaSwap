@@ -4,7 +4,7 @@ const chat = new mongoose.Schema({
     messages : [{
         author : String,
         message : String,
-        data : String
+        date : String
     }] ,
 })
 

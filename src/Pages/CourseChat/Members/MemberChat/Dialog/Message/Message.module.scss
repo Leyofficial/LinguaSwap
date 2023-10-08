@@ -1,0 +1,48 @@
+.myMessage {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  flex-flow: row-reverse;
+
+
+  p {
+    background-color: rgba(241, 241, 241, 0.21);
+    border-radius: 5px 50px 5px 5px;
+    //width: auto !important;
+    padding: 10px 25px;
+    margin-bottom: 5px;
+  }
+
+  img {
+    margin-left: 2vh !important;
+  }
+
+  .messageItems {
+    text-align: right;
+
+  }
+}
+.message {
+  width: max-content;
+  //max-width: 40%;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 20px;
+
+
+  p {
+    max-width: 60vh;
+    padding: 10px 25px;
+    background-color: rgba(0, 0, 0, 0.49);
+    border-radius: 50px 5px 5px 5px;
+    margin-bottom: 5px;
+  }
+
+  .messageItems {
+
+  }
+}
+.date{
+  text-align: center;
+}

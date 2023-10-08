@@ -15,4 +15,6 @@ export const initialState = {
   registerUser: null,
   isAuth:false,
   currentCourse:null,
+  currentChat:null,
+  timeCurrentChat:null
 }

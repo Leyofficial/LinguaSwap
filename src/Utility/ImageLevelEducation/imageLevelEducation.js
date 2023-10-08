@@ -8,8 +8,11 @@ export const ImageLevelEducation = (level) => {
       case 'Advanced' : return advanced
       case 'Beginner' : return beginner
       case 'Intermadiate' : return intermediate
-      case 'Pre-intermediate' : return intermediate
+      case 'Intermediate' : return intermediate
+      case 'Pre-intermediate': return intermediate
+      case "Pre-Intermediate" : return intermediate
       case 'Uper-intermediate' : return intermediate
+      case 'Elementary' : return intermediate
       default : return
    }
 }
