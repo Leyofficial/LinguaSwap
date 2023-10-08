@@ -22,7 +22,7 @@ export default coursesReducer
 
 
 export const filterCourseThunkCreator = (language, enrolment) => {
-  console.log(enrolment)
+
   return async (dispatch) => {
     let coursesResponse = await Course.getCourses()
     let filterData = null
@@ -47,11 +47,6 @@ export const filterCourseThunkCreator = (language, enrolment) => {
         filterData = coursesResponse.data.courses
         dispatch(filterCourseAC(filterData))
       }
-
-
-
     }
-
-
   }
 }

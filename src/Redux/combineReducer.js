@@ -14,6 +14,8 @@ import login from './login/loginuser.reducer.js'
 import {isAuthReducer} from "./isAuth/isAuthReducer.js";
 import courseReducer from "./Course/courseReducer.js";
 import {teachersReducer} from "./Teachers/teachersReducer.js";
+import CourseChatReducer from "./Course/Chat/CourseChatReducer.js";
+import currentMessageTimeReducer from "./Course/Chat/currentMessageTimeReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -31,4 +33,6 @@ export default (combineReducers)({
     isAuth:isAuthReducer,
     currentCourse:courseReducer,
     teachers : teachersReducer,
+    currentChat:CourseChatReducer,
+    currentTimeMessage:currentMessageTimeReducer,
 })
