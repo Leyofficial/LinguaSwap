@@ -13,10 +13,10 @@ import {Skeleton, Stack} from "@mui/material";
 import {TypeAnimation} from "react-type-animation";
 
 const TeachersSection = () => {
-    const languages = ['All', 'English', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
+    const languages = ['All', 'English', 'Russian' , 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
-    const [searchValue, setSearchValue] = useState("")
-    const [languageFilter, setLanguageFilter] = useState('')
+    const [searchValue, setSearchValue] = useState(null)
+    const [languageFilter, setLanguageFilter] = useState(null)
     const [foundTeacher, setFoundTeacher] = useState(null)
     const [loadTeacher , setLoadTeacher] = useState(false)
     const dispatch = useDispatch()
@@ -25,6 +25,26 @@ const TeachersSection = () => {
     function errorToaster(text) {
         toast.error(text);
     }
+
+    useEffect(() => {
+        if (searchValue) {
+            const search = searchTeacherItem()
+            setFoundTeacher(search);
+        } else if (languageFilter) {
+            const item = filterLanguageItem();
+            setFoundTeacher(item)
+        }
+        if (!searchValue && languageFilter === 'All') {
+            setFoundTeacher(teachers)
+        }
+        if (searchValue && languageFilter !== 'All') {
+            const filteredLanguages = filterLanguageItem();
+             if (filteredLanguages) {
+                const foundItems = filteredLanguages.filter((item) => item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase()));
+                setFoundTeacher(foundItems);
+            }
+        }
+    }, [languageFilter , searchValue ]);
 
     useEffect(() => {
         Teachers.getTeachers().then(res => {
@@ -40,15 +60,9 @@ const TeachersSection = () => {
         })
     }, []);
 
-    useEffect(() => {
-        if (searchValue) {
-            const item = searchTeacherItem()
-            setFoundTeacher(item)
-        } else {
-            setFoundTeacher(null)
-        }
-
-    }, [searchValue])
+    const filterLanguageItem = () => teachers.filter(item =>
+        item.user.data.languagesKnow.find(item => item.label === languageFilter)
+    )
     const searchTeacherItem = () => teachers.filter(item =>
         item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase())
     )
