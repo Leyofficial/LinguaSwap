@@ -8,6 +8,7 @@ export const Course = {
     })
   },
   saveImage(image) {
+    console.log(image)
     return axios.post(`http://localhost:3000/courses/image`,image,{
       headers:{
         'content-type':'multipart/form-data'
