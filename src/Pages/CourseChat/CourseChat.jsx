@@ -68,21 +68,20 @@ const CourseChat = () => {
       <div className={style.container}>
          <div className={style.wrapperChat}>
             <h2><span>{currentCourse?.course.name}</span> course chat </h2>
-            <div className={style.contentMessage} style={{background: `url(${bgChat})`}}>
+            <div className={style.contentMessage}>
                <div className={style.wrapperMessages}>
                   <Message messages={chat?.messages}></Message>
                </div>
             </div>
             <div className={style.wrapperTextarea}>
-               <AiOutlinePaperClip></AiOutlinePaperClip>
+               <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>
                <div className={style.textarea}>
                   <textarea placeholder={'Type a message'} value={message}
                             onChange={(e) => setMessage(e.target.value)}></textarea>
                </div>
 
                <div className={style.icons}>
-                  <CiFaceSmile fontSize={30} color={'rgba(71,176,220,0.43)'}></CiFaceSmile>
-                  <LuSend onClick={sendMessageHandler} fontSize={30} color={'rgba(71,176,220,0.43)'}></LuSend>
+                  <LuSend onClick={sendMessageHandler} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend>
                </div>
 
             </div>
