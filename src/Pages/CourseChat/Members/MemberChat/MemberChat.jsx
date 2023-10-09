@@ -14,14 +14,13 @@ const MemberChat = ({member}) => {
 
       if (res.status === "Succeed") {
         const dataMember = {
-          name: res.user.user.data.name,
-          photo: res.user.user.data.photo,
-          status: res.user.user.data.status
+          name: res.user.user.data?.name,
+          photo: res.user.user.data?.photo,
+          status: res.user.user.data?.status
         }
         setCurrentMember(dataMember)
       }
     })
-
 
   }, [member])
 

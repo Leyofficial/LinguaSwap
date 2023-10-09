@@ -7,12 +7,7 @@ export const chatHelper = {
    },
    async getAuthorMessageAvatar(idAuthor,callback) {
 
-      return await getUser(idAuthor).then(res => {
-
-         if (res.status === "Succeed") {
-            callback(res.user.user.data?.photo)
-         }
-      })
+      return  getUser(idAuthor).then(res => res.user.user.data?.photo)
    },
 
 }
