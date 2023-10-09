@@ -19,20 +19,20 @@
 
       position: absolute;
       bottom: 7px;
-      width: 98.6%;
+      width: 97%;
       height: 70px;
       //border: 1px solid rgba(0, 0, 0, 0.19);
       border-radius: 5px;
       border: 2px solid rgb(24 122 198 / 19%);
-      background-color: rgba(254, 255, 255, 0.22);
-      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.79);
+      padding: 40px 10px;
       //left: 3.7vh;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
       .textarea {
-        background-color: rgb(24 122 198 / 19%);
+        background-color: rgb(255, 255, 255);
         width: 100%;
         //padding: 10px;
         border-radius: 15px;
@@ -69,12 +69,13 @@
         svg {
           cursor: pointer;
           font-size: 30px;
+          color: rgba(12,87,197,0.98);
         }
       }
 
       svg {
-        font-size: 35px;
-        color: rgba(74, 156, 201, 0.62);
+        font-size: 40px;
+        color: rgba(12,87,197,0.98);
       }
 
 
