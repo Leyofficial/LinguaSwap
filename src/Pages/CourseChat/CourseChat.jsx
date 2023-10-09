@@ -23,9 +23,6 @@ const CourseChat = () => {
    const [message, setMessage] = useState("")
    const [openList, setOpenList] = useState(false)
    const chat = useSelector((state) => state.currentChat)
-   const [authorAvatar,setAuthorAvatar] = useState("")
-
-
 
    useEffect(() => {
       getChat(currentCourse._id).then(res => {
@@ -73,7 +70,7 @@ const CourseChat = () => {
             <h2><span>{currentCourse?.course.name}</span> course chat </h2>
             <div className={style.contentMessage} style={{background: `url(${bgChat})`}}>
                <div className={style.wrapperMessages}>
-                  {chat?.messages.map(item => <Message message={item}></Message>)}
+                  <Message messages={chat?.messages}></Message>
                </div>
             </div>
             <div className={style.wrapperTextarea}>
