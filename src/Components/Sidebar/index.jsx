@@ -32,10 +32,10 @@ const Sidebar = ({menuItems , defaultOpen}) => {
       </div>
       <div className={style.sidebarWrapper}>
         <ul className={style.sidebarItems} >
-          {menuItems.map((item) => {
+          {menuItems.map((item , index) => {
             return (
                 <div className={style.sidebarItemBlock}>
-                  <NavLink
+                  <NavLink key={index}
                 className={({isActive}) => isActive ? style.activeSideBarLink : '' }
                 style={sidebarOpen ? { width: "100%" } : { width: "3rem" }}
                 to={item.path}

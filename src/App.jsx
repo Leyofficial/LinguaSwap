@@ -18,6 +18,7 @@ import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
+import Profile from "./Pages/Profile/index.jsx";
 
 
 function App() {
@@ -50,23 +51,12 @@ function App() {
                         <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
                         <Route path={"/createprofile"} element={<CreateProfile/>} />
                         <Route path={"/findteacher"} element={<TeachersSection/>} />
+                        <Route path={"/findteacher/:id"} element={<Profile/>} />
                         <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
                         <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                     <Route path={"*"} element={<ErrorUrl/>}/>
                 </Route>
             </Routes>
-
-
-            {/*<Routes>*/}
-            {/*  <Route path={"/"} element={<Layout layoutType={'main'}/>}>*/}
-            {/*    <Route index={true} element={ <CoursesSection/>}></Route>*/}
-            {/*    <Route path={"/login"} element={<Login/>}/>*/}
-            {/*    <Route path={"/teacherregister"} element={<TeacherRegister/>}/>*/}
-            {/*    <Route path={"/createprofile"} element={<CreateProfile/>} />*/}
-            {/*    <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>*/}
-            {/*    <Route path={"*"} element={<ErrorUrl/>} />*/}
-            {/*  </Route>*/}
-            {/*</Routes>}*/}
         </>
     );
 }

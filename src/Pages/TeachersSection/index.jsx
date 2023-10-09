@@ -115,14 +115,25 @@ const TeachersSection = () => {
                                     <Skeleton variant="rounded" width={210} height={60}/>
                                 </Stack>
                             } else {
-                                return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag}
+                                return <TeacherCard id={item._id}
+                                                    name={item.user.data.name}
+                                                    hash={item.user.data.userTag}
                                                     photo={item.user.data.photo}
-                                                    languages={item.user.data.languagesKnow}/>
+                                                    languages={item.user.data.languagesKnow}
+                                                    bio={item.user.data.bio}
+                                                    languagesLearn={item.user.data.languagesLearn}
+                                />
                             }
                         }) : (foundTeacher ? foundTeacher.map((item) => {
-                                    return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag}
+                                    return <TeacherCard
+                                                        name={item.user.data.name}
+                                                        hash={item.user.data.userTag}
                                                         photo={item.user.data.photo}
-                                                        languages={item.user.data.languagesKnow}/>
+                                                        languages={item.user.data.languagesKnow}
+                                                        bio={item.user.data.bio}
+                                                        languagesLearn={item.user.data.languagesLearn}
+                                    />
+                                l
                                 }) :
                                 <div className={style.notFound}>
                                     No results <span className={style.span}>found</span> :( <br/>
