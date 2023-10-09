@@ -2,12 +2,12 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  padding-left: 6rem;
+  padding-left: 5rem;
 
 
   .wrapperChat {
 
-    width: 80%;
+    width: 65%;
     margin: 0 auto;
     position: relative;
     height: 100%;
@@ -18,23 +18,20 @@
     .wrapperTextarea {
 
       position: absolute;
-      bottom: 7px;
-      width: 97%;
-      height: 70px;
-      //border: 1px solid rgba(0, 0, 0, 0.19);
-      border-radius: 5px;
+      bottom: 0;
+      width: 100%;
+      height: 10vh;
       border: 2px solid rgb(24 122 198 / 19%);
       background-color: rgba(0, 0, 0, 0.79);
-      padding: 40px 10px;
-      //left: 3.7vh;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-right: 2px solid rgba(12, 60, 218, 0.27);
+      border-left: 2px solid rgba(12, 60, 218, 0.27);
 
       .textarea {
         background-color: rgb(255, 255, 255);
         width: 100%;
-        //padding: 10px;
         border-radius: 15px;
         display: flex;
         align-items: end;
@@ -69,13 +66,13 @@
         svg {
           cursor: pointer;
           font-size: 30px;
-          color: rgba(12,87,197,0.98);
+          color: rgba(12, 87, 197, 0.98);
         }
       }
 
       svg {
         font-size: 40px;
-        color: rgba(12,87,197,0.98);
+        color: rgba(12, 87, 197, 0.98);
       }
 
 
@@ -97,17 +94,18 @@
     }
 
     .date {
-  text-align: center;
+      text-align: center;
       color: #f1f1f1;
     }
 
     .contentMessage {
-      border-radius: 5px;
+      //border-radius: 5px;
       background-size: cover !important;
       background-repeat: no-repeat !important;
-
+      //border: 1px solid rgba(0, 0, 0, 0.3);
+      border-top: 1px solid rgba(108, 106, 104, 0.18);
       width: 100%;
-      height: 80vh;
+      height: 75vh;
 
       overflow-y: auto;
       padding: 20px;
@@ -153,51 +151,30 @@
   }
 
   .wrapperMebmers {
-    width: 20%;
+    background-color: rgba(0, 0, 0, 0.79);
+
+    width: 35%;
     height: 100%;
-    padding: 20px;
+    //padding: 20px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
 
     .members {
-      position: absolute;
-      bottom: 0;
-      height: 91.5%;
-
+      padding: 10px 20px;
+      height: 100%;
       border-radius: 5px;
-      padding: 25px;
       width: 100%;
-      background-color: rgb(24 122 198 / 19%);
-
-      .teacherWrapper {
-        background-color: rgb(255, 255, 255);
-        padding: 5px;
-        color: rgba(59, 57, 57, 0.84);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-
-        img {
-          //padding-right: 2vh;
-          margin-right: 1vh;
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-        }
-      }
 
       div {
-        margin-bottom: 2vh;
-
         p {
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding-bottom: 1vh;
           cursor: pointer;
-          color: #494646;
+          color: #000000;
           font-size: 18px;
           border-radius: 10px;
 
@@ -244,5 +221,61 @@
     height: 0;
     overflow-y: hidden !important;
   }
+}
+
+.wrapperItems {
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapperIconsMember {
+  background-color: #f8f8f8;
+  padding: 10px 30px;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(239, 239, 239, 0.91);
+  }
+
+  svg {
+    font-size: 30px;
+    color: #0c3cda;
+  }
+}
+
+.memberItems {
+  background-color: #f1f1f1;
+  overflow: auto;
+  height: 78.8vh;
+  margin-top: 3vh;
+  h3 {
+    background-color: rgb(0 0 0 / 77%);
+    padding: 10px 15px;
+    border: 1px solid #1412126b;
+    color: rgba(210, 209, 209, 0.9);
+  }
+
+  .items {
+    padding: 5px 15px;
+    margin: 0 !important;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.56);
+    border-radius: 20px;
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #494646;
+    border-radius: 20px;
+
+  }
+
 }
 
