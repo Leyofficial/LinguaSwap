@@ -32,7 +32,15 @@ exports.createCourse = async (req, res, next) => {
 
 exports.getCourses = async (req, res) => {
 
-   const courses = await Courses.find()
+   const {joinedUserId} = req.params
+   let filter = {}
+   if(joinedUserId) {
+      filter = {
+         "course.members":joinedUserId
+      }
+   }
+
+   const courses = await Courses.find(filter)
 
    if (courses) {
       res.status(200).json({

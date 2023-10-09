@@ -20,7 +20,7 @@ export const Course = {
     return axios.get(`http://localhost:3000/courses`)
   },
   getCourse(courseId) {
-    return axios.get(`http://localhost:3000/courses/${courseId}`)
+    return axios.get(`http://localhost:3000/courses/course/${courseId}`)
   },
 
   addNewMember(updateValue,courseId){
