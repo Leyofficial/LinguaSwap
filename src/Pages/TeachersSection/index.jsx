@@ -13,12 +13,12 @@ import {Skeleton, Stack} from "@mui/material";
 import {TypeAnimation} from "react-type-animation";
 
 const TeachersSection = () => {
-    const languages = ['All', 'English', 'Russian' , 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
+    const languages = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
     const [searchValue, setSearchValue] = useState(null)
     const [languageFilter, setLanguageFilter] = useState(null)
     const [foundTeacher, setFoundTeacher] = useState(null)
-    const [loadTeacher , setLoadTeacher] = useState(false)
+    const [loadTeacher, setLoadTeacher] = useState(false)
     const dispatch = useDispatch()
     const teachers = useSelector((state) => state.teachers);
 
@@ -28,9 +28,12 @@ const TeachersSection = () => {
 
     useEffect(() => {
         if (searchValue) {
-            const search = searchTeacherItem()
-            setFoundTeacher(search);
-        } else if (languageFilter) {
+            const item = searchTeacherItem()
+            console.log(item)
+            setFoundTeacher(item)
+        }
+
+        if (languageFilter) {
             const item = filterLanguageItem();
             setFoundTeacher(item)
         }
@@ -39,19 +42,20 @@ const TeachersSection = () => {
         }
         if (searchValue && languageFilter !== 'All') {
             const filteredLanguages = filterLanguageItem();
-             if (filteredLanguages) {
+            if (filteredLanguages) {
                 const foundItems = filteredLanguages.filter((item) => item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase()));
                 setFoundTeacher(foundItems);
             }
         }
-    }, [languageFilter , searchValue ]);
+    }, [languageFilter, searchValue]);
+
 
     useEffect(() => {
         Teachers.getTeachers().then(res => {
             if (res.status === 200) {
                 setTimeout(() => {
                     setLoadTeacher(true)
-                } , 1000)
+                }, 1000)
                 dispatch(teachersActionCreater(res.data.users))
             } else {
                 dispatch(teachersActionCreater([]))
@@ -59,6 +63,17 @@ const TeachersSection = () => {
             }
         })
     }, []);
+
+
+    useEffect(() => {
+        if (searchValue) {
+            const item = searchTeacherItem()
+            setFoundTeacher(item)
+        } else {
+            setFoundTeacher(null)
+        }
+
+    }, [searchValue])
 
     const filterLanguageItem = () => teachers.filter(item =>
         item.user.data.languagesKnow.find(item => item.label === languageFilter)
@@ -92,23 +107,28 @@ const TeachersSection = () => {
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        { !foundTeacher ?  teachers.map((item) => {
+                        {!foundTeacher ? teachers.map((item) => {
                             if (!loadTeacher) {
-                               return  <Stack spacing={4}>
-                                    <Skeleton variant="circular" width={75} height={75} />
-                                    <Skeleton variant="rectangular" width={210} height={60} />
-                                    <Skeleton variant="rounded" width={210} height={60} />
+                                return <Stack spacing={4}>
+                                    <Skeleton variant="circular" width={75} height={75}/>
+                                    <Skeleton variant="rectangular" width={210} height={60}/>
+                                    <Skeleton variant="rounded" width={210} height={60}/>
                                 </Stack>
                             } else {
-                                return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
+                                return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag}
+                                                    photo={item.user.data.photo}
+                                                    languages={item.user.data.languagesKnow}/>
                             }
-                        }) : (foundTeacher.length > 0 ? foundTeacher.map((item) => {
-                            return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag} photo={item.user.data.photo} languages={item.user.data.languagesKnow}/>
-                        }):
-                            <div className={style.notFound}>
-                                No results <span className={style.span}>found</span> :( <br/>
-                                We <span className={style.span}>can’t find </span> any item matching your <span className={style.span}>search .</span>
-                            </div>
+                        }) : (foundTeacher ? foundTeacher.map((item) => {
+                                    return <TeacherCard name={item.user.data.name} hash={item.user.data.userTag}
+                                                        photo={item.user.data.photo}
+                                                        languages={item.user.data.languagesKnow}/>
+                                }) :
+                                <div className={style.notFound}>
+                                    No results <span className={style.span}>found</span> :( <br/>
+                                    We <span className={style.span}>can’t find </span> any item matching your <span
+                                    className={style.span}>search .</span>
+                                </div>
                         )}
                     </ul>
                 </>
