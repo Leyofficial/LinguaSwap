@@ -94,13 +94,13 @@ const CourseChat = () => {
 
             <div className={style.members}>
                <div className={style.wrapperItems}>
-               <div className={style.wrapperIconsMember} onClick={() => setAsideItem("teachers")}>
+               <div className={`${style.wrapperIconsMember} ${asideItem === "teachers" ? style.activeItem : null}`} onClick={() => setAsideItem("teachers")}>
                   <FaChalkboardTeacher></FaChalkboardTeacher>
                </div>
-               <div className={style.wrapperIconsMember} onClick={() => setAsideItem("students")}>
+               <div className={`${style.wrapperIconsMember} ${asideItem === "students" ? style.activeItem : null}`} onClick={() => setAsideItem("students")}>
                   <HiUserGroup></HiUserGroup>
                </div>
-               <div className={style.wrapperIconsMember} onClick={() => setAsideItem("info")}>
+               <div className={`${style.wrapperIconsMember} ${asideItem === "info" ? style.activeItem : null}`} onClick={() => setAsideItem("info")}>
                   <BsInfoCircle></BsInfoCircle>
                </div>
                </div>
