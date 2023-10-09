@@ -18,7 +18,7 @@ function ModalProfile({modalActive, user}) {
                  <div className={style.mainContent}>
                      <div>
                              <h2 className={style.bio}>
-                                 {( user?.bio.length  > 0 ? user?.bio : 'Not biography :(') }
+                                 {user?.bio > 0 ?  user?.bio : 'Nothing....' }
                              </h2>
                             <div className={style.languages}>
                                 <div className={style.languagesKnow}>
