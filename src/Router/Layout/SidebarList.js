@@ -7,12 +7,6 @@ import previous from "../../img/icons/previous.png";
 
 export const sidebarList = [
     {
-        path: '/',
-        icon: previous,
-        name: "Back",
-        callback:true,
-    },
-    {
       path : "/login",
         icon: profile,
         name : 'Your profile'
