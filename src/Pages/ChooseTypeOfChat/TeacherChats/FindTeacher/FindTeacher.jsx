@@ -5,7 +5,6 @@ import style from './FindTeacher.module.scss'
 import {NavLink} from "react-router-dom";
 
 const FindTeacher = ({item}) => {
-   console.log(item)
 
    const [teacher, setTeacher] = useState(null)
 

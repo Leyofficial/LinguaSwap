@@ -13,6 +13,13 @@ const submitHandler = () => {
    sendMessageHandler(message)
    setMessage("")
 }
+
+const handlerTextArea = (e) => {
+
+   if(e.key === "Enter") {
+      submitHandler()
+   }
+}
    return (
       <div className={style.wrapperChat}>
          <h2><span>{name}</span>{title}</h2>
@@ -24,8 +31,8 @@ const submitHandler = () => {
          <div className={style.wrapperTextarea}>
             <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>
             <div className={style.textarea}>
-                  <textarea placeholder={'Type a message'} value={message}
-                            onChange={(e) => setMessage(e.target.value)}></textarea>
+                  <textarea placeholder={'Type a message'} value={message} onKeyPress={handlerTextArea}
+                            onChange={(e) =>  setMessage(e.target.value)}></textarea>
             </div>
 
             <div className={style.icons}>
