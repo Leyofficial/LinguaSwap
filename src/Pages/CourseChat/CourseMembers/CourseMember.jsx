@@ -9,7 +9,8 @@ const CourseMember = ({member}) => {
 
    useEffect(() => {
       getUser(member).then(res => {
-         if(res.status === 'Succeed') {
+
+         if(res && res.status === 'Succeed') {
             setDataMember(res.user.user.data)
          }
       })
@@ -17,7 +18,7 @@ const CourseMember = ({member}) => {
    return (
       <div className={style.container}>
          <img src={ dataMember?.photo ? `../../../${dataMember?.photo}` : defaultAvatar} alt={'avatar'}/>
-         <p>{dataMember?.name ? dataMember?.name : "No name"}</p>
+         <p>{dataMember?.name ? dataMember.name : "No name"}</p>
       </div>
    );
 };

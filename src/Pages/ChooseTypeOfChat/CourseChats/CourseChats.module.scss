@@ -1,0 +1,51 @@
+a{
+  color: black;
+}
+.courseItems {
+  height: 80vh;
+  //overflow: auto;
+  //max-width: 60%;
+
+  &::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.56);
+    border-radius: 20px;
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #494646;
+    border-radius: 20px;
+
+  }
+  h3{
+    padding-bottom: 3vh;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.77);
+  }
+  .item {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    overflow: hidden;
+
+    p {
+
+    }
+
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 4vh;
+      border-radius: 5px;
+      border: 1px solid rgba(241, 241, 241, 0.15);
+    }
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+}
+.pagination{
+  margin-top: 4vh;
+}

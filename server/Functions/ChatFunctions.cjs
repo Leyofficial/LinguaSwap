@@ -40,8 +40,7 @@ exports.getChat = async (req, res) => {
 exports.addMessage = async (req, res) => {
 
    const {idCourse} = req.params
-   console.log(req.body)
-   console.log(idCourse)
+
 
    const message = await Chats.findByIdAndUpdate(idCourse,
       {$addToSet: {"messages": {$each: [req.body]}}}

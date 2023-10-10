@@ -1,18 +1,25 @@
-.container{
-  p{
-   color: #ffffff !important;
+.container {
+  display: flex;
+  align-items: self-end;
+
+  p {
+    color: #ffffff !important;
   }
-  div{
-    text-align: right;
-    span{
-      color: rgba(222, 211, 211, 0.72);
+
+  div {
+    width: 100%;
+
+    span {
+      color: rgb(222, 211, 211);
       font-size: 10px;
+      display: flex;
+      margin-left: 4vh;
+      justify-content: end;
     }
   }
 
-  .message{
-    text-align: left;
-    span{
+  .message {
+    span {
 
     }
   }

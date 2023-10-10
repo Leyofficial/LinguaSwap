@@ -29,11 +29,13 @@ const languageRouter = require('./Routers/LanguageRouter.cjs');
 const authRouter = require('./Routers/AuthorizationRouter.cjs');
 const coursesRouter = require('./Routers/CoursesRouter.cjs');
 const chatRouter = require('./Routers/ChatRouter.cjs');
+const teacherChatRouter = require('./Routers/ChatWithTeachersRouter.cjs')
 
 app.use('/chat' , chatRouter);
 app.use('/languages', languageRouter);
 app.use('/authorization', authRouter);
 app.use('/courses',coursesRouter);
+app.use('/teacherChats',teacherChatRouter);
 
 app.all('*', (req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");

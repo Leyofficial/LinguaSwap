@@ -18,14 +18,19 @@ import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
+import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
+import Test from "./Pages/ChooseTypeOfChat/test.jsx";
+import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.jsx";
 import PersonalProfile from "./Pages/PersonalProfile/index.jsx";
 
 
 function App() {
-    const isStart = useSelector((state) => state.isStart)
-
-    const dispatch = useDispatch()
+   const isStart = useSelector((state) => state.isStart)
     const isAuth = useSelector((state) => state.isAuth);
+   const dispatch = useDispatch()
+   const currentUser = useSelector((state) => state.loginUser)
+
+   console.log(currentUser)
 
     const userToken = JSON.parse(localStorage.getItem('loginUser'))
     useEffect(() => {
@@ -47,9 +52,14 @@ function App() {
                         <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
                         <Route path={"/createprofile"} element={<CreateProfile/>} />
                         <Route path={"/findteacher"} element={<TeachersSection/>} />
-                        <Route path={"/findteacher/:id"} element={<PersonalProfile/>} />
+                    <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
+                    <Route path={"/findteacher/:id"} element={<PersonalProfile/>} />
                         <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
                         <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
+                    <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
+                        <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
+                        <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
+                    </Route>
                     <Route path={"*"} element={<ErrorUrl/>}/>
                 </Route>
             </Routes>
