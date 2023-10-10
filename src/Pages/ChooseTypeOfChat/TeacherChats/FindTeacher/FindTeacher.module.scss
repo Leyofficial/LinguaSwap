@@ -1,0 +1,32 @@
+.container{
+  width: 100%;
+  //display: flex;
+  //align-items: center;
+  img{
+    width: 60px;
+    height: 60px;
+    margin-right: 1vh;
+  }
+  .author{
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+  }
+  .message{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    .time{
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 14px;
+    }
+    .text{
+      color: rgba(73, 70, 70, 0.8);
+    }
+
+  }
+}
+.wrapper{
+  width: 100%;
+}

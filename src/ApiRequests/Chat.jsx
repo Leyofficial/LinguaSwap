@@ -11,6 +11,7 @@ import axios from "axios";
 
 
   export const getChat = async (idCourse) => {
+     console.log(idCourse)
     return  axios.get(`http://localhost:3000/chat/chatroom/${idCourse}`)
   }
 

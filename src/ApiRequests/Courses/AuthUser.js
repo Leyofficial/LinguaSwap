@@ -33,14 +33,18 @@ export const getUserByToken = (token) => {
 }
 
 export const getUser = async (idUser) => {
-    try{
-        let response = await axios.get(`http://localhost:3000/authorization/${idUser}`)
 
-        return response.data
-    }
-    catch (error) {
-        console.log(error)
+    if(idUser !== 'default' && idUser) {
+        try{
+            let response = await axios.get(`http://localhost:3000/authorization/${idUser}`)
 
+            return response.data
+        }
+        catch (error) {
+            console.log(error)
+
+        }
     }
+
 
 }

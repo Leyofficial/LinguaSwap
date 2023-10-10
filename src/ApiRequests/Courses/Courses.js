@@ -20,6 +20,7 @@ export const Course = {
     return axios.get(`http://localhost:3000/courses`)
   },
   getCourse(courseId) {
+    console.log(courseId)
     return axios.get(`http://localhost:3000/courses/course/${courseId}`)
   },
 

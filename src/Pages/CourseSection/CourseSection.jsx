@@ -40,7 +40,7 @@ const CourseSection = () => {
 
 
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
-console.log(currentCourse)
+
    const joinToCourse = (userId) => {
 
       const isAlreadyJoin = currentCourse.course?.members?.find((member) => member === userId)

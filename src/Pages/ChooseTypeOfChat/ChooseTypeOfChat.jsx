@@ -2,12 +2,18 @@ import React, {useEffect, useState} from 'react';
 import style from './ChooseTypeOfChat.module.scss'
 import {useSelector} from "react-redux";
 import {getCoursesForUserChat} from "../../ApiRequests/Chat.jsx";
+import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
+import CourseChats from "./CourseChats/CourseChats.jsx";
+import TeacherChats from "./TeacherChats/TeacherChats.jsx";
 
 const ChooseTypeOfChat = () => {
-   const [courses, setCourses] = useState(null)
 
+   const [courses, setCourses] = useState(null)
+   const [openSection, setOpenSection] = useState('course')
    const currentUser = useSelector((state) => state.loginUser)
-   console.log(currentUser)
+   const [chatsWithTeacher,setChatsWithTeacher] = useState(null)
+
+
    useEffect(() => {
       getCoursesForUserChat(currentUser._id).then(res => {
          if (res.status === 200) {
@@ -15,25 +21,22 @@ const ChooseTypeOfChat = () => {
          }
       })
    }, [currentUser])
+
+   useEffect(() => {
+      teacherChats.getAllChats(currentUser._id).then(res => setChatsWithTeacher(res.data.findChats))
+   }, [currentUser])
+
    return (
       <div className={style.container}>
-         <section>
-            <div className={style.courses}>
-               <h3>Courses Chat</h3>
-               <div className={style.courseItems}>
-                  {courses && courses.map((course) =><div className={style.item}>
-                     <img src={`../../../${course.course.image}`} alt={'course'}/>
-                     <p>{course.course.name}</p>
-                     </div>
-                  )}
-               </div>
-            </div>
-            <div className={style.friends}>
-               <h3>Teachers Chat</h3>
-               <div>
+         <nav>
+            <ul>
+               <li className={openSection === "course" ? style.open : null} onClick={() => setOpenSection("course")}>Course chats</li>
+               <li className={openSection === "teacher" ? style.open : null} onClick={() => setOpenSection("teacher")}>Teacher chats</li>
+            </ul>
+         </nav>
 
-               </div>
-            </div>
+         <section>
+            {openSection === "course" ?   <CourseChats courses={courses}/> : <TeacherChats items={chatsWithTeacher} ></TeacherChats>}
          </section>
       </div>
    );
