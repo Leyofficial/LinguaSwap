@@ -18,17 +18,20 @@ import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
-import PersonalProfile from "./Pages/PersonalProfile/index.jsx";
+import Profile from "./Pages/Profile/index.jsx";
 
 
 function App() {
     const isStart = useSelector((state) => state.isStart)
 
     const dispatch = useDispatch()
-    const isAuth = useSelector((state) => state.isAuth);
+    const currentUser = useSelector((state) => state.loginUser)
+
+    console.log(currentUser)
 
     const userToken = JSON.parse(localStorage.getItem('loginUser'))
     useEffect(() => {
+
         getUserByToken(userToken).then(res => {
             console.log(res)
             if(res.status === 200) {
@@ -36,6 +39,7 @@ function App() {
                 dispatch(authAC())
             }
         })
+
     },[userToken])
     return (
         <>
@@ -43,11 +47,11 @@ function App() {
                 <Route path={'/'} element={<Layout/>}>
                     <Route index={true} element={isStart ? <CoursesSection/> : <HomePage/>}/>
                     <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
-                        <Route path={"/login"} element={( isAuth ? <PersonalProfile /> : <Login/> )}/>
+                        <Route path={"/login"} element={<Login/>}/>
                         <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
                         <Route path={"/createprofile"} element={<CreateProfile/>} />
                         <Route path={"/findteacher"} element={<TeachersSection/>} />
-                        <Route path={"/findteacher/:id"} element={<PersonalProfile/>} />
+                        <Route path={"/findteacher/:id"} element={<Profile/>} />
                         <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
                         <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                     <Route path={"*"} element={<ErrorUrl/>}/>

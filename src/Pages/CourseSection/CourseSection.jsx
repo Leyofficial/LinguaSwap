@@ -15,6 +15,7 @@ import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import toast, {Toaster} from "react-hot-toast";
 import {courseAC} from "../../Redux/Course/CourseAC.js";
+import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
 
 
 const CourseSection = () => {
@@ -27,7 +28,9 @@ const CourseSection = () => {
    const [currentTopic, setCurrentTopic] = useState(0)
 
    useEffect(() => {
+
       Course.getCourse(idCourse).then(res => {
+         console.log(res)
          if (res.status === 200) {
             dispatch(courseAC(res.data.course))
             setCurrentCourse(res.data.course)
@@ -46,7 +49,7 @@ const CourseSection = () => {
          toast.error("You've already joined the course");
          setErrorJoin(true)
       } else {
-
+         teacherChats.createChat(currentCourse.teacher.id,loginUser._id).then(res => console.log(res))
          Course.addNewMember(userId, currentCourse._id).then(res => {
             if (res.status === 200) {
                Course.getCourse(idCourse).then(res => {
