@@ -126,6 +126,7 @@ const TeachersSection = () => {
                             }
                         }) : (foundTeacher ? foundTeacher.map((item) => {
                                     return <TeacherCard
+                                                        id={item._id}
                                                         name={item.user.data.name}
                                                         hash={item.user.data.userTag}
                                                         photo={item.user.data.photo}
