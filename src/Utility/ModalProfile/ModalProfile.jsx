@@ -4,7 +4,6 @@ import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import closeBtn from './../../img/icons/close.png'
 function ModalProfile({modalActive, user , callback}) {
-    debugger
     return (
         <>
             <div style={modalActive ? {display: 'block'} : {display: 'none'}} className={style.overlay}></div>
@@ -47,7 +46,7 @@ function ModalProfile({modalActive, user , callback}) {
                                  <button className={style.messageBtn}>Message</button>
                              </Link>
                              <Link to={user?.id}>
-                                 <button className={style.button}>Profile -></button>
+                                 <button className={style.button}>Profile</button>
                              </Link>
                          </div>
                      </div>
