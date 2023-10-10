@@ -133,7 +133,6 @@ const TeachersSection = () => {
                                                         bio={item.user.data.bio}
                                                         languagesLearn={item.user.data.languagesLearn}
                                     />
-                                l
                                 }) :
                                 <div className={style.notFound}>
                                     No results <span className={style.span}>found</span> :( <br/>

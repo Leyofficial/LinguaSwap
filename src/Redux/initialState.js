@@ -13,7 +13,7 @@ export const initialState = {
   teachers : [],
   loginUser:null,
   registerUser: null,
-  isAuth:false,
+  isAuth:true,
   currentCourse:null,
   currentChat:null,
   timeCurrentChat:null
