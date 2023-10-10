@@ -24,8 +24,10 @@ const CourseChats = ({courses}) => {
                   <p>{course.course.name}</p>
                </div>
             </NavLink>)}
+            <div className={style.pagination}>
             <Pagination paginate={paginate} coursesForOnePage={chatsForOnePage}
                         totalCourses={courses?.length}></Pagination>
+            </div>
          </div>
       </>
    );

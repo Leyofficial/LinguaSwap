@@ -2,17 +2,19 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  padding-left: 5rem;
+  //padding-left: 5rem;
+  position: relative;
 
 
   .wrapperChat {
 
-    width: 65%;
+    width: 90%;
     margin: 0 auto;
     position: relative;
     height: 100%;
     padding-right: 1rem;
     border-radius: 5px;
+    border-left: 1px solid #0a0f5f42;
 
 
     .wrapperTextarea {
@@ -151,8 +153,9 @@
   }
 
   .wrapperMebmers {
-    background-color: #1f1d2b;
 
+    transition: 0.3s ease-in-out;
+    background-color: #1f1d2b;
     width: 35%;
     height: 100%;
     //padding: 20px 0;
@@ -162,12 +165,15 @@
     position: relative;
 
     .members {
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
       padding: 10px 20px;
       height: 100%;
       border-radius: 5px;
       width: 100%;
 
       div {
+        transition: 0.3s ease-in-out;
         p {
           display: flex;
           justify-content: space-between;
@@ -200,7 +206,55 @@
     }
   }
 
+  .hide{
+    transition: 0.3s ease-in-out;
+    width: 10%;
+    background-color: #1f1d2b;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .wrapper{
+      display: none;
+    }
+    .wrapperItems{
+      transition: 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .wrapperIconsMember {
+      overflow: hidden;
+      background-color: #f8f8f8;
+      //padding: 10px 30px;
+      //width: 33%;
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      width: 100%;
+      padding: 0;
+      margin: 5px 10px;
+      &:hover {
+        background-color: rgba(239, 239, 239, 0.91);
+      }
+
+      svg {
+        font-size: 40px;
+        color: #0c3cda;
+        padding: 10px;
+      }
+    }
+    .members{
+    }
+  }
   .membersWrapper {
+    overflow: hidden;
     background-color: #f1f1f1;
     border-radius: 10px;
     height: 68vh;
@@ -215,7 +269,6 @@
     }
 
   }
-
   .hiddenMembers {
     opacity: 0;
     height: 0;
@@ -225,13 +278,14 @@
 
 .wrapperItems {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-left: 2vh;
 }
 
 .wrapperIconsMember {
-  background-color: #f8f8f8;
-  padding: 10px 30px;
-  width: 33%;
+  background-color: #ffffff;
+  padding: 10px 10px;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -281,5 +335,26 @@
 }
 .activeItem{
   background-color:#1f1d2b;
+}
+
+.hideBlock{
+  position: absolute;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  top:5px;
+  rotate: -40deg;
+  left: -20px;
+  svg{
+    font-size: 50px;
+    background-color: #ffffff;
+    padding: 10px;
+
+  }
+}
+.reverseIcons{
+  rotate: 135deg !important;
+  transition: 0.1s ease-in-out;
+  left: -30px !important;
+  top:3px !important;
 }
 

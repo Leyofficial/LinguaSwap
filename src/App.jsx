@@ -19,6 +19,7 @@ import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
+import Test from "./Pages/ChooseTypeOfChat/test.jsx";
 
 
 function App() {
@@ -53,8 +54,11 @@ function App() {
                <Route path={"/findteacher"} element={<TeachersSection/>}/>
                <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
                {/*<Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>*/}
-               <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}></Route>
-               <Route path={"/course/chat/:idCourse"} element={<CourseChat/>}></Route>
+               <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
+                  <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
+                  <Route path={'/course/chat/teacher/:idCourse'} element={<CourseChat/>}></Route>
+               </Route>
+               {/*<Route path={"/course/chat/:idCourse"} element={<CourseChat/>}></Route>*/}
                <Route path={"*"} element={<ErrorUrl/>}/>
             </Route>
          </Routes>

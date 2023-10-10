@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {getUser} from "../../../../../../../ApiRequests/Courses/AuthUser.js";
-
+import style from './Avatar.module.scss'
 const Avatar = ({idAuthor}) => {
 
    const [user,setUser] = useState(null)
@@ -14,7 +14,9 @@ const Avatar = ({idAuthor}) => {
    },[idAuthor])
   return(
      <>
+        {/*<div className={style.container}>*/}
         <img src={`../../../${user}`} alt={'avatar'}/>
+        {/*</div>*/}
      </>
   )
 };
