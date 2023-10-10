@@ -20,6 +20,7 @@ import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import Test from "./Pages/ChooseTypeOfChat/test.jsx";
+import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.jsx";
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
                {/*<Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>*/}
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
-                  <Route path={'/course/chat/teacher/:idCourse'} element={<CourseChat/>}></Route>
+                  <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
                </Route>
                {/*<Route path={"/course/chat/:idCourse"} element={<CourseChat/>}></Route>*/}
                <Route path={"*"} element={<ErrorUrl/>}/>

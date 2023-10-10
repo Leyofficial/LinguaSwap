@@ -64,8 +64,8 @@ exports.getChatsTeacher = async (req,res) => {
 
 exports.addMessageToChat = async (req,res) => {
 
-   const {idTeacher,idStudent} = req.params
-   const message = await ChatWithTeacher.findOneAndUpdate({"idTeacher":idTeacher, "idStudent":idStudent},
+   const {idChat} = req.params
+   const message = await ChatWithTeacher.findByIdAndUpdate(idChat,
       {$addToSet: {"messages": {$each: [req.body]}}})
 
    if (!message) {

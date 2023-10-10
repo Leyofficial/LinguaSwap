@@ -1,12 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import style from './CourseChat.module.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {LuSend} from "react-icons/lu";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
-import {AiOutlinePaperClip} from "react-icons/ai";
 import {getChat, sendMessage} from "../../ApiRequests/Chat.jsx";
 import {courseChatAC, resetChatItems} from "../../Redux/Course/Chat/CourseChatAC.js";
-import Message from "./Members/MemberChat/Dialog/Message/Message.jsx";
 import {HiUserGroup} from "react-icons/hi";
 import {FaChalkboardTeacher} from "react-icons/fa";
 import {BsInfoCircle} from "react-icons/bs";
@@ -15,6 +12,7 @@ import CourseMember from "./CourseMembers/CourseMember.jsx";
 import {useParams} from "react-router";
 import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {GiImbricatedArrows} from "react-icons/gi";
+import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/MessagesSection.jsx";
 
 
 const CourseChat = () => {
@@ -22,21 +20,19 @@ const CourseChat = () => {
    const [currentCourseTeacher, setCurrentCourseTeacher] = useState(null)
    const dispatch = useDispatch()
    const currentUser = useSelector((state) => state.loginUser)
-   const [message, setMessage] = useState("")
    const chat = useSelector((state) => state.currentChat)
    const [asideItem, setAsideItem] = useState("teachers")
    const [currentCourse, setCurrentCourse] = useState(null)
    const {idCourse} = useParams()
-
    const [hideInfoBlock,setHideInfoBlock] = useState(false)
 
 
    useEffect(() => {
-      console.log(idCourse)
+
       Course.getCourse(idCourse).then(res => {
          if (res.status === 200) {
             setCurrentCourse(res.data.course)
-            console.log(res)
+          
             getUser(res.data.course.teacher.id).then(res => {
                setCurrentCourseTeacher(res.user)
             }).catch(err => console.log(err))
@@ -59,7 +55,7 @@ const CourseChat = () => {
    }, [idCourse])
 
 
-   const sendMessageHandler = () => {
+   const sendMessageHandler = (message) => {
 
       const messageData = {
          message: message,
@@ -70,7 +66,6 @@ const CourseChat = () => {
       if (message) {
          sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
-               setMessage("")
                getChat(idCourse).then(res => {
                   if (res.status === 200) {
                      dispatch(courseChatAC(res.data.chatRoom))
@@ -86,26 +81,9 @@ const CourseChat = () => {
    return (
 
       <div className={style.container}>
-         <div className={style.wrapperChat}>
-            <h2><span>{currentCourse?.course.name}</span> course chat </h2>
-            <div className={style.contentMessage}>
-               <div className={style.wrapperMessages}>
-                  <Message messages={chat?.messages}></Message>
-               </div>
-            </div>
-            <div className={style.wrapperTextarea}>
-               <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>
-               <div className={style.textarea}>
-                  <textarea placeholder={'Type a message'} value={message}
-                            onChange={(e) => setMessage(e.target.value)}></textarea>
-               </div>
-
-               <div className={style.icons}>
-                  <LuSend onClick={sendMessageHandler} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend>
-               </div>
-
-            </div>
-         </div>
+         <MessagesSection title={"course chat"} name={currentCourse?.course.name} messages={chat?.messages}
+                          sendMessageHandler={sendMessageHandler}
+         ></MessagesSection>
 
          <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
             <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`} onClick={() => setHideInfoBlock(!hideInfoBlock)}>

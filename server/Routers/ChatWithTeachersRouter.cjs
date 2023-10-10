@@ -10,6 +10,14 @@ chatTeacherRouter.route('/')
 chatTeacherRouter.route('/:idStudent')
    .get(chatTeacherFunctions.getChatsTeacher)
 
+chatTeacherRouter.route('/chat/:idTeacher/:idStudent')
+   .get(chatTeacherFunctions.getChatTeacher)
+
+chatTeacherRouter.route('/:idChat')
+   .patch(chatTeacherFunctions.addMessageToChat)
+
+
+
 
 
 module.exports = chatTeacherRouter

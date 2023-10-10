@@ -1,32 +1,43 @@
-.container{
+.container {
   width: 100%;
-  //display: flex;
-  //align-items: center;
-  img{
+
+  img {
     width: 60px;
     height: 60px;
     margin-right: 1vh;
   }
-  .author{
+
+  .author {
     display: flex;
     width: 100%;
     align-items: center;
 
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.07);
+      border-radius: 5px;
+    }
   }
-  .message{
+
+  .message {
     display: flex;
     justify-content: space-between;
-    width: 30%;
-    .time{
+    width: 100%;
+
+    .time {
       color: rgba(0, 0, 0, 0.6);
-      font-size: 14px;
+      font-size: 12px;
     }
-    .text{
+
+    .text {
+      max-width: 25vh;
+      overflow: hidden;
       color: rgba(73, 70, 70, 0.8);
+      text-overflow: ellipsis;
     }
 
   }
 }
-.wrapper{
+
+.wrapper {
   width: 100%;
 }

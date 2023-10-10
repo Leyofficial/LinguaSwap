@@ -18,7 +18,7 @@ const CourseChats = ({courses}) => {
       <>
          <div className={style.courseItems}>
             <h3>Your current courses</h3>
-            {currentCourses && currentCourses.map((course) => <NavLink to={`/course/chat/${course._id}`}>
+            {currentCourses && currentCourses.map((course) => <NavLink isActive={() => console.log('s')} to={`/course/chat/${course._id}`}>
                <div className={style.item}>
                   <img src={`../../../${course.course.image}`} alt={'course'}/>
                   <p>{course.course.name}</p>
