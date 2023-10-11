@@ -24,9 +24,9 @@ const CourseChat = () => {
    const [asideItem, setAsideItem] = useState("teachers")
    const [currentCourse, setCurrentCourse] = useState(null)
    const {idCourse} = useParams()
-   const [hideInfoBlock,setHideInfoBlock] = useState(false)
+   const [hideInfoBlock, setHideInfoBlock] = useState(false)
    const scroll = useRef()
-
+   const socket = useSelector((state) => state.socket)
    useEffect(() => {
 
       Course.getCourse(idCourse).then(res => {
@@ -63,7 +63,9 @@ const CourseChat = () => {
          date: new Date()
       }
 
-      if (message) {
+      if (message && socket) {
+
+         socket.emit("message",messageData)
          sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
                scroll.current?.scrollIntoView({behavior: "smooth"})
@@ -81,7 +83,7 @@ const CourseChat = () => {
 
    useEffect(() => {
       scroll.current?.scrollIntoView({behavior: "smooth"})
-   }, [chat,scroll])
+   }, [chat, scroll])
 
    return (
 
@@ -91,7 +93,8 @@ const CourseChat = () => {
          ></MessagesSection>
 
          <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
-            <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`} onClick={() => setHideInfoBlock(!hideInfoBlock)}>
+            <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
+                 onClick={() => setHideInfoBlock(!hideInfoBlock)}>
                <GiImbricatedArrows></GiImbricatedArrows>
             </div>
             <div className={style.members}>

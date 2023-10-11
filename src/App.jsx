@@ -21,6 +21,8 @@ import TeachersSection from "./Pages/TeachersSection/index.jsx";
 import PersonalProfile from "./Pages/PersonalProfile/index.jsx";
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.jsx";
+import socketIO from 'socket.io-client'
+import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
 
 
 function App() {
@@ -43,6 +45,13 @@ function App() {
       })
 
    }, [userToken])
+
+   useEffect(() => {
+      const socket = socketIO.connect('http://localhost:3000')
+      dispatch(webSocketAC(socket))
+
+
+   },[currentUser])
    return (
       <>
          <Routes>

@@ -16,5 +16,6 @@ export const initialState = {
   isAuth:true,
   currentCourse:null,
   currentChat:null,
-  timeCurrentChat:null
+  timeCurrentChat:null,
+  socket:null
 }
