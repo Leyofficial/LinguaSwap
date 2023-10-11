@@ -5,8 +5,7 @@ import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link} from "react-router-dom";
 import React from "react";
 
-function WholeProfile({user}) {
-    debugger
+function WholeProfile({user , isPersonal}) {
     return (
         <>
             <div className={style.container}>
@@ -38,7 +37,7 @@ function WholeProfile({user}) {
                         </Link>
                     </div>
                     <div className={style.rightBlock}>
-                        <h2  className={style.titleRight}>Projects & Skills</h2>
+                        <h2  className={style.titleRight}>{isPersonal ? 'Your' : null} Projects & Skills</h2>
                         On the site since  :  <b className={style.span}>{user.date}</b>
                         {user.user.data.hash}
                         <div className={style.course}>

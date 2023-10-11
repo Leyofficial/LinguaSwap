@@ -45,7 +45,7 @@ function ModalProfile({modalActive, user , callback}) {
                              <Link to={''}>
                                  <button className={style.messageBtn}>Message</button>
                              </Link>
-                             <Link to={user?.id}>
+                             <Link to={'find/' + user?.id}>
                                  <button className={style.button}>Profile</button>
                              </Link>
                          </div>
