@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import style from './CourseChat.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
@@ -25,7 +25,7 @@ const CourseChat = () => {
    const [currentCourse, setCurrentCourse] = useState(null)
    const {idCourse} = useParams()
    const [hideInfoBlock,setHideInfoBlock] = useState(false)
-
+   const scroll = useRef()
 
    useEffect(() => {
 
@@ -66,6 +66,7 @@ const CourseChat = () => {
       if (message) {
          sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
+               scroll.current?.scrollIntoView({behavior: "smooth"})
                getChat(idCourse).then(res => {
                   if (res.status === 200) {
                      dispatch(courseChatAC(res.data.chatRoom))
@@ -78,11 +79,15 @@ const CourseChat = () => {
       }
    }
 
+   useEffect(() => {
+      scroll.current?.scrollIntoView({behavior: "smooth"})
+   }, [chat,scroll])
+
    return (
 
       <div className={style.container}>
          <MessagesSection title={"course chat"} name={currentCourse?.course.name} messages={chat?.messages}
-                          sendMessageHandler={sendMessageHandler}
+                          sendMessageHandler={sendMessageHandler} scroll={scroll}
          ></MessagesSection>
 
          <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>

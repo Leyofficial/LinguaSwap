@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import style from './ChatWithTeacher.module.scss'
 import MessagesSection from "../Members/MemberChat/Dialog/MessagesSection/MessagesSection.jsx";
 import {useParams} from "react-router";
@@ -13,6 +13,8 @@ const ChatWithTeacher = () => {
    const [teacher, setTeacher] = useState(null)
    const [chat, setChat] = useState(null)
    const currentUser = useSelector((state) => state.loginUser)
+
+   const scroll = useRef()
 
    useEffect(() => {
       teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
@@ -29,6 +31,7 @@ const ChatWithTeacher = () => {
 
    const sendMessageHandler = (message) => {
 
+
       const messageData = {
          message: message,
          author: currentUser._id,
@@ -38,6 +41,7 @@ const ChatWithTeacher = () => {
       if (message) {
          teacherChats.sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
+               scroll.current?.scrollIntoView({behavior: "smooth"})
                teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
                   if (res.status === 200) {
                      setChat(res.data.findChatTeacher)
@@ -50,11 +54,16 @@ const ChatWithTeacher = () => {
       }
    }
 
+   useEffect(() => {
+      scroll.current?.scrollIntoView({behavior: "smooth"})
+   }, [chat,scroll])
+
 
    return (
 
          <MessagesSection  name={teacher?.user.data.name}
                           messages={chat?.messages} sendMessageHandler={sendMessageHandler}
+                           scroll={scroll}
          ></MessagesSection>
 
    );

@@ -7,7 +7,7 @@ import { es, ru } from 'date-fns/locale'
 import SingleMessage from "./SingleMessage/SingleMessage.jsx";
 
 
-const Message = ({messages}) => {
+const Message = ({messages,scroll}) => {
 
    const currentUser = useSelector((state) => state.loginUser)
 
@@ -25,7 +25,7 @@ const Message = ({messages}) => {
       <>
          {groupedMessage && Object?.entries(groupedMessage).map(([date, messages]) => (
 
-            <div key={date} className={style.container}>
+            <div key={date} className={style.container} ref={scroll}>
                <h3>{date}</h3>
                {messages.map((message, index) => {
                   return (

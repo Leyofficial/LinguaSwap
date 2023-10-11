@@ -7,7 +7,7 @@ import {LuSend} from "react-icons/lu";
 const MessagesSection = (props) => {
 
    const [message,setMessage] = useState("")
-   const {title,name,messages,sendMessageHandler} = props
+   const {title,name,messages,sendMessageHandler,scroll} = props
 
 const submitHandler = () => {
    sendMessageHandler(message)
@@ -25,7 +25,7 @@ const handlerTextArea = (e) => {
          <h2><span>{name}</span> {title}</h2>
          <div className={style.contentMessage}>
             <div className={style.wrapperMessages}>
-               <Message messages={messages}></Message>
+               <Message messages={messages} scroll={scroll}></Message>
             </div>
          </div>
          <div className={style.wrapperTextarea}>
