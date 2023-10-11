@@ -1,8 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React,{ useState} from 'react';
 import style from './ChooseTypeOfChat.module.scss'
-import {useSelector} from "react-redux";
-import {getCoursesForUserChat} from "../../ApiRequests/Chat.jsx";
-import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
 import CourseChats from "./CourseChats/CourseChats.jsx";
 import TeacherChats from "./TeacherChats/TeacherChats.jsx";
 import {Outlet} from "react-router-dom";

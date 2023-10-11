@@ -22,7 +22,7 @@ const handlerTextArea = (e) => {
 }
    return (
       <div className={style.wrapperChat}>
-         <h2><span>{name}</span>{title}</h2>
+         <h2><span>{name}</span> {title}</h2>
          <div className={style.contentMessage}>
             <div className={style.wrapperMessages}>
                <Message messages={messages}></Message>

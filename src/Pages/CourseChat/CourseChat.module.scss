@@ -204,12 +204,18 @@
     background-color: #ffffff;
     padding: 10px;
 
+
   }
 }
 .reverseIcons{
   rotate: 135deg !important;
   transition: 0.1s ease-in-out;
-  left: -30px !important;
-  top:3px !important;
+  left: -26px !important;
+  top:5px !important;
+  svg{
+    background-color: #1f1d2b;
+    color: #f1f1f1;
+
+  }
 }
 

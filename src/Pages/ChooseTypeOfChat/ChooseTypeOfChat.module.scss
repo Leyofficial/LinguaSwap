@@ -12,16 +12,16 @@
     nav {
       max-width: 1200px;
       margin: 0 auto;
-      padding-top: 5vh;
+
 
       ul {
         display: flex;
-
+        padding-top: 2vh;
 
         li {
           //margin-right: 10vh;
           background-color: black;
-          padding: 20px 15px;
+          padding: 10px 15px;
           color: #f1f1f1;
           margin-right: 2vh;
           border-radius: 5px;
@@ -42,7 +42,7 @@
     section {
       max-width: 1200px;
       margin: 0 auto;
-      padding-top: 5vh;
+      padding-top:3vh;
 
     }
   }
