@@ -13,39 +13,46 @@ function WholeProfile({user , isPersonal}) {
                     <div className={style.leftBlock}>
                         <div className={style.blockCenter}>
                             <div className={style.avatar}>
-                                <Avatar src={'/' + user.user.data.photo}
-                                        sx={{width: 104, height: 104, textAlign: 'center'}}/>
+                                <StyledBadge
+                                    overlap="circular"
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                    variant="dot"
+                                >
+                                    <Avatar src={'/' + user?.user.data.photo}
+                                            sx={{width: 104, height: 104, textAlign: 'center'}}/>
+                                </StyledBadge>
+
                             </div>
-                            <h2 style={{marginBottom: '10px'}}><b>{user.user.data.name}</b></h2>
-                            <h3 className={style.span}>@{user.user.data.userTag}</h3>
-                            <h3 className={style.bio}>{user.user.data.bio}</h3>
+                            <h2 style={{marginBottom: '10px'}}><b>{user?.user.data.name}</b></h2>
+                            <h3 className={style.span}>@{user?.user.data.userTag}</h3>
+                            <h3 className={style.bio}>{user?.user.data.bio}</h3>
                         </div>
                         <div className={style.avatarBlock}>
                         <CgProfile className={style.profile} size={30}/>
-                        <p>{user.user.data.status}</p>
+                        <p>{user?.user.data.status}</p>
                         </div>
                         <div className={style.avatarBlock}>
                             <AiOutlineMail className={style.profile} size={30}/>
-                            <p>{user.email}</p>
+                            <p>{user?.email}</p>
                         </div>
                         <div className={style.avatarBlock}>
                             <AiOutlineStar className={style.profile} size={30}/>
-                            <p>{user.user.data.experience + ' '} experience/s</p>
+                            <p>{user?.user.data.experience + ' '} experience/s</p>
                         </div>
                         <Link to={''}>
                             <button className={style.messageBtn}>Message</button>
                         </Link>
                     </div>
                     <div className={style.rightBlock}>
-                        <h2  className={style.titleRight}>{isPersonal ? 'Your' : null} Projects & Skills</h2>
-                        On the site since  :  <b className={style.span}>{user.date}</b>
-                        {user.user.data.hash}
+                        <h2  className={style.titleRight}>Projects & Skills</h2>
+                        On the site since  :  <b className={style.span}>{user?.date}</b>
+                        {user?.user.data.hash}
                         <div className={style.course}>
                             On course :
                         </div>
                         <p className={style.languagesTitle}>Languages know :</p>
                         <div className={style.languagesBlock}>
-                            {user.user.data.languagesKnow.map((item) => {
+                            {user?.user.data.languagesKnow.map((item) => {
                                     return <div key={item.label} className={style.languages} style={{background: item.color}}>
                                         {item.label}
                                     </div>
@@ -53,7 +60,7 @@ function WholeProfile({user , isPersonal}) {
                         </div>
                         <p className={style.languagesTitle}>Languages learn :</p>
                         <div className={style.languagesBlock}>
-                            {user.user.data.languagesLearn.map((item) => {
+                            {user?.user.data.languagesLearn.map((item) => {
                                 return <div key={item.label} className={style.languages} style={{background: item.color}}>
                                     {item.label}
                                 </div>

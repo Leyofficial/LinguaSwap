@@ -10,9 +10,9 @@ import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
-import {fetchUserAC} from '../../Redux/login/loginactions';
 import {registerNewUser, saveToken} from '../../ApiRequests/Courses/AuthUser';
 import {authAC} from "../../Redux/isAuth/isAuthAC.js";
+import {loginUserAC} from "../../Redux/login/loginUserAC.js";
 
 function TeacherRegister() {
 
@@ -73,7 +73,7 @@ function TeacherRegister() {
       registerNewUser(userValue).then(res => {
 
          if (res.status === 201) {
-            dispatch(fetchUserAC(res.data.user))
+            dispatch(loginUserAC(res.data.user))
             dispatch(authAC())
 
             saveToken(res.data.token, res.data.user._id).then(response => {
