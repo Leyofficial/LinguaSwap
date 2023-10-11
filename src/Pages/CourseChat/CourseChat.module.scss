@@ -2,157 +2,15 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  padding-left: 5rem;
+  //padding-left: 5rem;
+  position: relative;
 
 
-  .wrapperChat {
-
-    width: 65%;
-    margin: 0 auto;
-    position: relative;
-    height: 100%;
-    padding-right: 1rem;
-    border-radius: 5px;
-
-
-    .wrapperTextarea {
-
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 10vh;
-      border: 2px solid rgb(24 122 198 / 19%);
-      background-color: rgba(0, 0, 0, 0.79);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-right: 2px solid rgba(12, 60, 218, 0.27);
-      border-left: 2px solid rgba(12, 60, 218, 0.27);
-
-      .textarea {
-        background-color: rgb(255, 255, 255);
-        width: 100%;
-        border-radius: 15px;
-        display: flex;
-        align-items: end;
-        height: 6vh;
-        padding: 0 10px;
-
-
-        textarea {
-          outline: none;
-          color: rgba(35, 35, 35, 0.8);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          resize: none;
-          width: 100%;
-          background-color: transparent;
-          border: none;
-
-          &::placeholder {
-            color: rgba(21, 20, 20, 0.75);
-          }
-        }
-      }
-
-
-      .icons {
-        width: 10%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-
-        svg {
-          cursor: pointer;
-          font-size: 30px;
-          color: rgba(12, 87, 197, 0.98);
-        }
-      }
-
-      svg {
-        font-size: 40px;
-        color: rgba(12, 87, 197, 0.98);
-      }
-
-
-    }
-
-    h2 {
-      //border-bottom: 2px solid rgba(0, 0, 0, 0.13);;
-      padding: 20px 5px;
-      font-size: 20px;
-      color: rgba(0, 0, 0, 0.6);
-
-      span {
-        //padding-right: 4vh;
-        color: rgba(24, 156, 208, 0.84);
-        font-size: 20px;
-        letter-spacing: 1.5px;
-        border-bottom: 2px solid rgba(8, 138, 178, 0.19);
-      }
-    }
-
-    .date {
-      text-align: center;
-      color: #f1f1f1;
-    }
-
-    .contentMessage {
-      //border-radius: 5px;
-      background-size: cover !important;
-      background-repeat: no-repeat !important;
-      //border: 1px solid rgba(0, 0, 0, 0.3);
-      border-top: 1px solid rgba(108, 106, 104, 0.18);
-      width: 100%;
-      height: 75vh;
-
-      overflow-y: auto;
-      padding: 20px;
-
-      &::-webkit-scrollbar {
-        background-color: rgba(0, 0, 0, 0.56);
-        border-radius: 20px;
-        width: 5px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: #494646;
-        border-radius: 20px;
-
-      }
-
-      .wrapperMessages {
-        //width: 100%;
-        div {
-          p {
-            font-size: 14px;
-            color: #f1f1f1;
-          }
-
-          img {
-            max-width: 50px;
-            max-height: 50px;
-            border-radius: 50%;
-            margin-right: 2vh;
-            object-fit: cover;
-          }
-
-          .messageItems {
-            span {
-              color: rgba(129, 128, 128, 0.57);
-              font-size: 13px;
-            }
-          }
-        }
-
-      }
-    }
-  }
 
   .wrapperMebmers {
-    background-color: rgba(0, 0, 0, 0.79);
 
+    transition: 0.3s ease-in-out;
+    background-color: #1f1d2b;
     width: 35%;
     height: 100%;
     //padding: 20px 0;
@@ -162,12 +20,15 @@
     position: relative;
 
     .members {
+      overflow: hidden;
+      transition: 0.3s ease-in-out;
       padding: 10px 20px;
       height: 100%;
       border-radius: 5px;
       width: 100%;
 
       div {
+        transition: 0.3s ease-in-out;
         p {
           display: flex;
           justify-content: space-between;
@@ -200,7 +61,55 @@
     }
   }
 
+  .hide{
+    transition: 0.3s ease-in-out;
+    width: 10%;
+    background-color: #1f1d2b;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .wrapper{
+      display: none;
+    }
+    .wrapperItems{
+      transition: 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    .wrapperIconsMember {
+      overflow: hidden;
+      background-color: #f8f8f8;
+      //padding: 10px 30px;
+      //width: 33%;
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      width: 100%;
+      padding: 0;
+      margin: 5px 10px;
+      &:hover {
+        background-color: rgba(239, 239, 239, 0.91);
+      }
+
+      svg {
+        font-size: 40px;
+        color: #0c3cda;
+        padding: 10px;
+      }
+    }
+    .members{
+    }
+  }
   .membersWrapper {
+    overflow: hidden;
     background-color: #f1f1f1;
     border-radius: 10px;
     height: 68vh;
@@ -215,7 +124,6 @@
     }
 
   }
-
   .hiddenMembers {
     opacity: 0;
     height: 0;
@@ -225,13 +133,14 @@
 
 .wrapperItems {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-left: 2vh;
 }
 
 .wrapperIconsMember {
-  background-color: #f8f8f8;
-  padding: 10px 30px;
-  width: 33%;
+  background-color: #ffffff;
+  padding: 10px 10px;
+  width: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -255,9 +164,9 @@
   height: 78.8vh;
   margin-top: 3vh;
   h3 {
-    background-color: rgb(0 0 0 / 77%);
+    background-color: #1f1d2b;
     padding: 10px 15px;
-    border: 1px solid #1412126b;
+    border: 1px solid rgba(152, 150, 150, 0.42);
     color: rgba(210, 209, 209, 0.9);
   }
 
@@ -280,6 +189,27 @@
 
 }
 .activeItem{
-  background-color: rgba(72, 73, 75, 0.62);
+  background-color:#1f1d2b;
+}
+
+.hideBlock{
+  position: absolute;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  top:5px;
+  rotate: -40deg;
+  left: -20px;
+  svg{
+    font-size: 50px;
+    background-color: #ffffff;
+    padding: 10px;
+
+  }
+}
+.reverseIcons{
+  rotate: 135deg !important;
+  transition: 0.1s ease-in-out;
+  left: -30px !important;
+  top:3px !important;
 }
 
