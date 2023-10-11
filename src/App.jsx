@@ -14,11 +14,11 @@ import CourseSection from "./Pages/CourseSection/CourseSection.jsx";
 import {useEffect} from "react";
 import {getUserByToken} from "./ApiRequests/Courses/AuthUser.js";
 
-import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
 import PersonalProfile from "./Pages/PersonalProfile/index.jsx";
+import {loginUserAC} from "./Redux/login/loginUserAC.js";
 
 
 function App() {
@@ -35,7 +35,7 @@ function App() {
         getUserByToken(userToken).then(res => {
             console.log(res)
             if(res.status === 200) {
-                dispatch(fetchUserAC(...res.data.users));
+                dispatch(loginUserAC(...res.data.users));
                 dispatch(authAC())
             }
         })

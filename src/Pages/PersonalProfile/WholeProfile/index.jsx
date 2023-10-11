@@ -1,5 +1,5 @@
 import style from './WholeProfile.module.scss'
-import {Avatar} from "@mui/material";
+import {Avatar, Skeleton, Stack} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link} from "react-router-dom";
@@ -13,14 +13,8 @@ function WholeProfile({user , isPersonal}) {
                     <div className={style.leftBlock}>
                         <div className={style.blockCenter}>
                             <div className={style.avatar}>
-                                <StyledBadge
-                                    overlap="circular"
-                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                                    variant="dot"
-                                >
                                     <Avatar src={'/' + user?.user.data.photo}
                                             sx={{width: 104, height: 104, textAlign: 'center'}}/>
-                                </StyledBadge>
 
                             </div>
                             <h2 style={{marginBottom: '10px'}}><b>{user?.user.data.name}</b></h2>

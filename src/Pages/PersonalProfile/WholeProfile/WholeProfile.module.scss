@@ -39,6 +39,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 .avatarBlock {
   margin-top: 15px;
@@ -60,6 +61,8 @@
   margin-bottom: 50px;
 }
 .course {
+  display: flex;
+  gap: 10px;
   margin: 30px 0;
 }
 .languages {
@@ -76,4 +79,11 @@
   margin-top: 25px;
   display: flex;
   margin-bottom: 20px;
+}
+.avatarBlock {
+  margin-bottom: 20px;
+}
+.blockRightText {
+  gap: 10px;
+  display: flex;
 }
