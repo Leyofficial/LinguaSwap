@@ -5,18 +5,20 @@ import {LuSend} from "react-icons/lu";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
 import {AiOutlinePaperClip} from "react-icons/ai";
 import {getChat, sendMessage} from "../../ApiRequests/Chat.jsx";
-import {courseChatAC} from "../../Redux/Course/Chat/CourseChatAC.js";
+import {courseChatAC, resetChatItems} from "../../Redux/Course/Chat/CourseChatAC.js";
 import Message from "./Members/MemberChat/Dialog/Message/Message.jsx";
 import {HiUserGroup} from "react-icons/hi";
 import {FaChalkboardTeacher} from "react-icons/fa";
 import {BsInfoCircle} from "react-icons/bs";
 import CourseTeachers from "./CourseTeacher/CourseTeachers.jsx";
 import CourseMember from "./CourseMembers/CourseMember.jsx";
+import {Course} from "../../ApiRequests/Courses/Courses.js";
+import {useParams} from "react-router";
 
 
 const CourseChat = () => {
 
-   const currentCourse = useSelector((state) => state.currentCourse)
+   // const currentCourse = useSelector((state) => state.currentCourse)
    const [currentCourseTeacher, setCurrentCourseTeacher] = useState(null)
    const dispatch = useDispatch()
    const currentUser = useSelector((state) => state.loginUser)
@@ -25,25 +27,41 @@ const CourseChat = () => {
 
    const asideItems = ["teachers","students","info"]
    const [asideItem,setAsideItem] = useState("teachers")
+   const {idCourse} = useParams()
+
+   const [currentCourse,setCurrentCourse] = useState(null)
 
    console.log(currentCourse)
 
    useEffect(() => {
-      getChat(currentCourse._id).then(res => {
+
+      Course.getCourse(idCourse).then(res => {
+         if (res.status === 200) {
+            setCurrentCourse(res.data.course)
+
+            getUser(res.data.course.teacher.id).then(res => {
+               setCurrentCourseTeacher(res.user)
+            }).catch(err => console.log(err))
+         }
+      })
+
+   }, [idCourse])
+
+   useEffect(() => {
+
+      getChat(idCourse).then(res => {
+
          if (res.status === 200) {
             dispatch(courseChatAC(res.data.chatRoom))
          }
-      }).catch(err => console.log(err))
-
-      getUser(currentCourse.teacher.id).then(res => {
-         if (res.status === "Succeed") {
-            setCurrentCourseTeacher(res.user)
-         }
+      }).catch(err => {
+         console.log(err)
+         dispatch(resetChatItems())
       })
-   }, [currentCourse])
+   }, [idCourse])
 
 
-   const sendMessageHandler = () => {
+   const sendMessageHandler = (message) => {
 
       const messageData = {
          message: message,
@@ -54,8 +72,7 @@ const CourseChat = () => {
       if (message) {
          sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
-               setMessage("")
-               getChat(currentCourse._id).then(res => {
+               getChat(idCourse).then(res => {
                   if (res.status === 200) {
                      dispatch(courseChatAC(res.data.chatRoom))
                   }
@@ -66,7 +83,6 @@ const CourseChat = () => {
          console.log("Write some text pls ")
       }
    }
-
    return (
       <div className={style.container}>
          <div className={style.wrapperChat}>
