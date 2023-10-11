@@ -9,23 +9,7 @@ import {Outlet} from "react-router-dom";
 
 const ChooseTypeOfChat = () => {
 
-   const [courses, setCourses] = useState(null)
    const [openSection, setOpenSection] = useState('course')
-   const currentUser = useSelector((state) => state.loginUser)
-   const [chatsWithTeacher,setChatsWithTeacher] = useState(null)
-
-
-   useEffect(() => {
-      getCoursesForUserChat(currentUser._id).then(res => {
-         if (res.status === 200) {
-            setCourses(res.data.courses)
-         }
-      })
-   }, [currentUser])
-
-   useEffect(() => {
-      teacherChats.getAllChats(currentUser._id).then(res => setChatsWithTeacher(res.data.findChats))
-   }, [currentUser])
 
    return (
       <div className={style.container}>
@@ -37,7 +21,7 @@ const ChooseTypeOfChat = () => {
             </ul>
          </nav>
          <section>
-            {openSection === "course" ?   <CourseChats courses={courses}/> : <TeacherChats items={chatsWithTeacher} ></TeacherChats>}
+            {openSection === "course" ?   <CourseChats /> : <TeacherChats ></TeacherChats>}
          </section>
         </aside>
          <main>

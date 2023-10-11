@@ -31,7 +31,7 @@ const FindTeacher = ({item}) => {
          <NavLink to={`/course/chat/teacher/${item.idTeacher}/${item.idStudent}`}>
             <div className={style.author}>
                <img alt={'avatar'}
-                    src={teacher?.user.data.photo ? `../../../${teacher?.user.data.photo}` : defaultAvatar}/>
+                    src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
                <div className={style.wrapper}>
                   <p>{teacher?.user.data.name}</p>
                   <div className={style.message}>

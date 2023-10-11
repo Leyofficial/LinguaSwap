@@ -14,7 +14,7 @@ const Avatar = ({idAuthor}) => {
    },[idAuthor])
   return(
      <>
-        <img src={`../../../${user}`} alt={'avatar'}/>
+        <img src={`../../../../../../../../${user}`} alt={'avatar'}/>
      </>
   )
 };
