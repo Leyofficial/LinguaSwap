@@ -3,19 +3,22 @@ import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 import defaultAvatar from '../../../../images/member.png'
 import style from './FindTeacher.module.scss'
 import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
-const FindTeacher = ({item}) => {
-
+const FindTeacher = ({item,itemPath}) => {
+console.log(item)
    const [teacher, setTeacher] = useState(null)
-
-
+   const chatStatus = useSelector((state) => state.chatStatus)
+console.log(chatStatus)
    useEffect(() => {
-      getUser(item.idTeacher).then(res => {
-         if (res.status === "Succeed") {
-            setTeacher(res.user)
-         }
-      })
-   }, [item])
+
+         getUser(chatStatus === "teacher" ? item.idTeacher : item.idStudent).then(res => {
+            if (res.status === "Succeed") {
+               setTeacher(res.user)
+            }
+         })
+
+   }, [item,chatStatus])
 
 
    const getTime = (date) => {
@@ -28,7 +31,7 @@ const FindTeacher = ({item}) => {
    }
    return (
       <div className={style.container}>
-         <NavLink to={`/course/chat/teacher/${item.idTeacher}/${item.idStudent}`}>
+         <NavLink to={`${itemPath}/${item.idTeacher}/${item.idStudent}`}>
             <div className={style.author}>
                <img alt={'avatar'}
                     src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>

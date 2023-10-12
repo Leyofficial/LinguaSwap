@@ -11,9 +11,10 @@ const TeacherChats = () => {
       teacherChats.getAllChats(currentUser._id).then(res => setChatsWithTeacher(res.data.findChats))
    }, [currentUser])
 
+   console.log(chatsWithTeacher)
    return (
       <div>
-         {chatsWithTeacher && chatsWithTeacher.map(item => <FindTeacher item={item}></FindTeacher>)}
+         {chatsWithTeacher && chatsWithTeacher.map(item => <FindTeacher itemPath={'/course/chat/teacher'} item={item}></FindTeacher>)}
 
       </div>
    );

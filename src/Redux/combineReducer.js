@@ -17,6 +17,8 @@ import {teachersReducer} from "./Teachers/teachersReducer.js";
 import CourseChatReducer from "./Course/Chat/CourseChatReducer.js";
 import currentMessageTimeReducer from "./Course/Chat/currentMessageTimeReducer.js";
 import webSocketReducer from "./WebSocket/webSocketReducer.js";
+import chatWithTeacherReducer from "./ChatWithTeacher/chatWithTeacherReducer.js";
+import chatMessagesReducer from "./ChatWithTeacher/ChatMessages/chatMessagesReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -37,4 +39,6 @@ export default (combineReducers)({
     currentChat:CourseChatReducer,
     currentTimeMessage:currentMessageTimeReducer,
     socket:webSocketReducer,
+    chatStatus:chatWithTeacherReducer,
+    chatWithStudent:chatMessagesReducer,
 })

@@ -23,6 +23,7 @@ import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.jsx";
 import socketIO from 'socket.io-client'
 import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
+import StudentDialog from "./Pages/CourseChat/ChatWithStudents/StudentDialog/StudentDialog.jsx";
 
 
 function App() {
@@ -31,18 +32,19 @@ function App() {
    const dispatch = useDispatch()
    const currentUser = useSelector((state) => state.loginUser)
 
-   console.log(currentUser)
 
    const userToken = JSON.parse(localStorage.getItem('loginUser'))
    useEffect(() => {
+      if (userToken) {
+         getUserByToken(userToken).then(res => {
+            console.log(res)
+            if (res.status === 200) {
+               dispatch(fetchUserAC(...res.data.users));
+               dispatch(authAC())
+            }
+         })
+      }
 
-      getUserByToken(userToken).then(res => {
-         console.log(res)
-         if (res.status === 200) {
-            dispatch(fetchUserAC(...res.data.users));
-            dispatch(authAC())
-         }
-      })
 
    }, [userToken])
 
@@ -51,7 +53,9 @@ function App() {
       dispatch(webSocketAC(socket))
 
 
-   },[currentUser])
+   }, [currentUser])
+
+
    return (
       <>
          <Routes>
@@ -68,6 +72,7 @@ function App() {
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
                   <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
+                  <Route path={'/course/chat/student/:idTeacher/:idStudent'} element={<StudentDialog/>}></Route>
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
             </Route>

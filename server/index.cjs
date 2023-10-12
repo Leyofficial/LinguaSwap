@@ -22,7 +22,13 @@ io.on("connection", (socket) => {
    // messages
    console.log(`${socket.id} user connected`)
    socket.on("message", (data) => {
-   console.log(data)
+
+      io.emit("response", data)
+   })
+
+   socket.on("privateMessage",(data) => {
+
+      io.emit("privateResponse",data)
    })
    socket.on("disconnect", () => {
       console.log(`${socket.id}, user disconnect`)

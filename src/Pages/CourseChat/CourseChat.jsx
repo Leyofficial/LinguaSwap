@@ -3,7 +3,7 @@ import style from './CourseChat.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
 import {getChat, sendMessage} from "../../ApiRequests/Chat.jsx";
-import {courseChatAC, resetChatItems} from "../../Redux/Course/Chat/CourseChatAC.js";
+import {addSocketMessage, courseChatAC, resetChatItems} from "../../Redux/Course/Chat/CourseChatAC.js";
 import {HiUserGroup} from "react-icons/hi";
 import {FaChalkboardTeacher} from "react-icons/fa";
 import {BsInfoCircle} from "react-icons/bs";
@@ -27,6 +27,8 @@ const CourseChat = () => {
    const [hideInfoBlock, setHideInfoBlock] = useState(false)
    const scroll = useRef()
    const socket = useSelector((state) => state.socket)
+
+
    useEffect(() => {
 
       Course.getCourse(idCourse).then(res => {
@@ -62,10 +64,10 @@ const CourseChat = () => {
          author: currentUser._id,
          date: new Date()
       }
-
       if (message && socket) {
 
-         socket.emit("message",messageData)
+         socket.emit("message", messageData)
+
          sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
                scroll.current?.scrollIntoView({behavior: "smooth"})
@@ -81,9 +83,21 @@ const CourseChat = () => {
       }
    }
 
+
+   useEffect(() => {
+      socket.on("response", (data) => {
+         if (data) {
+            dispatch(addSocketMessage(data))
+         }
+         console.log(chat)
+      })
+   }, [socket])
+
+
    useEffect(() => {
       scroll.current?.scrollIntoView({behavior: "smooth"})
    }, [chat, scroll])
+
 
    return (
 
@@ -127,7 +141,6 @@ const CourseChat = () => {
                            <div>Will be develop in the future</div>
                         </div>
                      </div>
-
                   }
                </article>
             </div>

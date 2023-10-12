@@ -25,11 +25,11 @@ const Message = ({messages,scroll}) => {
       <>
          {groupedMessage && Object?.entries(groupedMessage).map(([date, messages]) => (
 
-            <div key={date} className={style.container} ref={scroll}>
+            <div key={date} className={style.container}>
                <h3>{date}</h3>
                {messages.map((message, index) => {
                   return (
-                     <div className={currentUser._id === message.author ? style.myMessage : style.message}>
+                     <div ref={scroll} className={currentUser._id === message.author ? style.myMessage : style.message}>
                         <Avatar idAuthor={message.author}></Avatar>
                         <div className={style.messageItems}>
                            <SingleMessage isMyMessage={currentUser._id === message.author} messageData={message} index={index}></SingleMessage>

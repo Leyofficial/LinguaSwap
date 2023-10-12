@@ -17,7 +17,8 @@ const submitHandler = () => {
 const handlerTextArea = (e) => {
 
    if(e.key === "Enter") {
-      submitHandler()
+      sendMessageHandler(message)
+      setMessage("")
    }
 }
    return (

@@ -13,9 +13,11 @@ export const initialState = {
   teachers : [],
   loginUser:null,
   registerUser: null,
-  isAuth:true,
+  isAuth:false,
   currentCourse:null,
-  currentChat:null,
+  currentChat:[],
   timeCurrentChat:null,
-  socket:null
+  socket:null,
+  chatStatus:"course",
+  messagesWithStudent:[]
 }
