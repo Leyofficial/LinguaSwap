@@ -35,4 +35,7 @@ authRouter.route('/profile/image')
     })
   })
 
+authRouter.route('/online')
+   .patch(authFunctions.changeOnlineStatus)
+
 module.exports = authRouter;

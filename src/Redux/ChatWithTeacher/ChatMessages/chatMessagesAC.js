@@ -8,7 +8,6 @@ export const chatMessagesAC = (newMessages) => {
 }
 
 export const addChatMessage = (dataMessage) => {
-   console.log('s')
    return{
       type : ADD_MESSAGE,
       dataMessage

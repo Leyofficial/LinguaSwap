@@ -12,13 +12,20 @@ const ChooseTypeOfChat = () => {
    const [openSection, setOpenSection] = useState('course')
    const currentUser = useSelector((state) => state.loginUser)
    const dispatch = useDispatch()
-   console.log(currentUser)
+
+
 
    useEffect(() => {
 
       dispatch(changeChatStatus(openSection))
 
    },[openSection])
+
+   const handlerClick = (status) => {
+      setOpenSection(status)
+   }
+
+
    return (
       <div className={style.container}>
         <aside>
@@ -27,9 +34,9 @@ const ChooseTypeOfChat = () => {
                <li className={openSection === "course" ? style.open : null} onClick={() => setOpenSection("course")}>Courses</li>
                {currentUser?.user.data.status === "Teacher" ?
                   <li className={openSection === "student" ? style.open : null}
-                                                                  onClick={() => setOpenSection("student")}>Students</li> :
+                                                                  onClick={() => handlerClick('student')}>Students</li> :
                   <li className={openSection === "teacher" ? style.open : null}
-                      onClick={() => setOpenSection("teacher")}>Teachers</li>
+                      onClick={() => handlerClick("teacher")}>Teachers</li>
                }
 
             </ul>

@@ -24,36 +24,53 @@ import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.
 import socketIO from 'socket.io-client'
 import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
 import StudentDialog from "./Pages/CourseChat/ChatWithStudents/StudentDialog/StudentDialog.jsx";
-
+import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
+import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 
 function App() {
    const isStart = useSelector((state) => state.isStart)
    const isAuth = useSelector((state) => state.isAuth)
    const dispatch = useDispatch()
    const currentUser = useSelector((state) => state.loginUser)
-
-
    const userToken = JSON.parse(localStorage.getItem('loginUser'))
+   const newSocket = useSelector((state) => state.socket)
+
    useEffect(() => {
-      if (userToken) {
+      if (userToken && !isAuth) {
+         const socket = socketIO.connect('http://localhost:3000')
          getUserByToken(userToken).then(res => {
-            console.log(res)
+
             if (res.status === 200) {
+               dispatch(webSocketAC(socket))
                dispatch(fetchUserAC(...res.data.users));
                dispatch(authAC())
+
             }
          })
       }
 
-
-   }, [userToken])
+   }, [userToken, isAuth])
 
    useEffect(() => {
-      const socket = socketIO.connect('http://localhost:3000')
-      dispatch(webSocketAC(socket))
+      if (newSocket) {
+         newSocket.on("onlineUsers", (users) => {
+            dispatch(onlineUsersAC(users))
+         })
 
+         newSocket.emit("newUser", currentUser?._id)
 
-   }, [currentUser])
+         newSocket.on("userConnected", (user) => {
+            if (user) {
+               dispatch(addOnlineUserAC(user))
+            }
+         })
+
+         newSocket.on("userDisconnected", (userId) => {
+            dispatch(removeUserAC(userId))
+            console.log(`User disconnected ${userId}`)
+         })
+      }
+   }, [newSocket, currentUser])
 
 
    return (

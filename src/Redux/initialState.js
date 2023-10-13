@@ -19,5 +19,6 @@ export const initialState = {
   timeCurrentChat:null,
   socket:null,
   chatStatus:"course",
-  messagesWithStudent:[]
+  messagesWithStudent:[],
+  onlineUsers:[]
 }

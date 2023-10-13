@@ -89,7 +89,7 @@ const CourseChat = () => {
          if (data) {
             dispatch(addSocketMessage(data))
          }
-         console.log(chat)
+
       })
    }, [socket])
 

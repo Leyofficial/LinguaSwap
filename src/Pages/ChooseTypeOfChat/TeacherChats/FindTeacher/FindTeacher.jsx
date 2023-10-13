@@ -4,21 +4,84 @@ import defaultAvatar from '../../../../images/member.png'
 import style from './FindTeacher.module.scss'
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {styled} from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
 
-const FindTeacher = ({item,itemPath}) => {
-console.log(item)
+
+const StyledBadge = styled(Badge)(({theme}) => ({
+   '& .MuiBadge-badge': {
+      backgroundColor: '#44b700',
+      color: '#44b700',
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      '&::after': {
+         position: 'absolute',
+         top: 0,
+         left: 0,
+         width: '100%',
+         height: '100%',
+         borderRadius: '50%',
+         animation: 'ripple 1.2s infinite ease-in-out',
+         border: '1px solid currentColor',
+         content: '""',
+      },
+   },
+   '@keyframes ripple': {
+      '0%': {
+         transform: 'scale(.8)',
+         opacity: 1,
+      },
+      '100%': {
+         transform: 'scale(2.4)',
+         opacity: 0,
+      },
+   },
+}));
+const StyledBadgeOffline = styled(Badge)(({theme}) => ({
+   '& .MuiBadge-badge': {
+      backgroundColor: '#e70303',
+      color: '#f10202',
+      boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+      '&::after': {
+         position: 'absolute',
+         top: 0,
+         left: 0,
+         width: '100%',
+         height: '100%',
+         borderRadius: '50%',
+         animation: 'ripple 1.2s infinite ease-in-out',
+         border: '1px solid currentColor',
+         content: '""',
+      },
+   },
+   '@keyframes ripple': {
+      '0%': {
+         transform: 'scale(.8)',
+         opacity: 1,
+      },
+      '100%': {
+         transform: 'scale(2.4)',
+         opacity: 0,
+      },
+   },
+}));
+
+const FindTeacher = ({item, itemPath}) => {
+
    const [teacher, setTeacher] = useState(null)
    const chatStatus = useSelector((state) => state.chatStatus)
-console.log(chatStatus)
+   const [isOnline, setIsOnline] = useState(false)
+   const onlineUsers = useSelector((state) => state.onlineUsers)
+
    useEffect(() => {
 
-         getUser(chatStatus === "teacher" ? item.idTeacher : item.idStudent).then(res => {
-            if (res.status === "Succeed") {
-               setTeacher(res.user)
-            }
-         })
+      getUser(chatStatus === "teacher" ? item.idTeacher : item.idStudent).then(res => {
+         if (res.status === "Succeed") {
+            setTeacher(res.user)
+         }
+      })
 
-   }, [item,chatStatus])
+   }, [item, chatStatus])
 
 
    const getTime = (date) => {
@@ -29,17 +92,43 @@ console.log(chatStatus)
       return `${time < 10 ? "0" + time : time}:${minutes < 10 ? "0" + minutes : minutes}`
 
    }
+
+
+   useEffect(() => {
+
+      if (onlineUsers && teacher) {
+         setIsOnline(onlineUsers.some(user => user._id === teacher._id))
+      } else {
+         setIsOnline(false)
+      }
+   }, [onlineUsers, teacher])
+
+
    return (
       <div className={style.container}>
          <NavLink to={`${itemPath}/${item.idTeacher}/${item.idStudent}`}>
             <div className={style.author}>
-               <img alt={'avatar'}
-                    src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
+               {isOnline ? <StyledBadge
+                  overlap="circular"
+                  anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
+                  variant="dot"
+               >
+                  <Avatar alt="Remy Sharp"
+                          src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
+               </StyledBadge> : <StyledBadgeOffline
+                  overlap="circular"
+                  anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
+                  variant="dot"
+               >
+                  <Avatar alt="Remy Sharp"
+                          src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
+               </StyledBadgeOffline>}
+
                <div className={style.wrapper}>
-                  <p>{teacher?.user.data.name}</p>
+                  <p className={style.nameAuthor}>{teacher?.user.data.name}</p>
                   <div className={style.message}>
                      <p className={style.text}>{item ? item?.messages[item.messages.length - 1]?.message : "default message"}</p>
-                     <p className={style.time}>{item && getTime(item?.messages[item.messages.length - 1]?.date) }</p>
+                     <p className={style.time}>{item && getTime(item?.messages[item.messages.length - 1]?.date)}</p>
                   </div>
                </div>
             </div>

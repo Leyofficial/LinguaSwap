@@ -13,6 +13,9 @@ import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import {fetchUserAC} from '../../Redux/login/loginactions';
 import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
 import {authAC} from "../../Redux/isAuth/isAuthAC.js";
+import socketIO from "socket.io-client";
+import {webSocketAC} from "../../Redux/WebSocket/webSocketReducer.js";
+
 
 function Login() {
 
@@ -91,6 +94,12 @@ function Login() {
       e.preventDefault()
       loginUser(userValue).then(res => {
          if (res.status === 200) {
+
+            const socket = socketIO.connect('http://localhost:3000')
+
+            dispatch(webSocketAC(socket))
+
+            socket.emit("newUser", res.data.user._id)
 
             dispatch(fetchUserAC(res.data.user));
             localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
