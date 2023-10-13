@@ -20,34 +20,37 @@ const io = new Server(server, {
    }
 });
 
+// working with socket
 io.on("connection", (socket) => {
 
    //  users
    authUsers.find({online: true}).then(users => {
-
       socket.emit("onlineUsers", users)
    });
    io.emit("connectedSocket", socket.id)
 
    // messages
-   socket.on("message", (data) => {
-      io.emit("response", data)
-   })
-
+   // socket.on("message", (data) => {
+   //    io.emit("response", data)
+   // })
    socket.on("privateMessage", (data) => {
       io.emit("privateResponse", data)
    })
+
 // users
    socket.on('newUser', (userId) => {
-
       socket.userId = userId
-
       authUsers.findByIdAndUpdate(userId, {online: true}, {new: true}).then(user => {
          io.emit("userConnected", user);
       })
-
    })
-   // disconnect  / set online false for  user who log out
+
+   //typing
+   socket.on("typing",(user) => {
+      io.emit("userTyping",user)
+   })
+
+   // disconnect  / set online false for  user who was log out
    socket.on("disconnect", () => {
 
       if (socket.userId) {

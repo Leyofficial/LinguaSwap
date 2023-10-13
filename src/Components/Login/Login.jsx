@@ -99,10 +99,7 @@ function Login() {
             const socket = socketIO.connect('http://localhost:3000')
 
             dispatch(webSocketAC(socket))
-
             socket.emit("newUser", res.data.user._id)
-
-            dispatch(fetchUserAC(res.data.user));
             localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
             dispatch(authAC())
             navigate('/');

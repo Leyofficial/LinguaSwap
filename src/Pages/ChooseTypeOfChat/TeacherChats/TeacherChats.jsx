@@ -14,15 +14,6 @@ const TeacherChats = () => {
    }, [currentUser])
 
 
-   // useEffect(() => {
-   //
-   //    socket.on("onlineResponse", (newOnlineUsers) => {
-   //
-   //       dispatch(onlineUsersAC(newOnlineUsers))
-   //
-   //    })
-   // }, [socket])
-
    return (
       <div>
          {chatsWithTeacher && chatsWithTeacher.map(item => <FindTeacher itemPath={'/course/chat/teacher'} item={item}></FindTeacher>)}

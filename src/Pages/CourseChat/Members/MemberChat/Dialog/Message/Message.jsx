@@ -10,9 +10,10 @@ import SingleMessage from "./SingleMessage/SingleMessage.jsx";
 const Message = ({messages,scroll}) => {
 
    const currentUser = useSelector((state) => state.loginUser)
+   const chat = useSelector((state) => state.chatWithStudent)
 
    const groupedMessage =
-      messages?.reduce((acc, message) => {
+      chat.messages?.reduce((acc, message) => {
          const newDate = new Date(message.date)
          const date = format(newDate, 'd MMMM', {locale:es});
          if (!acc[date]) {

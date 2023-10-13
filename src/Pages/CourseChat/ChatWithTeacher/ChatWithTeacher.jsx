@@ -18,8 +18,9 @@ const ChatWithTeacher = () => {
    const dispatch = useDispatch()
    const chat = useSelector((state) => state.chatWithStudent)
    const chatStatus = useSelector((state) => state.chatStatus)
-
+   console.log(chat)
    useEffect(() => {
+      console.log('teacher,student')
       teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
          if (res.status === 200) {
 
@@ -35,7 +36,6 @@ const ChatWithTeacher = () => {
 
    const sendMessageHandler = (message) => {
 
-
       const messageData = {
          message: message,
          author: currentUser._id,
@@ -43,18 +43,17 @@ const ChatWithTeacher = () => {
       }
 
       if (message && socket) {
-
-
          teacherChats.sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
 
                socket.emit("privateMessage", messageData)
-               scroll.current?.scrollIntoView({behavior: "smooth"})
-               teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
-                  if (res.status === 200) {
-                     dispatch(chatMessagesAC(res.data.findChatTeacher))
-                  }
-               })
+               // teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
+               //    if (res.status === 200) {
+               //       console.log(messageData)
+               //       dispatch(addChatMessage(messageData))
+               //       scroll.current?.scrollIntoView({behavior: "smooth"})
+               //    }
+               // })
             }
          }).catch(err => console.log(err))
       } else {
@@ -63,12 +62,28 @@ const ChatWithTeacher = () => {
    }
 
    useEffect(() => {
-      socket.on("privateResponse", (data) => {
-
-         if (data) {
-            dispatch(addChatMessage(data))
+      // if (socket)
+      //    console.log('1')
+      // socket.on("privateResponse", (data) => {
+      //    console.log(data)
+      //    if (data) {
+      //       dispatch(addChatMessage(data))
+      //    }
+      // })
+      if(socket) {
+         console.log('socket')
+         const handler = (data) => {
+            if (data) {
+               dispatch(addChatMessage(data))
+            }
          }
-      })
+
+         socket.on("privateResponse", handler)
+
+         return () => {
+            socket.off("privateResponse", handler)
+         }
+      }
    }, [socket])
 
    useEffect(() => {
@@ -79,7 +94,7 @@ const ChatWithTeacher = () => {
    return (
 
       <MessagesSection name={teacher?.user.data.name}
-                       messages={chat?.messages} sendMessageHandler={sendMessageHandler}
+                        sendMessageHandler={sendMessageHandler}
                        scroll={scroll}
       ></MessagesSection>
 

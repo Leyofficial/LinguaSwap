@@ -3,7 +3,7 @@ export const SET_MESSAGES = "SET_MESSAGES"
 export const ADD_MESSAGE = "ADD_MESSAGE"
 
 const chatMessagesReducer = (messageItems = initialState.messagesWithStudent,action) => {
-
+console.log(action.type)
    switch (action.type) {
 
       case SET_MESSAGES : return action.newMessages

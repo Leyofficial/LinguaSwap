@@ -8,6 +8,7 @@ export const chatMessagesAC = (newMessages) => {
 }
 
 export const addChatMessage = (dataMessage) => {
+   console.log(dataMessage)
    return{
       type : ADD_MESSAGE,
       dataMessage
