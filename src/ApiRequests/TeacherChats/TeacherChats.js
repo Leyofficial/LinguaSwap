@@ -21,5 +21,8 @@ export const teacherChats = {
    sendMessage(data,idChat) {
       return axios.patch(`http://localhost:3000/teacherChats/${idChat}`,data)
 
+   },
+   getChatsForTeacher(idTeacher) {
+      return axios.get(`http://localhost:3000/teacherChats/studentsChat/${idTeacher}`)
    }
 }

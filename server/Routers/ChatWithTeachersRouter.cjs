@@ -10,6 +10,9 @@ chatTeacherRouter.route('/')
 chatTeacherRouter.route('/:idStudent')
    .get(chatTeacherFunctions.getChatsTeacher)
 
+chatTeacherRouter.route('/studentsChat/:idTeacher')
+   .get(chatTeacherFunctions.getChatsStudents)
+
 chatTeacherRouter.route('/chat/:idTeacher/:idStudent')
    .get(chatTeacherFunctions.getChatTeacher)
 

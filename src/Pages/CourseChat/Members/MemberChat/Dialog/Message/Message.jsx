@@ -7,7 +7,7 @@ import { es, ru } from 'date-fns/locale'
 import SingleMessage from "./SingleMessage/SingleMessage.jsx";
 
 
-const Message = ({messages}) => {
+const Message = ({messages,scroll}) => {
 
    const currentUser = useSelector((state) => state.loginUser)
 
@@ -29,7 +29,7 @@ const Message = ({messages}) => {
                <h3>{date}</h3>
                {messages.map((message, index) => {
                   return (
-                     <div className={currentUser._id === message.author ? style.myMessage : style.message}>
+                     <div ref={scroll} className={currentUser._id === message.author ? style.myMessage : style.message}>
                         <Avatar idAuthor={message.author}></Avatar>
                         <div className={style.messageItems}>
                            <SingleMessage isMyMessage={currentUser._id === message.author} messageData={message} index={index}></SingleMessage>

@@ -1,5 +1,7 @@
 .container {
   width: 100%;
+ margin: 10px 0;
+  padding: 0 10px;
 
   img {
     width: 60px;
@@ -24,14 +26,14 @@
     width: 100%;
 
     .time {
-      color: rgba(0, 0, 0, 0.6);
+      color: rgba(0, 0, 0, 0.87);
       font-size: 12px;
     }
 
     .text {
       max-width: 25vh;
       overflow: hidden;
-      color: rgba(73, 70, 70, 0.8);
+      color: rgba(0, 0, 0, 0.99);
       text-overflow: ellipsis;
     }
 
@@ -40,4 +42,12 @@
 
 .wrapper {
   width: 100%;
+  p{
+    padding-left: 1vh;
+    padding-bottom: 5px;
+  }
+  .nameAuthor{
+    font-weight: bolder;
+    color: rgba(59, 77, 243, 0.82);
+  }
 }

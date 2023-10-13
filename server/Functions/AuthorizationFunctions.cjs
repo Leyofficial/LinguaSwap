@@ -13,6 +13,7 @@ exports.signup = catchAsync(async (req, res, next) => {
       confirmPassword: req.body.confirmPassword,
       date: new Date().toLocaleDateString(),
       token: "",
+      online: true,
       user: {
          name: "",
          status: "",
@@ -77,7 +78,7 @@ exports.getUsersByFilter = catchAsync(async (req, res, next) => {
 
    const {typeOfUser} = req.params
 
-   console.log(typeOfUser)
+
 
    const documents = Auth.find({"user.data.status": typeOfUser});
 
@@ -146,7 +147,7 @@ exports.getUser = async (req, res) => {
 
 
    const {idUser} = req.params
-   console.log(idUser)
+
    const user = await Auth.findById(idUser)
 
 
@@ -154,6 +155,27 @@ exports.getUser = async (req, res) => {
       res.status(400).json({
          status: 'Error',
          message: "User was not found"
+      })
+   } else {
+      res.status(200).json({
+         status: "Succeed",
+         user
+      })
+   }
+}
+
+exports.changeOnlineStatus = async (req, res) => {
+
+   const {idUser} = req.params
+
+   const {onlineStatus} = req.body
+
+   const user = await Auth.findOneAndUpdate({_id:idUser}, {online: onlineStatus})
+
+   if (!user) {
+      res.status(400).json({
+         status: "Error",
+         message: "Some error during process changing online status"
       })
    } else {
       res.status(200).json({
