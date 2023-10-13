@@ -13,8 +13,6 @@ import HomePage from "./Pages/HomePage/HomePage.jsx";
 import CourseSection from "./Pages/CourseSection/CourseSection.jsx";
 import {useEffect} from "react";
 import {getUserByToken} from "./ApiRequests/Courses/AuthUser.js";
-
-import {fetchUserAC} from "./Redux/login/loginactions.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
