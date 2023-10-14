@@ -1,17 +1,16 @@
 import { useState } from "react";
-import { Link, NavLink  } from "react-router-dom";
-import back from "./../../img/icons/back.png";
-import forward from "./../../img/icons/back-2.png";
-
-import style from "./Sidebar.module.scss";
-import "../../App.css";
+import React, { ReactElement } from "react";
+import { Link, NavLink } from "react-router-dom";
+import back from './../../img/icons/back.png';
+import forward from './../../img/icons/back-2.png';
+import style from './Sidebar.module.scss';
 import {useNavigate} from "react-router";
+import {ISideBar} from "./types";
 
+export function SideBar ({menuItems , defaultOpen} : ISideBar)  {
 
-const Sidebar = ({menuItems , defaultOpen}) => {
-
-  const [sidebarOpen, setSidebarOpen] = useState(defaultOpen);
-const navigate = useNavigate()
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(defaultOpen  || false);
+  const navigate = useNavigate()
 
   const goBack = () => navigate(-1)
 
@@ -41,7 +40,8 @@ const navigate = useNavigate()
                   <NavLink key={index}
                 className={({isActive}) => isActive ? style.activeSideBarLink : '' }
                 style={sidebarOpen ? { width: "100%" } : { width: "3rem" }}
-                to={item.path} onClick={item.callback ? goBack : null}
+                to={item.path}
+                onClick={() => item.callback ? goBack : null}
               >
                 <li
                   className={style.sidebarItem}
@@ -70,4 +70,3 @@ const navigate = useNavigate()
   );
 };
 
-export default Sidebar;
