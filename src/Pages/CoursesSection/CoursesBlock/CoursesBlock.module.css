@@ -83,12 +83,12 @@
   padding: 20px;
   margin-top: 5px;
 }
-.container .wrapper .titleWrapper {
+.container .wrapper .filterWrapper {
   height: 35px;
   overflow: hidden;
   margin-bottom: 1.9vh;
 }
-.container .wrapper .titleWrapper h3 {
+.container .wrapper .filterWrapper h3 {
   font-size: 16px;
   font-weight: bolder;
   color: rgba(0, 0, 0, 0.9);

@@ -6,21 +6,22 @@ import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
 import {GiClockwork} from "react-icons/gi";
 import {NavLink} from "react-router-dom";
+import defaultImage from '../../../images/member.png'
 
-const CoursesBlock = (props) => {
 
-  const membersDefault = [1, 2, 3]
+const CoursesBlock = ({course}) => {
 
-  const {language, courseTitle, date, members, teacher, level,duration,image,idCourse} = props
+
+  const membersDefault = [1, 2, 3,4]
 
   return (
-    <div className={style.container}>
-      <NavLink to={`/course/${idCourse}`}>
+    <article className={style.container}>
+      <NavLink to={`/course/${course._id}`}>
       <div className={style.containerWrapper}>
         <div className={style.courseHeader}>
-          <img  src={image} alt={'course'}/>
+          <img  src={course.course.image ? course.course.image : defaultImage} alt={'course'}/>
           <div className={style.language}>
-            <p>{language}</p>
+            <p>{course.course.language}</p>
           </div>
         </div>
         <div className={style.authorWrapper}>
@@ -31,30 +32,30 @@ const CoursesBlock = (props) => {
         </div>
         <div className={style.wrapper}>
           <div className={style.titleWrapper}>
-            <h3>{courseTitle}</h3>
+            <h3>{course.course.name}</h3>
           </div>
           <div className={style.members}>
             {<AvatarGroupSection maxCount={2} items={membersDefault} image={memberImage}></AvatarGroupSection>}
           </div>
           <div className={style.infoWrapper}>
-            <p style={levelEducation(level)}>{level}</p>
-           <p className={style.duration}>{duration}</p>
+            <p style={levelEducation(course.course.level)}>{course.course.level}</p>
+           <p className={style.duration}>{course.course.duration}</p>
           </div>
           <div className={style.wrapperLevel}>
             <div>
-              <p className={style.startDate}><span className={style.icon}><GiClockwork/>Start</span><span>{date.startDate}</span></p>
-              <p className={style.finishDate}><span className={style.icon}><GiClockwork/>End</span><span>{date.finishDate}</span></p>
+              <p className={style.startDate}><span className={style.icon}><GiClockwork/>Start</span><span>{course.course.startCourse}</span></p>
+              <p className={style.finishDate}><span className={style.icon}><GiClockwork/>End</span><span>{course.course.finishCourse}</span></p>
             </div>
           </div>
           <div className={style.author}>
-            <div>{dateOfCourse(date.startDate) ?
+            <div>{dateOfCourse(course.course.startCourse) ?
               <p className={style.start}>Enrol</p> :
               <p className={style.finish}>Now</p>}</div>
           </div>
         </div>
       </div>
       </NavLink>
-    </div>
+    </article>
   );
 };
 
