@@ -83,7 +83,7 @@ function App() {
                <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
                <Route path={"/createprofile"} element={<CreateProfile/>}/>
                <Route path={"/findteacher"} element={<TeachersSection/>}/>
-               <Route path={"/findteacher/:id"} element={<PersonalProfile/>}/>
+               <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
                <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
                <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
