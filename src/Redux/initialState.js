@@ -1,5 +1,5 @@
 export const initialState = {
-  isStart: false ,
+  isStart: true ,
   name: '',
   userTag : '',
   bio : '',
@@ -16,9 +16,10 @@ export const initialState = {
   isAuth:false,
   currentCourse:null,
   currentChat:[],
-  timeCurrentChat:null,
   socket:null,
   chatStatus:"course",
   messagesWithStudent:[],
-  onlineUsers:[]
+  onlineUsers:[],
+  currentCourseChat:null,
+  currentCourseTeacher:null,
 }
