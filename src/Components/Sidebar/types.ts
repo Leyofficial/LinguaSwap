@@ -10,7 +10,7 @@ export interface ISidebarItem extends ISidebarItems {
 }
 
 export interface ISideBar {
-    menuItems : ISidebarItems[],
+    menuItems? : ISidebarItems[],
     defaultOpen? : boolean
 }
 

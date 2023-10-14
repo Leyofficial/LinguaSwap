@@ -8,7 +8,9 @@
   left: 0;
   background: #1f1d2b;
 }
-
+.text {
+  color: white;
+}
 .headerInner {
   align-items: center;
   display: flex;
@@ -39,4 +41,8 @@
   gap: 9px;
   align-items: center;
   display: flex;
+}
+
+.navItem {
+  cursor: pointer;
 }
