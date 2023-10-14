@@ -41,8 +41,10 @@
 }
 .container .containerWrapper .authorWrapper {
   position: absolute;
-  top: 170px;
+  top: 160px;
   left: 20px;
+  display: flex;
+  align-items: baseline;
 }
 .container .containerWrapper .authorWrapper img {
   max-width: 70px;
@@ -50,8 +52,7 @@
   border: 1px solid rgba(252, 248, 252, 0.6);
 }
 .container .containerWrapper .nameOfAuthor {
-  padding-left: 12vh;
-  padding-top: 8px;
+  padding-left: 3vh;
 }
 .container .containerWrapper .nameOfAuthor p {
   padding-left: 15px;
@@ -83,12 +84,12 @@
   padding: 20px;
   margin-top: 5px;
 }
-.container .wrapper .titleWrapper {
+.container .wrapper .filterWrapper {
   height: 35px;
   overflow: hidden;
   margin-bottom: 1.9vh;
 }
-.container .wrapper .titleWrapper h3 {
+.container .wrapper .filterWrapper h3 {
   font-size: 16px;
   font-weight: bolder;
   color: rgba(0, 0, 0, 0.9);
@@ -102,6 +103,13 @@
 }
 .container .wrapper .members div span {
   border: none !important;
+}
+.container .wrapper .titleWrapper {
+  padding-top: 4vh;
+}
+.container .wrapper .titleWrapper h3 {
+  font-size: 17px;
+  color: rgba(80, 140, 210, 0.78);
 }
 .container .infoWrapper {
   padding-top: 2vh;

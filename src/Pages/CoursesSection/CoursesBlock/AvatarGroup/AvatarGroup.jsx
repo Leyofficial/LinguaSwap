@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Avatar, Divider, Tooltip } from 'antd';
+import { Avatar } from 'antd';
 
 const AvatarGroupSection = ({items,image,maxCount}) => {
   return (

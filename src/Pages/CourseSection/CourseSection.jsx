@@ -1,7 +1,6 @@
 import style from './CourseSection.module.scss'
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
-import {Course} from "../../ApiRequests/Courses/Courses.js";
 import memberImage from "../../images/member.png";
 import {Stack, Step, StepLabel, Stepper} from "@mui/material";
 import {ColorlibConnector, ColorlibStepIcon} from "../../Utility/ProgressCourse/ProgressCourse.tsx";
@@ -14,53 +13,38 @@ import AvatarGroupSection from "../CoursesSection/CoursesBlock/AvatarGroup/Avata
 import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import toast, {Toaster} from "react-hot-toast";
-import {courseAC} from "../../Redux/Course/CourseAC.js";
-import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
+import {getCourseThunkCreator, joinToCourseAndCreateChatThunkCreator} from "../../Redux/Course/courseReducer.js";
 
 
 const CourseSection = () => {
    const {idCourse} = useParams()
    const dispatch = useDispatch()
-   const [currentCourse, setCurrentCourse] = useState(null)
    const loginUser = useSelector((state) => state.loginUser)
+   const currentCourse = useSelector((state) => state.currentCourse)
    const [errorJoin, setErrorJoin] = useState(false)
 
    const [currentTopic, setCurrentTopic] = useState(0)
 
    useEffect(() => {
+      dispatch(getCourseThunkCreator(idCourse))
 
-      Course.getCourse(idCourse).then(res => {
-         console.log(res)
-         if (res.status === 200) {
-            dispatch(courseAC(res.data.course))
-            setCurrentCourse(res.data.course)
-         }
-      })
    }, [idCourse])
 
 
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
 
-   const joinToCourse = (userId) => {
+   const joinToCourseHandler = (userId) => {
 
-      const isAlreadyJoin = currentCourse.course?.members?.find((member) => member === userId)
+      const isAlreadyJoin = currentCourse?.course?.members?.find((member) => member === userId)
 
       if (isAlreadyJoin) {
          toast.error("You've already joined the course");
          setErrorJoin(true)
       } else {
-         teacherChats.createChat(currentCourse.teacher.id,loginUser._id).then(res => console.log(res))
-         Course.addNewMember(userId, currentCourse._id).then(res => {
-            if (res.status === 200) {
-               Course.getCourse(idCourse).then(res => {
-                  if (res.status === 200) {
-                     setCurrentCourse(res.data.course)
-                  }
-               })
-            }
-         })
+         dispatch(joinToCourseAndCreateChatThunkCreator(idCourse,currentCourse?.teacher.id,userId))
+         toast.success("Succeed. You were joined to the course")
+         setErrorJoin(true)
       }
-
    }
 
 
@@ -71,13 +55,13 @@ const CourseSection = () => {
             <div className={style.headerTitle}>
                <div className={style.wrapperTitle}>
                   <h1>{currentCourse?.course.name}</h1>
-                  <button onClick={() => joinToCourse(loginUser._id)}>Join to course</button>
+                  <button onClick={() => joinToCourseHandler(loginUser._id)}>Join to course</button>
                   {errorJoin ? <Toaster position="top-right" reverseOrder={false}/> : null}
                </div>
 
 
                <div className={style.image}>
-                  <img src={memberImage}/>
+                  <img src={memberImage} alt={'members'}/>
                   <p>{currentCourse?.teacher.name}</p>
                </div>
 

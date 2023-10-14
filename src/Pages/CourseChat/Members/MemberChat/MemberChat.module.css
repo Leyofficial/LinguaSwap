@@ -1,3 +1,19 @@
-
+.container {
+  display: flex;
+  align-items: center;
+  border-radius: 10px 10px 5px 5px;
+  border-bottom: 3px solid rgba(12, 12, 12, 0.03);
+  padding: 5px;
+  cursor: pointer;
+}
+.container:hover {
+  background-color: rgba(140, 199, 238, 0.27);
+}
+.container img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 1vh;
+}
 
 /*# sourceMappingURL=MemberChat.module.css.map */

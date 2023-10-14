@@ -1,0 +1,46 @@
+a {
+  color: black;
+}
+
+.courseItems {
+  height: 80vh;
+  overflow: auto;
+  width: 100%;
+}
+.courseItems::-webkit-scrollbar {
+  background-color: rgba(180, 179, 179, 0.56);
+  border-radius: 20px;
+  width: 3px;
+}
+.courseItems::-webkit-scrollbar-thumb {
+  background: #494646;
+  border-radius: 20px;
+}
+.courseItems h3 {
+  padding-bottom: 3vh;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.77);
+}
+.courseItems .item {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  overflow: hidden;
+}
+.courseItems .item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 4vh;
+  border-radius: 5px;
+  border: 1px solid rgba(241, 241, 241, 0.15);
+}
+.courseItems .item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.pagination {
+  margin-top: 4vh;
+}
+
+/*# sourceMappingURL=CourseChats.module.css.map */

@@ -3,12 +3,23 @@
   margin: 0 auto;
 }
 
-.topBlock {
-  padding-left: 2rem;
-}
-
 .span {
   color: dodgerblue;
+}
+
+.notFound {
+  line-height: 40px;
+  position: absolute;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  top: 45%;
+  left: calc(50% + 3rem);
+  transform: translate(-50%, -50%);
+}
+
+.topBlock {
+  padding-left: 2rem;
 }
 
 .titleBlock {
@@ -24,7 +35,7 @@
 }
 
 .cardsItems {
-  margin: 0 auto;
+  margin: 0 auto 55px;
   max-width: 55rem;
   justify-items: center;
   align-items: center;
@@ -32,7 +43,6 @@
   grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
   gap: 20px;
-  margin-bottom: 50px;
 }
 
 /*# sourceMappingURL=CourseTeacher.module.css.map */

@@ -1,0 +1,106 @@
+.span {
+  color: dodgerblue;
+}
+
+.modal {
+  position: fixed;
+  transition: 0.4s ease;
+  font-weight: 1000;
+  z-index: 5;
+  background-color: white;
+  width: 40rem;
+  border: 1px solid dodgerblue;
+  border-radius: 20px;
+  top: 20%;
+  left: 30%;
+  padding: 30px 30px;
+}
+
+.modalGone {
+  transform: translateY(1000px);
+  opacity: 0;
+}
+
+.modalHere {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1); /* Black background with opacity */
+  backdrop-filter: blur(3px);
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.topContent {
+  margin-bottom: 20px;
+  gap: 20px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bio {
+  margin-bottom: 20px;
+}
+
+.languages {
+  margin-top: 10px;
+  color: white;
+  border-radius: 10px;
+}
+
+.language {
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+.languagesKnow {
+  gap: 5px;
+  flex-wrap: wrap;
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.languagesLearn {
+  margin-top: 5px;
+  margin-bottom: 25px;
+  gap: 5px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.buttons {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 10px 15px;
+  color: white;
+  background-color: dodgerblue;
+  border-radius: 10px;
+}
+
+.messageBtn {
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px dodgerblue solid;
+  border-radius: 10px;
+}
+
+.closeBtn {
+  cursor: pointer;
+  float: right;
+}
+
+/*# sourceMappingURL=ModalProfile.module.css.map */
