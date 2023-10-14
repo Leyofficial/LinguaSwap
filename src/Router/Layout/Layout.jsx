@@ -1,11 +1,11 @@
 import style from "./Layout.module.scss";
-import SideBar from "../../Components/Sidebar/index.jsx";
 import {sidebarList} from "./SidebarList.js";
 import {Outlet} from "react-router-dom";
 import {useSelector} from "react-redux";
 import Header from "../../Components/Header/index.jsx";
 import {useNavigate, useParams} from "react-router";
-import {sidebarCourses} from "./sidebarCourses.js";
+import {sidebarCourses} from "./sidebarCourses.ts";
+import {SideBar} from "../../Components/Sidebar/index.js";
 
 const Layout = (props) => {
    const isStart = useSelector((state) => state.isStart)
@@ -23,8 +23,8 @@ const Layout = (props) => {
    return (
       <>
          <div className={style.container}>
-            {isStart ? <SideBar defaultOpen={params.idCourse ? true : false}
-                                menuItems={params.idCourse ? sidebarCourses(params.idCourse,backStep) : sidebarList}/> :
+            {isStart ? <SideBar defaultOpen={!!params.idCourse} // boolean
+                                menuItems={params.idCourse ? sidebarCourses() : sidebarList}/> :
                <Header navItems={navItemsIcons}/>}
             <main>
                <Outlet></Outlet>

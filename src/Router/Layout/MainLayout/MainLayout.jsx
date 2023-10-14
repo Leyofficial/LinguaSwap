@@ -1,6 +1,6 @@
 import style from "../Layout.module.scss";
 import {Outlet} from "react-router-dom";
-import SideBar from "../../../Components/Sidebar/index.jsx";
+import SideBar from "../../../Components/Sidebar/index.tsx";
 
 const MainLayout = () => {
 

@@ -1,23 +1,20 @@
 import info from "../../img/icons/info.png";
 import previous from "../../img/icons/previous.png"
 import chat from "../../img/icons/chat.png"
-import {useNavigate} from "react-router";
+import {ISidebarItems} from "../../Components/Sidebar/types";
 
 
 
-export const sidebarCourses = (idCourse) => {
+export const sidebarCourses = () => {
 
-
-
-   const items = [{
-
-      path: '/',
-      icon: previous,
-      name: "Back",
-      callback:true,
-   },
+   const items: ISidebarItems[] = [
       {
-
+        path: '/',
+        icon: previous,
+        name: "Back",
+        callback:true,
+      },
+      {
          path: "/info",
          icon: info,
          name: "Courses",

@@ -11,6 +11,10 @@
     "server": "nodemon server/index.cjs"
   },
   "dependencies": {
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.37",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "@chatscope/chat-ui-kit-react": "^1.10.1",
     "@chatscope/chat-ui-kit-styles": "^1.4.0",
     "@emotion/react": "^11.11.1",
@@ -56,6 +60,7 @@
     "redux-forms": "^1.0.0-3",
     "redux-thunk": "^2.4.2",
     "resize-observer-polyfill": "^1.5.1",
+    "rollup-plugin-typescript2": "^0.36.0",
     "sass": "^1.68.0",
     "socket.io": "^4.7.2",
     "socket.io-client": "^4.7.2",
@@ -63,13 +68,15 @@
     "yarn": "^1.22.19"
   },
   "devDependencies": {
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
+    "@types/react": "^18.2.28",
+    "@types/react-dom": "^18.2.13",
     "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "ts-loader": "^9.5.0",
+    "typescript": "^5.2.2",
     "vite": "^4.4.5"
   }
 }
