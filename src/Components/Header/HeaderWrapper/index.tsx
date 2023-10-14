@@ -10,7 +10,7 @@ const HeaderWrapper = ({navItems} : INavItems) => {
       <div className={style.headerContainer}>
         <div className={style.headerInner}>
           <div className={style.iconBlock}>
-            <Link to={'/'}>
+            <Link  to={'/'}>
               <h2>
                 Lin<span style={{ color: "dodgerblue" }}>gua</span>
               </h2>
