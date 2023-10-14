@@ -10,12 +10,6 @@ const HomeText = () => {
             'Student',4000,'Teacher',3000
           ]} wrapper={'span'} speed={50} style={{ display: 'inline-block' }} repeat={Infinity}></TypeAnimation>
         </div>
-        <div className={style.wrapperInfo}>
-          <p>
-            Connect with native speakers around the world for language exchange,
-            practice speaking and monitor your progress while having fun!
-          </p>
-        </div>
       </div>
   );
 };

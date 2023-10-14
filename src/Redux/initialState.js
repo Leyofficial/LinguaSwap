@@ -1,5 +1,5 @@
 export const initialState = {
-  isStart: true ,
+  isStart: false ,
   name: '',
   userTag : '',
   bio : '',

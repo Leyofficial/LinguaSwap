@@ -15,7 +15,7 @@ const Question = (props) => {
         <p className={style.question}>{question}</p>
       </div>
       <div className={`${style.answerWrapper}  ${isOpen ? style.openAnswer : null}`}>
-        <p className={style.answer}>{answer}</p>
+        <p>{answer}</p>
       </div>
     </section>
   );

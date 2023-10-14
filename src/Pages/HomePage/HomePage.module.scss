@@ -1,7 +1,7 @@
 .container {
-  padding: 5px;
+  padding: 15px;
   height: 89vh;
-  margin-top: 5vh;
+  margin-top: 10vh;
   position: relative;
 
   .header {
@@ -13,7 +13,6 @@
   }
 
   .wrapperHome {
-    //height: 100%;
     display: flex;
     justify-content: space-between;
 
@@ -27,14 +26,16 @@
     cursor: pointer;
     position: fixed;
     bottom: 150px;
-    right: 130px;
-
+    right: 110px;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    z-index: 1;
+    display: none;
     svg {
       rotate: -137deg;
       font-size: 40px;
       color: rgba(28, 108, 169, 0.33);
-      animation: color-change 3s infinite;
-      transition: 1s ease-in-out;
+      transition: 0.5s ease-in-out;
     }
 
     &:hover {
@@ -44,12 +45,30 @@
     }
   }
 
+  .showScroll {
+    opacity: 1;
+    display: block;
+  }
 }
+.wrapperInfo{
+  margin-top: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  p{
+    letter-spacing: 1px;
+    line-height: 30px;
+    max-width: 600px;
+    text-align: center;
+    color: rgba(73, 70, 70, 0.81);
+    span{
+      color: rgba(12, 60, 218, 0.64);
+    }
+  }
+}
 .wrapperQuestion {
   background-color: rgba(126, 173, 206, 0.06);
-  //height: 100%;
-  //margin-bottom: 10vh;
 
   header {
     text-align: center;
