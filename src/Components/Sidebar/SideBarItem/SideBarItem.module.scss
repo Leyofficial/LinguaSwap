@@ -1,0 +1,39 @@
+ .sidebarItemBlock {
+    li {
+      gap: 15px;
+      display: flex;
+      align-items: center;
+    }
+    a {
+      transition: .4s ease;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 19px;
+      &:hover {
+        background-color: rgb(1, 102, 202);
+      }
+    }
+    pointer-events: all;
+    width: 100%;
+    height: 100%;
+    max-width: 270px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+.activeSideBarLink {
+  background-color: dodgerblue;
+}
+.sidebarItem {
+  p {
+    transition: 0.2s linear ;
+  }
+  padding: 0.4rem 0.9rem;
+}
+.itemIcon {
+  transition: 1s ease;
+}
