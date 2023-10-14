@@ -1,9 +1,10 @@
-import style from "./Header.module.css";
+import style from "./Header.module.scss";
 import headerIcon from "../../../img/icons/ukraine.png";
 import { Link } from 'react-scroll';
+import {INavItems} from "../types.ts";
 
 
-const HeaderWrapper = (props) => {
+const HeaderWrapper = ({navItems} : INavItems) => {
   return (
     <header className={style.header}>
       <div className={style.headerContainer}>
@@ -18,7 +19,7 @@ const HeaderWrapper = (props) => {
           </div>
           <nav className={style.navBlock}>
             <div className={style.navList}>
-              {props.navItems.map((item,index) => {
+              {navItems.map((item,index) => {
                 return (
                   <li key={index} className={style.navItem}>
                     <Link to={item.link} smooth={true}    spy={true}  offset={-70}
