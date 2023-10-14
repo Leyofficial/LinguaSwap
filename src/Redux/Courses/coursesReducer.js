@@ -1,57 +1,59 @@
 import {initialState} from "../initialState.js";
 import {Course} from "../../ApiRequests/Courses/Courses.js";
-import {filterCourseAC} from "./coursesAC.js";
+import {filterCourseAC, getCoursesAC} from "./coursesAC.js";
 
 export const GET_COURSES = "GET_COURSES"
 
 export const FILTER_COURSES = "FILTER_COURSES"
 const coursesReducer = (courses = initialState.courses, action) => {
-  switch (action.type) {
+   switch (action.type) {
 
-    case GET_COURSES:
-      return action.courses
+      case GET_COURSES:
+         return action.courses
 
-    case FILTER_COURSES :
-      return action.filterCourses
+      case FILTER_COURSES :
+         return action.filterCourses
 
-    default:
-      return courses
-  }
+      default:
+         return courses
+   }
 }
 export default coursesReducer
 
-
 export const filterCourseThunkCreator = (language, enrolment) => {
-  console.log(enrolment)
-  return async (dispatch) => {
-    let coursesResponse = await Course.getCourses()
-    let filterData = null
-    if (coursesResponse.status === 200) {
+   return async (dispatch) => {
+      try {
+         let coursesResponse = await Course.getCourses()
+         let filterData = null
+         if (coursesResponse.status === 200) {
+            filterData = coursesResponse.data.courses
 
-      if (language && language !== 'All' && enrolment && enrolment !== 'All') {
+            if (language && language !== 'All') {
+               filterData = filterData.filter(item => item.course.language === language)
+            }
+            if (enrolment && enrolment !== 'All') {
+               filterData = filterData.filter(item => item.course.enrolment === enrolment)
+            }
 
-        filterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
-        filterData = filterData.filter(item => item.course.language === language)
-        dispatch(filterCourseAC(filterData))
-      }else if(language && language !== 'All') {
-        const filterData = coursesResponse.data.courses.filter(item => item.course.language === language)
-        dispatch(filterCourseAC(filterData))
-      } else if(enrolment && enrolment !== 'All') {
-
-        const filterData = coursesResponse.data.courses.filter(item => item.course.enrolment === enrolment)
-        dispatch(filterCourseAC(filterData))
-      }else if (language === 'All') {
-        filterData = coursesResponse.data.courses
-        dispatch(filterCourseAC(filterData))
-      }else if (enrolment === 'All') {
-        filterData = coursesResponse.data.courses
-        dispatch(filterCourseAC(filterData))
+            dispatch(filterCourseAC(filterData))
+         }
+      } catch (error) {
+         console.log(error)
       }
+   }
+}
 
 
+export const getCoursesThunkCreator = () => {
+   return async (dispatch) => {
+      try {
+         const response = await Course.getCourses()
+         if (response.status === 200) {
+            dispatch(getCoursesAC(response.data.courses))
+         }
+      } catch (err) {
+         console.log(err)
 
-    }
-
-
-  }
+      }
+   }
 }

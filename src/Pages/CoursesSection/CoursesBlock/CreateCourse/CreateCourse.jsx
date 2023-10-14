@@ -4,7 +4,7 @@ import ModalCreateCourse from "./ModalCreateCourse/ModalCreateCourse.jsx";
 
 const CreateCourse = () => {
   return (
-    <div className={style.container}>
+    <div>
       <ModalCreateCourse></ModalCreateCourse>
     </div>
   );

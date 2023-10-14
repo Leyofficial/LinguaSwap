@@ -8,7 +8,7 @@ export const ProfileUser = {
 
 }
 
-export const saveProfileImage = (image) => {
+export const    saveProfileImage = (image) => {
   return axios.post(`http://localhost:3000/authorization/profile/image`,image,{
     headers:{
       'content-type':'multipart/form-data'

@@ -10,9 +10,12 @@ import googleicon from '../../img/images/googleicon.svg';
 import teacherimg from '../../img/images/teacherimg.jpg';
 import {useDispatch} from 'react-redux';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
-import {fetchUserAC} from '../../Redux/login/loginactions';
 import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
 import {authAC} from "../../Redux/isAuth/isAuthAC.js";
+import {loginUserAC} from "../../Redux/login/loginUserAC.js";
+import socketIO from "socket.io-client";
+import {webSocketAC} from "../../Redux/WebSocket/webSocketReducer.js";
+
 
 function Login() {
 
@@ -92,7 +95,11 @@ function Login() {
       loginUser(userValue).then(res => {
          if (res.status === 200) {
 
-            dispatch(fetchUserAC(res.data.user));
+            dispatch(loginUserAC(res.data.user));
+            const socket = socketIO.connect('http://localhost:3000')
+
+            dispatch(webSocketAC(socket))
+            socket.emit("newUser", res.data.user._id)
             localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
             dispatch(authAC())
             navigate('/');

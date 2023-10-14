@@ -10,10 +10,16 @@ import {setLanguagesKnowReducer} from "./Profile/Languages/languagesKnow/setLang
 import {setLanguagesLearnReducer} from "./Profile/Languages/languagesLearn/setLanguagesLearnReducer.js";
 import coursesReducer from "./Courses/coursesReducer.js";
 import {setPhotoReducer} from "./Profile/Photo/setPhotoReducer.js";
-import login from './login/loginuser.reducer.js'
 import {isAuthReducer} from "./isAuth/isAuthReducer.js";
 import courseReducer from "./Course/courseReducer.js";
 import {teachersReducer} from "./Teachers/teachersReducer.js";
+import CourseChatReducer from "./Course/Chat/CourseChatReducer.js";
+import currentMessageTimeReducer from "./Course/Chat/currentMessageTimeReducer.js";
+import {loginUserReducer} from "./login/loginUserReducer.js";
+import webSocketReducer from "./WebSocket/webSocketReducer.js";
+import chatWithTeacherReducer from "./ChatWithTeacher/chatWithTeacherReducer.js";
+import chatMessagesReducer from "./ChatWithTeacher/ChatMessages/chatMessagesReducer.js";
+import onlineUsersReducer from "./OnlineUsers/onlineUsersReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -27,8 +33,14 @@ export default (combineReducers)({
     languagesKnow : setLanguagesKnowReducer,
     languagesLearn : setLanguagesLearnReducer,
     courses:coursesReducer,
-    loginUser: login,
+    loginUser: loginUserReducer,
     isAuth:isAuthReducer,
     currentCourse:courseReducer,
     teachers : teachersReducer,
+    currentChat:CourseChatReducer,
+    currentTimeMessage:currentMessageTimeReducer,
+    socket:webSocketReducer,
+    chatStatus:chatWithTeacherReducer,
+    chatWithStudent:chatMessagesReducer,
+    onlineUsers:onlineUsersReducer
 })

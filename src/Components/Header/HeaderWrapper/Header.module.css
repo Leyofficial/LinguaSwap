@@ -20,7 +20,9 @@
   gap: 15px;
 }
 .navList li a {
-  transition: 1s all;
+  transition: 0.5s all;
+  color: #ffffff;
+  cursor: pointer;
 }
 .navList li a:hover {
   color: dodgerblue;

@@ -12,12 +12,14 @@
     border-radius: 36px 13px;
     transition: 1s ease;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
       color: #08348f;
       background-color: rgba(42, 146, 178, 0.45);
     }
-    svg{
-font-size: 30px;
+
+    svg {
+      font-size: 30px;
     }
   }
 

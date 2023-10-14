@@ -1,0 +1,109 @@
+.wrapperChat {
+  width: 100%;
+  position: relative;
+  height: 100%;
+  padding-right: 1rem;
+  border-radius: 5px;
+  border-left: 1px solid rgba(10, 15, 95, 0.2588235294);
+}
+.wrapperChat .wrapperTextarea {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+  border: 2px solid rgba(24, 122, 198, 0.19);
+  background-color: #1f1d2b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-right: 2px solid rgba(12, 60, 218, 0.27);
+  border-left: 2px solid rgba(12, 60, 218, 0.27);
+}
+.wrapperChat .wrapperTextarea .textarea {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  border-radius: 15px;
+  display: flex;
+  align-items: end;
+  height: 6vh;
+  padding: 0 10px;
+}
+.wrapperChat .wrapperTextarea .textarea textarea {
+  outline: none;
+  color: rgba(35, 35, 35, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  resize: none;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+}
+.wrapperChat .wrapperTextarea .textarea textarea::placeholder {
+  color: rgba(21, 20, 20, 0.75);
+}
+.wrapperChat .wrapperTextarea .icons {
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.wrapperChat .wrapperTextarea .icons svg {
+  cursor: pointer;
+  font-size: 30px;
+  color: rgba(12, 87, 197, 0.98);
+}
+.wrapperChat .wrapperTextarea svg {
+  font-size: 40px;
+  color: rgba(12, 87, 197, 0.98);
+}
+.wrapperChat h2 {
+  padding: 20px 5px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.76);
+}
+.wrapperChat h2 span {
+  color: rgba(24, 156, 208, 0.84);
+  font-size: 20px;
+  letter-spacing: 1.5px;
+  border-bottom: 2px solid rgba(8, 138, 178, 0.19);
+}
+.wrapperChat .date {
+  text-align: center;
+  color: #f1f1f1;
+}
+.wrapperChat .contentMessage {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  border-top: 1px solid rgba(108, 106, 104, 0.18);
+  width: 100%;
+  height: 75vh;
+  overflow-y: auto;
+  padding: 20px;
+}
+.wrapperChat .contentMessage::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0.56);
+  border-radius: 20px;
+  width: 5px;
+}
+.wrapperChat .contentMessage::-webkit-scrollbar-thumb {
+  background: #494646;
+  border-radius: 20px;
+}
+.wrapperChat .contentMessage .wrapperMessages div p {
+  font-size: 14px;
+  color: #f1f1f1;
+}
+.wrapperChat .contentMessage .wrapperMessages div img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  margin-right: 2vh;
+  object-fit: cover;
+}
+.wrapperChat .contentMessage .wrapperMessages div .messageItems span {
+  color: rgba(129, 128, 128, 0.57);
+  font-size: 13px;
+}
+
+/*# sourceMappingURL=MessagesSection.module.css.map */

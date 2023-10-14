@@ -25,6 +25,7 @@
     "bcryptjs": "^2.4.3",
     "chroma-js": "^2.4.2",
     "cors": "^2.8.5",
+    "date-fns": "^2.30.0",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.1",
     "express-rate-limit": "^6.7.1",
@@ -57,6 +58,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "sass": "^1.68.0",
     "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2",
     "stable": "^0.1.8",
     "yarn": "^1.22.19"
   },

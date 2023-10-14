@@ -8,6 +8,7 @@ export const Course = {
     })
   },
   saveImage(image) {
+    console.log(image)
     return axios.post(`http://localhost:3000/courses/image`,image,{
       headers:{
         'content-type':'multipart/form-data'
@@ -19,7 +20,8 @@ export const Course = {
     return axios.get(`http://localhost:3000/courses`)
   },
   getCourse(courseId) {
-    return axios.get(`http://localhost:3000/courses/${courseId}`)
+    console.log(courseId)
+    return axios.get(`http://localhost:3000/courses/course/${courseId}`)
   },
 
   addNewMember(updateValue,courseId){

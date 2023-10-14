@@ -8,63 +8,53 @@ import {useState} from "react";
 
 const StepsSection = (props) => {
 
-  const {userType} = props
+   const {userType} = props
 
-  const navigate = useNavigate()
+   const navigate = useNavigate()
 
-  const [isOpen,setIsOpen] = useState(true)
+   const [isOpen, setIsOpen] = useState(true)
 
-  const moveBack = () => {
-    navigate(-1)
-  }
+   const moveBack = () => {
+      navigate(-1)
+   }
 
-  return (
-    <div className={style.container}>
-      {userType === 'student' ?
-        <>
-          <StepItem setIsOpen={setIsOpen} callback={isOpen} indexStart={true} icon={<PiNumberOneBold/>} image={formImage}
-                    title={"Register as a Student using registration form"}
-          ></StepItem>
+   const forStudent = [{
+      title: "Register as a Student using registration form", icon: <PiNumberOneBold/>, image: formImage},
+      {title: "Find the best tutor", icon: <PiNumberTwoBold/>, image: formImage},
+      {title: "Take lessons anytime", icon: <PiNumberThreeBold/>, image: formImage},
+      {title: "Enter virtual classroom", icon: <PiNumberFourBold/>, image: formImage},
+      {title: "Enjoy structured learning", icon: <PiNumberFiveBold/>, image: formImage}
+   ]
+   const forTeacher = [{
+      title: "Register as a Teacher using registration form and chose your native language", icon: <PiNumberOneBold/>, image: formImage},
+      {title: "Fill out your business profile correctly and honestly", icon: <PiNumberThreeBold/>, image: formImage},
+      {title: "Set up time for your students", icon: <PiNumberFourBold/>, image: formImage},
+      {title: "Create your own learn program and share it with students", icon: <PiNumberFiveBold/>, image: formImage}]
 
-          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberTwoBold/>} image={formImage}
-                    title={"Find the best tutor"}
-          ></StepItem>
+   return (
+      <div className={style.container}>
+         {userType === 'student' ?
+            <>
+               {forStudent.map(item => <StepItem setIsOpen={setIsOpen} callback={isOpen}
+                                                 icon={item.icon} image={item.image}
+                                                 title={item.title}
+               ></StepItem>)}
+            </>
+            :
+            <>
+               {forTeacher.map(item => <StepItem setIsOpen={setIsOpen} callback={isOpen}
+                                                 icon={item.icon} image={item.image}
+                                                 title={item.title}
+               ></StepItem>)}
+            </>
 
-          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberThreeBold/>} image={formImage}
-                    title={"Take lessons anytime"}
-          ></StepItem>
+         }
 
-          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberFourBold/>} image={formImage}
-                    title={"Enter virtual classroom"}
-          ></StepItem>
-
-          <StepItem setIsOpen={setIsOpen} callback={isOpen} icon={<PiNumberFiveBold/>} image={formImage}
-                    title={"Enjoy structured learning"}
-          ></StepItem>
-        </>
-        :
-        <>
-          <StepItem indexStart={true} icon={<PiNumberOneBold/>} image={formImage}
-                    title={"Register as a Teacher using registration form and chose your native language"}
-          ></StepItem>
-          <StepItem  icon={<PiNumberTwoBold/>} image={formImage}
-                    title={"Fill out your business profile correctly and honestly"}
-          ></StepItem>
-          <StepItem  icon={<PiNumberThreeBold/>} image={formImage}
-                    title={"Set up time for your students"}
-          ></StepItem>
-          <StepItem  icon={<PiNumberFourBold/>} image={formImage}
-                    title={"Create your own learn program and share it with students"}
-          ></StepItem>
-        </>
-
-      }
-
-      <div className={style.backButton} onClick={moveBack}>
-        <GiImbricatedArrows></GiImbricatedArrows>
+         <div className={style.backButton} onClick={moveBack}>
+            <GiImbricatedArrows></GiImbricatedArrows>
+         </div>
       </div>
-    </div>
-  );
+   );
 };
 
 export default StepsSection;

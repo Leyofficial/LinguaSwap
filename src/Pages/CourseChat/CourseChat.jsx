@@ -1,141 +1,149 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import style from './CourseChat.module.scss'
-import {useSelector} from "react-redux";
-import {LuSend} from "react-icons/lu";
-import {CiFaceSmile} from "react-icons/ci";
-import bgChat from '../../images/course/chat/backChat.png'
+import {useDispatch, useSelector} from "react-redux";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
-import MemberChat from "./Members/MemberChat/MemberChat.jsx";
-
-import {AiOutlinePaperClip} from "react-icons/ai";
-import avatar from '../../images/HomePage/second.png'
+import {getChat, sendMessage} from "../../ApiRequests/Chat.jsx";
+import {addSocketMessage, courseChatAC, resetChatItems} from "../../Redux/Course/Chat/CourseChatAC.js";
+import {HiUserGroup} from "react-icons/hi";
+import {FaChalkboardTeacher} from "react-icons/fa";
+import {BsInfoCircle} from "react-icons/bs";
+import CourseTeachers from "./CourseTeacher/CourseTeachers.jsx";
+import CourseMember from "./CourseMembers/CourseMember.jsx";
+import {useParams} from "react-router";
+import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {GiImbricatedArrows} from "react-icons/gi";
+import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/MessagesSection.jsx";
+
 
 const CourseChat = () => {
 
-   const currentCourse = useSelector((state) => state.currentCourse)
-   const [currentCourseTeacher,setCurrentCourseTeacher ] = useState(null)
+   const [currentCourseTeacher, setCurrentCourseTeacher] = useState(null)
+   const dispatch = useDispatch()
+   const currentUser = useSelector((state) => state.loginUser)
+   const chat = useSelector((state) => state.currentChat)
+   const [asideItem, setAsideItem] = useState("teachers")
+   const [currentCourse, setCurrentCourse] = useState(null)
+   const {idCourse} = useParams()
+   const [hideInfoBlock, setHideInfoBlock] = useState(false)
+   const scroll = useRef()
+   const socket = useSelector((state) => state.socket)
 
-   const [openList,setOpenList] = useState(false)
-
-   console.log(currentCourseTeacher)
 
    useEffect(() => {
 
-      getUser(currentCourse.teacher.id).then(res => {
-         if(res.status === "Succeed") {
-            setCurrentCourseTeacher(res.user)
+      Course.getCourse(idCourse).then(res => {
+         if (res.status === 200) {
+            setCurrentCourse(res.data.course)
+
+            getUser(res.data.course.teacher.id).then(res => {
+               setCurrentCourseTeacher(res.user)
+            }).catch(err => console.log(err))
          }
       })
-   },[currentCourse])
-   const messages = [{
-      author: 'Vova',
-      message: 'Jello, how are you ?',
-      date: '07.10.2023',
-      me: true
-   },
-      {
-         author: 'Sasha',
-         message: 'I`m fine , thank you ',
-         date: '07.10.2023',
-         me: false
-      },
-      {
-         author: 'Vova',
-         message: 'Jello, how are you ?',
-         date: '07.10.2023',
-         me: true
-      },
-      {
-         author: 'Sasha',
-         message: 'I`m fine , thank youI`m fine , thank youI`m fine , thank you ',
-         date: '07.10.2023',
-         me: false
-      },
-      {
-         author: 'Sasha',
-         message: 'I`m fine , thank youI`m fine , thank youI`m fine , thank you ',
-         date: '07.10.2023',
-         me: false
-      },
-      {
-         author: 'Sasha',
-         message: 'I`m fine , thank youI`m fine , thank youI`m fine , thank you ',
-         date: '07.10.2023',
-         me: false
-      },
-      {
-         author: 'Sasha',
-         message: 'I`m fine , thank youI`m fine , thank youI`m fine , thank you ',
-         date: '07.10.2023',
-         me: false
-      },
-      {
-         author: 'Vova',
-         message: 'Jello, how are you ?',
-         date: '07.10.2023',
-         me: true
-      },
-      {
-         author: 'Vova',
-         message: 'Jello, how are you ?',
-         date: '07.10.2023',
-         me: true
-      }]
+
+   }, [idCourse])
+
+   useEffect(() => {
+
+      getChat(idCourse).then(res => {
+
+         if (res.status === 200) {
+            dispatch(courseChatAC(res.data.chatRoom))
+         }
+      }).catch(err => {
+         console.log(err)
+         dispatch(resetChatItems())
+      })
+   }, [idCourse])
+
+
+   const sendMessageHandler = (message) => {
+
+      const messageData = {
+         message: message,
+         author: currentUser._id,
+         date: new Date()
+      }
+      if (message && socket) {
+
+         socket.emit("message", messageData)
+
+         sendMessage(messageData, chat._id).then(res => {
+            if (res.status === 200) {
+               scroll.current?.scrollIntoView({behavior: "smooth"})
+               getChat(idCourse).then(res => {
+                  if (res.status === 200) {
+                     dispatch(courseChatAC(res.data.chatRoom))
+                  }
+               }).catch(err => console.log(err))
+            }
+         }).catch(err => console.log(err))
+      } else {
+         console.log("Write some text pls ")
+      }
+   }
+
+
+   useEffect(() => {
+      socket.on("response", (data) => {
+         if (data) {
+            dispatch(addSocketMessage(data))
+         }
+
+      })
+   }, [socket])
+
+
+   useEffect(() => {
+      scroll.current?.scrollIntoView({behavior: "smooth"})
+   }, [chat, scroll])
+
 
    return (
+
       <div className={style.container}>
-         <div className={style.wrapperChat}>
-            <h2><span>{currentCourse?.course.name}</span> course chat </h2>
-            <div className={style.contentMessage} style={{background: `url(${bgChat})`}}>
-               <div className={style.wrapperMessages}>
-                  {messages.map(message => <div className={message.me ? style.myMessage : style.message}>
-                     <img src={avatar}/>
-                     <div className={style.messageItems}>
-                        <p>{message.message}</p>
-                        <span>{message.date}</span>
-                     </div>
+         <MessagesSection title={"course chat"} name={currentCourse?.course.name} messages={chat?.messages}
+                          sendMessageHandler={sendMessageHandler} scroll={scroll}
+         ></MessagesSection>
 
-                  </div>)}
-               </div>
+         <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
+            <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
+                 onClick={() => setHideInfoBlock(!hideInfoBlock)}>
+               <GiImbricatedArrows></GiImbricatedArrows>
             </div>
-            <div className={style.wrapperTextarea}>
-               <AiOutlinePaperClip></AiOutlinePaperClip>
-               <div className={style.textarea}>
-                  <textarea placeholder={'Type a message'}></textarea>
-               </div>
-
-               <div className={style.icons}>
-                  <CiFaceSmile fontSize={30} color={'rgba(71,176,220,0.43)'}></CiFaceSmile>
-                  <LuSend fontSize={30} color={'rgba(71,176,220,0.43)'}></LuSend>
-               </div>
-
-            </div>
-         </div>
-
-         <div className={style.wrapperMebmers}>
-
             <div className={style.members}>
-               <div>
-                  <p>Teacher</p>
-                  <div className={style.teacherWrapper}>
-                     <img src={`../../../${currentCourseTeacher?.user.data?.photo}`} alt={'avatar'}/>
-                     <p>{currentCourseTeacher?.user.data.name}</p>
+               <div className={style.wrapperItems}>
+                  <div className={`${style.wrapperIconsMember} ${asideItem === "teachers" ? style.activeItem : null}`}
+                       onClick={() => setAsideItem("teachers")}>
+                     <FaChalkboardTeacher></FaChalkboardTeacher>
+                  </div>
+                  <div className={`${style.wrapperIconsMember} ${asideItem === "students" ? style.activeItem : null}`}
+                       onClick={() => setAsideItem("students")}>
+                     <HiUserGroup></HiUserGroup>
+                  </div>
+                  <div className={`${style.wrapperIconsMember} ${asideItem === "info" ? style.activeItem : null}`}
+                       onClick={() => setAsideItem("info")}>
+                     <BsInfoCircle></BsInfoCircle>
                   </div>
                </div>
-               <div>
-                  <p onClick={() => setOpenList(!openList)}>Students<GiImbricatedArrows className={!openList ? style.arrowUp : null}></GiImbricatedArrows></p>
-
-                  <div className={`${style.membersWrapper} ${ !openList ? style.hiddenMembers : null}`}>
-                     {currentCourse?.course.members.map((member, index) => <MemberChat member={member}></MemberChat>)}
-                  </div>
-
-
-               </div>
-
+               <article className={style.wrapper}>
+                  {asideItem === 'teachers' ?
+                     <CourseTeachers currentCourseTeacher={currentCourseTeacher}></CourseTeachers> :
+                     asideItem === 'students' ? <div className={style.memberItems}>
+                        <h3>Students</h3>
+                        <div className={style.items}>
+                           {currentCourse?.course.members.map((member, index) => <CourseMember index={index}
+                                                                                               member={member}></CourseMember>)}
+                        </div>
+                     </div> : <div className={style.memberItems}>
+                        <h3>INFO</h3>
+                        <div className={style.items}>
+                           <div>Will be develop in the future</div>
+                        </div>
+                     </div>
+                  }
+               </article>
             </div>
-
-
          </div>
       </div>
    );

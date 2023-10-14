@@ -14,16 +14,6 @@ import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
 
 const HomePage = () => {
 
-  const navItems = [
-    { text: "Overview", link: "/" },
-    { text: "Features", link: "#test" },
-    { text: "Get in touch", link: "#test" },
-    { text: "FAQ", link: "#test" },
-    { text: "Help", link: "#test" },
-  ];
-
-
-
   const dispatch = useDispatch()
   const [showScrollUp,setShowScrollUp] = useState(false)
 
@@ -50,6 +40,14 @@ const HomePage = () => {
           <HomeText toLogin={toLogin}></HomeText>
           <HomeImages></HomeImages>
         </div>
+
+          <div className={style.wrapperInfo}>
+            <p>
+              Connect with <span>native speakers</span> around the world for language exchange,
+              <span>practice speaking </span>and monitor your progress while having fun!
+            </p>
+          </div>
+
         <div id={"Overview"} className={style.wrapperOverview}>
           <HomeOverview></HomeOverview>
         </div>
@@ -69,10 +67,9 @@ const HomePage = () => {
         <div id={"Footer"}>
           <HomeFooter></HomeFooter>
         </div>
-        { showScrollUp ? <div onClick={scrollUp} className={`${style.scrollUp}`}>
+        <div onClick={scrollUp} className={`${style.scrollUp} ${showScrollUp ? style.showScroll : null}`}>
           <GiImbricatedArrows></GiImbricatedArrows>
-        </div> : null
-        }
+        </div>
       </div>
     </>
   );
