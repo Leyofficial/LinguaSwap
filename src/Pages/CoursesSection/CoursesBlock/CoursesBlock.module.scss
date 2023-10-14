@@ -48,8 +48,10 @@
 
     .authorWrapper {
       position: absolute;
-      top: 170px;
+      top: 160px;
       left: 20px;
+      display: flex;
+      align-items: baseline;
 
       img {
         max-width: 70px;
@@ -59,8 +61,8 @@
     }
 
     .nameOfAuthor {
-      padding-left: 12vh;
-      padding-top: 8px;
+      padding-left: 3vh;
+      //padding-top: 18px;
 
       p {
         padding-left: 15px;
@@ -125,6 +127,13 @@
           border: none !important;
 
         }
+      }
+    }
+    .titleWrapper{
+      padding-top: 4vh;
+      h3{
+        font-size: 17px;
+        color: rgba(80, 140, 210, 0.78);
       }
     }
   }
