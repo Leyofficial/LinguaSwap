@@ -1,5 +1,5 @@
 import style from "./Layout.module.scss";
-import {sidebarList} from "./SidebarList.js";
+import {sidebarList} from "./SidebarList.ts";
 import {Outlet} from "react-router-dom";
 import {useSelector} from "react-redux";
 import Header from "../../Components/Header/index.jsx";
