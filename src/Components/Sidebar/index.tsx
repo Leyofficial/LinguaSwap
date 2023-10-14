@@ -1,5 +1,4 @@
 import { useState } from "react";
-import React, { ReactElement } from "react";
 import { Link, NavLink } from "react-router-dom";
 import back from './../../img/icons/back.png';
 import forward from './../../img/icons/back-2.png';
@@ -68,5 +67,4 @@ export function SideBar ({menuItems , defaultOpen} : ISideBar)  {
       </div>
     </div>
   );
-};
-
+}

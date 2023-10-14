@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 import Header from "../../Components/Header/index.jsx";
 import {useNavigate, useParams} from "react-router";
 import {sidebarCourses} from "./sidebarCourses.ts";
-import {SideBar} from "../../Components/Sidebar/index.js";
+import {SideBar} from "../../Components/Sidebar/index.tsx";
 
 const Layout = (props) => {
    const isStart = useSelector((state) => state.isStart)
