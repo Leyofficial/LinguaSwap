@@ -1,7 +1,7 @@
 import style from './TeacherCard.module.scss'
 import React, {useState} from 'react';
 import {Avatar} from "@mui/material";
-import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.jsx";
+import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.tsx";
 
 const TeacherCard = ({name, photo, hash, languages, bio, languagesLearn, id}) => {
     const [modalProfile, setModalProfile] = useState(null);

@@ -1,7 +1,8 @@
 import {StylesConfig} from "react-select";
 import chroma from "chroma-js/index.js";
+import {ILanguages} from "../ModalProfile/types.ts";
 
-export const languageStyles: StylesConfig<ColourOption, true>  = {
+export const languageStyles: StylesConfig<ILanguages, true>  = {
     control: (styles) => ({ ...styles, backgroundColor: 'white' }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
         const color = chroma(data.color);

@@ -1,4 +1,9 @@
-export const languageOptions =  [
+interface ILanguagesTypes {
+    value : string,
+    label : string,
+    color : string,
+}
+export const languageOptions : ILanguagesTypes[] =  [
     { value: 'en', label: 'English', color: '#ff0000' },
     { value: 'ua', label: 'Ukrainian', color: '#00a6ff' },
     { value: 'ru', label: 'Russian', color: '#461313' },

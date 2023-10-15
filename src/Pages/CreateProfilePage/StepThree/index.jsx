@@ -41,12 +41,10 @@ const StepThree = (props) => {
         ProfileUser.createProfile(id ,  obj).then(res => {
             if (res.status === 200) {
                 const data = new FormData()
-
                 data.append('image', photo)
                 saveProfileImage(data).then(res => {
                     if(res.status === 200) {
                         savePhoto(res.data.image.path , id)
-                        console.log(res.data.image.path)
                  }
                 })
 

@@ -3,7 +3,9 @@ import React from "react";
 import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import closeBtn from './../../img/icons/close.png'
-function ModalProfile({modalActive, user , callback}) {
+import {ILanguages, IModalProfile} from "./types.ts";
+import List from '../List/List.tsx';
+function ModalProfile({modalActive, user , callback} : IModalProfile) {
     return (
         <>
             <div style={modalActive ? {display: 'block'} : {display: 'none'}} className={style.overlay}></div>
@@ -25,19 +27,15 @@ function ModalProfile({modalActive, user , callback}) {
                              <h3>Language/s<span className={style.span}> know  </span>:</h3>
                              <div className={style.languages}>
                                  <div className={style.languagesKnow}>
-                                     {user?.languages.map((item) => {
-                                         return <div className={style.language} style={{background: item.color}}>
-                                             {item.label}
-                                         </div>
-                                     })}
+                                     <List items={user?.languages} rerender={(item : ILanguages) => <div className={style.language} style={{background: item.color}}>
+                                         {item.label}
+                                     </div>}/>
                                  </div>
                                  <h3 style={{color : 'black'}}>Language/s  <span className={style.span}> learn  </span>:</h3>
                                  <div className={style.languagesLearn}>
-                                     {user?.languagesLearn.map((item) => {
-                                         return <div className={style.language} style={{background: item.color}}>
-                                             {item.label}
-                                         </div>
-                                     })}
+                                     <List items={user?.languagesLearn} rerender={(item : ILanguages) => <div className={style.language} style={{background: item.color}}>
+                                         {item.label}
+                                     </div>}/>
                                  </div>
                              </div>
                          </div>

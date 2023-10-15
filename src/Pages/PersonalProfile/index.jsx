@@ -1,11 +1,8 @@
-import style from './PersonalProfile.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
 import WholeProfile from "./WholeProfile/index.jsx";
-import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
-import {loginUserAC} from "../../Redux/login/loginUserAC.js";
 import SkeletonProfile from "./WholeProfile/SkeletonProfile.jsx";
 import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
 
@@ -46,8 +43,6 @@ function PersonalProfile() {
         <>
             {contentLoad ?  <WholeProfile user={active ? actualProfile : currentUser}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
         </>
-
-       // <WholeProfile user={active ? actualProfile : currentUser}/>
     )
 }
 export default PersonalProfile
