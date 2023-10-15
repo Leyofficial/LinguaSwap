@@ -7,6 +7,7 @@ import WholeProfile from "./WholeProfile/index.jsx";
 import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
 import {loginUserAC} from "../../Redux/login/loginUserAC.js";
 import SkeletonProfile from "./WholeProfile/SkeletonProfile.jsx";
+import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
 
 function PersonalProfile() {
     const params = useParams();
@@ -27,18 +28,13 @@ function PersonalProfile() {
                 }
             })
         } else {
-                getUserByToken(userToken).then(res => {
-                    if (res.status === 200) {
-                        dispatch(loginUserAC({...res.data.users[0]}));
-                        setTimeout(() => {
-                            setContentLoad(true)
-                        },600)
-                    }
-                })
+            dispatch(loginUserThunkCreator(userToken));
+            setTimeout(() => {
+                setContentLoad(true)
+            }, 600)
             }
-    }, []);
+    }, [userToken , params]);
     useEffect(() => {
-        console.log(params)
         if (params.id) {
             setActive(true)
         } else {
