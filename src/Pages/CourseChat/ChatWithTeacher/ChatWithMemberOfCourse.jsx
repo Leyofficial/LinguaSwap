@@ -8,26 +8,26 @@ import {useDispatch, useSelector} from "react-redux";
 import {addChatMessage, chatMessagesAC} from "../../../Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 
 
-const ChatWithTeacher = () => {
+const ChatWithMemberOfCourse = () => {
 
    const {idTeacher, idStudent} = useParams()
-   const [teacher, setTeacher] = useState(null)
+   const [interlocutor, setInterlocutor] = useState(null) // собеседник
    const currentUser = useSelector((state) => state.loginUser)
    const socket = useSelector((state) => state.socket)
    const scroll = useRef()
    const dispatch = useDispatch()
    const chat = useSelector((state) => state.chatWithStudent)
    const chatStatus = useSelector((state) => state.chatStatus)
-   console.log(chat)
+
    useEffect(() => {
-      console.log('teacher,student')
+
       teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
          if (res.status === 200) {
 
             dispatch(chatMessagesAC(res.data.findChatTeacher))
             getUser(chatStatus === 'student' ? res.data.findChatTeacher.idStudent : res.data.findChatTeacher.idTeacher).then(res => {
                if (res.status === "Succeed") {
-                  setTeacher(res.user)
+                  setInterlocutor(res.user)
                }
             })
          }
@@ -47,13 +47,13 @@ const ChatWithTeacher = () => {
             if (res.status === 200) {
 
                socket.emit("privateMessage", messageData)
-               // teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
-               //    if (res.status === 200) {
-               //       console.log(messageData)
-               //       dispatch(addChatMessage(messageData))
-               //       scroll.current?.scrollIntoView({behavior: "smooth"})
-               //    }
-               // })
+               teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
+                  if (res.status === 200) {
+
+                     dispatch(addChatMessage(messageData))
+                     scroll.current?.scrollIntoView({behavior: "smooth"})
+                  }
+               })
             }
          }).catch(err => console.log(err))
       } else {
@@ -62,43 +62,28 @@ const ChatWithTeacher = () => {
    }
 
    useEffect(() => {
-      // if (socket)
-      //    console.log('1')
-      // socket.on("privateResponse", (data) => {
-      //    console.log(data)
-      //    if (data) {
-      //       dispatch(addChatMessage(data))
-      //    }
-      // })
-      if(socket) {
-         console.log('socket')
-         const handler = (data) => {
+      if (socket)
+         socket.on("privateResponse", (data) => {
             if (data) {
                dispatch(addChatMessage(data))
             }
-         }
+         })
 
-         socket.on("privateResponse", handler)
-
-         return () => {
-            socket.off("privateResponse", handler)
-         }
-      }
    }, [socket])
 
    useEffect(() => {
       scroll.current?.scrollIntoView({behavior: "smooth"})
    }, [chat, scroll])
 
-
    return (
 
-      <MessagesSection name={teacher?.user.data.name}
-                        sendMessageHandler={sendMessageHandler}
+      <MessagesSection name={interlocutor?.user.data.name}
+                       sendMessageHandler={sendMessageHandler}
                        scroll={scroll}
+                       messages={chat?.messages}
       ></MessagesSection>
 
    );
 };
 
-export default ChatWithTeacher;
+export default ChatWithMemberOfCourse;

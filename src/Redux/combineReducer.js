@@ -21,6 +21,9 @@ import chatMessagesReducer from "./ChatWithTeacher/ChatMessages/chatMessagesRedu
 import onlineUsersReducer from "./OnlineUsers/onlineUsersReducer.js";
 import currentCourseChatReducer from "./Course/Chat/currentCourseChatReducer.js";
 import {currentCourseTeacherReducer} from "./Course/Chat/currentCourseTeacher/currentCourseTeacherReducer.js";
+import chatsWithTeacherReducer from "./Course/ChatsWithTeacher/chatsWithTeacherReducer.js";
+import chatsWithStudentsReducer from "./Course/ChatsWithStudents/chatsWithStudentsReducer.js";
+import interlocutorReducer from "./ChatWithTeacher/Interlocutor/InterlocutorReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -44,5 +47,8 @@ export default (combineReducers)({
     chatWithStudent:chatMessagesReducer,
     onlineUsers:onlineUsersReducer,
     currentCourseChat:currentCourseChatReducer,
-    currentCourseTeacher:currentCourseTeacherReducer
+    currentCourseTeacher:currentCourseTeacherReducer,
+    chatsWithTeachers:chatsWithTeacherReducer,
+    chatsWithStudents:chatsWithStudentsReducer,
+    interlocutor:interlocutorReducer,
 })

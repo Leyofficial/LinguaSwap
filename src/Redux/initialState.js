@@ -22,4 +22,7 @@ export const initialState = {
   onlineUsers:[],
   currentCourseChat:null,
   currentCourseTeacher:null,
+  chatsWithTeacher:null,
+  chatsWithStudents:null,
+  interlocutor:null
 }
