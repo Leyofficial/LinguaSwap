@@ -24,5 +24,6 @@ export const initialState = {
   currentCourseTeacher:null,
   chatsWithTeacher:null,
   chatsWithStudents:null,
-  interlocutor:null
+  interlocutor:null,
+  chatWithMemberCourse:null
 }

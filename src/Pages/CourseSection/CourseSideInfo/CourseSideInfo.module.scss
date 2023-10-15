@@ -1,0 +1,37 @@
+.wrapperSideInfo {
+  width: 40%;
+
+  div {
+    padding-bottom: 4vh;
+
+    img {
+      padding-right: 3vh;
+      max-width: 50px;
+    }
+  }
+}
+.members {
+  padding-top: 4vh;
+  h3 {
+
+    color: rgba(45, 113, 136, 0.54);
+    padding-bottom: 4vh;
+  }
+
+  img {
+    padding-right: 0 !important;
+  }
+}
+
+.containerDate {
+  display: flex;
+
+  .wrapperDate {
+    display: flex;
+    padding-right: 4vh;
+  }
+}
+.item{
+  display: flex;
+  align-items: center;
+}
