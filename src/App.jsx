@@ -81,7 +81,7 @@ function App() {
                <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
                <Route path={"/login"} element={isAuth ? <PersonalProfile/> : <Login/>}/>
                <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
-               <Route path={"/createprofile"} element={<CreateProfile/>}/>
+               <Route path={"/createprofile"} element={isAuth ?  <CreateProfile/> : <Login/> }/>
                <Route path={"/findteacher"} element={<TeachersSection/>}/>
                <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
                <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>

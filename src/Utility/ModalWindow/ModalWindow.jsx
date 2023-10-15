@@ -26,7 +26,7 @@ function ModalWindow({children}) {
                 <CustomButton
                     title={"Join"}
                     typeOfButton={"button"}
-                    callback={joinLink}
+                    callback={joinLink()}
                 />
             </div>
         </>
