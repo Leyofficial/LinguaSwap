@@ -1,8 +1,8 @@
 import style from './SearchInput.module.scss'
 import {CgSearch} from "react-icons/cg";
+import {ISearchInput} from "./types.ts";
 
-const SearchInput = (props) => {
-
+const SearchInput = (props : ISearchInput) => {
   const {placeholder,value,callback} = props
   return (
     <div className={style.container}>

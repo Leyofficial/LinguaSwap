@@ -1,11 +1,11 @@
 import style from './WholeProfile.module.scss'
-import {Avatar, Skeleton, Stack} from "@mui/material";
+import {Avatar} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link} from "react-router-dom";
 import React from "react";
 
-function WholeProfile({user , isPersonal}) {
+function WholeProfile({user}) {
     return (
         <>
             <div className={style.container}>

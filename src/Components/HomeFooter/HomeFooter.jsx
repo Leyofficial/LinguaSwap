@@ -3,7 +3,7 @@ import {LiaTelegramPlane} from "react-icons/lia";
 import {BiLogoInstagram, BiLogoTwitter} from "react-icons/bi";
 import logoImage from '../../img/icons/ukraine.png'
 import NetworkItem from "./NetworkItem/NetworkItem.jsx";
-import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
+import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.tsx";
 
 const HomeFooter = () => {
 

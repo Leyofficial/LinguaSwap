@@ -19,9 +19,11 @@ const CreateProfile: FC = () => {
     };
   const renderPoints = (step1: boolean, step2: boolean, step3: boolean) => (
       <div className={style.points}>
-        {[step1, step2, step3].map((step: boolean, index: number) => (
-            <Points key={index} checked={step} />
-        ))}
+          {[step1, step2, step3].map((step: boolean, index: number) => (
+          <Points key={index} checked={step} />
+      ))}
+
+
       </div>
   );
 

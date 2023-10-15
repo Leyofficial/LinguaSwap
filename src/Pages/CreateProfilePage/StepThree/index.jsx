@@ -10,7 +10,7 @@ import {
     setLanguagesLearnActionCreater
 } from "../../../Redux/Profile/Languages/languagesLearn/setLanguagesLearnActionCreater.js";
 import CustomSelector from "../../../Utility/CustomSelector/CustomSelector.jsx";
-import Spinner from "../../../Utility/Spinner/Spinner.jsx";
+import Spinner from "../../../Utility/Spinner/Spinner.tsx";
 import {ProfileUser, saveProfileImage} from "../../../ApiRequests/CreateProfile/Profile.js";
 import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
 

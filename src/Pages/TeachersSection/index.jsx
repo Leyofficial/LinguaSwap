@@ -4,13 +4,12 @@ import style from './Teachers.module.scss'
 import {Select, Space} from "antd";
 import {Teachers} from "../../ApiRequests/Teacher/Teachers.js";
 
-import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
+import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
 import TeacherCard from "./TeacherCard/TeacherCard.jsx";
 
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
-import {TypeAnimation} from "react-type-animation";
 
 const TeachersSection = () => {
     const languages = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']

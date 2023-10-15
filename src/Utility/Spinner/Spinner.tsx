@@ -1,6 +1,6 @@
-
 import style from './Spinner.module.scss'
-function Spinner ({ loaderIsOpen}) {
+import {ISpinner} from "./types.ts";
+function Spinner ({ loaderIsOpen } : ISpinner) {
     return(
         <div style={loaderIsOpen ? {display : 'block'} : {display : 'none'} }>
             <div style={loaderIsOpen ? {display : 'block'} : {display : 'none'}} className={style.overlay}></div>
