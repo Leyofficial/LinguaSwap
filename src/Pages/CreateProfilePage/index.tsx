@@ -4,7 +4,7 @@ import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
 import StepThree from "./StepThree/index.jsx";
 import Points from "../../Utility/Points";
-import ModalWindow from "../../Utility/ModalWindow/ModalWindow.jsx";
+import ModalWindow from "../../Utility/ModalWindow/ModalWindow.js";
 import {FC, useState} from "react";
 
 const CreateProfile: FC = () => {
@@ -55,8 +55,7 @@ const CreateProfile: FC = () => {
                     <>
                         {renderPoints(true, true, true)}
                         <img className={style.firework} width={'100%'} src={firework} alt=""/>
-                        <ModalWindow
-                            children={'Congratulations on registering for our language learning platform! 🎉🥳 We are thrilled to have you join our community! 😀💪'}/>
+                        <ModalWindow children={'Congratulations on registering for our language learning platform! 🎉🥳 We are thrilled to have you join our community! 😀💪'}/>
                     </>
                 )
             default:

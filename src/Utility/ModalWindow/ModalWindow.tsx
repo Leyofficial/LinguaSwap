@@ -2,11 +2,11 @@ import style from './ModalWindow.module.scss'
 import {TypeAnimation} from "react-type-animation";
 import CustomButton from "../CustomButton/CustomButton.jsx";
 import {useNavigate} from "react-router-dom";
+import {IModalProps} from "./types.ts";
 
-function ModalWindow({children}) {
+function ModalWindow(props : IModalProps) {
     const navigate = useNavigate()
-
-    function joinLink() {
+    function joinLink() : any {
         navigate('/')
     }
 
@@ -16,7 +16,7 @@ function ModalWindow({children}) {
             <div className={style.modal}>
                 <section className={style.modalMain}>
                     <h2><TypeAnimation sequence={[
-                        `${children}`, 4000, 'Thank you 😁!', 3000, 'You will enjoy it 🥰!', 3000]} speed={50}
+                        `${props.children}`, 4000, 'Thank you 😁!', 3000, 'You will enjoy it 🥰!', 3000]} speed={50}
                                        style={{display: 'inline-block'}} repeat={Infinity}>
                     </TypeAnimation>
                     </h2>

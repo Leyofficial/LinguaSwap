@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable react/prop-types.ts */
 import { useState } from 'react'
 import style from './CustomInput.module.scss'
 import { useDispatch } from 'react-redux'
