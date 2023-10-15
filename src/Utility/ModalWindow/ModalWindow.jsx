@@ -3,7 +3,7 @@ import {TypeAnimation} from "react-type-animation";
 import CustomButton from "../CustomButton/CustomButton.jsx";
 import {useNavigate} from "react-router-dom";
 
-function ModalWindow({handleClose, show, children}) {
+function ModalWindow({children}) {
     const navigate = useNavigate()
 
     function joinLink() {
@@ -26,7 +26,7 @@ function ModalWindow({handleClose, show, children}) {
                 <CustomButton
                     title={"Join"}
                     typeOfButton={"button"}
-                    callback={joinLink()}
+                    callback={joinLink}
                 />
             </div>
         </>

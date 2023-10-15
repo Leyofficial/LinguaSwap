@@ -5,7 +5,6 @@ import {Link} from "react-scroll";
 import {HeaderItem} from "./HeaderItem.tsx";
 import List from "../../../Utility/List/List.tsx";
 
-
 const HeaderWrapper = ({navItems} : INavItems) => {
   return (
     <header className={style.header}>

@@ -5,7 +5,7 @@ import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import './App.css'
 import {useDispatch, useSelector} from "react-redux";
-import CreateProfile from "./Pages/CreateProfilePage/index"
+import CreateProfile from "./Pages/CreateProfilePage/index.tsx"
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";

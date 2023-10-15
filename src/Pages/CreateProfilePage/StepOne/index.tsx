@@ -1,17 +1,18 @@
 import CustomButton from "../../../Utility/CustomButton/CustomButton";
 import style from "./StepOne.module.scss";
 import toast, {Toaster} from "react-hot-toast";
-
-import {Selectors} from "./Selectors/index.jsx";
-import {TextArea} from "./TextArea/index.jsx";
-import {Inputs} from "./Inputs/index.jsx";
+import {Selectors} from "./Selectors";
+import {TextArea} from "./TextArea";
+import {Inputs} from "./Inputs";
 import {useSelector} from "react-redux";
-const StepOne = (props) => {
+import {IStepsProps} from "../types.ts";
+const StepOne = (props : IStepsProps) => {
 
-    const dirtyName = useSelector((state) => state.nameDirty);
-    const dirtyHash = useSelector((state) => state.hashDirty);
+    // Should be hook useTypedSelector (later)
+    const dirtyName = useSelector((state : any) => state.nameDirty);
+    const dirtyHash = useSelector((state : any) => state.hashDirty);
 
-    function errorToaster(text) {
+    function errorToaster(text : string) {
         toast.error(text);
     }
 
@@ -29,10 +30,8 @@ const StepOne = (props) => {
                         <div className={style.textAreBlock}>
                             <TextArea/>
                         </div>
-                        <div
-                            onClick={() => errorToaster("Input fields must not be empty!")}
-                            className={style.buttonOne}
-                        >
+                        <div onClick={() => errorToaster("Input fields must not be empty!")}
+                            className={style.buttonOne} >
                             {dirtyName || dirtyHash ? (
                                 <>
                                     <Toaster position="top-right" reverseOrder={false}/>
