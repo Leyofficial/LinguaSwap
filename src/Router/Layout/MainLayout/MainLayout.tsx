@@ -8,7 +8,6 @@ const MainLayout = () => {
        <aside>
           <SideBar/>
        </aside>
-
       <main>
         <Outlet></Outlet>
       </main>

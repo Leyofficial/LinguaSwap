@@ -1,7 +1,8 @@
 import {NavLink} from "react-router-dom";
 import style from './SideBarItem.module.scss';
 import {ISidebarItem } from "../types";
-export function SideBarItem ({ name , index , sidebarOpen , path , callback , icon } : ISidebarItem) {
+export function SideBarItem (props : ISidebarItem) {
+    const {index , sidebarOpen , path , callback , icon , name} = props
     return (
         <div className={style.sidebarItemBlock}>
             <NavLink key={index}

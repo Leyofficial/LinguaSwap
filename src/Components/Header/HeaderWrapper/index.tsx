@@ -1,8 +1,9 @@
 import style from "../Header.module.scss";
 import headerIcon from "../../../img/icons/ukraine.png";
-import {INavItems} from "../types.ts";
+import {INavItems, INavWrapper} from "../types.ts";
 import {Link} from "react-scroll";
 import {HeaderItem} from "./HeaderItem.tsx";
+import List from "../../../Utility/List/List.tsx";
 
 
 const HeaderWrapper = ({navItems} : INavItems) => {
@@ -20,11 +21,7 @@ const HeaderWrapper = ({navItems} : INavItems) => {
           </div>
           <nav className={style.navBlock}>
             <div className={style.navList}>
-              {navItems.map((item,index) => {
-                return (
-                  <HeaderItem index={index} text={item.text} link={item.link}/>
-                );
-              })}
+              <List items={navItems} rerender={(item : INavWrapper, index : number) =>  <HeaderItem index={index} text={item.text} link={item.link}/>}/>
             </div>
           </nav>
         </div>

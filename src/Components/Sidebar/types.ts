@@ -2,7 +2,7 @@ export interface  ISidebarItems {
     path : string,
     name : string,
     icon : string,
-    callback? : any
+    callback? : () => boolean
 }
 export interface ISidebarItem extends ISidebarItems {
     index: number,

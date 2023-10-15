@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import back from './../../img/icons/back.png';
 import forward from './../../img/icons/back-2.png';
 import style from './Sidebar.module.scss';
 import {useNavigate} from "react-router";
-import {ISideBar} from "./types";
+import {ISideBar, ISidebarItem} from "./types";
 import {SideBarItem} from "./SideBarItem/SideBarItem";
-
-export function SideBar ({menuItems , defaultOpen} : ISideBar)  {
+import List from "../../Utility/List/List.tsx";
+export function SideBar ({menuItems, defaultOpen} : ISideBar)  {
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(defaultOpen  || false);
   const navigate = useNavigate()
@@ -30,14 +30,11 @@ export function SideBar ({menuItems , defaultOpen} : ISideBar)  {
       </div>
       <div className={style.sidebarWrapper}>
         <ul className={style.sidebarItems} >
-          {menuItems.map((item , index) => {
-            return <SideBarItem index={index}
-                                sidebarOpen={sidebarOpen}
-                                path={item.path}
-                                name={item.name}
-                                icon={item.icon}
-                                callback={item.callback ? goBack : undefined}/>
-          })}
+          <List items={menuItems} rerender={(item : ISidebarItem , index : number) => <SideBarItem index={index} sidebarOpen={sidebarOpen}
+                                                               path={item.path}
+                                                               name={item.name}
+                                                               icon={item.icon}
+                                                               callback={item.callback ? goBack : undefined}/> } />
         </ul>
       </div>
     </div>
