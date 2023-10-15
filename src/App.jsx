@@ -24,6 +24,8 @@ import socketIO from 'socket.io-client'
 import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
 import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
+import Create from "./Pages/CoursesSection/Create/Create.jsx";
+
 
 function App() {
    const isStart = useSelector((state) => state.isStart)
@@ -83,6 +85,7 @@ function App() {
                <Route path={"/findteacher"} element={<TeachersSection/>}/>
                <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
                <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
+               <Route path={'/course/create'} element={<Create/>}></Route>
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
                   <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithMemberOfCourse/>}></Route>

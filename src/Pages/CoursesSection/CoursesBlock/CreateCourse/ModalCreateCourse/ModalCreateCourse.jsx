@@ -89,8 +89,6 @@ const ModalCreateCourse = () => {
       }
       Course.create(data).then(res => {
          if (res.status === 200) {
-
-
            toast.success("The course was created");
             setIsCreatedCourse(true)
             axios.post('http://localhost:3000/chat/chatroom', {

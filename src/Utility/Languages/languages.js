@@ -14,3 +14,7 @@ export const languageOptions =  [
     { value: 'pl', label: 'Polish', color: '#ff0000' },
     { value: 'sv', label: 'Swedish', color: '#1f82b7' },
 ];
+
+export const languagesList = ["English","Ukrainian","Russian",'Spanish','French','German','Italian','Japanese','Korean','Chinese']
+export const levelList = ["Beginners","Elementary","Intermediate","Upper-Intermediate","Advanced","Proficiency"]
+export const durationList = ["1 hour","2 hour","30 minutes","10 minute"]

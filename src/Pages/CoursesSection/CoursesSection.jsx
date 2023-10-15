@@ -68,7 +68,7 @@ const CoursesSection = () => {
                            setEnrolment={setEnrolment}
                            setCategory={setCategory}
             ></CourseFilters>
-            <div>
+            <div className={style.create}>
                {currentUser && currentUser?.user.data?.status === "Teacher" ? <CreateCourse></CreateCourse> : null}
             </div>
          </div>

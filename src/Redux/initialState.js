@@ -25,5 +25,15 @@ export const initialState = {
   chatsWithTeacher:null,
   chatsWithStudents:null,
   interlocutor:null,
-  chatWithMemberCourse:null
+  chatWithMemberCourse:null,
+  createCourseData:{
+    title:"",
+    language:"",
+    level:"",
+    duration:"",
+    startDate:"",
+    finishDate:"",
+    description:"",
+    topics:[]
+  }
 }
