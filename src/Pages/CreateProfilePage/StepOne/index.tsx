@@ -8,7 +8,7 @@ import {useSelector} from "react-redux";
 import {IStepsProps} from "../types.ts";
 const StepOne = ((props : IStepsProps) => {
 
-    // Should be hook useTypedSelector (later)
+    // Should be useTypedSelector (later)
     const dirtyName = useSelector((state : any) => state.nameDirty);
     const dirtyHash = useSelector((state : any) => state.hashDirty);
 
