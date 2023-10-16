@@ -87,28 +87,28 @@ const ModalCreateCourse = () => {
             language: language
          }
       }
-      Course.create(data).then(res => {
-         if (res.status === 200) {
-           toast.success("The course was created");
-            setIsCreatedCourse(true)
-            axios.post('http://localhost:3000/chat/chatroom', {
-               idCourse: res.data.createCourse._id
-            })
-
-            setLevelListSelect("")
-            setTimesCourse("")
-            setLanguage("")
-            setTopics([])
-            setCourseImage('')
-            setDescriptionCourse('')
-            setStartCourse('')
-            setCourseName("")
-            setFinishCourse("")
-            setOpen(false)
-
-         }
-      }).catch(error => console.log(error)
-      )
+      // Course.create(data).then(res => {
+      //    if (res.status === 200) {
+      //      toast.success("The course was created");
+      //       setIsCreatedCourse(true)
+      //       axios.post('http://localhost:3000/chat/chatroom', {
+      //          idCourse: res.data.createCourse._id
+      //       })
+      //
+      //       setLevelListSelect("")
+      //       setTimesCourse("")
+      //       setLanguage("")
+      //       setTopics([])
+      //       setCourseImage('')
+      //       setDescriptionCourse('')
+      //       setStartCourse('')
+      //       setCourseName("")
+      //       setFinishCourse("")
+      //       setOpen(false)
+      //
+      //    }
+      // }).catch(error => console.log(error)
+      // )
    }
 
 

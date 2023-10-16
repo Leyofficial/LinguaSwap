@@ -46,7 +46,7 @@ function SkeletonProfile ({user}) {
                 </div>
                 <p className={style.languagesTitle}>Languages know :</p>
                 <div className={style.languagesBlock}>
-                    {user?.user.data.languagesKnow.map((item) => {
+                    {user?.user.data.languagesKnow?.map((item) => {
                         return <div key={item.label}>
                             <Skeleton variant="rectangular" width={50} height={30} />
                         </div>

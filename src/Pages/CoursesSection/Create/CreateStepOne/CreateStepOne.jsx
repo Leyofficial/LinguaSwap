@@ -9,7 +9,7 @@ import {getTitleAC} from "../../../../Redux/Courses/CreateCourseData/createCours
 import toast, {Toaster} from "react-hot-toast";
 import {Course} from "../../../../ApiRequests/Courses/Courses.js";
 
-const CreateStepOne = ({moveStepCallback, currentStep}) => {
+const CreateStepOne = ({moveStepCallback, currentStep,setPhoto}) => {
    const photo = useSelector((state) => state.photo)
    const createCourseData = useSelector((state) => state.createCourseData)
    const dispatch = useDispatch()
@@ -19,9 +19,11 @@ const CreateStepOne = ({moveStepCallback, currentStep}) => {
    }
 
    const clickHandler = () => {
+
       if (!createCourseData.title) {
-         toast.error("Title of course must be in");
          setError(true)
+         toast.error("Title of course must be in");
+
       } else {
          const data = new FormData()
 
@@ -29,7 +31,10 @@ const CreateStepOne = ({moveStepCallback, currentStep}) => {
 
          Course.saveImage(data).then(res => {
             console.log(res)
+            setPhoto(res.data.image.path)
+
          }).catch(error => {
+            setError(true)
             toast.error("Image has different type from PNG, JPEG,JPG or size of image too big");
             console.log(error)
 

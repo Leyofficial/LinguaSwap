@@ -1,4 +1,5 @@
 import {
+   RESET_COURSE_DATA,
    SET_DESCRIPTION_COURSE,
    SET_DURATION, SET_FINISH_DATE,
    SET_LANGUAGE,
@@ -56,5 +57,10 @@ export const getTopicAC = (topic ) => {
    return{
       type : SET_TOPICS,
       topic
+   }
+}
+export const resetCourseAC = () => {
+   return{
+      type:RESET_COURSE_DATA
    }
 }

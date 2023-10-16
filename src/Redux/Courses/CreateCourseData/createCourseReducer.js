@@ -9,6 +9,8 @@ export const SET_FINISH_DATE = "SET_FINISH_DATE"
 export const SET_DESCRIPTION_COURSE = "SET_DESCRIPTION_COURSE"
 
 export const SET_TOPICS = "SET_TOPICS"
+
+export const RESET_COURSE_DATA = "RESET_COURSE_DATA"
 const createCourseReducer = (dataCourse = initialState.createCourseData, action) => {
 
    switch (action.type) {
@@ -56,6 +58,19 @@ const createCourseReducer = (dataCourse = initialState.createCourseData, action)
          return {
             ...dataCourse,
             topics: [...dataCourse.topics, action.topic]
+         }
+      }
+      case RESET_COURSE_DATA : {
+         return {
+            ...dataCourse,
+            topics: [],
+            description: "",
+            finishDate: "",
+            startDate: "",
+            duration: "",
+            level: "",
+            language: "",
+            title:""
          }
       }
       default :

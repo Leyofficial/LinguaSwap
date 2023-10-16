@@ -7,6 +7,7 @@ import CreateStepThird from "./CreateStepThird/CreateStepThird.jsx";
 
 const Create = () => {
    const [currentStep, setCurrentStep] = useState(1)
+   const [photoCourse,setPhotoCourse] = useState(null)
 
    const moveStep = (currentStep) => {
       if (currentStep < 3) {
@@ -28,10 +29,10 @@ const Create = () => {
          </section>
 
          <article>
-            {currentStep === 1 ? <CreateStepOne currentStep={currentStep}
+            {currentStep === 1 ? <CreateStepOne currentStep={currentStep} setPhoto={setPhotoCourse}
                                                 moveStepCallback={moveStep}></CreateStepOne>
                : (currentStep === 2 ? <CreateStepTwo currentStep={currentStep} moveStepCallback={moveStep} moveStepBackCallback={moveStepBack}></CreateStepTwo> :
-                  <CreateStepThird currentStep={currentStep} moveStepBackCallback={moveStepBack}></CreateStepThird>)
+                  <CreateStepThird photoCourse={photoCourse} currentStep={currentStep} moveStepBackCallback={moveStepBack}></CreateStepThird>)
             }
          </article>
       </div>
