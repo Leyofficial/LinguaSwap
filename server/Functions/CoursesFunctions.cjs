@@ -14,7 +14,8 @@ exports.createCourse = async (req, res, next) => {
          startCourse: req.body.data.course.startCourse,
          subjects: req.body.data.course.subjects,
          level: req.body.data.course.level,
-         language: req.body.data.course.language
+         language: req.body.data.course.language,
+         description:req.body.data.course.description
       }
    })
    try {

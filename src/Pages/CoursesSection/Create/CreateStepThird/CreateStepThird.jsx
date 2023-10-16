@@ -63,7 +63,8 @@ const CreateStepThird = ({moveStepBackCallback, currentStep, photoCourse}) => {
                   subjects: createCourseData.topics,
                   level: createCourseData.level,
                   language: createCourseData.language,
-                  enrolment: "Free"
+                  enrolment: "Free",
+                  description:createCourseData.description
                }
             }
             dispatch(createCourseThunkCreator(data, setSucceed, navigate, setError))

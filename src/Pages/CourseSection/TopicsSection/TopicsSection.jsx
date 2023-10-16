@@ -9,10 +9,7 @@ const TopicsSection = ({currentCourse}) => {
       <div className={style.descriptionContainer}>
          <div className={style.description}>
             <h2>We will learn</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae deleniti dolores excepturi
-               magni nam
-               nulla provident saepe sequi, totam. Animi aut laborum natus optio porro repellendus, repudiandae
-               totam! Dolorum, iste?</p>
+            <p>{currentCourse?.course.description}</p>
          </div>
          <div className={style.topics}>
             {currentCourse?.course.subjects.map((topic, index) => <ShowTopicCourse curIndex={currentTopic}

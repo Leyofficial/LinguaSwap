@@ -18,7 +18,8 @@ const CoursesSchema = new mongoose.Schema({
     }],
     level:String,
     language:String,
-    enrolment:String | Number
+    enrolment:String | Number,
+    description:String
   }
 })
 

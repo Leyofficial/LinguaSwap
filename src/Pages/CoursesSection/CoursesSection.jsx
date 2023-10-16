@@ -7,6 +7,7 @@ import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.js";
 import CourseFilters from "./CourseFilters/CourseFilters.jsx";
+import NotFoundItems from "../../Utility/NotFound/NotFoundItems.jsx";
 
 const CoursesSection = () => {
 
@@ -56,7 +57,7 @@ const CoursesSection = () => {
 
    }, [languageFilter, enrolment])
 
-
+   console.log(currentCourses)
    return (
       <div className={style.container}>
          <div className={style.searchWrapper}>
@@ -73,10 +74,12 @@ const CoursesSection = () => {
             </div>
          </div>
          <div className={style.coursesWrapper}>
-            {!foundCourse ?
-               currentCourses.map(course => <CoursesBlock course={course}></CoursesBlock>)
-               :
-               foundCourse.map(foundItems => <CoursesBlock course={foundItems}></CoursesBlock>)}
+
+            {!currentCourses.length && !foundCourse ?  <NotFoundItems></NotFoundItems> : (
+               !foundCourse ? currentCourses.map((course,index) => <CoursesBlock key={index} course={course}></CoursesBlock>) :
+                  foundCourse.map((foundItems,index) => <CoursesBlock key={index} course={foundItems}></CoursesBlock>)
+
+            )}
 
          </div>
          <div className={style.paginationWrapper}>

@@ -16,7 +16,7 @@ const ShowTopicCourse = (props) => {
          setOpen(true)
       }
    }
-   console.log(topic)
+
    return (
       <>
          <div>
@@ -25,9 +25,7 @@ const ShowTopicCourse = (props) => {
                   <p>{topic.topic}</p>
                   <GiImbricatedArrows className={open && curIndex === currentTopicIndex ? style.open : null} onClick={() => changeTopicStatus(currentTopicIndex)}></GiImbricatedArrows>
                </div>
-               <span className={curIndex === currentTopicIndex ? style.show : style.hidden}>Lorem ipsum dolor sit amet,
-               consectetur adipisicing elit. A consectetur consequuntur debitis fuga ipsam iste laboriosam
-               mollitia nihil nobis non, pariatur recusandae sed sint temporibus ullam veritatis vero voluptate voluptatibus.</span>
+               <span className={curIndex === currentTopicIndex ? style.show : style.hidden}>{topic.description}</span>
             </div>
          </div>
       </>
