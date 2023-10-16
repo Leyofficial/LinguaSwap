@@ -27,7 +27,7 @@ const CourseChat = () => {
    const socket = useSelector((state) => state.socket)
    const currentCourse = useSelector((state) => state.currentCourseChat)
    const currentCourseTeacher = useSelector((state) => state.currentCourseTeacher)
-console.log(chat)
+
    useEffect(() => {
 
       dispatch(getCurrentCourseForChatThunkCreator(idCourse))

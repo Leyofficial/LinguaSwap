@@ -23,8 +23,8 @@ export const getChatWithMemberThunkCreator = (idTeacher, idStudent, chatStatus) 
          const response = await teacherChats.getChatWithTeacher(idTeacher, idStudent)
          if (response.status === 200) {
             dispatch(chatMessagesAC(response.data.findChatTeacher))
+            const responseUser = await getUser(chatStatus === 'student' ? response.data.findChatTeacher.idStudent : response.data.findChatTeacher.idTeacher)
 
-            const responseUser = getUser(chatStatus === 'student' ? response.data.findChatTeacher.idStudent : response.data.findChatTeacher.idTeacher)
             if (responseUser.status === "Succeed") {
                dispatch(getChatMember(responseUser.user))
             }
@@ -45,7 +45,6 @@ export const sendSocketMessageThunkCreator = (messageData, chatId, socket, idTea
             socket.emit("privateMessage", messageData)
             const chatResponse = await teacherChats.getChatWithTeacher(idTeacher, idStudent)
             if (chatResponse.status === 200) {
-               dispatch(addChatMessage(messageData))
                scroll.current?.scrollIntoView({behavior: "smooth"})
             }
          }

@@ -45,9 +45,7 @@ const ChatWithMemberOfCourse = () => {
    useEffect(() => {
       if (socket)
          socket.on("privateResponse", (data) => {
-            if (data) {
                dispatch(addChatMessage(data))
-            }
          })
 
    }, [socket])
@@ -61,7 +59,7 @@ const ChatWithMemberOfCourse = () => {
       <MessagesSection name={interlocutor?.user.data.name}
                        sendMessageHandler={sendMessageHandler}
                        scroll={scroll}
-                       messages={chat?.messages}
+                       messages={chat.messages}
       ></MessagesSection>
 
    );

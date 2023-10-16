@@ -3,9 +3,9 @@ import style from './MessagesSection.module.scss'
 import Message from "../Message/Message.jsx";
 import {AiOutlinePaperClip} from "react-icons/ai";
 import {LuSend} from "react-icons/lu";
+import {useSelector} from "react-redux";
 
 const MessagesSection = (props) => {
-
    const [message, setMessage] = useState("")
    const {title, name, sendMessageHandler, scroll,messages} = props
 

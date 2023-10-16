@@ -10,7 +10,7 @@ const SingleMessage = ({item,teacher}) => {
 
       return `${time < 10 ? "0" + time : time}:${minutes < 10 ? "0" + minutes : minutes}`
    }
-   console.log(teacher)
+
    return (
       <div className={style.wrapper}>
          <p className={style.nameAuthor}>{teacher?.user.data.name}</p>
