@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import style from './Create.module.scss'
-import Points from "../../../Utility/Points/index.jsx";
+import Points from "../../../Utility/Points/index.tsx";
 import CreateStepOne from "./CreateStepOne/CreateStepOne.jsx";
 import CreateStepTwo from "./CreateStepTwo/CreateStepTwo.jsx";
 import CreateStepThird from "./CreateStepThird/CreateStepThird.jsx";
@@ -25,7 +25,7 @@ const Create = () => {
          <section className={style.stepItems}>
             <Points checked={currentStep > 1}></Points>
             <Points checked={currentStep > 2}></Points>
-            <Points></Points>
+            <Points checked={false}></Points>
          </section>
 
          <article>

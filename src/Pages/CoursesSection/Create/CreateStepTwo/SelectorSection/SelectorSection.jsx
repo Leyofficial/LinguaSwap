@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "./SelectorSection.module.scss";
 import CourseSelect from "../../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.jsx";
-import {durationList, languagesList, levelList} from "../../../../../Utility/Languages/languages.js";
+import {durationList, languagesList, levelList} from "../../../../../Utility/Languages/languages.ts";
 import CreateTooltip from "../../CreateTooltip/CreateTooltip.jsx";
 import {
    getDurationAC,
