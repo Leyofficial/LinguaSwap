@@ -14,10 +14,12 @@ const interlocutorReducer = (interlocutor = initialState.interlocutor, action) =
 export default interlocutorReducer
 
 export const getInterlocutorThunkCreator = (chatStatus, item) => {
+
    return async (dispatch) => {
       try {
          const response = await getUser(chatStatus === "teacher" ? item.idTeacher : item.idStudent)
-         if (response.status === 200) {
+
+         if (response.status === "Succeed") {
             dispatch(getInterlocutorAC(response.user))
          }
       } catch (err) {
