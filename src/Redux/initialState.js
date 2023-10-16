@@ -22,4 +22,18 @@ export const initialState = {
   onlineUsers:[],
   currentCourseChat:null,
   currentCourseTeacher:null,
+  chatsWithTeacher:null,
+  chatsWithStudents:null,
+  interlocutor:null,
+  chatWithMemberCourse:null,
+  createCourseData:{
+    title:"",
+    language:"",
+    level:"",
+    duration:"",
+    startDate:"",
+    finishDate:"",
+    description:"",
+    topics:[]
+  }
 }

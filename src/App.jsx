@@ -18,14 +18,14 @@ import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.jsx";
 import PersonalProfile from "./Pages/PersonalProfile/index.jsx";
 import {loginUserAC} from "./Redux/login/loginUserAC.js";
-
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
-import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.jsx";
+import ChatWithMemberOfCourse from "./Pages/CourseChat/ChatWithTeacher/ChatWithMemberOfCourse.jsx";
 import socketIO from 'socket.io-client'
 import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
-import StudentDialog from "./Pages/CourseChat/ChatWithStudents/StudentDialog/StudentDialog.jsx";
 import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
+import Create from "./Pages/CoursesSection/Create/Create.jsx";
+
 
 function App() {
    const isStart = useSelector((state) => state.isStart)
@@ -85,11 +85,10 @@ function App() {
                <Route path={"/findteacher"} element={<TeachersSection/>}/>
                <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
                <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
-               <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
+               <Route path={'/course/create'} element={<Create/>}></Route>
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
-                  <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
-                  <Route path={'/course/chat/student/:idTeacher/:idStudent'} element={<StudentDialog/>}></Route>
+                  <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithMemberOfCourse/>}></Route>
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
             </Route>

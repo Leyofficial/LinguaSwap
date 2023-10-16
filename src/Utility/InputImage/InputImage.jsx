@@ -8,7 +8,7 @@ import {setPhotoAC} from "../../Redux/Profile/Photo/deletePhotoAC.js";
 
 
 
-export const ImageInput = ({avatarText, actionCreater, selector}) => {
+export const ImageInput = ({avatarText , actionCreater, selector}) => {
     const dispatch = useDispatch();
 
     const {getRootProps, getInputProps, acceptedFiles = selector} = useDropzone({

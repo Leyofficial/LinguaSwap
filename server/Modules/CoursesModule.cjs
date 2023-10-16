@@ -12,10 +12,14 @@ const CoursesSchema = new mongoose.Schema({
     durationCourse:String,
     members:[String] ,
     image:String,
-    subjects:[String],
+    subjects:[{
+      topic:String,
+      description:String
+    }],
     level:String,
     language:String,
-    enrolment:String | Number
+    enrolment:String | Number,
+    description:String
   }
 })
 
