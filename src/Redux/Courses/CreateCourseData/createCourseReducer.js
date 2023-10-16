@@ -3,6 +3,8 @@ import {Course} from "../../../ApiRequests/Courses/Courses.js";
 import {resetCourseAC} from "./createCourseAC.js";
 import {setPhotoAC} from "../../Profile/Photo/deletePhotoAC.js";
 import toast from "react-hot-toast";
+import {createChatRoomCourse} from "../../../ApiRequests/Chat.jsx";
+import {teacherChats} from "../../../ApiRequests/TeacherChats/TeacherChats.js";
 
 export const SET_TITLE = "SET_TITLE"
 export const SET_LANGUAGE = "SET_LANGUAGE"
@@ -88,6 +90,8 @@ export const createCourseThunkCreator = (data,setSucceed,navigate,setError) => {
       try {
          const response = await Course.create(data)
          if(response.status === 200) {
+
+             await createChatRoomCourse(response.data.createCourse._id)
             dispatch(resetCourseAC())
             dispatch(setPhotoAC())
             setSucceed(true)

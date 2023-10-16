@@ -20,3 +20,9 @@ import axios from "axios";
 export const getCoursesForUserChat =  async (idUser) => {
   return axios.get(`http://localhost:3000/courses/${idUser}`)
 }
+
+export const createChatRoomCourse = async (idCourse) => {
+  return axios.post('http://localhost:3000/chat/chatroom', {
+    idCourse
+  })
+}

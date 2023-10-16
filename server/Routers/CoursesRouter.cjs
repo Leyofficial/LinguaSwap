@@ -4,7 +4,7 @@ const coursesRouter = express.Router();
 
 const coursesFunctions = require('../Functions/CoursesFunctions.cjs')
 
-coursesRouter.route('/')
+coursesRouter.route('/:joinedUserId?')
    .get(coursesFunctions.getCourses)
    .post(coursesFunctions.createCourse)
 

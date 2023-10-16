@@ -34,7 +34,7 @@ export const getUserByToken = (token) => {
 
 export const getUser = async (idUser) => {
 
-    if(idUser !== 'default' && idUser) {
+    if(idUser) {
         try{
             let response = await axios.get(`http://localhost:3000/authorization/${idUser}`)
 

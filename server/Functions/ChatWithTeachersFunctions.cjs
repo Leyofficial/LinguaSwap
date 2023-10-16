@@ -30,9 +30,9 @@ exports.getChatTeacher = async (req,res) => {
    const findChatTeacher = await ChatWithTeacher.findOne({"idTeacher":idTeacher, "idStudent":idStudent})
 
    if(!findChatTeacher) {
-      res.status(404).json({
-         status:"Error",
-         message:"Something went wrong"
+      res.status(201).json({
+         status:"Not found",
+         message:"Chat was not found"
       })
    }else{
       res.status(200).json({

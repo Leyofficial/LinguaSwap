@@ -8,7 +8,7 @@ const AvatarGroupSection = ({items, maxCount}) => {
    const [avatars, setAvatars] = useState([])
 
    useEffect(() => {
-
+console.log(avatars)
       const loadAvatars = async () => {
          const loadedAvatars = await Promise.all(items.map(item => getUserAvatar(item)))
          setAvatars(loadedAvatars)

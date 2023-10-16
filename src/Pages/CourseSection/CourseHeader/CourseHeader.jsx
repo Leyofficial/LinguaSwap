@@ -19,7 +19,7 @@ const CourseHeader = ({joinHandler, errorJoin}) => {
          <div className={style.headerTitle}>
             <div className={style.wrapperTitle}>
                <h1>{currentCourse?.course.name}</h1>
-               <button onClick={() => joinHandler(loginUser._id)}>Join to course</button>
+               {loginUser?.user.data?.status !== "Teacher" ? <button onClick={() => joinHandler(loginUser._id)}>Join to course</button> : null}
                {errorJoin ? <Toaster position="top-right" reverseOrder={false}/> : null}
             </div>
 

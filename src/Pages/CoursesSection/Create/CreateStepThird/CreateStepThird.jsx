@@ -47,6 +47,7 @@ const CreateStepThird = ({moveStepBackCallback, currentStep, photoCourse}) => {
    }
    const createCourseHandler = () => {
       if (createCourseData.topics.length === 3) {
+
          if (currentUser._id) {
             const data = {
                teacher: {

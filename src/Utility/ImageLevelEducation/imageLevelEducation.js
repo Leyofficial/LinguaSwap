@@ -7,7 +7,7 @@ export const ImageLevelEducation = (level) => {
 
    switch (level){
       case 'Advanced' : return advanced
-      case 'Beginner' : return beginner
+      case 'Beginners' : return beginner
       case 'Intermadiate' : return intermediate
       case 'Intermediate' : return intermediate
       case 'Pre-intermediate': return intermediate

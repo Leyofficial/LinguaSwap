@@ -20,11 +20,10 @@ const ChatWithMemberOfCourse = () => {
    const chatStatus = useSelector((state) => state.chatStatus) // show students - show teachers
    const interlocutor = useSelector((state) => state.chatMemberOfCourse) // собеседник
 
-
    useEffect(() => {
 
-      dispatch(getChatWithMemberThunkCreator(idTeacher,idStudent,chatStatus))
-   }, [idTeacher, idStudent,chatStatus])
+      dispatch(getChatWithMemberThunkCreator(idTeacher, idStudent, chatStatus))
+   }, [idTeacher, idStudent, chatStatus])
 
    const sendMessageHandler = (message) => {
 
@@ -36,7 +35,7 @@ const ChatWithMemberOfCourse = () => {
 
       if (message && socket) {
 
-         dispatch(sendSocketMessageThunkCreator(messageData,chat._id,socket,idTeacher,idStudent,scroll))
+         dispatch(sendSocketMessageThunkCreator(messageData, chat._id, socket, idTeacher, idStudent, scroll))
 
       } else {
          console.log("Write some text pls ")

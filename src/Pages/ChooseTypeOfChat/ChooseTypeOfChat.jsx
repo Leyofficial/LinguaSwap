@@ -20,7 +20,7 @@ const ChooseTypeOfChat = () => {
                <ul>
                   <TypeOfChat title={"Courses"} item={"course"}></TypeOfChat>
 
-                  {currentUser?.user.data.status === "Teacher" ?
+                  {currentUser?.user.data?.status === "Teacher" ?
                      <TypeOfChat title={"Students"} item={"student"}></TypeOfChat> :
                      <TypeOfChat title={"Teachers"} item={"teacher"}></TypeOfChat>
                   }

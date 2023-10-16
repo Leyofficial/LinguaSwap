@@ -10,6 +10,7 @@ import SideItem from "./SideItem/SideItem.jsx";
 import {useSelector} from "react-redux";
 
 const CourseSideInfo = () => {
+
    const currentCourse = useSelector((state) => state.currentCourse)
    return (
       <div className={style.wrapperSideInfo}>
