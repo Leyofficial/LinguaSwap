@@ -22,9 +22,9 @@ export function  TextArea () {
             </p>
             <textarea
                 value={bio}
-                onClick={handleTextareaClick}
+                onClick={() => handleTextareaClick()}
                 onBlur={handleTextareaBlur}
-                onChange={(event) => dispatch(setBioAC(event.target.value))}
+                onChange={(event : React.ChangeEvent<HTMLTextAreaElement>) => dispatch(setBioAC(event.target.value))}
                 style={{
                     border: isClicked ? "2px solid dodgerblue" : "1px solid gray",
                 }}

@@ -2,7 +2,7 @@ import style from "./CreateProfile.module.scss";
 import firework from '../../img/icons/firework.jpg'
 import StepOne from "./StepOne";
 import StepTwo from "./StepTwo";
-import StepThree from "./StepThree/index.jsx";
+import StepThree from "./StepThree";
 import Points from "../../Utility/Points";
 import ModalWindow from "../../Utility/ModalWindow/ModalWindow.js";
 import {FC, useState} from "react";
@@ -22,8 +22,6 @@ const CreateProfile: FC = () => {
           {[step1, step2, step3].map((step: boolean, index: number) => (
           <Points key={index} checked={step} />
       ))}
-
-
       </div>
   );
 
