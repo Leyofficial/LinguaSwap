@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import style from './Teachers.module.scss'
-import {Select, Space} from "antd";
 import {Teachers} from "../../ApiRequests/Teacher/Teachers.js";
 
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
@@ -10,44 +9,23 @@ import TeacherCard from "./TeacherCard/TeacherCard.jsx";
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
+import {IWholeUser} from "../PersonalProfile/WholeProfile/types.ts";
+import {Select, Space} from "antd";
+import {ILanguages} from "../../Utility/ModalProfile/types.ts";
 
 const TeachersSection = () => {
-    const languages = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
+    const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
-    const [searchValue, setSearchValue] = useState(null)
+    const [searchValue, setSearchValue] = useState<string>('')
     const [languageFilter, setLanguageFilter] = useState(null)
-    const [foundTeacher, setFoundTeacher] = useState(null)
+    const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | boolean>([])
     const [loadTeacher, setLoadTeacher] = useState(false)
     const dispatch = useDispatch()
-    const teachers = useSelector((state) => state.teachers);
+    const teachers = useSelector((state: any) => state.teachers);
 
-    function errorToaster(text) {
+    function errorToaster(text: string) {
         toast.error(text);
     }
-
-    useEffect(() => {
-        if (searchValue) {
-            const item = searchTeacherItem()
-            console.log(item)
-            setFoundTeacher(item)
-        }
-
-        if (languageFilter) {
-            const item = filterLanguageItem();
-            setFoundTeacher(item)
-        }
-        if (!searchValue && languageFilter === 'All') {
-            setFoundTeacher(teachers)
-        }
-        if (searchValue && languageFilter !== 'All') {
-            const filteredLanguages = filterLanguageItem();
-            if (filteredLanguages) {
-                const foundItems = filteredLanguages.filter((item) => item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase()));
-                setFoundTeacher(foundItems);
-            }
-        }
-    }, [languageFilter, searchValue]);
-
 
     useEffect(() => {
         Teachers.getTeachers().then(res => {
@@ -63,21 +41,29 @@ const TeachersSection = () => {
         })
     }, []);
 
-
     useEffect(() => {
         if (searchValue) {
-            const item = searchTeacherItem()
+            const item = searchTeacherItem();
             setFoundTeacher(item)
         } else {
-            setFoundTeacher(null)
+            setFoundTeacher(false)
         }
+        if (languageFilter && searchValue && languageFilter !== 'All') {
+            const item = searchTeacherItem();
+            const filterInSearch = item.map((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === searchValue));
+            setFoundTeacher(filterInSearch);
+        }
+        if (languageFilter && languageFilter !== 'All') {
+            const item = filterLanguageItem()
+            setFoundTeacher(item)
+        }
+    }, [languageFilter, searchValue])
 
-    }, [searchValue])
 
-    const filterLanguageItem = () => teachers.filter(item =>
-        item.user.data.languagesKnow.find(item => item.label === languageFilter)
+    const filterLanguageItem = () => teachers.filter((item: IWholeUser) =>
+        item.user.data.languagesKnow.find((item: ILanguages): boolean => item.label === languageFilter)
     )
-    const searchTeacherItem = () => teachers.filter(item =>
+    const searchTeacherItem = () => teachers.filter((item: IWholeUser) =>
         item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase())
     )
 
@@ -106,7 +92,7 @@ const TeachersSection = () => {
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        {!foundTeacher ? teachers.map((item) => {
+                        {!foundTeacher ? teachers.map((item: IWholeUser) => {
                             if (!loadTeacher) {
                                 return <Stack spacing={4}>
                                     <Skeleton variant="circular" width={75} height={75}/>
@@ -123,15 +109,15 @@ const TeachersSection = () => {
                                                     languagesLearn={item.user.data.languagesLearn}
                                 />
                             }
-                        }) : (foundTeacher ? foundTeacher.map((item) => {
+                        }) : (foundTeacher ? foundTeacher.map((item: IWholeUser) => {
                                     return <TeacherCard
-                                                        id={item._id}
-                                                        name={item.user.data.name}
-                                                        hash={item.user.data.userTag}
-                                                        photo={item.user.data.photo}
-                                                        languages={item.user.data.languagesKnow}
-                                                        bio={item.user.data.bio}
-                                                        languagesLearn={item.user.data.languagesLearn}
+                                        id={item._id}
+                                        name={item.user.data.name}
+                                        hash={item.user.data.userTag}
+                                        photo={item.user.data.photo}
+                                        languages={item.user.data.languagesKnow}
+                                        bio={item.user.data.bio}
+                                        languagesLearn={item.user.data.languagesLearn}
                                     />
                                 }) :
                                 <div className={style.notFound}>

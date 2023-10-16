@@ -2,21 +2,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
-import WholeProfile from "./WholeProfile/index.jsx";
-import SkeletonProfile from "./WholeProfile/SkeletonProfile.jsx";
+import WholeProfile from "./WholeProfile";
+import SkeletonProfile from "./WholeProfile/SkeletonProfile.js";
 import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
-
 function PersonalProfile() {
-    const params = useParams();
-    const [contentLoad , setContentLoad] = useState(false)
-    const [actualProfile , setActualProfile ] = useState(null);
-    const currentUser = useSelector((state) => state.loginUser);
-    const [active , setActive ] = useState(false)
-    const userToken = JSON.parse(localStorage.getItem('loginUser'));
+    const {id} = useParams<string>();
+    const [contentLoad , setContentLoad] = useState<boolean>(false)
+    const [actualProfile , setActualProfile ] = useState<object>();
+    const currentUser = useSelector((state : any) => state.loginUser);
+    const [active , setActive ] = useState<boolean>(false)
+    const userToken = JSON.parse(localStorage.getItem('loginUser') || '');
     const dispatch = useDispatch();
+
     useEffect(() => {
-        if (params.id) {
-            UserProfile.getProfile(params.id).then(res => {
+        if (id) {
+            UserProfile.getProfile(id).then(res => {
                 if (res.status === 200) {
                     setActualProfile(res.data.user);
                     setTimeout(() => {
@@ -25,23 +25,22 @@ function PersonalProfile() {
                 }
             })
         } else {
-            dispatch(loginUserThunkCreator(userToken));
+            loginUserThunkCreator(userToken)(dispatch)
             setTimeout(() => {
                 setContentLoad(true)
             }, 600)
             }
-    }, [userToken , params]);
+    }, [userToken , id]);
     useEffect(() => {
-        if (params.id) {
+        if (id) {
             setActive(true)
         } else {
             setActive(false)
         }
-    }, [params]);
-    console.log(currentUser , actualProfile);
+    }, [id]);
     return (
         <>
-            {contentLoad ?  <WholeProfile user={active ? actualProfile : currentUser}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
+            {contentLoad  ?  <WholeProfile user={active ? actualProfile : currentUser}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
         </>
     )
 }

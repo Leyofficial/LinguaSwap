@@ -6,7 +6,7 @@ import {TextArea} from "./TextArea";
 import {Inputs} from "./Inputs";
 import {useSelector} from "react-redux";
 import {IStepsProps} from "../types.ts";
-const StepOne = ((props : IStepsProps) => {
+const StepOne = (props : IStepsProps) => {
 
     // Should be useTypedSelector (later)
     const dirtyName = useSelector((state : any) => state.nameDirty);

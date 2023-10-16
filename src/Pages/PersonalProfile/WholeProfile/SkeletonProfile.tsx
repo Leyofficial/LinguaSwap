@@ -3,17 +3,17 @@ import {Skeleton, Stack} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import React from "react";
+import {IUserProfile} from "./types.ts";
+import List from "../../../Utility/List/List.tsx";
+import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
 
-function SkeletonProfile ({user}) {
+function SkeletonProfile ({user} : IUserProfile) {
     return (
         <div className={style.container}>
         <Stack spacing={1}>
             <div className={style.block}>
             <div className={style.leftBlock}>
                 <div className={style.blockCenter}>
-                    {/* For variant="text", adjust the height via font-size */}
-                    {/*<Skeleton variant="text" sx={{ fontSize: '1rem' }} />*/}
-                    {/* For other variants, adjust the size with `width` and `height` */}
                     <div className={style.avatar}>
                         <Skeleton variant="circular" width={104} height={104} />
                     </div>
@@ -46,19 +46,15 @@ function SkeletonProfile ({user}) {
                 </div>
                 <p className={style.languagesTitle}>Languages know :</p>
                 <div className={style.languagesBlock}>
-                    {user?.user.data?.languagesKnow?.map((item) => {
-                        return <div key={item.label}>
-                            <Skeleton variant="rectangular" width={50} height={30} />
-                        </div>
-                    })}
+                    <List items={user?.user.data?.languagesKnow} rerender={(item : ILanguages) =><div key={item.label}>
+                        <Skeleton variant="rectangular" width={50} height={30} />
+                    </div>}></List>
                 </div>
                 <p className={style.languagesTitle}>Languages learn :</p>
                 <div className={style.languagesBlock}>
-                    {user?.user.data?.languagesLearn.map((item) => {
-                        return <div key={item.label}>
-                            <Skeleton variant="rectangular" width={50} height={30} />
-                        </div>
-                    })}
+                    <List items={user?.user.data?.languagesLearn} rerender={(item : ILanguages) => <div key={item.label}>
+                        <Skeleton variant="rectangular" width={50} height={30} />
+                    </div>}></List>
                 </div>
             </div>
             </div>
