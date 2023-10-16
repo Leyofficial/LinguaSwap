@@ -11,7 +11,7 @@ const CoursesBlock = ({course}) => {
 
 
    const membersDefault = [1, 2, 3, 4]
-
+console.log(course)
    return (
       <article className={style.container}>
          <NavLink to={`/course/${course._id}`}>
@@ -23,7 +23,7 @@ const CoursesBlock = ({course}) => {
                      <h3>{course.course.name}</h3>
                   </div>
                   <div className={style.members}>
-                     {<AvatarGroupSection maxCount={2} items={membersDefault} image={memberImage}></AvatarGroupSection>}
+                     {<AvatarGroupSection maxCount={2} items={course.course.members} image={memberImage}></AvatarGroupSection>}
                   </div>
                   <div className={style.infoWrapper}>
                      <p style={levelEducation(course.course.level)}>{course.course.level}</p>

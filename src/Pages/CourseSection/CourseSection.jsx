@@ -35,7 +35,6 @@ const CourseSection = () => {
       }
    }
 
-
    return (
       <div className={style.container}>
          <CourseHeader joinHandler={joinToCourseHandler} errorJoin={errorJoin}></CourseHeader>

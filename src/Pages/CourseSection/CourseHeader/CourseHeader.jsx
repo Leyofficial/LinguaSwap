@@ -5,12 +5,14 @@ import memberImage from "../../../images/member.png";
 import {Stack, Step, StepLabel, Stepper} from "@mui/material";
 import {ColorlibConnector, ColorlibStepIcon} from "../../../Utility/ProgressCourse/ProgressCourse.tsx";
 import {useSelector} from "react-redux";
+import {getStateOfCourse} from "./stateOfCourse.js";
 
 const CourseHeader = ({joinHandler, errorJoin}) => {
 
    const loginUser = useSelector((state) => state.loginUser)
    const currentCourse = useSelector((state) => state.currentCourse)
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
+
    return (
       <div className={style.containerHeader}>
 
@@ -29,7 +31,7 @@ const CourseHeader = ({joinHandler, errorJoin}) => {
 
             <div className={style.stepsWrapper}>
                <Stack sx={{width: '100%'}} spacing={4}>
-                  <Stepper alternativeLabel activeStep={1} connector={<ColorlibConnector/>}>
+                  <Stepper alternativeLabel activeStep={getStateOfCourse(currentCourse?.course.startCourse,currentCourse?.course.finishCourse)} connector={<ColorlibConnector/>}>
                      {steps.map((label) => (
                         <Step key={label}>
                            <StepLabel StepIconComponent={ColorlibStepIcon}>{label}</StepLabel>

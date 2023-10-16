@@ -15,15 +15,14 @@ const CourseSideInfo = () => {
       <div className={style.wrapperSideInfo}>
          <SideItem title={currentCourse?.course.language} path={countryFlag(currentCourse?.course.language)}></SideItem>
          <SideItem title={currentCourse?.course.level} path={ImageLevelEducation(currentCourse?.course.level)}></SideItem>
-         <SideItem title={"Duration of lesson" + currentCourse?.course.durationCourse} path={duration}></SideItem>
+         <SideItem title={"Duration of lesson " + currentCourse?.course.durationCourse} path={duration}></SideItem>
          <div className={style.containerDate}>
             <SideItem title={currentCourse?.course.startCourse} path={startCourseDate}></SideItem>
             <SideItem title={currentCourse?.course.finishCourse} path={finishCourseDate}></SideItem>
          </div>
          <div className={style.members}>
             <h3>Registered Students </h3>
-            <AvatarGroupSection maxCount={8} items={currentCourse?.course.members}
-                                image={memberImage}></AvatarGroupSection>
+            <AvatarGroupSection maxCount={8} items={currentCourse?.course.members}></AvatarGroupSection>
          </div>
       </div>
    );

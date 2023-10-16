@@ -16,13 +16,13 @@ const ShowTopicCourse = (props) => {
          setOpen(true)
       }
    }
-
+   console.log(topic)
    return (
       <>
          <div>
             <div className={style.wrapper}>
                <div className={style.topic}>
-                  <p>{topic}</p>
+                  <p>{topic.topic}</p>
                   <GiImbricatedArrows className={open && curIndex === currentTopicIndex ? style.open : null} onClick={() => changeTopicStatus(currentTopicIndex)}></GiImbricatedArrows>
                </div>
                <span className={curIndex === currentTopicIndex ? style.show : style.hidden}>Lorem ipsum dolor sit amet,
