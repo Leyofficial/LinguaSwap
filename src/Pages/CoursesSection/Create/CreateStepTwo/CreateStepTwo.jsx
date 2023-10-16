@@ -1,35 +1,23 @@
 import React, {useState} from 'react';
 import style from './CreateStepTwo.module.scss'
-import CourseSelect from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {
    getDescriptionAC,
-   getDurationAC, getFinishDateAC,
-   getLanguageAC,
-   getLevelAC,
+   getFinishDateAC,
    getStartDateAC
 } from "../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
-import {durationList, languagesList, levelList} from "../../../../Utility/Languages/languages.js";
 import CreateTooltip from "../CreateTooltip/CreateTooltip.jsx";
 import CourseInput from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseInput/CourseInput.jsx";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
 import toast, {Toaster} from "react-hot-toast";
+import SelectorSection from "./SelectorSection/SelectorSection.jsx";
 
 const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) => {
 
+   const [error, setError] = useState(false)
    const createCourseData = useSelector((state) => state.createCourseData)
    const dispatch = useDispatch()
 
-   const [error, setError] = useState(false)
-   const changeLanguage = (language) => {
-      dispatch(getLanguageAC(language))
-   }
-   const changeLevel = (level) => {
-      dispatch(getLevelAC(level))
-   }
-   const changeDuration = (duration) => {
-      dispatch(getDurationAC(duration))
-   }
    const changeStartDate = (start) => {
       dispatch(getStartDateAC(start))
    }
@@ -65,22 +53,7 @@ const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) =>
       <article className={style.container}>
          <section className={style.wrapeprSelects}>
             {error ? <Toaster position="top-right" reverseOrder={false}/> : null}
-            <div className={style.wrapperSelector}>
-
-               <CourseSelect value={createCourseData.language} callback={changeLanguage} items={languagesList}
-                             title={'Languages'}></CourseSelect>
-               <CreateTooltip description={"Set up language that will learn in this course"}></CreateTooltip>
-            </div>
-            <div className={style.wrapperSelector}>
-               <CourseSelect value={createCourseData.level} callback={changeLevel} items={levelList}
-                             title={'Level of Education'}></CourseSelect>
-               <CreateTooltip description={"Students will chose course by level of course"}></CreateTooltip>
-            </div>
-            <div className={style.wrapperSelector}>
-               <CourseSelect value={createCourseData.duration} callback={changeDuration} items={durationList}
-                             title={'Duration of lesson'}></CourseSelect>
-               <CreateTooltip description={"Duration of one lesson on day from the course"}></CreateTooltip>
-            </div>
+            <SelectorSection></SelectorSection>
 
             <div className={style.data}>
 

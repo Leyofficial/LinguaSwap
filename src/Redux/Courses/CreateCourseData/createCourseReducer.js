@@ -1,4 +1,8 @@
 import {initialState} from "../../initialState.js";
+import {Course} from "../../../ApiRequests/Courses/Courses.js";
+import {resetCourseAC} from "./createCourseAC.js";
+import {setPhotoAC} from "../../Profile/Photo/deletePhotoAC.js";
+import toast from "react-hot-toast";
 
 export const SET_TITLE = "SET_TITLE"
 export const SET_LANGUAGE = "SET_LANGUAGE"
@@ -70,7 +74,7 @@ const createCourseReducer = (dataCourse = initialState.createCourseData, action)
             duration: "",
             level: "",
             language: "",
-            title:""
+            title: ""
          }
       }
       default :
@@ -78,3 +82,26 @@ const createCourseReducer = (dataCourse = initialState.createCourseData, action)
    }
 }
 export default createCourseReducer
+
+export const createCourseThunkCreator = (data,setSucceed,navigate,setError) => {
+   return async (dispatch) => {
+      try {
+         const response = await Course.create(data)
+         if(response.status === 200) {
+            dispatch(resetCourseAC())
+            dispatch(setPhotoAC())
+            setSucceed(true)
+            toast.success("Create course process was been successfully completed");
+
+            setTimeout(() => {
+               navigate('/')
+            },2000)
+         }
+
+      } catch (err) {
+         console.log(err)
+         setError(true)
+         toast.error("Try again");
+      }
+   }
+}

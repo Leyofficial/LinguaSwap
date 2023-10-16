@@ -9,11 +9,12 @@ import {getTitleAC} from "../../../../Redux/Courses/CreateCourseData/createCours
 import toast, {Toaster} from "react-hot-toast";
 import {Course} from "../../../../ApiRequests/Courses/Courses.js";
 
-const CreateStepOne = ({moveStepCallback, currentStep,setPhoto}) => {
+const CreateStepOne = ({moveStepCallback, currentStep, setPhoto}) => {
+
+   const [error, setError] = useState(false)
    const photo = useSelector((state) => state.photo)
    const createCourseData = useSelector((state) => state.createCourseData)
    const dispatch = useDispatch()
-   const [error, setError] = useState(false)
    const changeTitle = (e) => {
       dispatch(getTitleAC(e.target.value))
    }
@@ -25,12 +26,11 @@ const CreateStepOne = ({moveStepCallback, currentStep,setPhoto}) => {
          toast.error("Title of course must be in");
 
       } else {
-         const data = new FormData()
 
+         const data = new FormData()
          data.append('image', photo)
 
          Course.saveImage(data).then(res => {
-            console.log(res)
             setPhoto(res.data.image.path)
 
          }).catch(error => {
@@ -56,7 +56,7 @@ const CreateStepOne = ({moveStepCallback, currentStep,setPhoto}) => {
                <input value={createCourseData.title} onChange={changeTitle} name={'title'}
                       placeholder={'ENTER A COURSE TITLE'}/>
             </div>
-            <div className={style.image}>
+            <div>
                <ImageInput selector={photo} actionCreater={setPhotoAC} avatarText={"Image"}></ImageInput>
             </div>
             <div className={style.move}>
