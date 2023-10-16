@@ -18,7 +18,7 @@ const TeachersSection = () => {
 
     const [searchValue, setSearchValue] = useState<string>('')
     const [languageFilter, setLanguageFilter] = useState(null)
-    const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | boolean>([])
+    const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | null>()
     const [loadTeacher, setLoadTeacher] = useState(false)
     const dispatch = useDispatch()
     const teachers = useSelector((state: any) => state.teachers);
@@ -46,7 +46,7 @@ const TeachersSection = () => {
             const item = searchTeacherItem();
             setFoundTeacher(item)
         } else {
-            setFoundTeacher(false)
+            setFoundTeacher(null)
         }
         if (languageFilter && searchValue && languageFilter !== 'All') {
             const item = searchTeacherItem();
@@ -82,10 +82,10 @@ const TeachersSection = () => {
                     <div className={style.filtersBlock}>
                         <Space wrap>
                             <Select
-                                defaultValue={'Language'}
+                                defaultValue={() => null}
                                 style={{width: 120}}
                                 onChange={setLanguageFilter}
-                                options={languages.map((language) => ({label: language, value: language}))}
+                                options={languages.map((language : string) => ({label: language, value: language}))}
                             />
                         </Space>
                     </div>
@@ -109,7 +109,7 @@ const TeachersSection = () => {
                                                     languagesLearn={item.user.data.languagesLearn}
                                 />
                             }
-                        }) : (foundTeacher ? foundTeacher.map((item: IWholeUser) => {
+                        }) : ( foundTeacher.length > 0 ? foundTeacher.map((item: IWholeUser) => {
                                     return <TeacherCard
                                         id={item._id}
                                         name={item.user.data.name}
@@ -119,13 +119,12 @@ const TeachersSection = () => {
                                         bio={item.user.data.bio}
                                         languagesLearn={item.user.data.languagesLearn}
                                     />
-                                }) :
-                                <div className={style.notFound}>
-                                    No results <span className={style.span}>found</span> :( <br/>
-                                    We <span className={style.span}>can’t find </span> any item matching your <span
-                                    className={style.span}>search .</span>
-                                </div>
-                        )}
+                            }) :  <div className={style.notFound}>
+                                No results <span className={style.span}>found</span> :( <br/>
+                                We <span className={style.span}>can’t find </span> any item matching your <span
+                                className={style.span}>search .</span>
+                            </div>
+                          )}
                     </ul>
                 </>
             </div>
