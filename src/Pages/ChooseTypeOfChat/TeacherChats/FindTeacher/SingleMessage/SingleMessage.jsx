@@ -15,8 +15,8 @@ const SingleMessage = ({item,teacher}) => {
       <div className={style.wrapper}>
          <p className={style.nameAuthor}>{teacher?.user.data.name}</p>
          <div className={style.message}>
-            <p className={style.text}>{item ? item?.messages[item.messages.length - 1]?.message : "clear"}</p>
-            <p className={style.time}>{item && getTime(item?.messages[item.messages.length - 1]?.date)}</p>
+            <p className={style.text}>{item?.messages.length ? item?.messages[item.messages.length - 1]?.message : ""}</p>
+            <p className={style.time}>{item?.messages.length ? getTime(item?.messages[item.messages.length - 1]?.date) : null}</p>
          </div>
       </div>
    );

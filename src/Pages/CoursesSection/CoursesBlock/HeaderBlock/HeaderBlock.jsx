@@ -6,13 +6,13 @@ import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 
 const HeaderBlock = ({course}) => {
    const [avatar,setAvatar] = useState(null)
-   console.log(course)
+
    useEffect(() => {
       const getAuthorAvatar = async () => {
          const gotAvatar = await getUser(course.teacher.id)
-         console.log(gotAvatar)
-         if(gotAvatar.status === "Succeed"){
-            setAvatar(gotAvatar.user.user.data.photo)
+
+         if(gotAvatar.status === 200){
+            setAvatar(gotAvatar.data.user.user?.data.photo)
          }
 
       }
