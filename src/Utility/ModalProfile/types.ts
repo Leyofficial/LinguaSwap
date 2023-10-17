@@ -8,7 +8,7 @@ export interface IUser {
     id?: string,
     name: string,
     photo: string,
-    userTag: string,
+    userTag : string,
     languagesKnow: ILanguages[],
     bio: string,
     languagesLearn: ILanguages[],

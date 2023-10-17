@@ -8,7 +8,6 @@ import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
 import List from "../../../Utility/List/List.tsx";
 import {IUserProfile} from "./types.ts";
 function WholeProfile({user} : IUserProfile) {
-    debugger
     return (
         <>
             <div className={style.container}>

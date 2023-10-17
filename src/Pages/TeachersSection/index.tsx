@@ -4,7 +4,7 @@ import style from './Teachers.module.scss'
 import {Teachers} from "../../ApiRequests/Teacher/Teachers.js";
 
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
-import TeacherCard from "./TeacherCard/TeacherCard.jsx";
+import TeacherCard from "./TeacherCard/TeacherCard.js";
 
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
@@ -12,6 +12,7 @@ import {Skeleton, Stack} from "@mui/material";
 import {IWholeUser} from "../PersonalProfile/WholeProfile/types.ts";
 import {Select, Space} from "antd";
 import {ILanguages} from "../../Utility/ModalProfile/types.ts";
+import List from "../../Utility/List/List.tsx";
 
 const TeachersSection = () => {
     const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
@@ -82,6 +83,7 @@ const TeachersSection = () => {
                     <div className={style.filtersBlock}>
                         <Space wrap>
                             <Select
+                                placeholder={'Teachers'}
                                 defaultValue={() => null}
                                 style={{width: 120}}
                                 onChange={setLanguageFilter}
@@ -102,24 +104,24 @@ const TeachersSection = () => {
                             } else {
                                 return <TeacherCard id={item._id}
                                                     name={item.user.data.name}
-                                                    hash={item.user.data.userTag}
+                                                    userTag={item.user.data.userTag}
                                                     photo={item.user.data.photo}
-                                                    languages={item.user.data.languagesKnow}
+                                                    languagesKnow={item.user.data.languagesKnow}
                                                     bio={item.user.data.bio}
                                                     languagesLearn={item.user.data.languagesLearn}
                                 />
                             }
-                        }) : ( foundTeacher.length > 0 ? foundTeacher.map((item: IWholeUser) => {
-                                    return <TeacherCard
-                                        id={item._id}
-                                        name={item.user.data.name}
-                                        hash={item.user.data.userTag}
-                                        photo={item.user.data.photo}
-                                        languages={item.user.data.languagesKnow}
-                                        bio={item.user.data.bio}
-                                        languagesLearn={item.user.data.languagesLearn}
-                                    />
-                            }) :  <div className={style.notFound}>
+                        }) : ( foundTeacher.length > 0 ?
+                                <List items={foundTeacher} rerender={(item : IWholeUser) => <TeacherCard
+                                    id={item._id}
+                                    name={item.user.data.name}
+                                    userTag={item.user.data.userTag}
+                                    photo={item.user.data.photo}
+                                    languagesKnow={item.user.data.languagesKnow}
+                                    bio={item.user.data.bio}
+                                    languagesLearn={item.user.data.languagesLearn}
+                                />}></List>
+                                :  <div className={style.notFound}>
                                 No results <span className={style.span}>found</span> :( <br/>
                                 We <span className={style.span}>can’t find </span> any item matching your <span
                                 className={style.span}>search .</span>

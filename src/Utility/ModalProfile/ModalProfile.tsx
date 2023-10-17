@@ -3,7 +3,7 @@ import React from "react";
 import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import closeBtn from './../../img/icons/close.png'
-import {ILanguages, IModalProfile} from "./types.ts";
+import {ILanguages, IModalProfile } from "./types.ts";
 import List from '../List/List.tsx';
 function ModalProfile({modalActive, user , callback} : IModalProfile) {
     return (
@@ -12,10 +12,10 @@ function ModalProfile({modalActive, user , callback} : IModalProfile) {
              <div className={style.modal + ` ${modalActive ? style.modalHere : style.modalGone}`}>
                  <img onClick={callback} className={style.closeBtn} src={closeBtn} alt="X"/>
                  <div className={style.topContent}>
-                     <Avatar sx={{ width: 84, height: 84 }} alt={user?.hash} src={user?.photo}/>
+                     <Avatar sx={{ width: 84, height: 84 }} alt={user?.userTag} src={user?.photo}/>
                      <div>
                          <h2>{user?.name}</h2>
-                         <h2 className={style.span}>{user?.hash}</h2>
+                         <h2 className={style.span}>{user?.userTag}</h2>
                      </div>
                  </div>
                  <div className={style.mainContent}>
@@ -27,7 +27,7 @@ function ModalProfile({modalActive, user , callback} : IModalProfile) {
                              <h3>Language/s<span className={style.span}> know  </span>:</h3>
                              <div className={style.languages}>
                                  <div className={style.languagesKnow}>
-                                     <List items={user?.languages} rerender={(item : ILanguages) => <div className={style.language} style={{background: item.color}}>
+                                     <List items={user?.languagesKnow} rerender={(item : ILanguages) => <div className={style.language} style={{background: item.color}}>
                                          {item.label}
                                      </div>}/>
                                  </div>
