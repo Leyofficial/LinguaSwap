@@ -7,6 +7,7 @@ import SingleMessage from "./SingleMessage/SingleMessage.jsx";
 import {getInterlocutorThunkCreator} from "../../../../Redux/ChatWithTeacher/Interlocutor/InterlocutorReducer.js";
 
 const FindTeacher = ({item, itemPath}) => {
+   console.log(item)
 
    const chatStatus = useSelector((state) => state.chatStatus)
    const [isOnline, setIsOnline] = useState(false)
@@ -14,7 +15,7 @@ const FindTeacher = ({item, itemPath}) => {
    // const interlocutor = useSelector((state) => state.interlocutor)
    const [interlocutor,setInterlocutor] = useState(null)
    const dispatch = useDispatch()
-console.log(interlocutor)
+
    useEffect(() => {
 
       dispatch(getInterlocutorThunkCreator(chatStatus,item,setInterlocutor))

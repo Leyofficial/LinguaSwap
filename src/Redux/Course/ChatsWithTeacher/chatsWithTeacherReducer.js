@@ -1,6 +1,7 @@
 import {initialState} from "../../initialState.js";
 import {teacherChats} from "../../../ApiRequests/TeacherChats/TeacherChats.js";
 import {chatsWithTeacherAC} from "./chatsWithTeacherAC.js";
+import {chatsWithStudentsThunkCreator} from "../ChatsWithStudents/chatsWithStudentsReducer.js";
 
 export const SET_NEW_CHATS_TEACHERS = "SET_NEW_CHATS_TEACHERS"
 

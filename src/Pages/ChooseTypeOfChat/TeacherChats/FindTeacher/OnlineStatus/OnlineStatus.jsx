@@ -4,6 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import defaultAvatar from "../../../../../images/member.png";
 
 const OnlineStatus = ({isOnline,teacher}) => {
+   console.log(teacher)
    return (
       <div>
          {isOnline ? <StyledBadge
@@ -12,14 +13,14 @@ const OnlineStatus = ({isOnline,teacher}) => {
             variant="dot"
          >
             <Avatar alt="Remy Sharp"
-                    src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
+                    src={teacher?.user?.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
          </StyledBadge> : <StyledBadgeOffline
             overlap="circular"
             anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
             variant="dot"
          >
             <Avatar alt="Remy Sharp"
-                    src={teacher?.user.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
+                    src={teacher?.user?.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/>
          </StyledBadgeOffline>}
       </div>
    );

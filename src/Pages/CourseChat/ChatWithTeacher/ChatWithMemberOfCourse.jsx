@@ -7,6 +7,8 @@ import {
    getChatWithMemberThunkCreator,
    sendSocketMessageThunkCreator
 } from "../../../Redux/ChatWithMemberOfCourse/chatWithMemberOfCourseReducer.js";
+import {chatsWithStudentsThunkCreator} from "../../../Redux/Course/ChatsWithStudents/chatsWithStudentsReducer.js";
+import {getChatsWithTeachersThunkCreator} from "../../../Redux/Course/ChatsWithTeacher/chatsWithTeacherReducer.js";
 
 
 const ChatWithMemberOfCourse = () => {
@@ -35,7 +37,7 @@ const ChatWithMemberOfCourse = () => {
 
       if (message && socket) {
 
-         dispatch(sendSocketMessageThunkCreator(messageData, chat._id, socket, idTeacher, idStudent, scroll))
+         dispatch(sendSocketMessageThunkCreator(messageData, chat._id, socket, idTeacher, idStudent, scroll,currentUser))
 
       } else {
          console.log("Write some text pls ")
