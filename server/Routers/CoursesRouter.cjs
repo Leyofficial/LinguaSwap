@@ -8,6 +8,8 @@ coursesRouter.route('/:joinedUserId?')
    .get(coursesFunctions.getCourses)
    .post(coursesFunctions.createCourse)
 
+coursesRouter.route('/teacher/:idTeacher')
+   .get(coursesFunctions.getCourses)
 coursesRouter.route('/course/:courseId')
    .get(coursesFunctions.getCourse)
 

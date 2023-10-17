@@ -35,5 +35,7 @@ export const initialState = {
     finishDate:"",
     description:"",
     topics:[]
-  }
+  },
+  mainChat:null,
+  mainChats:null
 }
