@@ -26,11 +26,11 @@ const ChatWithMemberOfCourse = () => {
    }, [idTeacher, idStudent, chatStatus])
 
    const sendMessageHandler = (message) => {
-
       const messageData = {
          message: message,
          author: currentUser._id,
-         date: new Date()
+         date: new Date(),
+         idMessage:chat.messages.length > 0 ? chat.messages.length -1 : chat.messages.length
       }
 
       if (message && socket) {
@@ -42,13 +42,7 @@ const ChatWithMemberOfCourse = () => {
       }
    }
 
-   useEffect(() => {
-      if (socket)
-         socket.on("privateResponse", (data) => {
-               dispatch(addChatMessage(data))
-         })
 
-   }, [socket])
 
    useEffect(() => {
       scroll.current?.scrollIntoView({behavior: "smooth"})

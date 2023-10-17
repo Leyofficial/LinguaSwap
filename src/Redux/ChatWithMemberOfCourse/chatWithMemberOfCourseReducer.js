@@ -43,10 +43,12 @@ export const sendSocketMessageThunkCreator = (messageData, chatId, socket, idTea
          const messageResponse = await teacherChats.sendMessage(messageData, chatId)
          if (messageResponse.status === 200) {
             socket.emit("privateMessage", messageData)
-            const chatResponse = await teacherChats.getChatWithTeacher(idTeacher, idStudent)
-            if (chatResponse.status === 200) {
+            // const chatResponse = await teacherChats.getChatWithTeacher(idTeacher, idStudent)
+            dispatch(addChatMessage(messageData))
+            // if (chatResponse.status === 200) {
+               // dispatch(addChatMessage(messageData))
                scroll.current?.scrollIntoView({behavior: "smooth"})
-            }
+            // }
          }
       } catch (err) {
          console.log(err)
