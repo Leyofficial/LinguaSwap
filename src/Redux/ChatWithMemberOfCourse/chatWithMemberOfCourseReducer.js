@@ -25,8 +25,8 @@ export const getChatWithMemberThunkCreator = (idTeacher, idStudent, chatStatus) 
             dispatch(chatMessagesAC(response.data.findChatTeacher))
             const responseUser = await getUser(chatStatus === 'student' ? response.data.findChatTeacher.idStudent : response.data.findChatTeacher.idTeacher)
 
-            if (responseUser.status === "Succeed") {
-               dispatch(getChatMember(responseUser.user))
+            if (responseUser.status === 200) {
+               dispatch(getChatMember(responseUser.data.user))
             }
          }
 

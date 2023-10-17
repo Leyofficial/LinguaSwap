@@ -7,8 +7,8 @@ const Avatar = ({idAuthor}) => {
 
    useEffect(() => {
       getUser(idAuthor).then(res => {
-         if(res.status === 'Succeed') {
-            setUser(res.user.user.data.photo)
+         if(res.status === 200) {
+            setUser(res.data.user.user.data.photo)
          }
       })
    },[idAuthor])

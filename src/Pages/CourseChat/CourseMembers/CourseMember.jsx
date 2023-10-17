@@ -9,6 +9,7 @@ const CourseMember = ({member}) => {
 
    useEffect(() => {
       getUser(member).then(res => {
+
          if(res.status === 'Succeed') {
             setDataMember(res.user.user.data)
          }

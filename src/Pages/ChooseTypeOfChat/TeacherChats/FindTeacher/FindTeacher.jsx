@@ -11,12 +11,13 @@ const FindTeacher = ({item, itemPath}) => {
    const chatStatus = useSelector((state) => state.chatStatus)
    const [isOnline, setIsOnline] = useState(false)
    const onlineUsers = useSelector((state) => state.onlineUsers)
-   const interlocutor = useSelector((state) => state.interlocutor)
+   // const interlocutor = useSelector((state) => state.interlocutor)
+   const [interlocutor,setInterlocutor] = useState(null)
    const dispatch = useDispatch()
-
+console.log(interlocutor)
    useEffect(() => {
 
-      dispatch(getInterlocutorThunkCreator(chatStatus,item))
+      dispatch(getInterlocutorThunkCreator(chatStatus,item,setInterlocutor))
 
    }, [item, chatStatus])
 
