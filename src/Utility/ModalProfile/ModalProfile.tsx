@@ -24,9 +24,11 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
             <div className={style.modal + ` ${modalActive ? style.modalHere : style.modalGone}`}>
                 <img onClick={callback} className={style.closeBtn} src={closeBtn} alt="X"/>
                 <div className={style.topContent}>
+                    {/*@ts-ignore*/}
                     <Avatar sx={{width: 84, height: 84}} alt={user?.hash} src={user?.photo}/>
                     <div>
                         <h2>{user?.name}</h2>
+                        {/*@ts-ignore*/}
                         <h2 className={style.span}>{user?.hash}</h2>
                     </div>
                 </div>
@@ -39,6 +41,7 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
                             <h3>Language/s<span className={style.span}> know  </span>:</h3>
                             <div className={style.languages}>
                                 <div className={style.languagesKnow}>
+                                    {/*@ts-ignore*/}
                                     <List items={user?.languages}
                                           rerender={(item: ILanguages) => <div className={style.language}
                                                                                style={{background: item.color}}>

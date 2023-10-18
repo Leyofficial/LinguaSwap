@@ -1,12 +1,9 @@
 import style from './TeacherCard.module.scss'
 import React, {useState} from 'react';
 import {Avatar} from "@mui/material";
-<<<<<<< HEAD:src/Pages/TeachersSection/TeacherCard/TeacherCard.jsx
-import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.jsx";
-=======
 import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.tsx";
 import {ILanguages, IUser} from "../../../Utility/ModalProfile/types.ts";
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/TeachersSection/TeacherCard/TeacherCard.tsx
+
 
 const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn, id} : IUser) => {
     const user : IUser = {

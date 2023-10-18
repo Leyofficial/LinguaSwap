@@ -4,7 +4,7 @@ import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link, useNavigate} from "react-router-dom";
 import React from "react";
-import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
+import {ILanguages} from "../../../Utility/ModalProfile/types.tsx";
 import List from "../../../Utility/List/List.tsx";
 import {IUserProfile} from "./types.ts";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
@@ -18,7 +18,7 @@ function WholeProfile({user}: IUserProfile) {
     const startConversation = () => {
 
         getChatThunkCreate(currentUser._id, user._id)(dispatch).then(res =>{
-
+///@ts-ignore
             if(res.status === 301){
                 createChatThunkCreator(currentUser._id, user._id)(dispatch)
                 navigate(`/chat/${currentUser._id}`)
