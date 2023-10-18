@@ -30,6 +30,7 @@ import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 =======
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
 import {addChatMessage} from "./Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
+import MainChat from "./Pages/Chat/MainChat.jsx";
 
 >>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53
 
@@ -40,7 +41,6 @@ function App() {
    const currentUser = useSelector((state) => state.loginUser)
    const userToken = JSON.parse(localStorage.getItem('loginUser'))
    const newSocket = useSelector((state) => state.socket)
-   const chat = useSelector((state) => state.chatWithStudent)
    useEffect(() => {
       if (userToken && !isAuth) {
          const socket = socketIO.connect('http://localhost:3000')
@@ -76,7 +76,6 @@ function App() {
             console.log(`User disconnected ${userId}`)
          })
          newSocket.on("privateResponse", (data) => {
-            console.log('t')
             dispatch(addChatMessage(data))
 
          })
@@ -107,6 +106,9 @@ function App() {
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
                   <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
                   <Route path={'/course/chat/student/:idTeacher/:idStudent'} element={<StudentDialog/>}></Route>
+               </Route>
+               <Route path={'/chat'} element={<MainChat></MainChat>}>
+
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
             </Route>

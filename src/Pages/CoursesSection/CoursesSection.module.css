@@ -23,6 +23,9 @@
   text-align: end;
   width: 100%;
 }
+.container .create {
+  padding: 10px;
+}
 .container .paginationWrapper {
   display: flex;
   align-items: center;

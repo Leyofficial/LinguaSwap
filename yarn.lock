@@ -1947,6 +1947,11 @@
   "resolved" "https://registry.npmjs.org/@types/chai/-/chai-4.3.6.tgz"
   "version" "4.3.6"
 
+"@types/chroma-js@^2.4.1":
+  "integrity" "sha512-YIm3RLfWdDU0/3rsNnu/Hh4uKCLQ9p/w1NvnFfBOBL/BGqOvuLNuhXwkJMUKMscmFJdan25lYqv2+qh1l7tZLg=="
+  "resolved" "https://registry.npmjs.org/@types/chroma-js/-/chroma-js-2.4.1.tgz"
+  "version" "2.4.1"
+
 "@types/cookie@^0.4.1":
   "integrity" "sha512-XW/Aa8APYr6jSVVA1y/DEIZX0/GMKLEVekNG727R8cs56ahETkRAy/3DR7+fJyh7oUgGwNQaRfXCun0+KbWY7Q=="
   "resolved" "https://registry.npmjs.org/@types/cookie/-/cookie-0.4.1.tgz"
@@ -2028,6 +2033,13 @@
   "integrity" "sha512-eJIUv7rPP+EC45uNYp/ThhSpE16k22VJUknt5OLoH9tbXoi8bMhwLf5xRuWMywamNbWzhrSmU7IBJfPup1+3fw=="
   "resolved" "https://registry.npmjs.org/@types/react-dom/-/react-dom-18.2.13.tgz"
   "version" "18.2.13"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-scroll@^1.8.8":
+  "integrity" "sha512-KJRwopG2kgJVzhDGRXhkhbNXCzPFtxNVJrx99czqW7LK8JXU8ufG5POo864cA9vFDEr4vSR+NOlK0NCHbbnjkw=="
+  "resolved" "https://registry.npmjs.org/@types/react-scroll/-/react-scroll-1.8.8.tgz"
+  "version" "1.8.8"
   dependencies:
     "@types/react" "*"
 
@@ -7089,6 +7101,11 @@
   "integrity" "sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA=="
   "resolved" "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
+
+"types@^0.1.1":
+  "integrity" "sha512-JuntZtJj4MKLE9x/XBs7IjsznYhzETwr34pw3XJTKvgYtAMdeMG+o8x8U85E5Lm6eCPa1DdOdGVsHMwq4ZnZAg=="
+  "resolved" "https://registry.npmjs.org/types/-/types-0.1.1.tgz"
+  "version" "0.1.1"
 
 "typescript@*", "typescript@^5.0.4", "typescript@^5.2.2", "typescript@>=2.4.0":
   "integrity" "sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w=="
