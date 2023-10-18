@@ -1,7 +1,6 @@
 import React from 'react';
 import style from "./SelectorSection.module.scss";
 import CourseSelect from "../../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.jsx";
-import {durationList, languagesList, levelList} from "../../../../../Utility/Languages/languages.ts";
 import CreateTooltip from "../../CreateTooltip/CreateTooltip.jsx";
 import {
    getDurationAC,
@@ -9,6 +8,7 @@ import {
    getLevelAC
 } from "../../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
 import {useDispatch, useSelector} from "react-redux";
+import {durationList, languagesList, levelList} from "../../../../../Utility/CreateCourseLists/createCourseLists.js";
 
 const SelectorSection = () => {
    const dispatch = useDispatch()

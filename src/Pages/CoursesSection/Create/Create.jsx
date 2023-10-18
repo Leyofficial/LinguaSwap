@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import style from './Create.module.scss'
-import Points from "../../../Utility/Points/index.tsx";
+import Points from "../../../Utility/Points/index.jsx";
 import CreateStepOne from "./CreateStepOne/CreateStepOne.jsx";
 import CreateStepTwo from "./CreateStepTwo/CreateStepTwo.jsx";
 import CreateStepThird from "./CreateStepThird/CreateStepThird.jsx";

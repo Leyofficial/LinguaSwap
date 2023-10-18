@@ -2,11 +2,13 @@ import style from './CoursesSection.module.scss'
 import {useEffect, useState} from "react";
 import Pagination from "../../Utility/Pagination/Pagination.jsx";
 import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
-import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
+import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
 import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.js";
 import CourseFilters from "./CourseFilters/CourseFilters.jsx";
+import NotFoundItems from "../../Utility/NotFound/NotFoundItems.tsx";
+
 
 const CoursesSection = () => {
 

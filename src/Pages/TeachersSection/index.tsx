@@ -3,33 +3,24 @@ import {useDispatch, useSelector} from "react-redux";
 import style from './Teachers.module.scss'
 import {Teachers} from "../../ApiRequests/Teacher/Teachers.js";
 
-<<<<<<< HEAD:src/Pages/TeachersSection/index.jsx
-import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
-import TeacherCard from "./TeacherCard/TeacherCard.jsx";
-=======
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
 import TeacherCard from "./TeacherCard/TeacherCard.js";
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/TeachersSection/index.tsx
 
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
-<<<<<<< HEAD:src/Pages/TeachersSection/index.jsx
-import {TypeAnimation} from "react-type-animation";
-=======
 import {IWholeUser} from "../PersonalProfile/WholeProfile/types.ts";
 import {Select, Space} from "antd";
 import {ILanguages} from "../../Utility/ModalProfile/types.ts";
 import List from "../../Utility/List/List.tsx";
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/TeachersSection/index.tsx
 
 const TeachersSection = () => {
     const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
     const [searchValue, setSearchValue] = useState<string>('')
-    const [languageFilter, setLanguageFilter] = useState(null)
+    const [languageFilter, setLanguageFilter] = useState<string>('')
     const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | null>()
-    const [loadTeacher, setLoadTeacher] = useState(false)
+    const [loadTeacher, setLoadTeacher] = useState<boolean>(false)
     const dispatch = useDispatch()
     const teachers = useSelector((state: any) => state.teachers);
 
@@ -45,24 +36,27 @@ const TeachersSection = () => {
                 }, 1000)
                 dispatch(teachersActionCreater(res.data.users))
             } else {
-                dispatch(teachersActionCreater([]))
                 errorToaster('Server error!')
             }
         })
     }, []);
 
     useEffect(() => {
-        if (searchValue) {
+        if (languageFilter && searchValue && languageFilter !== 'All')  {
+            const item = searchTeacherItem();
+            const filterInSearch = item.filter((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === languageFilter));
+            if (filterInSearch.length > 0) {
+                setFoundTeacher(filterInSearch);
+            } else {
+                setFoundTeacher(null)
+            }
+        } else if (searchValue) {
             const item = searchTeacherItem();
             setFoundTeacher(item)
-        } else {
+        }else {
             setFoundTeacher(null)
         }
-        if (languageFilter && searchValue && languageFilter !== 'All') {
-            const item = searchTeacherItem();
-            const filterInSearch = item.map((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === searchValue));
-            setFoundTeacher(filterInSearch);
-        }
+
         if (languageFilter && languageFilter !== 'All') {
             const item = filterLanguageItem()
             setFoundTeacher(item)
@@ -93,7 +87,6 @@ const TeachersSection = () => {
                         <Space wrap>
                             <Select
                                 placeholder={'Teachers'}
-                                defaultValue={() => null}
                                 style={{width: 120}}
                                 onChange={setLanguageFilter}
                                 options={languages.map((language : string) => ({label: language, value: language}))}
@@ -103,7 +96,7 @@ const TeachersSection = () => {
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        {!foundTeacher ? teachers.map((item: IWholeUser) => {
+                        {!foundTeacher? teachers.map((item: IWholeUser) => {
                             if (!loadTeacher) {
                                 return <Stack spacing={4}>
                                     <Skeleton variant="circular" width={75} height={75}/>
@@ -131,11 +124,11 @@ const TeachersSection = () => {
                                     languagesLearn={item.user.data.languagesLearn}
                                 />}></List>
                                 :  <div className={style.notFound}>
-                                No results <span className={style.span}>found</span> :( <br/>
-                                We <span className={style.span}>can’t find </span> any item matching your <span
-                                className={style.span}>search .</span>
-                            </div>
-                          )}
+                                    No results <span className={style.span}>found</span> :( <br/>
+                                    We <span className={style.span}>can’t find </span> any item matching your <span
+                                    className={style.span}>search .</span>
+                                </div>
+                        )}
                     </ul>
                 </>
             </div>

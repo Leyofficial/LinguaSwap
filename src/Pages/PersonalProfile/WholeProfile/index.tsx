@@ -11,7 +11,9 @@ import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch, useSelector} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
 
-function WholeProfile({user}: IUserProfile) {
+
+function WholeProfile({user} : IUserProfile) {
+
     const currentUser = useSelector((state : any) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -25,7 +27,6 @@ function WholeProfile({user}: IUserProfile) {
             }
         })
     }
-
 
     return (
         <>

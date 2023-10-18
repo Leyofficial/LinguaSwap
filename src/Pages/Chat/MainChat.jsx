@@ -11,14 +11,17 @@ const MainChat = () => {
    const mainChats = useSelector((state) => state.mainChats)
 
 
-
+console.log(mainChats)
    useEffect(() => {
 
       dispatch(getChatsThunkCreator(currentUser?._id))
    }, [currentUser])
    return (
       <>
-         {mainChats.map(dialog => <ChatSingleMessage currentUser={currentUser} dialog={dialog}></ChatSingleMessage>)}
+
+         {mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser} dialog={dialog}></ChatSingleMessage>)}
+
+
       </>
    );
 };

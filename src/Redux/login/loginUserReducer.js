@@ -1,10 +1,7 @@
 import {initialState} from "../initialState.js";
-<<<<<<< HEAD
-import {SET_LOGIN_USER} from "./loginUserAC.js";
-=======
 import {loginUserAC, SET_LOGIN_USER} from "./loginUserAC.js";
 import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53
+
 
 export function loginUserReducer(state = initialState.loginUser , action){
 switch (action.type) {
@@ -13,8 +10,8 @@ switch (action.type) {
     default : return state
 }
 }
-<<<<<<< HEAD
-=======
+
+
 
 
 export const loginUserThunkCreator = (userToken) => {
@@ -29,4 +26,4 @@ export const loginUserThunkCreator = (userToken) => {
         }
     }
 }
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53
+

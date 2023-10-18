@@ -26,13 +26,13 @@ import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
 import StudentDialog from "./Pages/CourseChat/ChatWithStudents/StudentDialog/StudentDialog.jsx";
 import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
-<<<<<<< HEAD
-=======
+
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
 import {addChatMessage} from "./Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
 
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53
+
+
 
 function App() {
    const isStart = useSelector((state) => state.isStart)
@@ -111,6 +111,7 @@ function App() {
 
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
+
             </Route>
          </Routes>
       </>

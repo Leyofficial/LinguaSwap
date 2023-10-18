@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 
 const mainChatSchema = new mongoose.Schema({
+
    members:{
       first:String,
       second:String,

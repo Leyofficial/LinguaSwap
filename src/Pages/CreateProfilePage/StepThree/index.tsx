@@ -10,7 +10,7 @@ import {
     setLanguagesLearnActionCreater
 } from "../../../Redux/Profile/Languages/languagesLearn/setLanguagesLearnActionCreater.js";
 import CustomSelector from "../../../Utility/CustomSelector/CustomSelector.jsx";
-import Spinner from "../../../Utility/Spinner/Spinner.jsx";
+import Spinner from "../../../Utility/Spinner/Spinner.tsx";
 import {ProfileUser, saveProfileImage} from "../../../ApiRequests/CreateProfile/Profile.js";
 import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
 import {IStepsProps} from "../types.ts";
@@ -41,18 +41,12 @@ const StepThree = (props : IStepsProps) => {
         }
         ProfileUser.createProfile(id ,  obj).then(res => {
             if (res.status === 200) {
-<<<<<<< HEAD:src/Pages/CreateProfilePage/StepThree/index.jsx
-                const data = new FormData()
-
-=======
                 const data : FormData = new FormData()
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/CreateProfilePage/StepThree/index.tsx
                 data.append('image', photo)
                 saveProfileImage(data).then(res => {
                     if(res.status === 200) {
                         savePhoto(res.data.image.path , id)
-                        console.log(res.data.image.path)
-                 }
+                    }
                 })
 
                 setTimeout(() => {

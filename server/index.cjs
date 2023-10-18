@@ -94,7 +94,9 @@ app.use('/authorization', authRouter);
 app.use('/courses', coursesRouter);
 app.use('/teacherChats', teacherChatRouter);
 app.use('/onlineUsers', onlineUsersRouter);
-app.use('/mainChat',mainChatRouter)
+
+app.use('/mainChat', mainChatRouter);
+
 
 app.all('*', (req, res, next) => {
    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");

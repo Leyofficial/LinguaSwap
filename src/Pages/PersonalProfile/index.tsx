@@ -3,17 +3,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
-<<<<<<< HEAD:src/Pages/PersonalProfile/index.jsx
+
 import WholeProfile from "./WholeProfile/index.jsx";
 import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
 import {loginUserAC} from "../../Redux/login/loginUserAC.js";
 import SkeletonProfile from "./WholeProfile/SkeletonProfile.jsx";
-
-=======
-import WholeProfile from "./WholeProfile";
-import SkeletonProfile from "./WholeProfile/SkeletonProfile.js";
 import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/PersonalProfile/index.tsx
+
 function PersonalProfile() {
     const {id} = useParams<string>();
     const [contentLoad , setContentLoad] = useState<boolean>(false)
@@ -34,7 +30,7 @@ function PersonalProfile() {
                 }
             })
         } else {
-<<<<<<< HEAD:src/Pages/PersonalProfile/index.jsx
+
                 getUserByToken(userToken).then(res => {
                     if (res.status === 200) {
                         dispatch(loginUserAC({...res.data.users[0]}));
@@ -46,9 +42,9 @@ function PersonalProfile() {
             }
     }, []);
     useEffect(() => {
-        console.log(params)
-        if (params.id) {
-=======
+
+        if (id) {
+
             loginUserThunkCreator(userToken)(dispatch)
             setTimeout(() => {
                 setContentLoad(true)
@@ -57,7 +53,7 @@ function PersonalProfile() {
     }, [userToken , id]);
     useEffect(() => {
         if (id) {
->>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/PersonalProfile/index.tsx
+
             setActive(true)
         } else {
             setActive(false)
