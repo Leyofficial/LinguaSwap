@@ -11,7 +11,7 @@ const MainChat = () => {
    const mainChats = useSelector((state) => state.mainChats)
 
 
-
+console.log(mainChats)
    useEffect(() => {
 
       dispatch(getChatsThunkCreator(currentUser?._id))
