@@ -1,0 +1,66 @@
+.createTopics {
+  width: 50%;
+}
+.createTopics label {
+  margin-bottom: 1vh;
+}
+.createTopics .topic {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+.createTopics .topic input {
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+}
+.createTopics .topic .wrapperInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.createTopics .topic .wrapperInput svg {
+  cursor: pointer;
+  margin-left: 2vh;
+  background-color: rgba(88, 120, 189, 0.25);
+  border-radius: 50%;
+  font-size: 40px;
+  padding: 5px;
+  transition: 0.3s ease-in-out;
+}
+.createTopics .topic .wrapperInput svg:hover {
+  background-color: rgba(12, 60, 218, 0.3);
+}
+.createTopics .description {
+  margin-top: 5vh;
+  display: flex;
+  height: 80%;
+  flex-direction: column;
+}
+.createTopics .description textarea {
+  height: 50%;
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 15px;
+  color: rgba(17, 17, 17, 0.99);
+  letter-spacing: 1px;
+  font-size: 16px;
+  resize: none;
+}
+.createTopics .description textarea::placeholder {
+  color: rgba(0, 0, 0, 0.92);
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.error {
+  color: rgba(213, 9, 9, 0.87);
+  padding-top: 1vh;
+}
+
+/*# sourceMappingURL=CreateTopic.module.css.map */
