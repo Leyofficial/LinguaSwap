@@ -1895,6 +1895,13 @@
   "resolved" "https://registry.npmjs.org/@socket.io/component-emitter/-/component-emitter-3.1.0.tgz"
   "version" "3.1.0"
 
+"@types/antd@^1.0.0":
+  "integrity" "sha512-wnRh+S6vPMahsuSN6lFJQzNXuhUKr9JKic1L/NMdIChsuu9Fc+mDyF7H17eFPQlgpLVdT0DyYIgB1di8DA9AuQ=="
+  "resolved" "https://registry.npmjs.org/@types/antd/-/antd-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "antd" "*"
+
 "@types/babel__core@^7.20.1":
   "integrity" "sha512-pNpr1T1xLUc2l3xJKuPtsEky3ybxN3m4fJkknfIpTCTfIZCDW57oAg+EfCgIIp2rvCe0Wn++/FfodDS4YXxBwA=="
   "resolved" "https://registry.npmjs.org/@types/babel__core/-/babel__core-7.20.2.tgz"
@@ -2357,7 +2364,7 @@
   "resolved" "https://registry.npmjs.org/ansi-styles/-/ansi-styles-5.2.0.tgz"
   "version" "5.2.0"
 
-"antd@^5.9.4":
+"antd@*", "antd@^5.9.4":
   "integrity" "sha512-eyNn1C/Q9ESn4ktfTlRIIXBbWT5L/Rr38xP37dIvJ3FeD/a4vaVcMqqLz5ywwMPKxgWnuUxggo1mJwWdPoIdSg=="
   "resolved" "https://registry.npmjs.org/antd/-/antd-5.9.4.tgz"
   "version" "5.9.4"

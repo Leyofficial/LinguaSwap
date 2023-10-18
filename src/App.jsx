@@ -15,8 +15,8 @@ import {useEffect} from "react";
 import {getUserByToken} from "./ApiRequests/Courses/AuthUser.js";
 import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
-import TeachersSection from "./Pages/TeachersSection/index.jsx";
-import PersonalProfile from "./Pages/PersonalProfile/index.jsx";
+import TeachersSection from "./Pages/TeachersSection/index.tsx";
+import PersonalProfile from "./Pages/PersonalProfile/index.tsx";
 import {loginUserAC} from "./Redux/login/loginUserAC.js";
 
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
@@ -26,6 +26,12 @@ import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
 import StudentDialog from "./Pages/CourseChat/ChatWithStudents/StudentDialog/StudentDialog.jsx";
 import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
+<<<<<<< HEAD
+=======
+import Create from "./Pages/CoursesSection/Create/Create.jsx";
+import {addChatMessage} from "./Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
+
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53
 
 function App() {
    const isStart = useSelector((state) => state.isStart)
@@ -34,7 +40,7 @@ function App() {
    const currentUser = useSelector((state) => state.loginUser)
    const userToken = JSON.parse(localStorage.getItem('loginUser'))
    const newSocket = useSelector((state) => state.socket)
-
+   const chat = useSelector((state) => state.chatWithStudent)
    useEffect(() => {
       if (userToken && !isAuth) {
          const socket = socketIO.connect('http://localhost:3000')
@@ -69,10 +75,21 @@ function App() {
             dispatch(removeUserAC(userId))
             console.log(`User disconnected ${userId}`)
          })
+         newSocket.on("privateResponse", (data) => {
+            console.log('t')
+            dispatch(addChatMessage(data))
+
+         })
       }
    }, [newSocket, currentUser])
-
-
+   // useEffect(() => {
+   //    if (newSocket)
+   //       newSocket.on("privateResponse", (data) => {
+   //          console.log(data)
+   //          dispatch(addChatMessage(data))
+   //       })
+   //
+   // }, [newSocket])
    return (
       <>
          <Routes>

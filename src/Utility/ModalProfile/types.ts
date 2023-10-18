@@ -5,13 +5,18 @@ export interface IModalProfile {
 }
 
 export interface IUser {
-    id: string,
+    id?: string,
     name: string,
     photo: string,
-    hash: string,
-    languages: ILanguages[],
+    userTag : string,
+    languagesKnow: ILanguages[],
     bio: string,
     languagesLearn: ILanguages[],
+}
+
+export interface IUserWhole extends IUser{
+    experience : string,
+    status : string
 }
 
 export interface ILanguages {

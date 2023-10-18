@@ -8,8 +8,14 @@ import {Inputs} from "./Inputs/index.jsx";
 import {useSelector} from "react-redux";
 const StepOne = (props) => {
 
+<<<<<<< HEAD:src/Pages/CreateProfilePage/StepOne/index.jsx
     const dirtyName = useSelector((state) => state.nameDirty);
     const dirtyHash = useSelector((state) => state.hashDirty);
+=======
+    // Should be useTypedSelector (later)
+    const dirtyName = useSelector((state : any) => state.nameDirty);
+    const dirtyHash = useSelector((state : any) => state.hashDirty);
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/CreateProfilePage/StepOne/index.tsx
 
     function errorToaster(text) {
         toast.error(text);

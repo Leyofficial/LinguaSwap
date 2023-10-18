@@ -67,11 +67,13 @@ const StyledBadgeOffline = styled(Badge)(({theme}) => ({
 }));
 
 const FindTeacher = ({item, itemPath}) => {
+   console.log(item)
 
    const [teacher, setTeacher] = useState(null)
    const chatStatus = useSelector((state) => state.chatStatus)
    const [isOnline, setIsOnline] = useState(false)
    const onlineUsers = useSelector((state) => state.onlineUsers)
+<<<<<<< HEAD
 
    useEffect(() => {
 
@@ -80,6 +82,15 @@ const FindTeacher = ({item, itemPath}) => {
             setTeacher(res.user)
          }
       })
+=======
+   // const interlocutor = useSelector((state) => state.interlocutor)
+   const [interlocutor,setInterlocutor] = useState(null)
+   const dispatch = useDispatch()
+
+   useEffect(() => {
+
+      dispatch(getInterlocutorThunkCreator(chatStatus,item,setInterlocutor))
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53
 
    }, [item, chatStatus])
 

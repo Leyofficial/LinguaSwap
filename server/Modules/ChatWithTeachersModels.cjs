@@ -6,7 +6,8 @@ const ChatWithTeacherSchema = new mongoose.Schema({
    messages: [{
       text: String,
       date: new Date(),
-      author: String
+      author: String,
+      idMessage:Number
    }] | []
 })
 

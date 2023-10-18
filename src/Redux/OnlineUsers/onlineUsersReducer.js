@@ -5,7 +5,7 @@ export const ADD_NEW_ONLINE_USER = "ADD_NEW_ONLINE_USER"
 
 export const REMOVE_ONLINE_USER = "REMOVE_ONLINE_USER"
 const onlineUsersReducer = (onlineUsers = initialState.onlineUsers, action) => {
-   console.log(onlineUsers)
+
    switch (action.type) {
       case SET_ONLINE_USERS :
          return action.newOnlineUsers

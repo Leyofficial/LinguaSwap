@@ -7,6 +7,9 @@
   width: 100%;
   padding: 0;
   margin: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .wrapperIconsMember:hover {
   background-color: rgba(239, 239, 239, 0.91);

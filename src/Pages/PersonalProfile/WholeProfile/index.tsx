@@ -4,8 +4,15 @@ import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link} from "react-router-dom";
 import React from "react";
+<<<<<<< HEAD:src/Pages/PersonalProfile/WholeProfile/index.jsx
 
 function WholeProfile({user , isPersonal}) {
+=======
+import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
+import List from "../../../Utility/List/List.tsx";
+import {IUserProfile} from "./types.ts";
+function WholeProfile({user} : IUserProfile) {
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/PersonalProfile/WholeProfile/index.tsx
     return (
         <>
             <div className={style.container}>
@@ -40,12 +47,16 @@ function WholeProfile({user , isPersonal}) {
                     <div className={style.rightBlock}>
                         <h2  className={style.titleRight}>Projects & Skills</h2>
                         On the site since  :  <b className={style.span}>{user?.date}</b>
+<<<<<<< HEAD:src/Pages/PersonalProfile/WholeProfile/index.jsx
                         {user?.user.data.hash}
+=======
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/PersonalProfile/WholeProfile/index.tsx
                         <div className={style.course}>
                             On course :
                         </div>
                         <p className={style.languagesTitle}>Languages know :</p>
                         <div className={style.languagesBlock}>
+<<<<<<< HEAD:src/Pages/PersonalProfile/WholeProfile/index.jsx
                             {user?.user.data.languagesKnow.map((item) => {
                                     return <div key={item.label} className={style.languages} style={{background: item.color}}>
                                         {item.label}
@@ -59,11 +70,20 @@ function WholeProfile({user , isPersonal}) {
                                     {item.label}
                                 </div>
                             })}
+=======
+                            <List items={user?.user.data?.languagesKnow} rerender={(item : ILanguages) =>  <div key={item.label} className={style.languages} style={{background: item.color}}>
+                                {item.label}
+                            </div>}></List>
+                        </div>
+                        <p className={style.languagesTitle}>Languages learn :</p>
+                        <div className={style.languagesBlock}>
+                            <List items={user?.user.data?.languagesLearn} rerender={(item : ILanguages) => <div key={item.label} className={style.languages} style={{background: item.color}}>
+                                {item.label}
+                            </div>}></List>
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/PersonalProfile/WholeProfile/index.tsx
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </>
     )

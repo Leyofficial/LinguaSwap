@@ -24,8 +24,9 @@ export const getCurrentCourseForChatThunkCreator = (idCourse) => {
       dispatch(currentCourseChat(response.data.course))
 
       const responseUser = await getUser(response.data.course.teacher.id)
+      console.log(responseUser)
       if (responseUser) {
-        dispatch(currentCourseTeacherAC(responseUser.user))
+        dispatch(currentCourseTeacherAC(responseUser.data.user))
       }
     }
   }

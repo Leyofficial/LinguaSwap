@@ -13,25 +13,26 @@ import CustomSelector from "../../../Utility/CustomSelector/CustomSelector.jsx";
 import Spinner from "../../../Utility/Spinner/Spinner.jsx";
 import {ProfileUser, saveProfileImage} from "../../../ApiRequests/CreateProfile/Profile.js";
 import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
+import {IStepsProps} from "../types.ts";
+import {IUserObj} from "./types.ts";
 
-const StepThree = (props) => {
-    const languagesKnow = useSelector((state) => state.languagesKnow);
-    const languagesLearn = useSelector((state) => state.languagesLearn);
-    const name = useSelector((state) => state.name);
-    const status = useSelector((state) => state.status);
-    const userTag = useSelector((state) => state.userTag);
-    const bio = useSelector((state) => state.bio);
-    const photo = useSelector((state) => state.photo)
-    const state = useSelector(state => state)
-    const id = useSelector((state) => state.loginUser._id)
+const StepThree = (props : IStepsProps) => {
+    const languagesKnow = useSelector((state : any) => state.languagesKnow);
+    const languagesLearn = useSelector((state : any) => state.languagesLearn);
+    const name = useSelector((state : any) => state.name);
+    const status = useSelector((state : any) => state.status);
+    const userTag = useSelector((state : any) => state.userTag);
+    const bio = useSelector((state : any) => state.bio);
+    const photo = useSelector((state : any) => state.photo)
+    const id = useSelector((state : any) => state.loginUser._id)
 
-    const [isOpen , setOpen]  = useState(false)
+    const [isOpen , setOpen]  = useState<boolean>(false)
 
     function sendDataToServer() {
-        const obj = {
+        const obj : IUserObj = {
             name: name,
             status: status,
-            userTag: userTag,
+            userTag : userTag,
             experience: '0',
             bio: bio,
             photo:"",
@@ -40,8 +41,12 @@ const StepThree = (props) => {
         }
         ProfileUser.createProfile(id ,  obj).then(res => {
             if (res.status === 200) {
+<<<<<<< HEAD:src/Pages/CreateProfilePage/StepThree/index.jsx
                 const data = new FormData()
 
+=======
+                const data : FormData = new FormData()
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/CreateProfilePage/StepThree/index.tsx
                 data.append('image', photo)
                 saveProfileImage(data).then(res => {
                     if(res.status === 200) {
@@ -88,11 +93,10 @@ const StepThree = (props) => {
                     <CustomButton
                         title={"Save"}
                         typeOfButton={"button"}
-                        callback={() => {
+                        callback={(event : React.MouseEvent) => {
                             event.preventDefault()
                             sendDataToServer()
                             setOpen(true)
-                            console.log(state)
                         }}
                     />
                 </div>
@@ -100,5 +104,4 @@ const StepThree = (props) => {
         </div>
     );
 };
-
 export default StepThree;

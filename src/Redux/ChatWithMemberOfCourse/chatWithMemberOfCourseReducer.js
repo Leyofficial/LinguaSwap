@@ -3,6 +3,8 @@ import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
 import {addChatMessage, chatMessagesAC} from "../ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
 import {getChatMember} from "./chatWithMemberOfCourseAC.js";
+import {chatsWithStudentsThunkCreator} from "../Course/ChatsWithStudents/chatsWithStudentsReducer.js";
+import {getChatsWithTeachersThunkCreator} from "../Course/ChatsWithTeacher/chatsWithTeacherReducer.js";
 
 export const SET_CHAT_MEMBER = "SET_CHAT_MEMBER"
 
@@ -25,8 +27,8 @@ export const getChatWithMemberThunkCreator = (idTeacher, idStudent, chatStatus) 
             dispatch(chatMessagesAC(response.data.findChatTeacher))
             const responseUser = await getUser(chatStatus === 'student' ? response.data.findChatTeacher.idStudent : response.data.findChatTeacher.idTeacher)
 
-            if (responseUser.status === "Succeed") {
-               dispatch(getChatMember(responseUser.user))
+            if (responseUser.status === 200) {
+               dispatch(getChatMember(responseUser.data.user))
             }
          }
 
@@ -36,7 +38,7 @@ export const getChatWithMemberThunkCreator = (idTeacher, idStudent, chatStatus) 
    }
 }
 
-export const sendSocketMessageThunkCreator = (messageData, chatId, socket, idTeacher, idStudent, scroll) => {
+export const sendSocketMessageThunkCreator = (messageData, chatId, socket, idTeacher, idStudent, scroll,currentUser) => {
    return async (dispatch) => {
       try {
 
@@ -44,9 +46,15 @@ export const sendSocketMessageThunkCreator = (messageData, chatId, socket, idTea
          if (messageResponse.status === 200) {
             socket.emit("privateMessage", messageData)
             const chatResponse = await teacherChats.getChatWithTeacher(idTeacher, idStudent)
-            if (chatResponse.status === 200) {
+            console.log(chatResponse)
+            // dispatch(addChatMessage(messageData))
+            dispatch(chatsWithStudentsThunkCreator(currentUser._id))
+            dispatch(getChatsWithTeachersThunkCreator(currentUser._id))
+            dispatch(chatMessagesAC(chatResponse.data.findChatTeacher))
+            // if (chatResponse.status === 200) {
+               // dispatch(addChatMessage(messageData))
                scroll.current?.scrollIntoView({behavior: "smooth"})
-            }
+            // }
          }
       } catch (err) {
          console.log(err)

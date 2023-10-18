@@ -19,6 +19,7 @@
     "@mui/material": "^5.14.11",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.9.6",
+    "@types/antd": "^1.0.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.37",
     "@types/react": "^18.2.14",

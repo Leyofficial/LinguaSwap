@@ -1,54 +1,41 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import style from './Teachers.module.scss'
-import {Select, Space} from "antd";
 import {Teachers} from "../../ApiRequests/Teacher/Teachers.js";
 
+<<<<<<< HEAD:src/Pages/TeachersSection/index.jsx
 import SearchInput from "../../Utility/SearchInput/SearchInput.jsx";
 import TeacherCard from "./TeacherCard/TeacherCard.jsx";
+=======
+import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
+import TeacherCard from "./TeacherCard/TeacherCard.js";
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/TeachersSection/index.tsx
 
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
+<<<<<<< HEAD:src/Pages/TeachersSection/index.jsx
 import {TypeAnimation} from "react-type-animation";
+=======
+import {IWholeUser} from "../PersonalProfile/WholeProfile/types.ts";
+import {Select, Space} from "antd";
+import {ILanguages} from "../../Utility/ModalProfile/types.ts";
+import List from "../../Utility/List/List.tsx";
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/TeachersSection/index.tsx
 
 const TeachersSection = () => {
-    const languages = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
+    const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
-    const [searchValue, setSearchValue] = useState(null)
+    const [searchValue, setSearchValue] = useState<string>('')
     const [languageFilter, setLanguageFilter] = useState(null)
-    const [foundTeacher, setFoundTeacher] = useState(null)
+    const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | null>()
     const [loadTeacher, setLoadTeacher] = useState(false)
     const dispatch = useDispatch()
-    const teachers = useSelector((state) => state.teachers);
+    const teachers = useSelector((state: any) => state.teachers);
 
-    function errorToaster(text) {
+    function errorToaster(text: string) {
         toast.error(text);
     }
-
-    useEffect(() => {
-        if (searchValue) {
-            const item = searchTeacherItem()
-            console.log(item)
-            setFoundTeacher(item)
-        }
-
-        if (languageFilter) {
-            const item = filterLanguageItem();
-            setFoundTeacher(item)
-        }
-        if (!searchValue && languageFilter === 'All') {
-            setFoundTeacher(teachers)
-        }
-        if (searchValue && languageFilter !== 'All') {
-            const filteredLanguages = filterLanguageItem();
-            if (filteredLanguages) {
-                const foundItems = filteredLanguages.filter((item) => item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase()));
-                setFoundTeacher(foundItems);
-            }
-        }
-    }, [languageFilter, searchValue]);
-
 
     useEffect(() => {
         Teachers.getTeachers().then(res => {
@@ -64,21 +51,29 @@ const TeachersSection = () => {
         })
     }, []);
 
-
     useEffect(() => {
         if (searchValue) {
-            const item = searchTeacherItem()
+            const item = searchTeacherItem();
             setFoundTeacher(item)
         } else {
             setFoundTeacher(null)
         }
+        if (languageFilter && searchValue && languageFilter !== 'All') {
+            const item = searchTeacherItem();
+            const filterInSearch = item.map((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === searchValue));
+            setFoundTeacher(filterInSearch);
+        }
+        if (languageFilter && languageFilter !== 'All') {
+            const item = filterLanguageItem()
+            setFoundTeacher(item)
+        }
+    }, [languageFilter, searchValue])
 
-    }, [searchValue])
 
-    const filterLanguageItem = () => teachers.filter(item =>
-        item.user.data.languagesKnow.find(item => item.label === languageFilter)
+    const filterLanguageItem = () => teachers.filter((item: IWholeUser) =>
+        item.user.data.languagesKnow.find((item: ILanguages): boolean => item.label === languageFilter)
     )
-    const searchTeacherItem = () => teachers.filter(item =>
+    const searchTeacherItem = () => teachers.filter((item: IWholeUser) =>
         item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase())
     )
 
@@ -97,17 +92,18 @@ const TeachersSection = () => {
                     <div className={style.filtersBlock}>
                         <Space wrap>
                             <Select
-                                defaultValue={'Language'}
+                                placeholder={'Teachers'}
+                                defaultValue={() => null}
                                 style={{width: 120}}
                                 onChange={setLanguageFilter}
-                                options={languages.map((language) => ({label: language, value: language}))}
+                                options={languages.map((language : string) => ({label: language, value: language}))}
                             />
                         </Space>
                     </div>
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        {!foundTeacher ? teachers.map((item) => {
+                        {!foundTeacher ? teachers.map((item: IWholeUser) => {
                             if (!loadTeacher) {
                                 return <Stack spacing={4}>
                                     <Skeleton variant="circular" width={75} height={75}/>
@@ -117,30 +113,29 @@ const TeachersSection = () => {
                             } else {
                                 return <TeacherCard id={item._id}
                                                     name={item.user.data.name}
-                                                    hash={item.user.data.userTag}
+                                                    userTag={item.user.data.userTag}
                                                     photo={item.user.data.photo}
-                                                    languages={item.user.data.languagesKnow}
+                                                    languagesKnow={item.user.data.languagesKnow}
                                                     bio={item.user.data.bio}
                                                     languagesLearn={item.user.data.languagesLearn}
                                 />
                             }
-                        }) : (foundTeacher ? foundTeacher.map((item) => {
-                                    return <TeacherCard
-                                                        id={item._id}
-                                                        name={item.user.data.name}
-                                                        hash={item.user.data.userTag}
-                                                        photo={item.user.data.photo}
-                                                        languages={item.user.data.languagesKnow}
-                                                        bio={item.user.data.bio}
-                                                        languagesLearn={item.user.data.languagesLearn}
-                                    />
-                                }) :
-                                <div className={style.notFound}>
-                                    No results <span className={style.span}>found</span> :( <br/>
-                                    We <span className={style.span}>can’t find </span> any item matching your <span
-                                    className={style.span}>search .</span>
-                                </div>
-                        )}
+                        }) : ( foundTeacher.length > 0 ?
+                                <List items={foundTeacher} rerender={(item : IWholeUser) => <TeacherCard
+                                    id={item._id}
+                                    name={item.user.data.name}
+                                    userTag={item.user.data.userTag}
+                                    photo={item.user.data.photo}
+                                    languagesKnow={item.user.data.languagesKnow}
+                                    bio={item.user.data.bio}
+                                    languagesLearn={item.user.data.languagesLearn}
+                                />}></List>
+                                :  <div className={style.notFound}>
+                                No results <span className={style.span}>found</span> :( <br/>
+                                We <span className={style.span}>can’t find </span> any item matching your <span
+                                className={style.span}>search .</span>
+                            </div>
+                          )}
                     </ul>
                 </>
             </div>

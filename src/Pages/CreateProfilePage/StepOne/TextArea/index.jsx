@@ -20,9 +20,13 @@ export function  TextArea () {
             </p>
             <textarea
                 value={bio}
-                onClick={handleTextareaClick}
+                onClick={() => handleTextareaClick()}
                 onBlur={handleTextareaBlur}
+<<<<<<< HEAD:src/Pages/CreateProfilePage/StepOne/TextArea/index.jsx
                 onChange={() => dispatch(setBioAC(event.target.value))}
+=======
+                onChange={(event : React.ChangeEvent<HTMLTextAreaElement>) => dispatch(setBioAC(event.target.value))}
+>>>>>>> 643f76ace336b8c32896b2a86575a8afab9e9e53:src/Pages/CreateProfilePage/StepOne/TextArea/index.tsx
                 style={{
                     border: isClicked ? "2px solid dodgerblue" : "1px solid gray",
                 }}
