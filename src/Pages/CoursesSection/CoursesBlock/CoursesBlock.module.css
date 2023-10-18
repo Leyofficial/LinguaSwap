@@ -17,52 +17,6 @@
 .container .containerWrapper:hover {
   border-radius: 20px;
 }
-.container .containerWrapper .courseHeader {
-  width: 100%;
-  position: relative;
-}
-.container .containerWrapper .courseHeader img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
-.container .containerWrapper .courseHeader .language {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-.container .containerWrapper .courseHeader .language p {
-  color: rgba(0, 0, 0, 0.53);
-  background-color: rgba(255, 255, 255, 0.6);
-  padding: 10px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-.container .containerWrapper .authorWrapper {
-  position: absolute;
-  top: 160px;
-  left: 20px;
-  display: flex;
-  align-items: baseline;
-}
-.container .containerWrapper .authorWrapper img {
-  max-width: 70px;
-  border-radius: 5px;
-  border: 1px solid rgba(252, 248, 252, 0.6);
-}
-.container .containerWrapper .nameOfAuthor {
-  padding-left: 3vh;
-}
-.container .containerWrapper .nameOfAuthor p {
-  padding-left: 15px;
-  color: rgba(0, 0, 0, 0.68);
-  font-weight: bold;
-  max-width: 200px;
-  font-size: 13px;
-  height: 20px;
-  overflow: hidden;
-}
 .container .imageWrapper {
   padding: 20px;
   display: flex;
@@ -130,58 +84,6 @@
 .container .infoWrapper .duration {
   color: #000000;
 }
-.container .wrapperLevel {
-  margin: 15px 0;
-  display: flex;
-  align-items: center;
-}
-.container .wrapperLevel div {
-  width: 100%;
-}
-.container .wrapperLevel div p {
-  font-size: 15px;
-}
-.container .wrapperLevel svg {
-  font-size: 20px;
-  padding-right: 5px;
-}
-.container .wrapperLevel .startDate {
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 10px;
-  font-weight: bold;
-  color: rgba(10, 119, 119, 0.6);
-}
-.container .wrapperLevel .startDate span {
-  color: rgba(3, 3, 3, 0.73);
-  font-weight: normal;
-}
-.container .wrapperLevel .startDate .icon {
-  display: flex;
-  align-items: center;
-  color: #070707;
-}
-.container .wrapperLevel .startDate .icon svg {
-  font-size: 30px;
-}
-.container .wrapperLevel .finishDate {
-  display: flex;
-  justify-content: space-between;
-  color: rgba(10, 119, 119, 0.6);
-  font-weight: bold;
-}
-.container .wrapperLevel .finishDate span {
-  color: rgba(3, 3, 3, 0.73);
-  font-weight: normal;
-}
-.container .wrapperLevel .finishDate .icon {
-  display: flex;
-  align-items: center;
-  color: #070707;
-}
-.container .wrapperLevel .finishDate .icon svg {
-  font-size: 30px;
-}
 .container:hover {
   box-shadow: 0px 0px 30px 1px rgba(48, 50, 51, 0.42);
   border-radius: 20px;
@@ -189,31 +91,6 @@
 .container:hover .author {
   border-radius: 0 0 20px 20px;
   transition: 1s all;
-}
-.container .author {
-  transition: 1s all;
-  border-top: 1px solid rgba(180, 180, 180, 0.09);
-  display: flex;
-  align-items: center;
-  position: absolute;
-  border-radius: 5px;
-  justify-content: center;
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  padding-top: 5px;
-  background: rgba(21, 186, 206, 0.25); /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, rgba(13, 167, 185, 0.21), rgba(9, 193, 220, 0.14)); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, rgba(13, 89, 143, 0.5), rgba(16, 200, 239, 0.14)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-.container .author img {
-  max-width: 40px;
-}
-.container .author p {
-  color: rgba(0, 0, 0, 0.82);
-  font-weight: bold;
-  font-size: 18px;
-  padding: 10px 30px;
 }
 
 /*# sourceMappingURL=CoursesBlock.module.css.map */

@@ -18,46 +18,6 @@
   object-fit: cover;
   border-radius: 0 0 20px 20px;
 }
-.container .headerTitle {
-  width: 100%;
-  border-bottom: 3px solid rgba(37, 174, 222, 0.12);
-  border-radius: 20px;
-  padding-left: 2vh;
-}
-.container .headerTitle .wrapperTitle {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.container .headerTitle .wrapperTitle button {
-  padding: 10px 45px;
-  font-size: 16px;
-  border-radius: 5px 15px 15px;
-  letter-spacing: 1px;
-  background: rgba(0, 0, 0, 0.07);
-  cursor: pointer;
-  color: rgba(7, 7, 7, 0.69);
-  animation-name: color-change;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(17, 86, 136, 0.4) 0px 2px 6px 2px;
-}
-.container .headerTitle .wrapperTitle button:hover {
-  color: #f1f1f1;
-}
-.container .headerTitle .image {
-  display: flex;
-  align-items: center;
-  padding-top: 2vh;
-}
-.container .headerTitle .image img {
-  margin-right: 2vh;
-  max-width: 70px;
-  border-radius: 50%;
-}
-.container .headerTitle h1 {
-  color: rgba(29, 156, 197, 0.63);
-}
 .container .stepsWrapper {
   margin: 3vh 0;
   padding: 3vh 0;
@@ -66,41 +26,9 @@
   padding-left: 4vh;
   padding-top: 5vh;
 }
-.container .main .description {
-  max-width: 600px;
-  margin-bottom: 7vh;
-}
-.container .main .description h2 {
-  padding-bottom: 2vh;
-}
-.container .main .description p {
-  color: rgba(89, 89, 91, 0.89);
-}
 .container .main .wrapperDescription {
   display: flex;
   justify-content: space-between;
-}
-.container .main .wrapperDescription .descriptionContainer {
-  width: 85%;
-}
-.container .main .wrapperLevel {
-  display: flex;
-  align-items: center;
-}
-.container .main .language {
-  display: flex;
-  align-items: center;
-}
-.container .main .containerDate {
-  display: flex;
-}
-.container .main .containerDate .wrapperDate {
-  display: flex;
-  padding-right: 4vh;
-}
-.container .main .duration {
-  display: flex;
-  align-items: center;
 }
 .container .wrapperSideInfo {
   width: 40%;
@@ -111,38 +39,6 @@
 .container .wrapperSideInfo div img {
   padding-right: 3vh;
   max-width: 50px;
-}
-.container .members {
-  padding-top: 4vh;
-}
-.container .members h3 {
-  color: rgba(45, 113, 136, 0.54);
-  padding-bottom: 4vh;
-}
-.container .members img {
-  padding-right: 0 !important;
-}
-.container .topics {
-  max-width: 600px;
-  cursor: pointer;
-}
-
-@keyframes color-change {
-  0% {
-    background-color: rgba(21, 145, 199, 0.42);
-  }
-  25% {
-    background-color: rgba(21, 145, 199, 0.7);
-  }
-  50% {
-    background-color: rgba(21, 145, 199, 0.92);
-  }
-  75% {
-    background-color: rgba(21, 145, 199, 0.7);
-  }
-  100% {
-    background-color: rgba(21, 145, 199, 0.42);
-  }
 }
 
 /*# sourceMappingURL=CourseSection.module.css.map */

@@ -9,6 +9,10 @@
   background: #1f1d2b;
 }
 
+.text {
+  color: white;
+}
+
 .headerInner {
   align-items: center;
   display: flex;
@@ -20,9 +24,7 @@
   gap: 15px;
 }
 .navList li a {
-  transition: 0.5s all;
-  color: #ffffff;
-  cursor: pointer;
+  transition: 1s all;
 }
 .navList li a:hover {
   color: dodgerblue;
@@ -36,6 +38,10 @@
 .iconBlock a {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.navItem {
   cursor: pointer;
 }
 
