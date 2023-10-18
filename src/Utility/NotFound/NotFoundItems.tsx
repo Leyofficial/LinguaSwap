@@ -2,7 +2,6 @@ import React from 'react';
 import style from "./NotFound.module.scss";
 
 const NotFoundItems = () => {
-   console.log('s')
    return (
       <div className={style.notFound}>
          No results <span className={style.span}>found</span> :( <br/>

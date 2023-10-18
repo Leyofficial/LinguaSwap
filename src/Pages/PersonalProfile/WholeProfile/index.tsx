@@ -7,7 +7,23 @@ import React from "react";
 import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
 import List from "../../../Utility/List/List.tsx";
 import {IUserProfile} from "./types.ts";
+import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router";
+import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
 function WholeProfile({user} : IUserProfile) {
+    const currentUser = useSelector((state : any) => state.loginUser)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const startConversation = () => {
+
+        getChatThunkCreate(currentUser._id, user._id)(dispatch).then(res =>{
+///@ts-ignore
+            if(res.status === 301){
+                createChatThunkCreator(currentUser._id, user._id)(dispatch)
+                navigate(`/chat/${currentUser._id}`)
+            }
+        })
+    }
     return (
         <>
             <div className={style.container}>

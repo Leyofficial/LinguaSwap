@@ -26,6 +26,7 @@ import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
 import {addChatMessage} from "./Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
+import MainChat from "./Pages/Chat/MainChat.jsx";
 
 
 function App() {
@@ -103,6 +104,7 @@ function App() {
                   <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithMemberOfCourse/>}></Route>
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
+               <Route path={'/chat'} element={<MainChat></MainChat>}></Route>
             </Route>
          </Routes>
       </>
