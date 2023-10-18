@@ -101,7 +101,7 @@ function App() {
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
                   <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithMemberOfCourse/>}></Route>
                </Route>
-               <Route path={'/chat/:idUser'} element={<MainChat></MainChat>}>
+               <Route path={'/chat'} element={<MainChat></MainChat>}>
 
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>

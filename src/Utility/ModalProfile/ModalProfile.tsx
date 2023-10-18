@@ -15,14 +15,8 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
 
     const dispatch = useDispatch()
     const startConversation = () => {
+        getChatThunkCreate(currentUser._id, user.id,navigate)(dispatch)
 
-        getChatThunkCreate(currentUser._id, user.id)(dispatch).then(res =>{
-
-            if(res.status === 301){
-                createChatThunkCreator(currentUser._id, user.id)(dispatch)
-                navigate(`/chat/${currentUser._id}`)
-            }
-        })
     }
     return (
         <>

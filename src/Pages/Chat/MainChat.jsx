@@ -1,20 +1,24 @@
 import React, {useEffect} from 'react';
-import {useSelector} from "react-redux";
-import {useParams} from "react-router";
+import {useDispatch, useSelector} from "react-redux";
+import {getChatsThunkCreator} from "../../Redux/MainChats/mainChatsReducer.js";
+import ChatSingleMessage from "./ChatSingleMessage/ChatSingleMessage.jsx";
+
 
 const MainChat = () => {
 
    const currentUser = useSelector((state) => state.loginUser)
-   const {idUser} = useParams()
-   console.log(idUser)
+   const dispatch = useDispatch()
+   const mainChats = useSelector((state) => state.mainChats)
 
 
-   // useEffect(() => {
-   //
-   // }, [currentUser])
+
+   useEffect(() => {
+
+      dispatch(getChatsThunkCreator(currentUser?._id))
+   }, [currentUser])
    return (
       <>
-
+         {mainChats.map(dialog => <ChatSingleMessage currentUser={currentUser} dialog={dialog}></ChatSingleMessage>)}
       </>
    );
 };

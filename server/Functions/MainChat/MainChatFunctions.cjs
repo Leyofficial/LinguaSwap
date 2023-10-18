@@ -1,6 +1,6 @@
 const MainChat = require('../../Modules/MainChat/MainChatModules.cjs')
 
-exports.createChat = async (req, res) => {
+exports.createMainChat = async (req, res) => {
 
    const chat = await MainChat.create({
       members: req.body.members,
@@ -21,14 +21,19 @@ exports.createChat = async (req, res) => {
    }
 }
 
-exports.getChat = async (req, res) => {
+exports.getMainChat = async (req, res) => {
 
    const {firstMember, secondMember} = req.params
 
-   const foundChat = await MainChat.findOne({"members.first": firstMember, "members.second": secondMember})
+   const foundChat = await MainChat.findOne({$or:[
+         {"members.first":firstMember,"members.second":secondMember},
+         {"members.first":secondMember,"members.second":firstMember}
+      ]})
+
 
    if (!foundChat) {
-      res.status(301).json({
+
+      res.status(404).json({
          status: "Not found",
          message: "Chat was not found"
       })
@@ -40,17 +45,18 @@ exports.getChat = async (req, res) => {
    }
 }
 
-exports.getChats = async (req, res) => {
+exports.getMainChats = async (req, res) => {
 
-   const {userId} = req.params
-//                                     $or its || in JS
+   const {idUser} = req.params
+//                                  $or its || in JS
+
    const foundChats = await MainChat.find({$or :[
-         {"members.first":userId},
-         {"members.second":userId}
+         {"members.first":idUser},
+         {"members.second":idUser}
       ]})
 
    if(!foundChats){
-      res.status(301).json({
+      res.status(404).json({
          status:"Not found",
          message:"Chats were not found"
       })
