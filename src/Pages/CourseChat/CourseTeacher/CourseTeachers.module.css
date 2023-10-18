@@ -4,9 +4,9 @@
 }
 .blockItems h3 {
   color: rgba(210, 209, 209, 0.9);
-  background-color: rgba(0, 0, 0, 0.77);
+  background-color: #1f1d2b;
   padding: 10px;
-  border: 1px solid rgba(20, 18, 18, 0.4196078431);
+  border: 1px solid rgba(152, 150, 150, 0.42);
 }
 
 .teacherWrapper {

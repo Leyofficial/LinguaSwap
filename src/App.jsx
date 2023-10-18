@@ -1,11 +1,11 @@
 import {Route} from "react-router-dom";
-import Layout from "./Router/Layout/Layout.tsx";
+import Layout from "./Router/Layout/Layout.jsx";
 import {Routes} from "react-router-dom";
 import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import './App.css'
 import {useDispatch, useSelector} from "react-redux";
-import CreateProfile from "./Pages/CreateProfilePage/index.tsx"
+import CreateProfile from "./Pages/CreateProfilePage/index"
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
 import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
@@ -18,15 +18,20 @@ import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.tsx";
 import PersonalProfile from "./Pages/PersonalProfile/index.tsx";
 import {loginUserAC} from "./Redux/login/loginUserAC.js";
+
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
-import ChatWithMemberOfCourse from "./Pages/CourseChat/ChatWithTeacher/ChatWithMemberOfCourse.jsx";
+import ChatWithTeacher from "./Pages/CourseChat/ChatWithTeacher/ChatWithTeacher.jsx";
 import socketIO from 'socket.io-client'
 import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
+import StudentDialog from "./Pages/CourseChat/ChatWithStudents/StudentDialog/StudentDialog.jsx";
 import {addOnlineUserAC, onlineUsersAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
+
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
 import {addChatMessage} from "./Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
+
+
 
 
 function App() {
@@ -36,7 +41,6 @@ function App() {
    const currentUser = useSelector((state) => state.loginUser)
    const userToken = JSON.parse(localStorage.getItem('loginUser'))
    const newSocket = useSelector((state) => state.socket)
-   const chat = useSelector((state) => state.chatWithStudent)
    useEffect(() => {
       if (userToken && !isAuth) {
          const socket = socketIO.connect('http://localhost:3000')
@@ -72,7 +76,6 @@ function App() {
             console.log(`User disconnected ${userId}`)
          })
          newSocket.on("privateResponse", (data) => {
-            console.log('t')
             dispatch(addChatMessage(data))
 
          })
@@ -94,17 +97,21 @@ function App() {
                <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
                <Route path={"/login"} element={isAuth ? <PersonalProfile/> : <Login/>}/>
                <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
-               <Route path={"/createprofile"} element={isAuth ?  <CreateProfile/> : <Login/> }/>
+               <Route path={"/createprofile"} element={<CreateProfile/>}/>
                <Route path={"/findteacher"} element={<TeachersSection/>}/>
                <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
                <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
-               <Route path={'/course/create'} element={<Create/>}></Route>
+               <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
-                  <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithMemberOfCourse/>}></Route>
+                  <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
+                  <Route path={'/course/chat/student/:idTeacher/:idStudent'} element={<StudentDialog/>}></Route>
+               </Route>
+               <Route path={'/chat'} element={<MainChat></MainChat>}>
+
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
-               <Route path={'/chat'} element={<MainChat></MainChat>}></Route>
+
             </Route>
          </Routes>
       </>

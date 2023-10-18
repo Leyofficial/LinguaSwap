@@ -34,4 +34,5 @@ export const getUserByToken = (token) => {
 
 export const getUser = (idUser) => {
    return axios.get(`http://localhost:3000/authorization/${idUser}`)
+
 }

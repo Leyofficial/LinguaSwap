@@ -34,12 +34,10 @@ export const getCourseThunkCreator = (idCourse) => {
 export const joinToCourseAndCreateChatThunkCreator = (courseId, teacherId, userId) => {
    return async (dispatch) => {
       try {
+         await teacherChats.createChat(teacherId, userId)
          const joinCourseResponse = await Course.addNewMember(userId, courseId)
+
          if (joinCourseResponse.status === 200) {
-            const isChatResponse = await teacherChats.getChatWithTeacher(teacherId, userId)
-            if(isChatResponse.status === 201) {
-               await teacherChats.createChat(teacherId, userId)
-            }
             const response = await Course.getCourse(courseId)
             if (response.status === 200) {
                dispatch(courseAC(response.data.course))

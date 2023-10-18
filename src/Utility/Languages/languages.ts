@@ -1,9 +1,4 @@
-interface ILanguagesTypes {
-    value : string,
-    label : string,
-    color : string,
-}
-export const languageOptions : ILanguagesTypes[] =  [
+export const languageOptions =  [
     { value: 'en', label: 'English', color: '#ff0000' },
     { value: 'ua', label: 'Ukrainian', color: '#00a6ff' },
     { value: 'ru', label: 'Russian', color: '#461313' },
@@ -19,7 +14,3 @@ export const languageOptions : ILanguagesTypes[] =  [
     { value: 'pl', label: 'Polish', color: '#ff0000' },
     { value: 'sv', label: 'Swedish', color: '#1f82b7' },
 ];
-
-export const languagesList = ["English","Ukrainian","Russian",'Spanish','French','German','Italian','Japanese','Korean','Chinese']
-export const levelList = ["Beginners","Elementary","Intermediate","Upper-Intermediate","Advanced","Proficiency"]
-export const durationList = ["1 hour","2 hour","30 minutes","10 minute"]

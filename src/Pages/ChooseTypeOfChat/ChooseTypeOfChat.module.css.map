@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["ChooseTypeOfChat.module.scss"],"names":[],"mappings":"AAAA;EAEE;EACA;EACA;;AAEA;EAEE;EACA;;AAEA;EACE;EACA;;AAGA;EACE;EACA;;AAEA;EAEE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAIJ;EACE;;AAKN;EACE;EACA;EACA","file":"ChooseTypeOfChat.module.css"}
+{"version":3,"sourceRoot":"","sources":["ChooseTypeOfChat.module.scss"],"names":[],"mappings":"AAAA;EACE;EACA;EACA;;AACA;EACE;EACA;;AAEA;EACE;EACA;;AACA;EACE;EACA;;AAEA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;;AAEA;EACE;;AAKR;EACE;EACA;EACA","file":"ChooseTypeOfChat.module.css"}

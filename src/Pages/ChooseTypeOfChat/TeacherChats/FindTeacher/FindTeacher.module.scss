@@ -19,4 +19,35 @@
       border-radius: 5px;
     }
   }
+
+  .message {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .time {
+      color: rgba(0, 0, 0, 0.87);
+      font-size: 12px;
+    }
+
+    .text {
+      max-width: 25vh;
+      overflow: hidden;
+      color: rgba(0, 0, 0, 0.99);
+      text-overflow: ellipsis;
+    }
+
+  }
+}
+
+.wrapper {
+  width: 100%;
+  p{
+    padding-left: 1vh;
+    padding-bottom: 5px;
+  }
+  .nameAuthor{
+    font-weight: bolder;
+    color: rgba(59, 77, 243, 0.82);
+  }
 }

@@ -18,7 +18,10 @@ console.log(mainChats)
    }, [currentUser])
    return (
       <>
+
          {mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser} dialog={dialog}></ChatSingleMessage>)}
+
+
       </>
    );
 };

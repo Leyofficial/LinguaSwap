@@ -27,9 +27,6 @@
 .container aside nav ul li:hover {
   background-color: rgba(0, 0, 0, 0.73);
 }
-.container aside nav ul .open {
-  background-color: rgba(0, 0, 0, 0.73);
-}
 .container aside section {
   max-width: 1200px;
   margin: 0 auto;

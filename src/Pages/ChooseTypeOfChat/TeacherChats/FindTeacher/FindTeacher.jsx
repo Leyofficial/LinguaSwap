@@ -34,14 +34,14 @@ const FindTeacher = ({item, itemPath}) => {
 
 
    return (
-      <div className={style.container}>
-         <NavLink to={`${itemPath}/${item.idTeacher}/${item.idStudent}`}>
-            <div className={style.author}>
-               <OnlineStatus teacher={interlocutor} isOnline={isOnline}></OnlineStatus>
-               <SingleMessage item={item} teacher={interlocutor}></SingleMessage>
-            </div>
-         </NavLink>
-      </div>
+     <div className={style.container}>
+        <NavLink to={`${itemPath}/${item.idTeacher}/${item.idStudent}`}>
+           <div className={style.author}>
+              <OnlineStatus teacher={interlocutor} isOnline={isOnline}></OnlineStatus>
+              <SingleMessage item={item} teacher={interlocutor}></SingleMessage>
+           </div>
+        </NavLink>
+     </div>
    );
 };
 

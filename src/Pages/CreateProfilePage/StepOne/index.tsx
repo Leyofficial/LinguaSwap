@@ -23,29 +23,29 @@ const StepOne = (props : IStepsProps) => {
             </h2>
             <div className={style.container}>
                 <div className={style.wrapper}>
-                        <Inputs/>
-                        <div className={style.selectors}>
-                            <Selectors/>
-                        </div>
-                        <div className={style.textAreBlock}>
-                            <TextArea/>
-                        </div>
-                        <div onClick={() => errorToaster("Input fields must not be empty!")}
-                            className={style.buttonOne} >
-                            {dirtyName || dirtyHash ? (
-                                <>
-                                    <Toaster position="top-right" reverseOrder={false}/>
-                                    <CustomButton title={"Next"} typeOfButton={"button"}/>
-                                </>
-                            ) : (
-                                <CustomButton
-                                    title={"Next"}
-                                    typeOfButton={"button"}
-                                    callback={props.nextStep}
-                                />
-                            )}
-                        </div>
+                    <Inputs/>
+                    <div className={style.selectors}>
+                        <Selectors/>
                     </div>
+                    <div className={style.textAreBlock}>
+                        <TextArea/>
+                    </div>
+                    <div onClick={() => errorToaster("Input fields must not be empty!")}
+                         className={style.buttonOne} >
+                        {dirtyName || dirtyHash ? (
+                            <>
+                                <Toaster position="top-right" reverseOrder={false}/>
+                                <CustomButton title={"Next"} typeOfButton={"button"}/>
+                            </>
+                        ) : (
+                            <CustomButton
+                                title={"Next"}
+                                typeOfButton={"button"}
+                                callback={props.nextStep}
+                            />
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
     );

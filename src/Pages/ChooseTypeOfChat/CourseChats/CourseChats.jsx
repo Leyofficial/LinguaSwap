@@ -11,6 +11,8 @@ const CourseChats = () => {
 
 
    useEffect(() => {
+
+
       getCoursesForUserChat(currentUser._id).then(res => {
          if (res.status === 200) {
             setCourses(res.data.courses)

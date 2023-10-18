@@ -15,10 +15,9 @@
   letter-spacing: 4px;
   overflow: hidden;
   padding: 10px 35px;
-  transition: 0.5s;
+  transition: 1s;
   display: flex;
   align-items: center;
-  transform: rotateY(30deg);
 
   svg {
     rotate: -45deg;
@@ -26,10 +25,7 @@
     font-size: 50px;
     padding-top: 15px;
   }
-.rotateIcon{
-  transform: rotate(180deg);
-  margin-left:1vh;
-}
+
   .buttonLine {
     position: absolute;
     display: block;
@@ -84,29 +80,29 @@
     background: linear-gradient(to right, rgba(146, 141, 171, 0.11), rgba(0, 210, 255, 0.15));
 
     border-radius: 5px 15px;
-    transition: 0.5s ease-in-out;
+    transition: 2s ease-in-out;
 
     .top {
       left: 100%;
-      transition: 1s;
+      transition: 2s;
       transition-delay: 0.25s;
     }
 
     .bottom {
       right: 100%;
-      transition: 1s;
+      transition: 2s;
       transition-delay: 0.25s;
     }
 
     .right {
       top: 100%;
-      transition: 1s;
+      transition: 2s;
       transition-delay: 0.25s;
     }
 
     .left {
       bottom: 100%;
-      transition: 1s;
+      transition: 2s;
       transition-delay: 0.25s;
     }
   }

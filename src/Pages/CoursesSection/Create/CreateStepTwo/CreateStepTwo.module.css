@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.container .wrapeprSelects {
+  width: 50%;
+}
+.container .wrapeprSelects .wrapperData {
+  border: 1px solid rgba(28, 27, 27, 0.17);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+.container .wrapeprSelects .data {
+  display: flex;
+}
+.container .description {
+  padding: 0 10px;
+  width: 50%;
+  margin-top: 2vh;
+}
+.container .description .wrapperTextarea {
+  margin-top: 1vh;
+  border: 1px solid rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+  height: 80%;
+  width: 90%;
+  padding: 10px;
+}
+.container .description .wrapperTextarea textarea {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px 15px;
+  padding: 5px;
+  color: rgba(17, 17, 17, 0.99);
+  letter-spacing: 1px;
+  font-size: 16px;
+  resize: none;
+}
+.container .description .wrapperTextarea textarea::placeholder {
+  color: rgba(0, 0, 0, 0.74);
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+}
+.container .description label {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 17px;
+  font-weight: bolder;
+}
+
+.move {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 30px;
+}
+
+/*# sourceMappingURL=CreateStepTwo.module.css.map */

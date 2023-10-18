@@ -1,0 +1,29 @@
+.wrapper {
+  width: 100%;
+}
+.wrapper p {
+  padding-left: 1vh;
+  padding-bottom: 5px;
+}
+.wrapper .nameAuthor {
+  font-weight: bolder;
+  color: rgba(59, 77, 243, 0.82);
+}
+
+.message {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.message .time {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 12px;
+}
+.message .text {
+  max-width: 25vh;
+  overflow: hidden;
+  color: rgba(0, 0, 0, 0.99);
+  text-overflow: ellipsis;
+}
+
+/*# sourceMappingURL=SingleMessage.module.css.map */

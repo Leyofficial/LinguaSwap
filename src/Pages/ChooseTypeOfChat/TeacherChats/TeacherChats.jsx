@@ -1,23 +1,23 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import FindTeacher from "./FindTeacher/FindTeacher.jsx";
+import {teacherChats} from "../../../ApiRequests/TeacherChats/TeacherChats.js";
 import {useDispatch, useSelector} from "react-redux";
-import {getChatsWithTeachersThunkCreator} from "../../../Redux/Course/ChatsWithTeacher/chatsWithTeacherReducer.js";
 
 const TeacherChats = () => {
 
    const currentUser = useSelector((state) => state.loginUser)
-   const chatsWithTeacher = useSelector((state) => state.chatsWithTeachers)
+   const [chatsWithTeacher,setChatsWithTeacher] = useState(null)
+   const socket = useSelector((state) => state.socket)
    const dispatch = useDispatch()
-
    useEffect(() => {
-      dispatch(getChatsWithTeachersThunkCreator(currentUser._id))
+      teacherChats.getAllChats(currentUser._id).then(res => setChatsWithTeacher(res.data.findChats))
    }, [currentUser])
 
 
    return (
       <div>
-         {chatsWithTeacher && chatsWithTeacher.map(item => <FindTeacher itemPath={'/course/chat/teacher'}
-                                                                        item={item}></FindTeacher>)}
+         {chatsWithTeacher && chatsWithTeacher.map(item => <FindTeacher itemPath={'/course/chat/teacher'} item={item}></FindTeacher>)}
+
       </div>
    );
 };

@@ -4,6 +4,7 @@ import {Avatar} from "@mui/material";
 import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.tsx";
 import {ILanguages, IUser} from "../../../Utility/ModalProfile/types.ts";
 
+
 const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn, id} : IUser) => {
     const user : IUser = {
         id: id,

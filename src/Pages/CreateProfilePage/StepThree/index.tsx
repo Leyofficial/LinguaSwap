@@ -46,7 +46,7 @@ const StepThree = (props : IStepsProps) => {
                 saveProfileImage(data).then(res => {
                     if(res.status === 200) {
                         savePhoto(res.data.image.path , id)
-                 }
+                    }
                 })
 
                 setTimeout(() => {

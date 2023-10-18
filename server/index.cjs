@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require("mongoose");
 const cors = require('cors');
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = 3000
 const helmet = require("helmet");
 const http = require('http')
 const ErrorHandler = require("./APIFeatures/ErrorHandler.cjs");
@@ -95,6 +95,9 @@ app.use('/courses', coursesRouter);
 app.use('/teacherChats', teacherChatRouter);
 app.use('/onlineUsers', onlineUsersRouter);
 app.use('/mainChat', mainChatRouter);
+
+app.use('/mainChat', mainChatRouter);
+
 
 app.all('*', (req, res, next) => {
    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");

@@ -1,0 +1,20 @@
+.container {
+  padding: 10px;
+}
+.container .item {
+  font-size: 20px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.88);
+  background-color: rgba(3, 88, 197, 0.66);
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+  width: 300px;
+  height: 100%;
+}
+.container .description {
+  background-color: rgba(3, 88, 197, 0.66);
+  transition: 0.5s ease-in-out;
+  padding: 10px;
+}
+
+/*# sourceMappingURL=TopicDescription.module.css.map */

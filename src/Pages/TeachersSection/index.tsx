@@ -124,11 +124,11 @@ const TeachersSection = () => {
                                     languagesLearn={item.user.data.languagesLearn}
                                 />}></List>
                                 :  <div className={style.notFound}>
-                                No results <span className={style.span}>found</span> :( <br/>
-                                We <span className={style.span}>can’t find </span> any item matching your <span
-                                className={style.span}>search .</span>
-                            </div>
-                          )}
+                                    No results <span className={style.span}>found</span> :( <br/>
+                                    We <span className={style.span}>can’t find </span> any item matching your <span
+                                    className={style.span}>search .</span>
+                                </div>
+                        )}
                     </ul>
                 </>
             </div>

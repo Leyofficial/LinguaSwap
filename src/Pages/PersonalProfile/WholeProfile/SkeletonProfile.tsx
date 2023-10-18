@@ -46,6 +46,21 @@ function SkeletonProfile ({user} : IUserProfile) {
                 </div>
                 <p className={style.languagesTitle}>Languages know :</p>
                 <div className={style.languagesBlock}>
+
+                    {user?.user.data.languagesKnow.map((item) => {
+                        return <div key={item.label}>
+                            <Skeleton variant="rectangular" width={50} height={30} />
+                        </div>
+                    })}
+                </div>
+                <p className={style.languagesTitle}>Languages learn :</p>
+                <div className={style.languagesBlock}>
+                    {user?.user.data.languagesLearn.map((item) => {
+                        return <div key={item.label}>
+                            <Skeleton variant="rectangular" width={50} height={30} />
+                        </div>
+                    })}
+
                     <List items={user?.user.data?.languagesKnow} rerender={(item : ILanguages) =><div key={item.label}>
                         <Skeleton variant="rectangular" width={50} height={30} />
                     </div>}></List>

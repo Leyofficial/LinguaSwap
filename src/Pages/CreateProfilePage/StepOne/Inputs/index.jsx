@@ -8,13 +8,12 @@ import {hashInputEmptyAC} from "../../../../Redux/Profile/Inputs/hash/hashInputE
 export function  Inputs () {
     const dispatch = useDispatch();
 
-    // Should be hook useTypedSelector (later)
-    const dirtyName = useSelector((state : any) => state.nameDirty);
-    const dirtyHash = useSelector((state : any) => state.hashDirty);
-    const name = useSelector((state : any) => state.name);
-    const userTag = useSelector((state : any) => state.userTag);
+    const dirtyName = useSelector((state) => state.nameDirty);
+    const dirtyHash = useSelector((state) => state.hashDirty);
+    const name = useSelector((state) => state.name);
+    const userTag = useSelector((state) => state.userTag);
 
-    function checkNameDirty(name : string) {
+    function checkNameDirty(name) {
         if (name.trim().length > 1) {
             dispatch(nameInputEmptyCreater(false));
         } else {
@@ -22,7 +21,7 @@ export function  Inputs () {
         }
     }
 
-    function checkHashDirty(hash : string) {
+    function checkHashDirty(hash) {
         if (hash.trim().length > 1) {
             dispatch(hashInputEmptyAC(false));
         } else {

@@ -10,7 +10,7 @@ import JoinSection from "../../Components/HomeFooter/JoinSection/JoinSection.jsx
 import HomeFooter from "../../Components/HomeFooter/HomeFooter.jsx";
 import {useEffect, useState} from "react";
 import {GiImbricatedArrows} from "react-icons/gi";
-import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.tsx";
+import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
 
 const HomePage = () => {
 

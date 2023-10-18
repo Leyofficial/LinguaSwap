@@ -1,0 +1,27 @@
+.memberItems {
+  background-color: #f1f1f1;
+  overflow: auto;
+  height: 78.8vh;
+  margin-top: 3vh;
+}
+.memberItems h3 {
+  background-color: #1f1d2b;
+  padding: 10px 15px;
+  border: 1px solid rgba(152, 150, 150, 0.42);
+  color: rgba(210, 209, 209, 0.9);
+}
+.memberItems .items {
+  padding: 5px 15px;
+  margin: 0 !important;
+}
+.memberItems::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0.56);
+  border-radius: 20px;
+  width: 5px;
+}
+.memberItems::-webkit-scrollbar-thumb {
+  background: #494646;
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=AsideStudents.module.css.map */

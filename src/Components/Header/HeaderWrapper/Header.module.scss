@@ -18,25 +18,25 @@
 .navList {
   display: flex;
   gap: 15px;
-}
-.navList li a {
-  transition: 0.5s all;
-  color: #ffffff;
-  cursor: pointer;
-}
-.navList li a:hover {
-  color: dodgerblue;
+  li {
+    a {
+      transition: 1s all;
+
+      &:hover {
+        color: dodgerblue;
+      }
+    }
+  }
 }
 
 .iconBlock {
+  a {
+    //color: white;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
   gap: 9px;
   align-items: center;
   display: flex;
 }
-.iconBlock a {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-/*# sourceMappingURL=Header.module.css.map */

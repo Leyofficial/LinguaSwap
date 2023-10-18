@@ -5,14 +5,17 @@ import {stringAvatar} from "../AvatarColor/Avatar.js";
 import {useDispatch} from "react-redux";
 import {ImCross} from "react-icons/im";
 import {setPhotoAC} from "../../Redux/Profile/Photo/deletePhotoAC.js";
+import {Course} from "../../ApiRequests/Courses/Courses.js";
+import {saveProfileImage} from "../../ApiRequests/CreateProfile/Profile.js";
 
 
-
-export const ImageInput = ({avatarText , actionCreater, selector}) => {
+export const ImageInput = ({avatarText, actionCreater, selector}) => {
     const dispatch = useDispatch();
 
     const {getRootProps, getInputProps, acceptedFiles = selector} = useDropzone({
         onDrop: (acceptedFiles) => {
+
+            console.log(acceptedFiles)
             dispatch(actionCreater(acceptedFiles[0]));
         },
     });
@@ -42,7 +45,7 @@ export const ImageInput = ({avatarText , actionCreater, selector}) => {
 
     return (
         <div className={style.dragBlock}>
-            <div >
+            <div className={style.dragItem}>
                 {files.length > 0 ? (
                     files
                 ) : selector ? (
