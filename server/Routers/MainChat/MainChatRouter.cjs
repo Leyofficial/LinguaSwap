@@ -21,6 +21,9 @@ mainChatRouter.route('/chat/:firstMember/:secondMember')
 mainChatRouter.route('/chats/dialogs/:idUser')
    .get(mainChatFunctions.getMainChats)
 
+mainChatRouter.route('/chatById/:idChat')
+  .get(mainChatFunctions.getMainChat)
+
 module.exports = mainChatRouter
 
 

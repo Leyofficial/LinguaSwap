@@ -1,37 +1,45 @@
 import React, {useEffect, useState} from 'react';
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import style from './ChatSingleMessage.module.scss'
+import MainChatSearch from "../MainChatSearch/MainChatSearch.jsx";
+import {NavLink} from "react-router-dom";
+import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/OnlineStatus/OnlineStatus.jsx";
+import {getInterlocutor} from "../MainChatHelper/MainChatHelper.js";
+
 
 const ChatSingleMessage = (props) => {
-   const {dialog, currentUser} = props
-   const [interlocutor, setInterlocutor] = useState(null)
-   const [messages, setMessages] = useState(null)
+  const {dialog, currentUser} = props
+  const [interlocutor, setInterlocutor] = useState(null)
+  const [messages, setMessages] = useState(null)
 
-   useEffect(() => {
+  const newDate = new Date(dialog.messages[dialog.messages.length - 1]?.date)
+  const time = newDate.getHours()
+  const minutes = newDate.getMinutes()
 
-      if (currentUser._id !== dialog.members.first) {
-         getUser(dialog.members.first).then(res => {
-            if (res.status === 200) {
-               setInterlocutor(res.data.user)
-            }
-         })
-      } else {
-         getUser(dialog.members.second).then(res => {
-            if (res.status === 200) {
-               setInterlocutor(res.data.user)
-            }
-         })
-      }
+  const formattedDate = `${!time >= 10 ? "0" + time : time} : ${minutes}`
 
-   }, [currentUser, dialog])
-console.log(dialog)
-   return (
-      <div className={style.container}>
-         <p>{interlocutor?.user.data.name}</p>
-         <p>{ dialog.messages ? dialog.messages[dialog.messages.length -1]?.message : null}</p>
-         <p>{ dialog.messages ? dialog.messages[dialog.messages.length -1]?.date : null}</p>
-      </div>
-   );
+  useEffect(() => {
+    getInterlocutor(currentUser._id,dialog,setInterlocutor)
+
+  }, [currentUser, dialog])
+
+  return (
+    <NavLink to={`chat/${dialog?._id}`}>
+      <section className={style.container}>
+        <div className={style.wrapperAuthor}>
+          <OnlineStatus teacher={interlocutor} isOnline={interlocutor?.online}></OnlineStatus>
+          <div className={style.wrapperItem}>
+            <div className={style.author}>
+              <p className={style.interlocutor}>{interlocutor?.user.data.name}</p>
+              <p
+                className={style.message}>{dialog?.messages.length >= 1 ? dialog.messages[dialog.messages.length - 1]?.message : null}</p>
+            </div>
+            <p className={style.date}>{dialog?.messages.length >= 1 ? formattedDate : null}</p>
+          </div>
+        </div>
+      </section>
+    </NavLink>
+  );
 };
 
 export default ChatSingleMessage;

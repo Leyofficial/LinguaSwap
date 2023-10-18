@@ -15,6 +15,9 @@ export const mainChatRequests = {
             second
          }
       })
+   },
+   getChatById(idChat){
+      return axios.get(`http://localhost:3000/mainChat/chatById/${idChat}`)
    }
 }
 

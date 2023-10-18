@@ -96,7 +96,6 @@ app.use('/teacherChats', teacherChatRouter);
 app.use('/onlineUsers', onlineUsersRouter);
 app.use('/mainChat', mainChatRouter);
 
-app.use('/mainChat', mainChatRouter);
 
 
 app.all('*', (req, res, next) => {
