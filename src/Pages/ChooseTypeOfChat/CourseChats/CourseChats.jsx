@@ -9,7 +9,7 @@ const CourseChats = () => {
   const [courses, setCourses] = useState(null)
   const currentUser = useSelector((state) => state.loginUser)
   const currentCourse = useSelector((state) => state.currentCourseChat)
-console.log(currentUser)
+
   useEffect(() => {
     if (currentUser?.user.data.status === "Student") {
       getCoursesForUserChat(currentUser?._id).then(res => {
@@ -19,7 +19,7 @@ console.log(currentUser)
       })
     } else if (currentUser?.user.data.status === 'Teacher') {
       getCoursesForTeacher(currentUser?._id).then(res => {
-        console.log(res)
+
         if (res.status === 200) {
           setCourses(res.data.courses)
         }
