@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {filterCourseAC, getCoursesAC} from "./coursesAC.js";
 

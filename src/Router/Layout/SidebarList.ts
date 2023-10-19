@@ -4,7 +4,7 @@ import team from "../../img/icons/team.png";
 import gear from "../../img/icons/gear.png";
 import profile from "../../img/icons/profile-user.png";
 import previous from "../../img/icons/previous.png";
-import {ISidebarItems} from "../../Components/Sidebar/types.js";
+import {ISidebarItems} from "../../types/headerTypes.js";
 import {FC} from "react";
 
 export const sidebarList : ISidebarItems[] = [

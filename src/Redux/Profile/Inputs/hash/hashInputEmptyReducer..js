@@ -1,4 +1,4 @@
-import { initialState } from "../../../initialState";
+import { initialState } from "../../../initialState.ts";
 import { SET_EMPTY_HASH } from "./hashInputEmptyAC";
 
 export function hashInputEmptyReducer(state = initialState.hashDirty, action) {

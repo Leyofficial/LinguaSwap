@@ -3,8 +3,9 @@ import React from "react";
 import {Avatar} from "@mui/material";
 import {Link} from "react-router-dom";
 import closeBtn from './../../img/icons/close.png'
-import {ILanguages, IModalProfile } from "./types.ts";
 import List from '../List/List.tsx';
+import {IModalProfile} from "./types.ts";
+import {ILanguagesTypes} from "../Languages/languages.ts";
 function ModalProfile({modalActive, user , callback} : IModalProfile) {
     return (
         <>
@@ -27,13 +28,13 @@ function ModalProfile({modalActive, user , callback} : IModalProfile) {
                              <h3>Language/s<span className={style.span}> know  </span>:</h3>
                              <div className={style.languages}>
                                  <div className={style.languagesKnow}>
-                                     <List items={user?.languagesKnow} rerender={(item : ILanguages) => <div className={style.language} style={{background: item.color}}>
+                                     <List items={user?.languagesKnow} rerender={(item : ILanguagesTypes) => <div className={style.language} style={{background: item.color}}>
                                          {item.label}
                                      </div>}/>
                                  </div>
                                  <h3 style={{color : 'black'}}>Language/s  <span className={style.span}> learn  </span>:</h3>
                                  <div className={style.languagesLearn}>
-                                     <List items={user?.languagesLearn} rerender={(item : ILanguages) => <div className={style.language} style={{background: item.color}}>
+                                     <List items={user?.languagesLearn} rerender={(item : ILanguagesTypes) => <div className={style.language} style={{background: item.color}}>
                                          {item.label}
                                      </div>}/>
                                  </div>
@@ -43,7 +44,7 @@ function ModalProfile({modalActive, user , callback} : IModalProfile) {
                              <Link to={''}>
                                  <button className={style.messageBtn}>Message</button>
                              </Link>
-                             <Link to={'find/' + user?.id}>
+                             <Link to={'find/' + user?._id}>
                                  <button className={style.button}>Profile</button>
                              </Link>
                          </div>

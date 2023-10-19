@@ -1,4 +1,4 @@
-import {initialState} from "../../initialState.js";
+import {initialState} from "../../initialState.ts";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import {getInterlocutorAC} from "./InterlocutorAC.js";
 

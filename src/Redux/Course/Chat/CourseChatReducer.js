@@ -1,4 +1,4 @@
-import {initialState} from "../../initialState.js";
+import {initialState} from "../../initialState.ts";
 import {getChat, sendMessage} from "../../../ApiRequests/Chat.jsx";
 import {courseChatAC, resetChatItems} from "./CourseChatAC.js";
 

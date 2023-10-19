@@ -6,7 +6,7 @@ import { Header } from "../../Components/Header";
 import {useParams} from "react-router";
 import {sidebarCourses} from "./sidebarCourses.ts";
 import {SideBar} from "../../Components/Sidebar";
-import {INavWrapper} from "../../Components/Header/types.js";
+import {INavWrapper} from "../../types/headerTypes.js";
 
 const Layout = () => {
    const isStart = useSelector((state : any ) => state.isStart ); // !!! SHOULD BE CUSTOM HOOK

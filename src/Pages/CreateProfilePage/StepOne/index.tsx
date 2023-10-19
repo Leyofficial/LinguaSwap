@@ -4,13 +4,13 @@ import toast, {Toaster} from "react-hot-toast";
 import {Selectors} from "./Selectors";
 import {TextArea} from "./TextArea";
 import {Inputs} from "./Inputs";
-import {useSelector} from "react-redux";
-import {IStepsProps} from "../types.ts";
+import {IStepsProps} from "../../../types/stepsTypes.ts";
+import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 const StepOne = (props : IStepsProps) => {
 
     // Should be useTypedSelector (later)
-    const dirtyName = useSelector((state : any) => state.nameDirty);
-    const dirtyHash = useSelector((state : any) => state.hashDirty);
+    const dirtyName = useTypedSelector((state : any) => state.nameDirty);
+    const dirtyHash = useTypedSelector((state : any) => state.hashDirty);
 
     function errorToaster(text : string) {
         toast.error(text);

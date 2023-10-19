@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 import {BACK_TO_LOGIN, MOVE_TO_LOGIN} from "./isStartToLoginAC.js";
 
 const isStartToLoginReducer = (isStartToLogin=initialState.isStart,action) => {

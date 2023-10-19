@@ -1,4 +1,4 @@
-import { initialState } from "../../initialState";
+import { initialState } from "../../initialState.ts";
 import { SET_BIO } from "./setBioAC";
 
 export function setBioReducer (state = initialState.bio , action) {

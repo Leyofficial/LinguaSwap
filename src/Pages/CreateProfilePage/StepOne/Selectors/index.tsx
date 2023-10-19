@@ -1,13 +1,14 @@
 import style from "./Selectors.module.scss";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {setStatusActionCreate} from "../../../../Redux/Profile/Status/setStatusActionCreate.js";
 import React from "react";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
 
 export function  Selectors () {
     const dispatch = useDispatch();
 
     // Should be hook useTypedSelector (later)
-    const status = useSelector((state : any) => state.status);
+    const status = useTypedSelector((state : any) => state.status);
     function  selectStatus (text : string) {
         dispatch(setStatusActionCreate(text));
     }

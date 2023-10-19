@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 
 export const CHANGE_CHAT_STATUS = "CHANGE_CHAT_STATUS"
 const chatWithTeacherReducer = (chatStatus = initialState.chatStatus,action) => {

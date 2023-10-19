@@ -1,12 +1,13 @@
 import style from "./TextArea.module.scss";
 import {setBioAC} from "../../../../Redux/Profile/Bio/setBioAC.js";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import React, {useState} from "react";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
 
 export function  TextArea () {
 
     // Should be hook useTypedSelector (later)
-    const bio = useSelector((state : any) => state.bio);
+    const bio = useTypedSelector((state : any) => state.bio);
     const dispatch = useDispatch();
     const [isClicked, setIsClicked] = useState<boolean>(false);
     const handleTextareaClick = () => {

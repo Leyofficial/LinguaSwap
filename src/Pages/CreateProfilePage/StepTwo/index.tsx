@@ -1,15 +1,15 @@
 import CustomButton from "../../../Utility/CustomButton/CustomButton";
 import style from "./StepTwo.module.scss";
 import {ImageInput} from "../../../Utility/InputImage/InputImage.jsx";
-import {useSelector} from "react-redux";
 import {setPhotoAC} from "../../../Redux/Profile/Photo/setPhotoAC.js";
-import {IStepsProps} from "../types.ts";
+import {IStepsProps} from "../../../types/stepsTypes.ts";
+import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 
 const StepTwo = (props : IStepsProps) => {
 
     // Should be hook useTypedSelector (later)
-    const name = useSelector((state : any) => state.name)
-    const photo = useSelector((state : any) => state.photo)
+    const name = useTypedSelector((state : any) => state.name)
+    const photo = useTypedSelector((state : any) => state.photo)
 
     return (
         <div className={style.wholeContent}>

@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 
 export const AUTH = "AUTH "
 export const LOGOUT = "LOGOUT"

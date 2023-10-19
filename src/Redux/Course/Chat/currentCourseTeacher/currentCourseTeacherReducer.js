@@ -1,4 +1,4 @@
-import {initialState} from "../../../initialState.js";
+import {initialState} from "../../../initialState.ts";
 
 export const SET_CURRENT_COURSE_TEACHER = "SET_CURRENT_COURSE_TEACHER"
 export const currentCourseTeacherReducer = (teacher = initialState.currentCourseTeacher,action) => {

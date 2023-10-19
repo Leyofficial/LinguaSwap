@@ -5,15 +5,17 @@ import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
 import WholeProfile from "./WholeProfile";
 import SkeletonProfile from "./WholeProfile/SkeletonProfile.js";
 import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {IUserInfo} from "../../types/userTypes.ts";
 function PersonalProfile() {
     const {id} = useParams<string>();
     const [contentLoad , setContentLoad] = useState<boolean>(false)
     const [actualProfile , setActualProfile ] = useState<object>();
-    const currentUser = useSelector((state : any) => state.loginUser);
+    const currentUser : IUserInfo[] = useTypedSelector((state) => state.loginUser);
     const [active , setActive ] = useState<boolean>(false)
     const userToken = JSON.parse(localStorage.getItem('loginUser') || '');
     const dispatch = useDispatch();
-
+    console.log(currentUser)
     useEffect(() => {
         if (id) {
             UserProfile.getProfile(id).then(res => {

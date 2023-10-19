@@ -1,4 +1,4 @@
-import {initialState} from "../../initialState.js";
+import {initialState} from "../../initialState.ts";
 import {SET_PHOTO} from "./setPhotoAC.js";
 import {DELETE_PHOTO} from "./deletePhotoAC.js";
 

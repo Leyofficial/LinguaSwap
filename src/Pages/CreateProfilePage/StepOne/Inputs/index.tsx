@@ -1,18 +1,19 @@
 import CustomInput from "../../../../Utility/CustomInput/CustomInput.jsx";
 import style from "./Inputs.module.scss";
 import {FaHashtag} from "react-icons/fa";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {nameInputEmptyCreater} from "../../../../Redux/Profile/Inputs/name/nameInputEmptyCreater.js";
 import {hashInputEmptyAC} from "../../../../Redux/Profile/Inputs/hash/hashInputEmptyAC.js";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
 
 export function  Inputs () {
     const dispatch = useDispatch();
 
     // Should be hook useTypedSelector (later)
-    const dirtyName = useSelector((state : any) => state.nameDirty);
-    const dirtyHash = useSelector((state : any) => state.hashDirty);
-    const name = useSelector((state : any) => state.name);
-    const userTag = useSelector((state : any) => state.userTag);
+    const dirtyName = useTypedSelector((state : any) => state.nameDirty);
+    const dirtyHash = useTypedSelector((state : any) => state.hashDirty);
+    const name = useTypedSelector((state : any) => state.name);
+    const userTag = useTypedSelector((state : any) => state.userTag);
 
     function checkNameDirty(name : string) {
         if (name.trim().length > 1) {

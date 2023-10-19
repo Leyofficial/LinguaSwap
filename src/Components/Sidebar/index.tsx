@@ -4,10 +4,10 @@ import back from './../../img/icons/back.png';
 import forward from './../../img/icons/back-2.png';
 import style from './Sidebar.module.scss';
 import {useNavigate} from "react-router";
-import {ISideBar, ISidebarItem} from "./types";
 import {SideBarItem} from "./SideBarItem/SideBarItem";
 import List from "../../Utility/List/List.tsx";
-export function SideBar ({menuItems, defaultOpen} : ISideBar)  {
+import {ISidebar, ISidebarProps} from "../../types/sidebarTypes.ts";
+export function SideBar ({menuItems, defaultOpen} : ISidebar)  {
 
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(defaultOpen  || false);
   const navigate = useNavigate()
@@ -30,11 +30,11 @@ export function SideBar ({menuItems, defaultOpen} : ISideBar)  {
       </div>
       <div className={style.sidebarWrapper}>
         <ul className={style.sidebarItems} >
-          <List items={menuItems} rerender={(item : ISidebarItem , index : number) => <SideBarItem index={index} sidebarOpen={sidebarOpen}
+          <List items={menuItems} rerender={(item : ISidebarProps , index : number) => <SideBarItem index={index} sidebarOpen={sidebarOpen}
                                                                path={item.path}
                                                                name={item.name}
                                                                icon={item.icon}
-                                                               callback={item.callback ? goBack : undefined}/> } />
+                                                               callback={item.callback ? goBack : null}/> } />
         </ul>
       </div>
     </div>

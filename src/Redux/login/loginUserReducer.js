@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 import {loginUserAC, SET_LOGIN_USER} from "./loginUserAC.js";
 import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
 

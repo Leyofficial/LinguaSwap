@@ -1,4 +1,4 @@
-interface ILanguagesTypes {
+export interface ILanguagesTypes {
     value : string,
     label : string,
     color : string,

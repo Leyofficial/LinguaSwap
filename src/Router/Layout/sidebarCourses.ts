@@ -1,7 +1,7 @@
 import info from "../../img/icons/info.png";
 import previous from "../../img/icons/previous.png"
 import chat from "../../img/icons/chat.png"
-import {ISidebarItems} from "../../Components/Sidebar/types";
+import {ISidebarItems} from "../../types/headerTypes.ts";
 
 
 

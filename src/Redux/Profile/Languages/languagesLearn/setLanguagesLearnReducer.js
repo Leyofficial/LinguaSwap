@@ -1,4 +1,4 @@
-import {initialState} from "../../../initialState.js";
+import {initialState} from "../../../initialState.ts";
 import {SET_LANGUAGES_LEARN} from "./setLanguagesLearnActionCreater.js";
 
 export function setLanguagesLearnReducer(state = initialState.languagesLearn , action){

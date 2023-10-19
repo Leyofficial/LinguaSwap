@@ -5,7 +5,6 @@ import style from './StepThree.module.scss'
 import {
     setLanguagesKnowActionCreater
 } from "../../../Redux/Profile/Languages/languagesKnow/setLanguagesKnowActionCreater.js";
-import {useSelector} from "react-redux";
 import {
     setLanguagesLearnActionCreater
 } from "../../../Redux/Profile/Languages/languagesLearn/setLanguagesLearnActionCreater.js";
@@ -13,18 +12,19 @@ import CustomSelector from "../../../Utility/CustomSelector/CustomSelector.jsx";
 import Spinner from "../../../Utility/Spinner/Spinner.tsx";
 import {ProfileUser, saveProfileImage} from "../../../ApiRequests/CreateProfile/Profile.js";
 import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
-import {IStepsProps} from "../types.ts";
-import {IUserObj} from "./types.ts";
+import {IStepsProps} from "../../../types/stepsTypes.ts";
+import {IUserObj} from "../../../types/userTypes.ts";
+import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 
 const StepThree = (props : IStepsProps) => {
-    const languagesKnow = useSelector((state : any) => state.languagesKnow);
-    const languagesLearn = useSelector((state : any) => state.languagesLearn);
-    const name = useSelector((state : any) => state.name);
-    const status = useSelector((state : any) => state.status);
-    const userTag = useSelector((state : any) => state.userTag);
-    const bio = useSelector((state : any) => state.bio);
-    const photo = useSelector((state : any) => state.photo)
-    const id = useSelector((state : any) => state.loginUser._id)
+    const languagesKnow = useTypedSelector((state : any) => state.languagesKnow);
+    const languagesLearn = useTypedSelector((state : any) => state.languagesLearn);
+    const name = useTypedSelector((state : any) => state.name);
+    const status = useTypedSelector((state : any) => state.status);
+    const userTag = useTypedSelector((state : any) => state.userTag);
+    const bio = useTypedSelector((state : any) => state.bio);
+    const photo = useTypedSelector((state : any) => state.photo)
+    const id = useTypedSelector((state : any) => state.loginUser._id)
 
     const [isOpen , setOpen]  = useState<boolean>(false)
 

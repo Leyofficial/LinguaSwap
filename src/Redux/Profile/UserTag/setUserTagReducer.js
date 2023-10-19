@@ -1,4 +1,4 @@
-import { initialState } from "../../initialState";
+import { initialState } from "../../initialState.ts";
 import { SET_TAG } from "./setUserTagAC";
 
 export function setUserTagReducer(state = initialState.userTag, action) {
