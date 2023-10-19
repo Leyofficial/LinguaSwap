@@ -19,6 +19,21 @@
     width: 100%;
     position: relative;
     border-left: 2px solid rgba(0, 0, 0, 0.48);
+    .messages{
+      height: 84vh;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        background-color: rgba(0, 0, 0, 0.56);
+        border-radius: 20px;
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #494646;
+        border-radius: 20px;
+
+      }
+    }
   }
 }
 .wrapperTextarea {

@@ -46,7 +46,7 @@ const ChatWithTeacher = () => {
          teacherChats.sendMessage(messageData, chat._id).then(res => {
             if (res.status === 200) {
 
-               socket.emit("privateMessage", messageData)
+               // socket.emit("privateMessage", messageData)
                // teacherChats.getChatWithTeacher(idTeacher, idStudent).then(res => {
                //    if (res.status === 200) {
                //       console.log(messageData)
@@ -78,10 +78,10 @@ const ChatWithTeacher = () => {
             }
          }
 
-         socket.on("privateResponse", handler)
+         // socket.on("privateResponse", handler)
 
          return () => {
-            socket.off("privateResponse", handler)
+            // socket.off("privateResponse", handler)
          }
       }
    }, [socket])

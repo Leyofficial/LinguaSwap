@@ -18,6 +18,11 @@ export const mainChatRequests = {
    },
    getChatById(idChat){
       return axios.get(`http://localhost:3000/mainChat/chatById/${idChat}`)
+   },
+   addMessageItem(idChat,item) {
+      return axios.patch(`http://localhost:3000/mainChat/chatById/${idChat}`,{
+         ...item
+      })
    }
 }
 

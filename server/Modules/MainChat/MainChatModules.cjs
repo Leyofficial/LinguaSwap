@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
-const mainChatSchema = new mongoose.Schema({
+const mainChatSchema = new Schema({
 
    members:{
       first:String,
@@ -17,7 +18,6 @@ const mainChatSchema = new mongoose.Schema({
          default: Date.now
       },
       author:String,
-      idMessage:Number
    }]
 })
 

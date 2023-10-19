@@ -1,7 +1,7 @@
 const Chats = require('./../Modules/Chat.cjs');
 
 exports.createChat = async (req, res) => {
-   console.log(req.body.idCourse);
+
    const newChat = await Chats.create({
       idCourse: req.body.idCourse,
    })

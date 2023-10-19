@@ -16,12 +16,14 @@ const ChatSingleMessage = (props) => {
   const time = newDate.getHours()
   const minutes = newDate.getMinutes()
 
-  const formattedDate = `${!time >= 10 ? "0" + time : time} : ${minutes}`
+  const formattedDate = `${!time >= 10 ? "0" + time : time} : ${minutes < 10 ? "0" + minutes : minutes}`
 
   useEffect(() => {
     getInterlocutor(currentUser._id,dialog,setInterlocutor)
 
   }, [currentUser, dialog])
+
+  console.log(dialog)
 
   return (
     <NavLink to={`chat/${dialog?._id}`}>

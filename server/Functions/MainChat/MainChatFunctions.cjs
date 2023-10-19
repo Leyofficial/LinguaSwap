@@ -71,3 +71,21 @@ exports.getMainChats = async (req, res) => {
     })
   }
 }
+
+exports.addMessageToMainChat = async (req,res) => {
+
+  const {idChat} = req.params
+  const addedMessage = await MainChat.findByIdAndUpdate(idChat,{$addToSet:{"messages":{$each:[req.body]}}})
+
+  if(!addedMessage) {
+    res.status(400).json({
+      status:"Error",
+      message:"Message was not added"
+    })
+  }else{
+    res.status(200).json({
+      status:"Succeed",
+      addedMessage
+    })
+  }
+}

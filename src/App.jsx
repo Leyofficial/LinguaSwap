@@ -76,10 +76,10 @@ function App() {
             dispatch(removeUserAC(userId))
             console.log(`User disconnected ${userId}`)
          })
-         newSocket.on("privateResponse", (data) => {
-            dispatch(addChatMessage(data))
-
-         })
+         // newSocket.on("privateResponse", (data) => {
+         //    dispatch(addChatMessage(data))
+         //
+         // })
       }
    }, [newSocket, currentUser])
    // useEffect(() => {
