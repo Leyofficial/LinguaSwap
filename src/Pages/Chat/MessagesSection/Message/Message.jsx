@@ -5,7 +5,7 @@ import {useSelector} from "react-redux";
 
 
 const Message = (props) => {
-   const {messages} = props
+   const {messages,scroll} = props
 
    const [authorMessage, setAuthorMessage] = useState(null)
    const currentUser = useSelector((state) => state.loginUser)
@@ -27,7 +27,7 @@ const Message = (props) => {
    const formattedDate = `${!time >= 10 ? "0" + time : time} : ${minutes < 10 ? "0" + minutes : minutes}`
    return (
       <>
-         <article className={style.container}>
+         <article className={style.container} ref={scroll}>
             <section className={style.author}>
                <img src={authorMessage?.user.data.photo ? `../../../${authorMessage?.user.data.photo}` : null}
                     alt={'avatar'}/>

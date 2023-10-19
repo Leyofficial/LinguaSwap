@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import style from './MessagesSection.module.scss'
 import {useParams} from "react-router";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
@@ -21,7 +21,7 @@ const MessagesSection = () => {
    const currentUser = useSelector((state) => state.loginUser)
    const dispatch = useDispatch()
    const newSocket = useSelector((state) => state.socket)
-
+   const scroll = useRef()
    useEffect(() => {
       if (idChat) {
          mainChatRequests.getChatById(idChat).then(res => {
@@ -94,6 +94,10 @@ const MessagesSection = () => {
       })
 
    }, [newSocket])
+
+   useEffect(() => {
+      scroll.current?.scrollIntoView({behavior: "smooth"})
+   }, [chat, scroll])
    return (
       <article className={style.container}>
          <header className={style.header}>
@@ -104,9 +108,10 @@ const MessagesSection = () => {
          <main>
             <section className={style.messages}>
 
-               {groupedMessage && Object?.entries(groupedMessage).map(([date, message]) => <div className={style.wrapperMessages}>
+               {groupedMessage && Object?.entries(groupedMessage).map(([date, message]) => <div
+                  className={style.wrapperMessages}>
                   <h3>{date}</h3>
-                  {message?.map((item, index) => <Message key={index} messages={item}></Message>)}
+                  {message?.map((item, index) => <Message scroll={scroll} key={index} messages={item}></Message>)}
                </div>)}
             </section>
             <section className={style.wrapperTextarea}>
