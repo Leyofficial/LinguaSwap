@@ -17,7 +17,7 @@ import {authAC} from "./Redux/isAuth/isAuthAC.js";
 import CourseChat from "./Pages/CourseChat/CourseChat.jsx";
 import TeachersSection from "./Pages/TeachersSection/index.tsx";
 import PersonalProfile from "./Pages/PersonalProfile/index.tsx";
-import {loginUserAC} from "./Redux/login/loginUserAC.js";
+import {loginUserAC} from "./Redux/login/loginUserAC.ts";
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import ChatWithMemberOfCourse from "./Pages/CourseChat/ChatWithTeacher/ChatWithMemberOfCourse.jsx";
 import socketIO from 'socket.io-client'

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import './TeacherRegister.css';
-import teacherimg from '../../img/images/teacherimg.jpg'
 import {useNavigate} from 'react-router';
 import {useDispatch} from 'react-redux';
 import {NavLink} from 'react-router-dom';
@@ -12,7 +11,7 @@ import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import {registerNewUser, saveToken} from '../../ApiRequests/Courses/AuthUser';
 import {authAC} from "../../Redux/isAuth/isAuthAC.js";
-import {loginUserAC} from "../../Redux/login/loginUserAC.js";
+import {loginUserAC} from "../../Redux/login/loginUserAC.ts";
 
 function TeacherRegister() {
 
