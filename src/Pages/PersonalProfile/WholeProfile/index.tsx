@@ -7,7 +7,7 @@ import React from "react";
 import List from "../../../Utility/List/List.tsx";
 import {IUserInfo, IUserWrapperInfo} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
-function WholeProfile(user: IUserInfo) {
+function WholeProfile({user}: IUserInfo) {
     debugger
     return (
         <>
