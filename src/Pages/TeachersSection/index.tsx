@@ -18,9 +18,9 @@ const TeachersSection = () => {
     const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
     const [searchValue, setSearchValue] = useState<string>('')
-    const [languageFilter, setLanguageFilter] = useState(null)
+    const [languageFilter, setLanguageFilter] = useState<string>('')
     const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | null>()
-    const [loadTeacher, setLoadTeacher] = useState(false)
+    const [loadTeacher, setLoadTeacher] = useState<boolean>(false)
     const dispatch = useDispatch()
     const teachers = useSelector((state: any) => state.teachers);
 
@@ -36,24 +36,27 @@ const TeachersSection = () => {
                 }, 1000)
                 dispatch(teachersActionCreater(res.data.users))
             } else {
-                dispatch(teachersActionCreater([]))
                 errorToaster('Server error!')
             }
         })
     }, []);
 
     useEffect(() => {
-        if (searchValue) {
+        if (languageFilter && searchValue && languageFilter !== 'All')  {
+            const item = searchTeacherItem();
+            const filterInSearch = item.filter((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === languageFilter));
+            if (filterInSearch.length > 0) {
+                setFoundTeacher(filterInSearch);
+            } else {
+                setFoundTeacher(null)
+            }
+        } else if (searchValue) {
             const item = searchTeacherItem();
             setFoundTeacher(item)
-        } else {
+        }else {
             setFoundTeacher(null)
         }
-        if (languageFilter && searchValue && languageFilter !== 'All') {
-            const item = searchTeacherItem();
-            const filterInSearch = item.map((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === searchValue));
-            setFoundTeacher(filterInSearch);
-        }
+
         if (languageFilter && languageFilter !== 'All') {
             const item = filterLanguageItem()
             setFoundTeacher(item)
@@ -84,7 +87,6 @@ const TeachersSection = () => {
                         <Space wrap>
                             <Select
                                 placeholder={'Teachers'}
-                                defaultValue={() => null}
                                 style={{width: 120}}
                                 onChange={setLanguageFilter}
                                 options={languages.map((language : string) => ({label: language, value: language}))}
@@ -94,7 +96,7 @@ const TeachersSection = () => {
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        {!foundTeacher ? teachers.map((item: IWholeUser) => {
+                        {!foundTeacher? teachers.map((item: IWholeUser) => {
                             if (!loadTeacher) {
                                 return <Stack spacing={4}>
                                     <Skeleton variant="circular" width={75} height={75}/>
