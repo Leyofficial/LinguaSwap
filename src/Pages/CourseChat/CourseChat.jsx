@@ -1,31 +1,25 @@
 import React, {useEffect, useRef, useState} from 'react';
 import style from './CourseChat.module.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
-import {getChat, sendMessage} from "../../ApiRequests/Chat.jsx";
-import {addSocketMessage, courseChatAC, resetChatItems} from "../../Redux/Course/Chat/CourseChatAC.js";
+import {addSocketMessage} from "../../Redux/Course/Chat/CourseChatAC.js";
 import {HiUserGroup} from "react-icons/hi";
 import {FaChalkboardTeacher} from "react-icons/fa";
 import {BsInfoCircle} from "react-icons/bs";
 import CourseTeachers from "./CourseTeacher/CourseTeachers.jsx";
 import CourseMember from "./CourseMembers/CourseMember.jsx";
 import {useParams} from "react-router";
-import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {GiImbricatedArrows} from "react-icons/gi";
 import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/MessagesSection.jsx";
 import {getChatThunkCreator, sendMessageThunkCreator} from "../../Redux/Course/Chat/CourseChatReducer.js";
-import {currentCourseChat} from "../../Redux/Course/Chat/currentCourseChat.js";
 import {getCurrentCourseForChatThunkCreator} from "../../Redux/Course/Chat/currentCourseChatReducer.js";
 
 
 const CourseChat = () => {
 
-  const [currentCourseTeacher, setCurrentCourseTeacher] = useState(null)
   const dispatch = useDispatch()
   const currentUser = useSelector((state) => state.loginUser)
   const chat = useSelector((state) => state.currentChat)
   const [asideItem, setAsideItem] = useState("teachers")
-  const [currentCourse, setCurrentCourse] = useState(null)
   const {idCourse} = useParams()
   const [hideInfoBlock, setHideInfoBlock] = useState(false)
   const scroll = useRef()
@@ -80,7 +74,7 @@ const CourseChat = () => {
     scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [chat, scroll])
 
-console.log(course)
+
   return (
     <>
     <div className={style.container}>

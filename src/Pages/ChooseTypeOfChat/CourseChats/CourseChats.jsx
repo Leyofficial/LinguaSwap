@@ -8,7 +8,7 @@ const CourseChats = () => {
 
    const [courses, setCourses] = useState(null)
    const currentUser = useSelector((state) => state.loginUser)
-
+   const currentCourse = useSelector((state) => state.currentCourseChat)
 
    useEffect(() => {
 
@@ -23,8 +23,9 @@ const CourseChats = () => {
    return (
       <>
          <div className={style.courseItems}>
-            {courses && courses.map((course) => <NavLink to={`/course/chat/${course._id}`}>
-               <div className={style.item}>
+            {courses && courses.map((course) => <NavLink  to={`/course/chat/${course._id}`}>
+               {/*<div className={style.item } >*/}
+               <div className={`${style.item} ${currentCourse && currentCourse?._id === course._id ? style.active : null}`} >
                   <img src={`../../../../${course.course.image}`} alt={'course'}/>
                   <p>{course.course.name}</p>
                </div>

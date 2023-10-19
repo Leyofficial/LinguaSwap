@@ -30,8 +30,6 @@ const CourseMember = ({member}) => {
       })
    },[member])
 
-
-   console.log(dataMember)
    return (
       <div className={style.container}>
          <OnlineStatus teacher={dataMember} isOnline={dataMember?.online}></OnlineStatus>
