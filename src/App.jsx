@@ -116,7 +116,8 @@ function App() {
                   <Route path={'/course/chat/student/:idTeacher/:idStudent'} element={<StudentDialog/>}></Route>
                </Route>
                <Route path={'/chat'} element={<MainChat></MainChat>}>
-                  <Route path={'chat/:idChat'} element={<MessagesSection/>}></Route>
+                  <Route  path={'chat/:idChat'} element={<MessagesSection/>}></Route>
+                  <Route  index element={<MessagesSection/>}></Route>
                </Route>
                <Route path={"*"} element={<ErrorUrl/>}/>
 

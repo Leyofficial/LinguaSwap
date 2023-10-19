@@ -107,17 +107,17 @@ const MessagesSection = () => {
          <header className={style.header}>
 
             <h1>{interlocutor?.user.data.name}</h1>
-            <OnlineStatus noImage={true} isOnline={interlocutor?.online}></OnlineStatus>
+            {interlocutor ? <OnlineStatus noImage={true} isOnline={interlocutor?.online}></OnlineStatus> : null}
          </header>
          <main>
-            <section className={style.messages}>
+            {interlocutor ? <section className={style.messages}>
 
                {groupedMessage && Object?.entries(groupedMessage).map(([date, message]) => <div
                   className={style.wrapperMessages}>
                   <h3>{date}</h3>
                   {message?.map((item, index) => <Message scroll={scroll} key={index} messages={item}></Message>)}
                </div>)}
-            </section>
+            </section> : <div className={style.defaultMessage}><p>Select a chat to start messaging</p></div>}
             <section className={style.wrapperTextarea}>
                <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>
                <div className={style.textarea}>
@@ -125,7 +125,7 @@ const MessagesSection = () => {
                             onChange={(e) => setValueTextarea(e.target.value)}></textarea>
                </div>
                <div className={style.icons}>
-                  <LuSend onClick={() => addMessageItemToChat()} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend>
+                  <LuSend  onClick={() => addMessageItemToChat()} fontSize={40} color={valueTextarea ? 'rgba(12,87,197,0.98)' : 'rgba(12,87,197,0.12)'}></LuSend>
                </div>
 
             </section>
