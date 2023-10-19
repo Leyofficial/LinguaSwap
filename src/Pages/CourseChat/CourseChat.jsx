@@ -108,7 +108,7 @@ const CourseChat = () => {
                 asideItem === 'students' ? <div className={style.memberItems}>
                   <h3>Students</h3>
                   <div className={style.items}>
-                    {course?.course.members.map((member, index) => <CourseMember index={index}
+                    {course?.course.members.map((member, index) => <CourseMember index={index} idCourse={idCourse}
                                                                                         member={member}></CourseMember>)}
                   </div>
                 </div> : <div className={style.memberItems}>

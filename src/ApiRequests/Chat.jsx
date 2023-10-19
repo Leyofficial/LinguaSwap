@@ -26,3 +26,7 @@ export const createChatRoomCourse = async (idCourse) => {
     idCourse
   })
 }
+
+export const getCoursesForTeacher = (idTeacher) => {
+  return axios.get(`http://localhost:3000/courses/teacher/${idTeacher}`)
+}

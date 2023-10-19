@@ -4,38 +4,28 @@ import style from './CourseMembers.module.scss'
 import {useSelector} from "react-redux";
 import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/OnlineStatus/OnlineStatus.jsx";
 
-const CourseMember = ({member}) => {
-   const [dataMember,setDataMember] = useState(null)
+const CourseMember = ({member, idCourse}) => {
+  const [dataMember, setDataMember] = useState(null)
 
-   const [isOnline, setIsOnline] = useState(false)
-   const onlineUsers = useSelector((state) => state.onlineUsers)
-   useEffect(() => {
+  useEffect(() => {
+    getUser(member).then(res => {
 
-      if (onlineUsers && member) {
+      if (res.status === 200) {
 
-         setIsOnline(onlineUsers.some(user => user._id === member._id))
-      } else {
-         setIsOnline(false)
+        setDataMember(res.data.user)
       }
-   }, [onlineUsers, member])
+    })
+  }, [member])
 
-
-   useEffect(() => {
-      getUser(member).then(res => {
-
-         if(res.status === 200) {
-
-            setDataMember(res.data.user)
-         }
-      })
-   },[member])
-
-   return (
-      <div className={style.container}>
-         <OnlineStatus teacher={dataMember} isOnline={dataMember?.online}></OnlineStatus>
-         <p>{dataMember?.user.data.name ? dataMember?.user.data.name : "No name"}</p>
-      </div>
-   );
+  return (
+    <div className={style.container}>
+      {idCourse ?
+        <>
+          <OnlineStatus teacher={dataMember} isOnline={dataMember?.online}></OnlineStatus>
+          <p>{dataMember?.user.data.name ? dataMember?.user.data.name : "No name"}</p>
+        </> : null}
+    </div>
+  );
 };
 
 export default CourseMember;
