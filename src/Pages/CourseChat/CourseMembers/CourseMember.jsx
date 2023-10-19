@@ -30,10 +30,11 @@ const CourseMember = ({member}) => {
       })
    },[member])
 
+
+   console.log(dataMember)
    return (
       <div className={style.container}>
-         {/*<img src={ dataMember?.photo ? `../../../${dataMember?.photo}` : defaultAvatar} alt={'avatar'}/>*/}
-         <OnlineStatus teacher={dataMember} isOnline={isOnline}></OnlineStatus>
+         <OnlineStatus teacher={dataMember} isOnline={dataMember?.online}></OnlineStatus>
          <p>{dataMember?.user.data.name ? dataMember?.user.data.name : "No name"}</p>
       </div>
    );

@@ -13,7 +13,7 @@ const CourseChats = () => {
    useEffect(() => {
 
 
-      getCoursesForUserChat(currentUser._id).then(res => {
+      getCoursesForUserChat(currentUser?._id).then(res => {
          if (res.status === 200) {
             setCourses(res.data.courses)
          }
@@ -23,7 +23,6 @@ const CourseChats = () => {
    return (
       <>
          <div className={style.courseItems}>
-            <h3>Your current courses</h3>
             {courses && courses.map((course) => <NavLink to={`/course/chat/${course._id}`}>
                <div className={style.item}>
                   <img src={`../../../../${course.course.image}`} alt={'course'}/>

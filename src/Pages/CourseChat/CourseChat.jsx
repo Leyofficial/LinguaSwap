@@ -30,17 +30,18 @@ const CourseChat = () => {
   const [hideInfoBlock, setHideInfoBlock] = useState(false)
   const scroll = useRef()
   const socket = useSelector((state) => state.socket)
+  const course = useSelector((state) => state.currentCourseChat)
 
 
   useEffect(() => {
-
-    dispatch(getCurrentCourseForChatThunkCreator(idCourse))
+    if (idCourse)
+      dispatch(getCurrentCourseForChatThunkCreator(idCourse))
 
   }, [idCourse])
 
   useEffect(() => {
-
-    dispatch(getChatThunkCreator(idCourse))
+    if (idCourse)
+      dispatch(getChatThunkCreator(idCourse))
   }, [idCourse])
 
 
@@ -63,12 +64,15 @@ const CourseChat = () => {
 
 
   useEffect(() => {
-    socket.on("response", (data) => {
-      if (data) {
-        dispatch(addSocketMessage(data))
-      }
+    if (socket) {
+      socket.on("response", (data) => {
+        if (data) {
+          dispatch(addSocketMessage(data))
+        }
 
-    })
+      })
+    }
+
   }, [socket])
 
 
@@ -76,54 +80,55 @@ const CourseChat = () => {
     scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [chat, scroll])
 
-
+console.log(course)
   return (
-
+    <>
     <div className={style.container}>
-      <MessagesSection title={"course chat"} name={currentCourse?.course.name} messages={chat?.messages}
-                       sendMessageHandler={sendMessageHandler} scroll={scroll}
-      ></MessagesSection>
+        <MessagesSection idCourse={idCourse} title={"course chat"} name={course?.course.name} messages={chat?.messages}
+                         sendMessageHandler={sendMessageHandler} scroll={scroll}
+        ></MessagesSection>
 
-      <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
-        <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
-             onClick={() => setHideInfoBlock(!hideInfoBlock)}>
-          <GiImbricatedArrows></GiImbricatedArrows>
-        </div>
-        <div className={style.members}>
-          <div className={style.wrapperItems}>
-            <div className={`${style.wrapperIconsMember} ${asideItem === "teachers" ? style.activeItem : null}`}
-                 onClick={() => setAsideItem("teachers")}>
-              <FaChalkboardTeacher></FaChalkboardTeacher>
-            </div>
-            <div className={`${style.wrapperIconsMember} ${asideItem === "students" ? style.activeItem : null}`}
-                 onClick={() => setAsideItem("students")}>
-              <HiUserGroup></HiUserGroup>
-            </div>
-            <div className={`${style.wrapperIconsMember} ${asideItem === "info" ? style.activeItem : null}`}
-                 onClick={() => setAsideItem("info")}>
-              <BsInfoCircle></BsInfoCircle>
-            </div>
+        <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
+          <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
+               onClick={() => setHideInfoBlock(!hideInfoBlock)}>
+            <GiImbricatedArrows></GiImbricatedArrows>
           </div>
-          <article className={style.wrapper}>
-            {asideItem === 'teachers' ?
-              <CourseTeachers currentCourseTeacher={currentCourseTeacher}></CourseTeachers> :
-              asideItem === 'students' ? <div className={style.memberItems}>
-                <h3>Students</h3>
-                <div className={style.items}>
-                  {currentCourse?.course.members.map((member, index) => <CourseMember index={index}
-                                                                                      member={member}></CourseMember>)}
-                </div>
-              </div> : <div className={style.memberItems}>
-                <h3>INFO</h3>
-                <div className={style.items}>
-                  <div>Will be develop in the future</div>
-                </div>
+          <div className={style.members}>
+            <div className={style.wrapperItems}>
+              <div className={`${style.wrapperIconsMember} ${asideItem === "teachers" ? style.activeItem : null}`}
+                   onClick={() => setAsideItem("teachers")}>
+                <FaChalkboardTeacher></FaChalkboardTeacher>
               </div>
-            }
-          </article>
+              <div className={`${style.wrapperIconsMember} ${asideItem === "students" ? style.activeItem : null}`}
+                   onClick={() => setAsideItem("students")}>
+                <HiUserGroup></HiUserGroup>
+              </div>
+              <div className={`${style.wrapperIconsMember} ${asideItem === "info" ? style.activeItem : null}`}
+                   onClick={() => setAsideItem("info")}>
+                <BsInfoCircle></BsInfoCircle>
+              </div>
+            </div>
+            <article className={style.wrapper}>
+              {asideItem === 'teachers' ?
+                <CourseTeachers idCourse={idCourse} teacherId={course?.teacher.id}></CourseTeachers> :
+                asideItem === 'students' ? <div className={style.memberItems}>
+                  <h3>Students</h3>
+                  <div className={style.items}>
+                    {course?.course.members.map((member, index) => <CourseMember index={index}
+                                                                                        member={member}></CourseMember>)}
+                  </div>
+                </div> : <div className={style.memberItems}>
+                  <h3>INFO</h3>
+                  <div className={style.items}>
+                    <div>Will be develop in the future</div>
+                  </div>
+                </div>
+              }
+            </article>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

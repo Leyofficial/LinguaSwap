@@ -112,8 +112,7 @@ function App() {
                <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
                <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                   <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
-                  <Route path={'/course/chat/teacher/:idTeacher/:idStudent'} element={<ChatWithTeacher/>}></Route>
-                  <Route path={'/course/chat/student/:idTeacher/:idStudent'} element={<StudentDialog/>}></Route>
+                  <Route index  element={<CourseChat/>}></Route>
                </Route>
                <Route path={'/chat'} element={<MainChat></MainChat>}>
                   <Route  path={'chat/:idChat'} element={<MessagesSection/>}></Route>

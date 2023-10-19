@@ -20,11 +20,12 @@ export default currentCourseChatReducer
 export const getCurrentCourseForChatThunkCreator = (idCourse) => {
   return async (dispatch) => {
     const response = await Course.getCourse(idCourse)
+
     if (response.status === 200) {
       dispatch(currentCourseChat(response.data.course))
 
       const responseUser = await getUser(response.data.course.teacher.id)
-      console.log(responseUser)
+
       if (responseUser) {
         dispatch(currentCourseTeacherAC(responseUser.data.user))
       }
