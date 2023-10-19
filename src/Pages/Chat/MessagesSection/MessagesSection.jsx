@@ -47,7 +47,7 @@ const MessagesSection = () => {
 
          mainChatRequests.addMessageItem(chat._id, itemData).then(res => {
             if (res.status === 200) {
-               newSocket.emit("privateMessage", null)
+               newSocket.emit("privateMessage", chat._id)
                dispatch(getChatsThunkCreator(currentUser?._id))
                mainChatRequests.getChatById(idChat).then(res => {
                   if (res.status === 200) {
@@ -61,8 +61,11 @@ const MessagesSection = () => {
    }
 
    useEffect(() => {
-      newSocket.on("privateResponse", () => {
-         mainChatRequests.getChatById(idChat).then(res => {
+      if(newSocket)
+      newSocket.on("privateResponse", (id) => {
+         console.log(id)
+         mainChatRequests.getChatById(id).then(res => {
+            console.log(res)
             dispatch(getChatsThunkCreator(currentUser?._id))
             if (res.status === 200) {
                setChat(res.data.foundChat)

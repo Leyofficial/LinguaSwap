@@ -33,8 +33,8 @@ io.on("connection", (socket) => {
    // socket.on("message", (data) => {
    //    io.emit("response", data)
    // })
-   socket.on("privateMessage", (data) => {
-      io.emit("privateResponse", data)
+   socket.on("privateMessage", (id) => {
+      io.emit("privateResponse", id)
    })
 
 // users

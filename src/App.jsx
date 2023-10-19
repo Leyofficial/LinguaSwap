@@ -93,9 +93,10 @@ function App() {
    // }, [newSocket])
 
    useEffect(() => {
+      if(newSocket)
       newSocket.emit("newUser", currentUser?._id)
 
-   },[currentUser])
+   },[currentUser,newSocket])
    return (
       <>
          <Routes>
