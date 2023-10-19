@@ -88,14 +88,16 @@ const MessagesSection = () => {
       }, {});
 
    useEffect(() => {
-      if(newSocket)
-      newSocket.on("onlineUsers", () => {
-         getInterlocutor(currentUser._id, chat, setInterlocutor)
+      if(newSocket){
+         newSocket.on("onlineUsers", () => {
+            getInterlocutor(currentUser._id, chat, setInterlocutor)
 
-      })
-      newSocket.on("userDisconnected", () => {
-         getInterlocutor(currentUser._id, chat, setInterlocutor)
-      })
+         })
+         newSocket.on("userDisconnected", () => {
+            getInterlocutor(currentUser._id, chat, setInterlocutor)
+         })
+      }
+
 
    }, [newSocket])
 
