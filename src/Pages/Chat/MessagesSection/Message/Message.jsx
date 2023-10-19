@@ -19,7 +19,7 @@ const Message = (props) => {
    }, [messages])
 
 
-   const newDate = new Date(messages.date)
+   const newDate = new Date(messages?.date)
    const time = newDate.getHours()
    const minutes = newDate.getMinutes()
 

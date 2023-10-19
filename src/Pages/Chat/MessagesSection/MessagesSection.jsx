@@ -10,6 +10,8 @@ import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/Online
 import Message from "./Message/Message.jsx";
 import {addChatMessage} from "../../../Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 import {getChatsThunkCreator} from "../../../Redux/MainChats/mainChatsReducer.js";
+import {format} from "date-fns";
+import {es} from "date-fns/locale";
 
 const MessagesSection = () => {
    const {idChat} = useParams()
@@ -69,6 +71,18 @@ const MessagesSection = () => {
 
       })
    },[newSocket])
+
+
+   const groupedMessage =
+      chat?.messages?.reduce((acc, message) => {
+         const newDate = new Date(message.date)
+         const date = format(newDate, 'd MMMM', {locale:es});
+         if (!acc[date]) {
+            acc[date] = []
+         }
+         acc[date].push(message)
+         return acc
+      }, {});
    return (
       <article className={style.container}>
          <header className={style.header}>
@@ -78,7 +92,11 @@ const MessagesSection = () => {
          </header>
          <main>
             <section className={style.messages}>
-               {chat?.messages?.map((message, index) => <Message key={index} messages={message}></Message>)}
+
+               {groupedMessage && Object?.entries(groupedMessage).map(([date,message]) => <div>
+                  <h3>{date}</h3>
+                  {message?.map((item,index) => <Message key={index} messages={item}></Message>)}
+               </div>)}
             </section>
             <section className={style.wrapperTextarea}>
                <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>
