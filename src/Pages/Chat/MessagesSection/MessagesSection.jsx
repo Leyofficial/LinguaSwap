@@ -83,6 +83,17 @@ const MessagesSection = () => {
          acc[date].push(message)
          return acc
       }, {});
+
+   useEffect(() => {
+      newSocket.on("onlineUsers", () => {
+         getInterlocutor(currentUser._id, chat, setInterlocutor)
+
+      })
+      newSocket.on("userDisconnected", () => {
+         getInterlocutor(currentUser._id, chat, setInterlocutor)
+      })
+
+   }, [newSocket])
    return (
       <article className={style.container}>
          <header className={style.header}>

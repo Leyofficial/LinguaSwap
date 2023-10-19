@@ -60,11 +60,12 @@ function App() {
 
    useEffect(() => {
       if (newSocket) {
-         newSocket.on("onlineUsers", (users) => {
-            dispatch(onlineUsersAC(users))
+         newSocket.on("onlineUsers", () => {
+
+            // dispatch(onlineUsersAC(users))
          })
 
-         newSocket.emit("newUser", currentUser?._id)
+         // newSocket.emit("newUser", currentUser?._id)
 
          newSocket.on("userConnected", (user) => {
             if (user) {
@@ -90,6 +91,11 @@ function App() {
    //       })
    //
    // }, [newSocket])
+
+   useEffect(() => {
+      newSocket.emit("newUser", currentUser?._id)
+
+   },[currentUser])
    return (
       <>
          <Routes>
