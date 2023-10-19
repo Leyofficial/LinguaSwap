@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
 import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
@@ -20,7 +20,7 @@ function PersonalProfile() {
         if (id) {
             UserProfile.getProfile(id).then(res => {
                 if (res.status === 200) {
-                    setActualProfile(res.data.user);
+                    setActualProfile({...res.data.user});
                     setTimeout(() => {
                         setContentLoad(true)
                     },600)
