@@ -1,13 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import style from './Message.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
+import {useSelector} from "react-redux";
 
 
 const Message = (props) => {
    const {messages} = props
 
    const [authorMessage, setAuthorMessage] = useState(null)
-
+   const currentUser = useSelector((state) => state.loginUser)
 
    useEffect(() => {
       getUser(messages?.author).then(res => {
@@ -31,7 +32,7 @@ const Message = (props) => {
                <img src={authorMessage?.user.data.photo ? `../../../${authorMessage?.user.data.photo}` : null}
                     alt={'avatar'}/>
             </section>
-            <section className={style.item}>
+            <section className={`${currentUser._id === messages.author ? style.myItem : style.item}`}>
                <p className={style.message}>{messages.message}</p>
                <p className={style.time}>{formattedDate}</p>
             </section>

@@ -16,21 +16,28 @@
   .item {
     margin-left: 15px;
     background-color: rgba(56, 58, 66, 0.72);
-    //padding:15px 25px;
     max-width: 400px;
     padding: 10px 50px 20px 10px;
     border-radius: 10px;
     position: relative;
 
-    .time {
-      position: absolute;
-      right: 5px;
-      color: rgba(241, 241, 241, 0.56);
-      font-size: 13px;
-    }
-    .message{
-      color: #f1f1f1;
-    }
+  }
+  .myItem{
+    margin-left: 15px;
+    background-color: rgba(10, 17, 40, 0.6);
+    max-width: 400px;
+    padding: 10px 50px 20px 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .time {
+    position: absolute;
+    right: 5px;
+    color: rgba(241, 241, 241, 0.56);
+    font-size: 13px;
+  }
+  .message{
+    color: #f1f1f1;
   }
 }
 

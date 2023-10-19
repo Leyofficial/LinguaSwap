@@ -70,13 +70,13 @@ const MessagesSection = () => {
          })
 
       })
-   },[newSocket])
+   }, [newSocket])
 
 
    const groupedMessage =
       chat?.messages?.reduce((acc, message) => {
          const newDate = new Date(message.date)
-         const date = format(newDate, 'd MMMM', {locale:es});
+         const date = format(newDate, 'd MMMM', {locale: es});
          if (!acc[date]) {
             acc[date] = []
          }
@@ -93,9 +93,9 @@ const MessagesSection = () => {
          <main>
             <section className={style.messages}>
 
-               {groupedMessage && Object?.entries(groupedMessage).map(([date,message]) => <div>
+               {groupedMessage && Object?.entries(groupedMessage).map(([date, message]) => <div className={style.wrapperMessages}>
                   <h3>{date}</h3>
-                  {message?.map((item,index) => <Message key={index} messages={item}></Message>)}
+                  {message?.map((item, index) => <Message key={index} messages={item}></Message>)}
                </div>)}
             </section>
             <section className={style.wrapperTextarea}>
