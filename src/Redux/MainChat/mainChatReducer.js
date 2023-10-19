@@ -12,21 +12,21 @@ export const mainChatReducer = (chat = initialState.mainChat, action) => {
    }
 }
 export const getChatThunkCreate = (currentUserId, choseUserId, navigate) => {
-
+console.log(choseUserId)
    return async (dispatch) => {
       try {
          const response = await mainChatRequests.getChat(currentUserId, choseUserId)
-
+         console.log(response)
          if (response.status === 200) {
             dispatch(getMainChat(response.data.foundChat))
-            navigate(`/chat/${choseUserId}`)
+            navigate(`/chat/chat/${choseUserId}`)
          }
 
       } catch (err) {
-
+         console.log(err)
          if (err.response.status === 404) {
             dispatch(createChatThunkCreator(currentUserId, choseUserId))
-            navigate(`/chat/${choseUserId}`)
+            navigate(`/chat/chat/${choseUserId}`)
 
          }
 

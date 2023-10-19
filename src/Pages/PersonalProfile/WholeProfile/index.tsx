@@ -19,13 +19,7 @@ function WholeProfile({user} : IUserProfile) {
     const navigate = useNavigate()
     const startConversation = () => {
 
-        getChatThunkCreate(currentUser._id, user._id)(dispatch).then(res =>{
-///@ts-ignore
-            if(res.status === 301){
-                createChatThunkCreator(currentUser._id, user._id)(dispatch)
-                navigate(`/chat/${currentUser._id}`)
-            }
-        })
+        getChatThunkCreate(currentUser._id, user._id,navigate)(dispatch)
     }
 
     return (

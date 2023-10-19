@@ -28,7 +28,7 @@ const MessagesSection = () => {
             if (res.status === 200) {
                setChat(res.data.foundChat)
 
-               getInterlocutor(currentUser._id, res.data.foundChat, setInterlocutor)
+               getInterlocutor(currentUser?._id, res.data.foundChat, setInterlocutor)
             }
          })
 
@@ -88,6 +88,7 @@ const MessagesSection = () => {
       }, {});
 
    useEffect(() => {
+      if(newSocket)
       newSocket.on("onlineUsers", () => {
          getInterlocutor(currentUser._id, chat, setInterlocutor)
 
