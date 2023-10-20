@@ -6,8 +6,11 @@ import StepThree from "./StepThree";
 import Points from "../../Utility/Points";
 import ModalWindow from "../../Utility/ModalWindow/ModalWindow.js";
 import {FC, useState} from "react";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import Login from "../../Components/Login/Login.jsx";
 
 const CreateProfile: FC = () => {
+    const isAuth = useTypedSelector((state: any) => state.isAuth);
     const [currentStep, setCurrentStep] = useState<number>(1);
 
     const nextStep = (): void => {
@@ -65,7 +68,7 @@ const CreateProfile: FC = () => {
 
     return (
         <div>
-            <div className={style.container}>{renderStep()}</div>
+            {isAuth ? <div className={style.container}>{renderStep()}</div> : <Login/>}
         </div>
     );
 };
