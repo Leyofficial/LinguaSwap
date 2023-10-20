@@ -33,7 +33,9 @@ export const getUserByToken = (token) => {
 }
 
 export const getUser = (idUser) => {
+   if (idUser) {
+      return axios.get(`http://localhost:3000/authorization/${idUser}`)
+   }
 
-   return axios.get(`http://localhost:3000/authorization/${idUser}`)
 
 }

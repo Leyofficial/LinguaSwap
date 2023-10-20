@@ -8,15 +8,18 @@ const HeaderBlock = ({course}) => {
    const [avatar,setAvatar] = useState(null)
 
    useEffect(() => {
-      const getAuthorAvatar = async () => {
-         const gotAvatar = await getUser(course.teacher.id)
+      if(course) {
+         const getAuthorAvatar = async () => {
+            const gotAvatar = await getUser(course.teacher.id)
 
-         if(gotAvatar.status === 200){
-            setAvatar(gotAvatar.data.user.user?.data.photo)
+            if(gotAvatar.status === 200){
+               setAvatar(gotAvatar.data.user.user?.data.photo)
+            }
+
          }
-
+         getAuthorAvatar()
       }
-      getAuthorAvatar()
+
 
    },[course])
    return (

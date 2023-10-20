@@ -44,12 +44,15 @@ export const filterCourseThunkCreator = (language, enrolment) => {
 }
 
 
-export const getCoursesThunkCreator = () => {
+export const getCoursesThunkCreator = (setLoadCourses) => {
    return async (dispatch) => {
       try {
          const response = await Course.getCourses()
          if (response.status === 200) {
             dispatch(getCoursesAC(response.data.courses))
+            setTimeout(() => {
+               setLoadCourses(true)
+            },1000)
          }
       } catch (err) {
          console.log(err)

@@ -1,6 +1,5 @@
 import style from './CoursesBlock.module.scss'
 import {dateOfCourse} from "../../../Utility/CoutryFlag/DateOfCourse/dateOfCourse.js";
-import memberImage from '../../../images/member.png';
 import test from '../../../images/test.png'
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
@@ -39,7 +38,7 @@ const CoursesBlock = ({course}) => {
             <h3>{course.course.name}</h3>
           </div>
           <div className={style.members}>
-            {<AvatarGroupSection maxCount={2} items={membersDefault} image={memberImage}></AvatarGroupSection>}
+            {<AvatarGroupSection maxCount={2} items={course.course.members}></AvatarGroupSection>}
           </div>
           <div className={style.infoWrapper}>
             <p style={levelEducation(course.course.level)}>{course.course.level}</p>

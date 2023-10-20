@@ -21,6 +21,7 @@ export const getCourseThunkCreator = (idCourse) => {
       try {
          const response = await Course.getCourse(idCourse)
          if (response.status === 200) {
+            console.log(response)
             dispatch(courseAC(response.data.course))
          }
       } catch (err) {

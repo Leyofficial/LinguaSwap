@@ -25,6 +25,7 @@ import {addOnlineUserAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.j
 import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
+import Create from "./Pages/CoursesSection/Create/Create.jsx";
 
 
 function App() {
@@ -34,13 +35,15 @@ function App() {
   const dispatch = useDispatch()
   const currentUser = useSelector((state) => state.loginUser)
   const userToken = JSON.parse(localStorage.getItem('loginUser'))
-  // const newSocket = useSelector((state) => state.socket)
-  const socket = socketIO.connect('http://localhost:3000')
+  const newSocket = useSelector((state) => state.socket)
+
+
   useEffect(() => {
     if (userToken && !isAuth) {
       getUserByToken(userToken).then(res => {
 
-        if (res.status === 200) {
+        if (res.status === 200 ) {
+          const socket = socketIO.connect('http://localhost:3000')
           dispatch(webSocketAC(socket))
           dispatch(loginUserAC(...res.data.users));
           dispatch(authAC())
@@ -52,30 +55,30 @@ function App() {
   }, [userToken, isAuth])
 
   useEffect(() => {
-    if (socket) {
-      socket.on("onlineUsers", () => {
+    if (newSocket) {
+      newSocket.on("onlineUsers", () => {
       })
 
 
-      socket.on("userConnected", (user) => {
+      newSocket.on("userConnected", (user) => {
         if (user) {
           dispatch(addOnlineUserAC(user))
         }
       })
-      socket.on("userDisconnected", (userId) => {
+      newSocket.on("userDisconnected", (userId) => {
         dispatch(removeUserAC(userId))
         console.log(`User disconnected ${userId}`)
       })
 
     }
-  }, [socket, currentUser])
+  }, [newSocket, currentUser])
 
 
   useEffect(() => {
-    if (socket)
-      socket.emit("newUser", currentUser?._id)
+    if (newSocket)
+      newSocket.emit("newUser", currentUser?._id)
 
-  }, [currentUser, socket])
+  }, [currentUser, newSocket])
   return (
     <>
       <Routes>
@@ -89,6 +92,7 @@ function App() {
           <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
           <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
           <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
+          <Route path={'/course/create'} element={<Create/>}></Route>
           <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
             <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
             <Route index element={<CourseChat/>}></Route>

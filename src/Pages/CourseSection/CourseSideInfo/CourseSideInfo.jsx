@@ -7,11 +7,10 @@ import startCourseDate from "../../../images/course/startDate.png";
 import finishCourseDate from "../../../images/course/finishDate.png";
 import AvatarGroupSection from "../../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
 import SideItem from "./SideItem/SideItem.jsx";
-import {useSelector} from "react-redux";
 
-const CourseSideInfo = () => {
+const CourseSideInfo = ({currentCourse}) => {
 
-   const currentCourse = useSelector((state) => state.currentCourse)
+
    return (
       <div className={style.wrapperSideInfo}>
          <SideItem title={currentCourse?.course.language} path={countryFlag(currentCourse?.course.language)}></SideItem>
