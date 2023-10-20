@@ -2,12 +2,13 @@ import style from './TeacherCard.module.scss'
 import React, {useState} from 'react';
 import {Avatar} from "@mui/material";
 import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.tsx";
-import {ILanguages, IUser} from "../../../Utility/ModalProfile/types.ts";
+import {IUserWrapperInfo} from "../../../types/userTypes.ts";
+import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 
 
-const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn, id} : IUser) => {
-    const user : IUser = {
-        id: id,
+const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn, _id} : IUserWrapperInfo) => {
+    const user : IUserWrapperInfo = {
+        _id: _id,
         name: name,
         photo: photo,
         userTag: userTag,
@@ -15,8 +16,8 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
         bio: bio,
         languagesLearn: languagesLearn,
     }
-    const [modalProfile, setModalProfile] = useState<IUser>(user);
-    const [modalActive, setModalActive] = useState(false)
+    const [modalProfile, setModalProfile] = useState<IUserWrapperInfo>(user);
+    const [modalActive, setModalActive] = useState<boolean>(false)
 
     function closeModal () {
         setModalActive(false)
@@ -37,7 +38,7 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
                 <h2 style={{height: '60px', lineHeight: '30px'}}>{name} <br/> <span
                     className={style.span}>@{userTag}</span></h2>
                 <div className={style.languagesBlock}>
-                    {languagesKnow.map((item : ILanguages) => {
+                    {languagesKnow.map((item : ILanguagesTypes) => {
                         return <div key={item.label} className={style.languages} style={{background: item.color}}>
                             {item.label}
                         </div>

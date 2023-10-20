@@ -1,27 +1,26 @@
-export function stringToColor(string) {
-    let hash = 0;
-    let i;
+export function stringToColor(string: string): string {
+    let hash: number = 0;
+    let i: number;
 
-    /* eslint-disable no-bitwise */
     for (i = 0; i < string.length; i += 1) {
         hash = string.charCodeAt(i) + ((hash << 5) - hash);
     }
 
-    let color = '#';
+    let color: string = '#';
 
     for (i = 0; i < 3; i += 1) {
         const value = (hash >> (i * 8)) & 0xff;
         color += `00${value.toString(16)}`.slice(-2);
     }
-    /* eslint-enable no-bitwise */
 
     return color;
 }
 
-export function stringAvatar(name) {
+export function stringAvatar(name: string): { sx: { width: number, height: number, bgcolor: string }, children: string } {
     return {
         sx: {
-            width: 206, height: 206 ,
+            width: 206,
+            height: 206,
             bgcolor: stringToColor(name),
         },
         children: `${name.split(' ')[0]}`,

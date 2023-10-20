@@ -3,11 +3,11 @@ import {Skeleton, Stack} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import React from "react";
-import {IUserProfile} from "../../../types/userTypes.ts";
+import {IUserOutside} from "../../../types/userTypes.ts";
 import List from "../../../Utility/List/List.tsx";
-import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
+import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 
-function SkeletonProfile ({user} : IUserProfile) {
+function SkeletonProfile ({user} : IUserOutside) {
     return (
         <div className={style.container}>
         <Stack spacing={1}>
@@ -47,7 +47,7 @@ function SkeletonProfile ({user} : IUserProfile) {
                 <p className={style.languagesTitle}>Languages know :</p>
                 <div className={style.languagesBlock}>
 
-                    {user?.user.data.languagesKnow.map((item) => {
+                    {user?.user.data.languagesKnow.map((item : ILanguagesTypes) => {
                         return <div key={item.label}>
                             <Skeleton variant="rectangular" width={50} height={30} />
                         </div>
@@ -55,19 +55,19 @@ function SkeletonProfile ({user} : IUserProfile) {
                 </div>
                 <p className={style.languagesTitle}>Languages learn :</p>
                 <div className={style.languagesBlock}>
-                    {user?.user.data.languagesLearn.map((item) => {
+                    {user?.user.data.languagesLearn.map((item : ILanguagesTypes) => {
                         return <div key={item.label}>
                             <Skeleton variant="rectangular" width={50} height={30} />
                         </div>
                     })}
 
-                    <List items={user?.user.data?.languagesKnow} rerender={(item : ILanguages) =><div key={item.label}>
+                    <List items={user?.user.data?.languagesKnow} rerender={(item : ILanguagesTypes) =><div key={item.label}>
                         <Skeleton variant="rectangular" width={50} height={30} />
                     </div>}></List>
                 </div>
                 <p className={style.languagesTitle}>Languages learn :</p>
                 <div className={style.languagesBlock}>
-                    <List items={user?.user.data?.languagesLearn} rerender={(item : ILanguages) => <div key={item.label}>
+                    <List items={user?.user.data?.languagesLearn} rerender={(item : ILanguagesTypes) => <div key={item.label}>
                         <Skeleton variant="rectangular" width={50} height={30} />
                     </div>}></List>
                 </div>

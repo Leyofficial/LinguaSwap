@@ -1,4 +1,3 @@
-import style from './PersonalProfile.module.scss'
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router";
 import {useEffect, useState} from "react";
@@ -66,8 +65,6 @@ function PersonalProfile() {
         <>
             {contentLoad  ?  <WholeProfile user={active ? actualProfile : currentUser} isMine={!active}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
         </>
-
-       // <WholeProfile user={active ? actualProfile : currentUser}/>
     )
 }
 export default PersonalProfile

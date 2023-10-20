@@ -104,7 +104,7 @@ const TeachersSection = () => {
                                     <Skeleton variant="rounded" width={210} height={60}/>
                                 </Stack>
                             } else {
-                                return <TeacherCard id={item._id}
+                                return <TeacherCard _id={item._id}
                                                     name={item.user.data.name}
                                                     userTag={item.user.data.userTag}
                                                     photo={item.user.data.photo}
@@ -115,7 +115,7 @@ const TeachersSection = () => {
                             }
                         }) : ( foundTeacher.length > 0 ?
                                 <List items={foundTeacher} rerender={(item : IUserInfo) => <TeacherCard
-                                    id={item._id}
+                                    _id={item._id}
                                     name={item.user.data.name}
                                     userTag={item.user.data.userTag}
                                     photo={item.user.data.photo}

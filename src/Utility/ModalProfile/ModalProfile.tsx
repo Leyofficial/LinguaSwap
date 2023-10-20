@@ -3,19 +3,21 @@ import React from "react";
 import {Avatar} from "@mui/material";
 import {Link, useNavigate} from "react-router-dom";
 import closeBtn from './../../img/icons/close.png'
-import {ILanguages, IModalProfile} from "./types.ts";
+import { IModalProfile} from "./types.ts";
 import List from '../List/List.tsx';
 import {mainChatRequests} from "../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch, useSelector} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../Redux/MainChat/mainChatReducer.js";
+import {ILanguagesTypes} from "../Languages/languages.ts";
 
 function ModalProfile({modalActive, user, callback}: IModalProfile) {
+    debugger
     const currentUser = useSelector((state: any) => state.loginUser)
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
     const startConversation = () => {
-        getChatThunkCreate(currentUser._id, user.id,navigate)(dispatch)
+        getChatThunkCreate(currentUser.id, user._id, navigate)(dispatch)
 
     }
     return (
@@ -43,7 +45,7 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
                                 <div className={style.languagesKnow}>
                                     {/*@ts-ignore*/}
                                     <List items={user?.languages}
-                                          rerender={(item: ILanguages) => <div className={style.language}
+                                          rerender={(item: ILanguagesTypes) => <div className={style.language}
                                                                                style={{background: item.color}}>
                                               {item.label}
                                           </div>}/>
@@ -52,7 +54,7 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
                                 </h3>
                                 <div className={style.languagesLearn}>
                                     <List items={user?.languagesLearn}
-                                          rerender={(item: ILanguages) => <div className={style.language}
+                                          rerender={(item: ILanguagesTypes) => <div className={style.language}
                                                                                style={{background: item.color}}>
                                               {item.label}
                                           </div>}/>
@@ -63,7 +65,7 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
                             <Link to={''}>
                                 <button onClick={startConversation} className={style.messageBtn}>Message</button>
                             </Link>
-                            <Link to={'find/' + user?.id}>
+                            <Link to={'find/' + user?._id}>
                                 <button className={style.button}>Profile</button>
                             </Link>
                         </div>

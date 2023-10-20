@@ -13,7 +13,7 @@ import Spinner from "../../../Utility/Spinner/Spinner.tsx";
 import {ProfileUser, saveProfileImage} from "../../../ApiRequests/CreateProfile/Profile.js";
 import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
 import {IStepsProps} from "../../../types/stepsTypes.ts";
-import {IUserObj} from "../../../types/userTypes.ts";
+import {IUserWrapperInfo} from "../../../types/userTypes.ts";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 
 const StepThree = (props : IStepsProps) => {
@@ -29,7 +29,8 @@ const StepThree = (props : IStepsProps) => {
     const [isOpen , setOpen]  = useState<boolean>(false)
 
     function sendDataToServer() {
-        const obj : IUserObj = {
+        const obj : IUserWrapperInfo = {
+            _id : id,
             name: name,
             status: status,
             userTag : userTag,
@@ -83,6 +84,7 @@ const StepThree = (props : IStepsProps) => {
                         title={"Before"}
                         typeOfButton={"button"}
                         callback={props.previousStep}
+                        rotateIcon={true}
                     />
                     <CustomButton
                         title={"Save"}

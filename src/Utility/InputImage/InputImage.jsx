@@ -1,11 +1,9 @@
 import {useDropzone} from 'react-dropzone';
 import style from './InputImage.module.scss'
 import {Avatar} from "@mui/material";
-import {stringAvatar} from "../AvatarColor/Avatar.js";
+import {stringAvatar} from "../AvatarColor/Avatar.ts";
 import {useDispatch} from "react-redux";
 import {ImCross} from "react-icons/im";
-import {Course} from "../../ApiRequests/Courses/Courses.js";
-import {saveProfileImage} from "../../ApiRequests/CreateProfile/Profile.js";
 import {setPhotoAC} from "../../Redux/Profile/Photo/setPhotoAC.ts";
 
 

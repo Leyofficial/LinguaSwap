@@ -25,6 +25,7 @@ const StepTwo = (props : IStepsProps) => {
             title={"Before"}
             typeOfButton={"button"}
             callback={props.previousStep}
+            rotateIcon={true}
           />
           <CustomButton
             title={"Next"}

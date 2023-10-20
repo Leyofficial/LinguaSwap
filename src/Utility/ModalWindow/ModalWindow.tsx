@@ -12,7 +12,6 @@ function ModalWindow(props : IModalProps) {
 
   return (
     <>
-
       <div className={style.modal}>
         <section className={style.modalMain}>
           <h2><TypeAnimation sequence={[
@@ -30,7 +29,6 @@ function ModalWindow(props : IModalProps) {
         />
       </div>
     </>
-
   )
 }
 
