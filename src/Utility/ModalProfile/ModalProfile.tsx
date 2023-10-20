@@ -25,12 +25,10 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
             <div className={style.modal + ` ${modalActive ? style.modalHere : style.modalGone}`}>
                 <img onClick={callback} className={style.closeBtn} src={closeBtn} alt="X"/>
                 <div className={style.topContent}>
-                    {/*@ts-ignore*/}
-                    <Avatar sx={{width: 84, height: 84}} alt={user?.hash} src={user?.photo}/>
+                    <Avatar sx={{width: 84, height: 84}} alt={user?.userTag} src={user?.photo}/>
                     <div>
                         <h2>{user?.name}</h2>
-                        {/*@ts-ignore*/}
-                        <h2 className={style.span}>{user?.hash}</h2>
+                        <h2 className={style.span}>@{user?.userTag}</h2>
                     </div>
                 </div>
                 <div className={style.mainContent}>
