@@ -43,7 +43,7 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
                             <div className={style.languages}>
                                 <div className={style.languagesKnow}>
                                     {/*@ts-ignore*/}
-                                    <List items={user?.languages}
+                                    <List items={user?.languagesKnow}
                                           rerender={(item: ILanguagesTypes) => <div className={style.language}
                                                                                style={{background: item.color}}>
                                               {item.label}
