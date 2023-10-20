@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import style from './CustomInput.module.scss'
 import { useDispatch } from 'react-redux'
-import { setNameAC } from '../../Redux/Profile/Name/seNameAC'
 import { setUserTagAC } from '../../Redux/Profile/UserTag/setUserTagAC'
+import {setNameAC} from "../../Redux/Profile/Name/setNameAC.ts";
+
 
 const CustomInput = (props) => {
   const dispatch = useDispatch()

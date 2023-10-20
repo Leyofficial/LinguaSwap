@@ -53,15 +53,18 @@ function PersonalProfile() {
     }, [userToken , id]);
     useEffect(() => {
         if (id) {
-
-            setActive(true)
+            if (id === currentUser?._id) {
+                setActive(false )
+            } else {
+                setActive(true)
+            }
         } else {
             setActive(false)
         }
     }, [id]);
     return (
         <>
-            {contentLoad  ?  <WholeProfile user={active ? actualProfile : currentUser}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
+            {contentLoad  ?  <WholeProfile user={active ? actualProfile : currentUser} isMine={!active}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
         </>
 
        // <WholeProfile user={active ? actualProfile : currentUser}/>

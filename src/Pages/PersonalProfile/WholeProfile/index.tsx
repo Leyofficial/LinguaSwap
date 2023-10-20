@@ -4,15 +4,15 @@ import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link, useNavigate} from "react-router-dom";
 import React from "react";
-import {ILanguages} from "../../../Utility/ModalProfile/types.tsx";
 import List from "../../../Utility/List/List.tsx";
-import {IUserProfile} from "./types.ts";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch, useSelector} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
+import {IUserOutside} from "../../../types/userTypes.ts";
+import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 
 
-function WholeProfile({user} : IUserProfile) {
+function WholeProfile({user , isMine} : IUserOutside) {
 
     const currentUser = useSelector((state : any) => state.loginUser)
     const dispatch = useDispatch()
@@ -24,6 +24,7 @@ function WholeProfile({user} : IUserProfile) {
 
     return (
         <>
+            {isMine ? <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2> : null}
             <div className={style.container}>
                 <div className={style.block}>
                     <div className={style.leftBlock}>
@@ -49,9 +50,9 @@ function WholeProfile({user} : IUserProfile) {
                             <AiOutlineStar className={style.profile} size={30}/>
                             <p>{user?.user.data?.experience + ' '} experience/s</p>
                         </div>
-                        <Link to={''}>
+                        {isMine ?  null : <Link to={''}>
                             <button onClick={startConversation} className={style.messageBtn}>Message</button>
-                        </Link>
+                        </Link> }
                     </div>
                     <div className={style.rightBlock}>
                         <h2 className={style.titleRight}>Projects & Skills</h2>
@@ -62,7 +63,7 @@ function WholeProfile({user} : IUserProfile) {
                         <p className={style.languagesTitle}>Languages know :</p>
                         <div className={style.languagesBlock}>
                             <List items={user?.user.data?.languagesKnow}
-                                  rerender={(item: ILanguages) => <div key={item.label} className={style.languages}
+                                  rerender={(item: ILanguagesTypes) => <div key={item.label} className={style.languages}
                                                                        style={{background: item.color}}>
                                       {item.label}
                                   </div>}></List>
@@ -70,7 +71,7 @@ function WholeProfile({user} : IUserProfile) {
                         <p className={style.languagesTitle}>Languages learn :</p>
                         <div className={style.languagesBlock}>
                             <List items={user?.user.data?.languagesLearn}
-                                  rerender={(item: ILanguages) => <div key={item.label} className={style.languages}
+                                  rerender={(item: ILanguagesTypes) => <div key={item.label} className={style.languages}
                                                                        style={{background: item.color}}>
                                       {item.label}
                                   </div>}></List>

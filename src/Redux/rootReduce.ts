@@ -1,7 +1,8 @@
 import {applyMiddleware, createStore} from "redux";
 
-import rootReducer from './combineReducer.ts'
+
 import thunk from "redux-thunk";
+import rootReducer from "./combineReducer.ts";
 
 const store = createStore(
     rootReducer,

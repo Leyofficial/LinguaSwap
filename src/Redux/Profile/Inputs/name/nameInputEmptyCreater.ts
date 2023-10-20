@@ -1,14 +1,14 @@
-export enum NameActions {
+export enum NameActionsInput {
     SET_EMPTY_NAME = 'SET_EMPTY_NAME'
 }
-export type TName = {
+export type TNameInput = {
     boolean : boolean
 }
 export interface ISetEmptyName {
-    type : NameActions.SET_EMPTY_NAME,
-    nameDirty : TName
+    type : NameActionsInput.SET_EMPTY_NAME,
+    nameDirty : TNameInput
 }
 export type TNameActions = ISetEmptyName
-export function nameInputEmptyCreater(boolean : TName) : TNameActions  {
-    return {type : NameActions.SET_EMPTY_NAME , nameDirty : boolean}
+export function nameInputEmptyCreater(boolean : TNameInput) : TNameActions  {
+    return {type : NameActionsInput.SET_EMPTY_NAME , nameDirty : boolean}
 }

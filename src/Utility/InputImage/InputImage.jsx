@@ -4,9 +4,9 @@ import {Avatar} from "@mui/material";
 import {stringAvatar} from "../AvatarColor/Avatar.js";
 import {useDispatch} from "react-redux";
 import {ImCross} from "react-icons/im";
-import {setPhotoAC} from "../../Redux/Profile/Photo/deletePhotoAC.js";
 import {Course} from "../../ApiRequests/Courses/Courses.js";
 import {saveProfileImage} from "../../ApiRequests/CreateProfile/Profile.js";
+import {setPhotoAC} from "../../Redux/Profile/Photo/setPhotoAC.ts";
 
 
 export const ImageInput = ({avatarText, actionCreater, selector}) => {

@@ -1,10 +1,10 @@
 import {initialState} from "../../initialState.ts";
 import {Course} from "../../../ApiRequests/Courses/Courses.js";
 import {resetCourseAC} from "./createCourseAC.js";
-import {setPhotoAC} from "../../Profile/Photo/deletePhotoAC.js";
 import toast from "react-hot-toast";
 import {createChatRoomCourse} from "../../../ApiRequests/Chat.jsx";
 import {teacherChats} from "../../../ApiRequests/TeacherChats/TeacherChats.js";
+import {deletePhotoAC} from "../../Profile/Photo/setPhotoAC.ts";
 
 export const SET_TITLE = "SET_TITLE"
 export const SET_LANGUAGE = "SET_LANGUAGE"
@@ -93,7 +93,7 @@ export const createCourseThunkCreator = (data,setSucceed,navigate,setError) => {
 
              await createChatRoomCourse(response.data.createCourse._id)
             dispatch(resetCourseAC())
-            dispatch(setPhotoAC())
+            dispatch(deletePhotoAC())
             setSucceed(true)
             toast.success("Create course process was been successfully completed");
 

@@ -27,7 +27,7 @@ import interlocutorReducer from "./ChatWithTeacher/Interlocutor/InterlocutorRedu
 import chatWithMemberOfCourseReducer from "./ChatWithMemberOfCourse/chatWithMemberOfCourseReducer.js";
 import createCourseReducer from "./Courses/CreateCourseData/createCourseReducer.js";
 
-export default (combineReducers)({
+export  const rootReducer = combineReducers({
     isStart: isStartToLoginReducer,
     name: setNameReducer,
     userTag : setUserTagReducer,
