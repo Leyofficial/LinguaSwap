@@ -26,9 +26,7 @@ import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
-
-function App() {
-
+const App = () => {
   const isStart = useSelector((state) => state.isStart)
   const isAuth = useSelector((state) => state.isAuth)
   const dispatch = useDispatch()
@@ -36,102 +34,70 @@ function App() {
   const userToken = JSON.parse(localStorage.getItem('loginUser'))
   const newSocket = useSelector((state) => state.socket)
 
+  useEffect(() => {
+    console.log(newSocket);
+
+    if (newSocket) {
+      newSocket.on("onlineUsers", () => {});
+
+      newSocket.on("userConnected", (user) => {
+        console.log(user);
+        if (user) {
+          dispatch(addOnlineUserAC(user));
+          console.log("user was connected");
+        }
+      });
+
+      newSocket.on("userDisconnected", (userId) => {
+        dispatch(removeUserAC(userId));
+        console.log(`User disconnected ${userId}`);
+      });
+    }
+  }, [newSocket, currentUser]);
 
   useEffect(() => {
-    const socket = socketIO.connect('http://localhost:3000', {
-      "forceNew": true
-    })
-    dispatch(webSocketAC(socket))
-
-  }, [])
+    if (newSocket && currentUser) {
+      newSocket.emit("newUser", currentUser._id);
+    }
+  }, [newSocket, currentUser]);
 
   useEffect(() => {
-    newSocket.on('message',message => {
-      console.log(message)
-    })
-  },[newSocket])
-  // useEffect(() => {
-  //   if (userToken && !isAuth) {
-  //     getUserByToken(userToken).then(res => {
-  //
-  //       if (res.status === 200) {
-  //         // newSocket.emit("newUser", currentUser?._id)
-  //         dispatch(loginUserAC(...res.data.users));
-  //         dispatch(authAC())
-  //
-  //       }
-  //     })
-  //   }
-  // }, [userToken, isAuth])
-
-  // useEffect(() => {
-  //
-  //   if (newSocket) {
-  //     newSocket.on("onlineUsers", () => {
-  //     })
-  //
-  //     // newSocket.on("connected", (id) => {
-  //     //   console.log(`user was connected by ${id}`)
-  //     // })
-  //
-  //
-  //     // socket.on("userConnected", (user) => {
-  //     //   console.log(user)
-  //     //   if (user) {
-  //     //     dispatch(addOnlineUserAC(user))
-  //     //     console.log('user was connected')
-  //     //   }
-  //     // })
-  //     newSocket.on("userDisconnected", (userId) => {
-  //       dispatch(removeUserAC(userId))
-  //       console.log(`User disconnected ${userId}`)
-  //     })
-  //
-  //   }
-  // }, [newSocket, currentUser])
-
-
-  // useEffect(() => {
-  //   if (newSocket)
-  //     newSocket.emit("newUser", currentUser?._id)
-  //
-  // }, [currentUser, newSocket])
-
-  // useEffect(() => {
-  //   if(newSocket) {
-  //     newSocket.on("connected", (user) => {
-  //       console.log(user)
-  //     })
-  //   }
-  // })
+    if (userToken) {
+      getUserByToken(userToken).then(res => {
+        if (res.status === 200) {
+          dispatch(loginUserAC({...res.data.users[0]}));
+          dispatch(authAC())
+        }
+      })
+    }
+  }, []);
   return (
-    <>
-      <Routes>
-        <Route path={'/'} element={<Layout/>}>
-          <Route index={true} element={isStart ? <CoursesSection/> : <HomePage/>}/>
-          <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
-          <Route path={"/login"} element={isAuth ? <PersonalProfile/> : <Login/>}/>
-          <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
-          <Route path={"/createprofile"} element={<CreateProfile/>}/>
-          <Route path={"/findteacher"} element={<TeachersSection/>}/>
-          <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
-          <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
-          <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
-          <Route path={'/course/create'} element={<Create/>}></Route>
-          <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
-            <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
-            <Route index element={<CourseChat/>}></Route>
+      <>
+        <Routes>
+          <Route path={"/"} element={<Layout />}>
+            <Route index element={isStart ? <CoursesSection /> : <HomePage />} />
+            <Route path={"/aboutApp/:userType"} element={<AboutAppPage />} />
+            <Route path={"/login"} element={isAuth ? <PersonalProfile /> : <Login />} />
+            <Route path={"/teacherregister"} element={<TeacherRegister />} />
+            <Route path={"/createprofile"} element={<CreateProfile />} />
+            <Route path={"/findteacher"} element={<TeachersSection />} />
+            <Route path={"/findteacher/find/:id"} element={<PersonalProfile />} />
+            <Route path={"/course/:idCourse"} element={<CourseSection />} />
+            <Route path={"/course/:idCourse/chat"} element={<CourseChat />} />
+            <Route path={"/course/create"} element={<Create />} />
+            <Route path={"/course/chat"} element={<ChooseTypeOfChat />}>
+              <Route path={"/course/chat/:idCourse"} element={<CourseChat />} />
+              <Route index element={<CourseChat />} />
+            </Route>
+            <Route path={"/chat"} element={<MainChat />}>
+              <Route path={"/chat/:idChat"} element={<MessagesSection />} />
+              <Route index element={<MessagesSection />} />
+            </Route>
+            <Route path={"*"} element={<ErrorUrl />} />
           </Route>
-          <Route path={'/chat'} element={<MainChat></MainChat>}>
-            <Route path={'chat/:idChat'} element={<MessagesSection/>}></Route>
-            <Route index element={<MessagesSection/>}></Route>
-          </Route>
-          <Route path={"*"} element={<ErrorUrl/>}/>
-
-        </Route>
-      </Routes>
-    </>
+        </Routes>
+      </>
   );
-}
+};
 
 export default App;

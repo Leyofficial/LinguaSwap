@@ -6,7 +6,7 @@ import {IModalProps} from "./types.ts";
 
 function ModalWindow(props : IModalProps) {
   const navigate = useNavigate()
-  function joinLink() : any {
+  function joinLink() : void {
     navigate('/')
   }
 
