@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 
 export const SET_ONLINE_USERS = "SET_ONLINE_USERS"
 export const ADD_NEW_ONLINE_USER = "ADD_NEW_ONLINE_USER"

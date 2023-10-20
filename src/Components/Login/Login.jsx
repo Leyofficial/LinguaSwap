@@ -7,12 +7,11 @@ import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
-import teacherimg from '../../img/images/teacherimg.jpg';
 import {useDispatch} from 'react-redux';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
 import {authAC} from "../../Redux/isAuth/isAuthAC.js";
-import {loginUserAC} from "../../Redux/login/loginUserAC.js";
+import {loginUserAC} from "../../Redux/login/loginUserAC.ts";
 import socketIO from "socket.io-client";
 import {webSocketAC} from "../../Redux/WebSocket/webSocketReducer.js";
 

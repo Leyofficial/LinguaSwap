@@ -3,7 +3,7 @@ import {Skeleton, Stack} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import React from "react";
-import {IUserProfile} from "./types.ts";
+import {IUserProfile} from "../../../types/userTypes.ts";
 import List from "../../../Utility/List/List.tsx";
 import {ILanguages} from "../../../Utility/ModalProfile/types.ts";
 

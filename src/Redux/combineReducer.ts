@@ -26,8 +26,6 @@ import chatsWithStudentsReducer from "./Course/ChatsWithStudents/chatsWithStuden
 import interlocutorReducer from "./ChatWithTeacher/Interlocutor/InterlocutorReducer.js";
 import chatWithMemberOfCourseReducer from "./ChatWithMemberOfCourse/chatWithMemberOfCourseReducer.js";
 import createCourseReducer from "./Courses/CreateCourseData/createCourseReducer.js";
-import {mainChatReducer} from "./MainChat/mainChatReducer.js";
-import mainChatsReducer from "./MainChats/mainChatsReducer.js";
 
 export default (combineReducers)({
     isStart: isStartToLoginReducer,
@@ -56,7 +54,5 @@ export default (combineReducers)({
     chatsWithStudents:chatsWithStudentsReducer,
     interlocutor:interlocutorReducer,
     chatMemberOfCourse:chatWithMemberOfCourseReducer,
-    createCourseData:createCourseReducer,
-    mainChat:mainChatReducer,
-    mainChats:mainChatsReducer,
+    createCourseData:createCourseReducer
 })

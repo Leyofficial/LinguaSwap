@@ -1,3 +1,5 @@
+import {IUserInfo} from "../types/userTypes.ts";
+
 export const initialState = {
   isStart: true ,
   name: '',
@@ -11,7 +13,7 @@ export const initialState = {
   languagesLearn : [],
   courses:[],
   teachers : [],
-  loginUser:null,
+  loginUser: null as unknown as IUserInfo[],
   registerUser: null,
   isAuth:false,
   currentCourse:null,

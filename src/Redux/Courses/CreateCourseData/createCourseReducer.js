@@ -1,4 +1,4 @@
-import {initialState} from "../../initialState.js";
+import {initialState} from "../../initialState.ts";
 import {Course} from "../../../ApiRequests/Courses/Courses.js";
 import {resetCourseAC} from "./createCourseAC.js";
 import {setPhotoAC} from "../../Profile/Photo/deletePhotoAC.js";

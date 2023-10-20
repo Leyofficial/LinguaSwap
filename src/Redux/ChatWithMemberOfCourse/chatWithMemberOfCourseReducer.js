@@ -1,6 +1,6 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
-import {addChatMessage, chatMessagesAC} from "../ChatWithTeacher/ChatMessages/chatMessagesAC.js";
+import { chatMessagesAC} from "../ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 import {getUser} from "../../ApiRequests/Courses/AuthUser.js";
 import {getChatMember} from "./chatWithMemberOfCourseAC.js";
 import {chatsWithStudentsThunkCreator} from "../Course/ChatsWithStudents/chatsWithStudentsReducer.js";

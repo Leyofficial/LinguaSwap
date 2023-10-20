@@ -1,4 +1,5 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
+
 
 export const SET_SOCKET = "SET_SOCKET"
 const webSocketReducer = (socket = initialState.socket,action)=> {

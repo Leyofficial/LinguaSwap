@@ -1,5 +1,5 @@
 import style from './CoursesSection.module.scss'
-import React, {useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import Pagination from "../../Utility/Pagination/Pagination.jsx";
 import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
@@ -7,9 +7,7 @@ import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
 import {useDispatch, useSelector} from "react-redux";
 import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.js";
 import CourseFilters from "./CourseFilters/CourseFilters.jsx";
-import NotFoundItems from "../../Utility/NotFound/NotFoundItems.tsx";
-import {Skeleton, Stack} from "@mui/material";
-
+import NotFoundItems from "../../Utility/NotFound/NotFoundItems.jsx";
 
 const CoursesSection = () => {
 
@@ -25,7 +23,6 @@ const CoursesSection = () => {
    const dispatch = useDispatch()
    const courses = useSelector((state) => state.courses)
 
-   const [loadCourses,setLoadCourses] = useState(false)
    const paginate = (numberPage) => setCurrentCoursePage(numberPage)
 
    const indexOfLastCourse = currentCoursePage * courseForOnePage
@@ -35,7 +32,7 @@ const CoursesSection = () => {
 
 
    useEffect(() => {
-      dispatch(getCoursesThunkCreator(setLoadCourses))
+      dispatch(getCoursesThunkCreator())
    }, [])
 
 
@@ -60,7 +57,7 @@ const CoursesSection = () => {
 
    }, [languageFilter, enrolment])
 
-
+   console.log(currentCourses)
    return (
       <div className={style.container}>
          <div className={style.searchWrapper}>
@@ -77,21 +74,18 @@ const CoursesSection = () => {
             </div>
          </div>
          <div className={style.coursesWrapper}>
-            {!foundCourse ? currentCourses.map((course) => {
-               if(!loadCourses){
-                  return <Stack spacing={3}>
-                     <Skeleton variant="rectangular" width={310} height={100}/>
-                     <Skeleton variant="rounded" width={310} height={400}/>
-                  </Stack>
-               } else {
-                  return <CoursesBlock course={course}></CoursesBlock>
-               }
-            }) : (foundCourse.length === 0 && !currentCourses ? <NotFoundItems></NotFoundItems> : foundCourse.map(foundItems => <CoursesBlock course={foundItems}></CoursesBlock>))}
+
+            {!currentCourses.length && !foundCourse ?  <NotFoundItems></NotFoundItems> : (
+               !foundCourse ? currentCourses.map((course,index) => <CoursesBlock key={index} course={course}></CoursesBlock>) :
+                  foundCourse.map((foundItems,index) => <CoursesBlock key={index} course={foundItems}></CoursesBlock>)
+
+            )}
+
          </div>
          <div className={style.paginationWrapper}>
 
-            {loadCourses ? <Pagination paginate={paginate} coursesForOnePage={courseForOnePage}
-                        totalCourses={courses.length}></Pagination> : null}
+            <Pagination paginate={paginate} coursesForOnePage={courseForOnePage}
+                        totalCourses={courses.length}></Pagination>
          </div>
       </div>
    );

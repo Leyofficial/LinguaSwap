@@ -1,4 +1,4 @@
-import {initialState} from "../../initialState.js";
+import {initialState} from "../../initialState.ts";
 import {teacherChats} from "../../../ApiRequests/TeacherChats/TeacherChats.js";
 import {chatsWithStudentsAC} from "./chatsWithStudentsAC.js";
 
