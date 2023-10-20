@@ -16,12 +16,14 @@ const courseReducer = (course = initialState.currentCourse, action) => {
 
 export default courseReducer
 
-export const getCourseThunkCreator = (idCourse) => {
+export const getCourseThunkCreator = (idCourse, setLeadCourse) => {
    return async (dispatch) => {
       try {
          const response = await Course.getCourse(idCourse)
          if (response.status === 200) {
-            console.log(response)
+            setTimeout(() => {
+               setLeadCourse(true)
+            }, 1000)
             dispatch(courseAC(response.data.course))
          }
       } catch (err) {
