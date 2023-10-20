@@ -1,4 +1,4 @@
-import {initialState} from "../initialState.js";
+import {initialState} from "../initialState.ts";
 import {mainChatRequests} from "../../ApiRequests/MainChat/MainChat.js";
 import {getMainChats} from "./mainChatsAC.js";
 
