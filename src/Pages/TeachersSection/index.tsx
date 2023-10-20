@@ -33,7 +33,7 @@ const TeachersSection = () => {
             if (res.status === 200) {
                 setTimeout(() => {
                     setLoadTeacher(true)
-                }, 1000)
+                }, 200)
                 dispatch(teachersActionCreater(res.data.users))
             } else {
                 errorToaster('Server error!')

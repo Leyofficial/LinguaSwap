@@ -1,6 +1,6 @@
 .container {
   padding-left: 6rem;
-  margin: 0 auto;
+  margin: 0 auto 50px 0 ;
 }
 .span {
   color: dodgerblue;
@@ -86,4 +86,8 @@
 .blockRightText {
   gap: 10px;
   display: flex;
+}
+.title {
+  padding: 20px;
+  text-align: center;
 }

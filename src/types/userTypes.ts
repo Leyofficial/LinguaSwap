@@ -20,6 +20,7 @@ export interface IUserInfo {
 }
 
 export interface IUserOutside {
+    isMine : boolean
     user: IUserInfo
 }
 

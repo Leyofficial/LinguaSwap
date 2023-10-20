@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import style from "./CreateStepOne.module.scss";
 import CreateTooltip from "../CreateTooltip/CreateTooltip.jsx";
 import {ImageInput} from "../../../../Utility/InputImage/InputImage.jsx";
-import {setPhotoAC} from "../../../../Redux/Profile/Photo/setPhotoAC.js";
+import {setPhotoAC} from "../../../../Redux/Profile/Photo/setPhotoAC.ts";
 import {useDispatch, useSelector} from "react-redux";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
 import {getTitleAC} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
