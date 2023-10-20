@@ -6,12 +6,13 @@ import WholeProfile from "./WholeProfile";
 import SkeletonProfile from "./WholeProfile/SkeletonProfile.js";
 import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
-import {IUserInfo} from "../../types/userTypes.ts";
+import {IUserOutside} from "../../types/userTypes.ts";
+
 function PersonalProfile() {
     const {id} = useParams<string>();
     const [contentLoad , setContentLoad] = useState<boolean>(false)
-    const [actualProfile , setActualProfile ] = useState<object>();
-    const currentUser : IUserInfo[] = useTypedSelector((state) => state.loginUser);
+    const [actualProfile , setActualProfile ] = useState<IUserOutside[]>();
+    const currentUser : any = useTypedSelector((state) => state.loginUser);
     const [active , setActive ] = useState<boolean>(false)
     const userToken = JSON.parse(localStorage.getItem('loginUser') || '');
     const dispatch = useDispatch();

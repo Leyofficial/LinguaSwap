@@ -5,10 +5,9 @@ import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link} from "react-router-dom";
 import React from "react";
 import List from "../../../Utility/List/List.tsx";
-import {IUserInfo, IUserWrapperInfo} from "../../../types/userTypes.ts";
+import {IUserOutside} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
-function WholeProfile({user}: IUserInfo) {
-    debugger
+function WholeProfile({user} : IUserOutside) {
     return (
         <>
             <div className={style.container}>
