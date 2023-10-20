@@ -39,12 +39,14 @@ function App() {
 
 
   useEffect(() => {
+    const socket = socketIO.connect('http://localhost:3000',{
+      "forceNew":true
+    })
+    dispatch(webSocketAC(socket))
     if (userToken && !isAuth) {
       getUserByToken(userToken).then(res => {
 
         if (res.status === 200 ) {
-          const socket = socketIO.connect('http://localhost:3000')
-          dispatch(webSocketAC(socket))
           dispatch(loginUserAC(...res.data.users));
           dispatch(authAC())
 
@@ -55,14 +57,17 @@ function App() {
   }, [userToken, isAuth])
 
   useEffect(() => {
+    console.log(newSocket)
     if (newSocket) {
       newSocket.on("onlineUsers", () => {
       })
 
 
       newSocket.on("userConnected", (user) => {
+        console.log(user)
         if (user) {
           dispatch(addOnlineUserAC(user))
+          console.log('user was connected')
         }
       })
       newSocket.on("userDisconnected", (userId) => {

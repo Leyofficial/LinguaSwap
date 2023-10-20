@@ -63,9 +63,9 @@ const MessagesSection = () => {
    useEffect(() => {
       if(newSocket)
       newSocket.on("privateResponse", (id) => {
-         console.log(id)
+
          mainChatRequests.getChatById(id).then(res => {
-            console.log(res)
+
             dispatch(getChatsThunkCreator(currentUser?._id))
             if (res.status === 200) {
                setChat(res.data.foundChat)

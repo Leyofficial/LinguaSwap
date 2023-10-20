@@ -14,54 +14,52 @@ const authUsers = require('./Modules/AuthorizationModules.cjs')
 const {Server} = require('socket.io')
 
 const io = new Server(server, {
-   cors: {
-      origin: "*",
-      methods: ["GET", "POST", "DELETE", "PATCH"]
-   }
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "PATCH"]
+  }
 });
 
 // working with socket
 io.on("connection", (socket) => {
 
-   //  users
-   authUsers.find({online: true}).then(users => {
-      socket.emit("onlineUsers", users)
-   });
-   io.emit("connectedSocket", socket.id)
+  //  users
+  authUsers.find({online: true}).then(users => {
 
-   // messages
-   // socket.on("message", (data) => {
-   //    io.emit("response", data)
-   // })
-   socket.on("privateMessage", (id) => {
-      io.emit("privateResponse", id)
-   })
+    socket.emit("onlineUsers", users)
+  });
+  io.emit("connectedSocket", socket.id)
+
+
+  socket.on("privateMessage", (id) => {
+    io.emit("privateResponse", id)
+  })
 
 // users
-   socket.on('newUser', (userId) => {
-      socket.userId = userId
-      authUsers.findByIdAndUpdate(userId, {online: true}, {new: true}).then(user => {
-         io.emit("userConnected", user);
+  socket.on('newUser', (userId) => {
+    socket.userId = userId
+    authUsers.findByIdAndUpdate(userId, {online: true}, {new: true}).then(user => {
+      io.emit("userConnected", user);
+    })
+  })
+
+  //typing
+  socket.on("typing", (user) => {
+    io.emit("userTyping", user)
+  })
+
+  // disconnect  / set online false for  user who was log out
+  socket.on("disconnect", () => {
+
+    if (socket.userId) {
+      authUsers.findByIdAndUpdate(socket.userId, {
+        online: false
+      }, {new: true}).then(user => {
+
+        io.emit("userDisconnected", socket.userId)
       })
-   })
-
-   //typing
-   socket.on("typing",(user) => {
-      io.emit("userTyping",user)
-   })
-
-   // disconnect  / set online false for  user who was log out
-   socket.on("disconnect", () => {
-
-      if (socket.userId) {
-         authUsers.findByIdAndUpdate(socket.userId, {
-            online: false
-         }, {new: true}).then(user => {
-
-            io.emit("userDisconnected",socket.userId)
-         })
-      }
-   })
+    }
+  })
 })
 
 
@@ -72,9 +70,9 @@ app.use(helmet());
 app.use(express.json())
 
 mongoose.connect("mongodb+srv://temcenkovova8:brFMAZAjzkX4ighR@cluster0.4dgfzzn.mongodb.net/LinguaSwap?retryWrites=true&w=majority", {
-   useNewUrlParser: true,
-   useCreateIndex: true,
-   useFindAndModify: false,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 }).then(() => console.log('DB connection successful'));
 
 
@@ -97,13 +95,12 @@ app.use('/onlineUsers', onlineUsersRouter);
 app.use('/mainChat', mainChatRouter);
 
 
-
 app.all('*', (req, res, next) => {
-   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
-   next(new ErrorHandler(`Url with this path ${req.originalUrl} doesnt exist`), 404);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
+  next(new ErrorHandler(`Url with this path ${req.originalUrl} doesnt exist`), 404);
 })
 
 
 server.listen(PORT, () => {
-   console.log(`App running on ${PORT}`)
+  console.log(`App running on ${PORT}`)
 })
