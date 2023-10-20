@@ -70,7 +70,7 @@ const CoursesSection = () => {
                            setCategory={setCategory}
             ></CourseFilters>
             <div className={style.create}>
-               {currentUser && currentUser?.user.data?.status === "Teacher" ? <CreateCourse></CreateCourse> : null}
+               {currentUser && currentUser?.user?.data?.status === "Teacher" ? <CreateCourse></CreateCourse> : null}
             </div>
          </div>
          <div className={style.coursesWrapper}>

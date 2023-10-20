@@ -15,7 +15,12 @@ function PersonalProfile() {
     const [actualProfile , setActualProfile ] = useState<object>();
     const currentUser = useSelector((state : any) => state.loginUser);
     const [active , setActive ] = useState<boolean>(false)
-    const userToken = JSON.parse(localStorage.getItem('loginUser') || '');
+    const userTokenString = localStorage.getItem('loginUser');
+    let userToken: string | null = null;
+    if (userTokenString) {
+        userToken = JSON.parse(userTokenString);
+    }
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -40,16 +45,6 @@ function PersonalProfile() {
                 })
             }
     }, []);
-    useEffect(() => {
-
-        if (id) {
-
-            loginUserThunkCreator(userToken)(dispatch)
-            setTimeout(() => {
-                setContentLoad(true)
-            }, 600)
-            }
-    }, [userToken , id]);
     useEffect(() => {
         if (id) {
             if (id === currentUser?._id) {

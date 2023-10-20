@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import style from './Teachers.module.scss'
 import {Teachers} from "../../ApiRequests/Teacher/Teachers.js";
 
@@ -13,6 +13,7 @@ import {Select, Space} from "antd";
 import List from "../../Utility/List/List.tsx";
 import {ILanguagesTypes} from "../../Utility/Languages/languages.ts";
 import {IUserInfo} from "../../types/userTypes.ts";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 
 const TeachersSection = () => {
     const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
@@ -22,7 +23,7 @@ const TeachersSection = () => {
     const [foundTeacher, setFoundTeacher] = useState<IUserInfo[] | null>()
     const [loadTeacher, setLoadTeacher] = useState<boolean>(false)
     const dispatch = useDispatch()
-    const teachers = useSelector((state: any) => state.teachers);
+    const teachers = useTypedSelector((state) => state.teachers);
 
     function errorToaster(text: string) {
         toast.error(text);

@@ -8,6 +8,7 @@ import List from "../../../Utility/List/List.tsx";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 
 function SkeletonProfile ({user} : IUserOutside) {
+    debugger
     return (
         <div className={style.container}>
         <Stack spacing={1}>

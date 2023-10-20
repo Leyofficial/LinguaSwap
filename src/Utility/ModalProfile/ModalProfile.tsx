@@ -11,7 +11,6 @@ import {createChatThunkCreator, getChatThunkCreate} from "../../Redux/MainChat/m
 import {ILanguagesTypes} from "../Languages/languages.ts";
 
 function ModalProfile({modalActive, user, callback}: IModalProfile) {
-    debugger
     const currentUser = useSelector((state: any) => state.loginUser)
     const navigate = useNavigate()
 
