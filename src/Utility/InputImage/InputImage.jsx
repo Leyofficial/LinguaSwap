@@ -4,8 +4,7 @@ import {Avatar} from "@mui/material";
 import {stringAvatar} from "../AvatarColor/Avatar.js";
 import {useDispatch} from "react-redux";
 import {ImCross} from "react-icons/im";
-import {setPhotoAC} from "../../Redux/Profile/Photo/deletePhotoAC.js";
-
+import {deletePhotoAC} from "../../Redux/Profile/Photo/setPhotoAC.ts";
 
 
 export const ImageInput = ({avatarText , actionCreater, selector}) => {
@@ -19,7 +18,7 @@ export const ImageInput = ({avatarText , actionCreater, selector}) => {
 
 
     function deleteAvatarImg() {
-        dispatch(setPhotoAC())
+        dispatch(deletePhotoAC())
     }
 
     let files = acceptedFiles.map((file, index) => {
