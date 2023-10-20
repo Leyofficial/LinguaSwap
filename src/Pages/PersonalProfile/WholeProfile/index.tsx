@@ -7,9 +7,10 @@ import React from "react";
 import List from "../../../Utility/List/List.tsx";
 import {IUserOutside} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
-function WholeProfile({user} : IUserOutside) {
+function WholeProfile({user , isMine} : IUserOutside) {
     return (
         <>
+            {isMine ?<h2 className={style.title}>Your <span className={style.span}> profile</span>: </h2> : null }
             <div className={style.container}>
                 <div className={style.block}>
                     <div className={style.leftBlock}>
@@ -35,9 +36,9 @@ function WholeProfile({user} : IUserOutside) {
                             <AiOutlineStar className={style.profile} size={30}/>
                             <p>{user.user.data.experience + ' '} experience/s</p>
                         </div>
-                        <Link to={''}>
+                        {isMine ? null : <Link to={''}>
                             <button className={style.messageBtn}>Message</button>
-                        </Link>
+                        </Link>}
                     </div>
                     <div className={style.rightBlock}>
                         <h2  className={style.titleRight}>Projects & Skills</h2>

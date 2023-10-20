@@ -43,7 +43,7 @@ function PersonalProfile() {
     }, [id]);
     return (
         <>
-            {contentLoad  ?  <WholeProfile user={active ? actualProfile : currentUser}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
+            {contentLoad  ?  <WholeProfile user={active ? actualProfile : currentUser} isMine={!active}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
         </>
     )
 }
