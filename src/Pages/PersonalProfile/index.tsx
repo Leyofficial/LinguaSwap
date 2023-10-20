@@ -24,19 +24,24 @@ function PersonalProfile() {
                     setActualProfile({...res.data.user});
                     setTimeout(() => {
                         setContentLoad(true)
-                    },600)
+                    },200)
                 }
             })
         } else {
             loginUserThunkCreator(userToken)(dispatch)
             setTimeout(() => {
                 setContentLoad(true)
-            }, 600)
+            }, 200)
             }
-    }, [userToken , id]);
+    }, []);
     useEffect(() => {
+        console.log(id , currentUser?._id)
         if (id) {
-            setActive(true)
+            if (id === currentUser?._id) {
+                setActive(false )
+            } else {
+                setActive(true)
+            }
         } else {
             setActive(false)
         }
