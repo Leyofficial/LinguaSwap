@@ -9,6 +9,6 @@ export interface setLoginUser {
     user : IUserInfo[]
 }
 
-export function loginUserAC (user) : setLoginUser {
+export function loginUserAC (user : any) : setLoginUser  {
     return {type : loginActions.SET_LOGIN_USER , user : user}
 }
