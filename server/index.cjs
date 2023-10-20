@@ -16,9 +16,12 @@ const {Server} = require('socket.io')
 const io = new Server(server, {
   cors: {
     origin: "*",
+    credentials:true,
+    headers:{"Content-Type" : "application/json"},
     methods: ["GET", "POST", "DELETE", "PATCH"]
   }
 });
+
 
 // working with socket
 
@@ -36,9 +39,6 @@ io.on("connection",socket => {
     io.emit('message','A use has left the chat')
 
   })
-
-
-
 })
 
 
