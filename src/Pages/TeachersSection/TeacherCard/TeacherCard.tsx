@@ -16,7 +16,7 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
         languagesLearn: languagesLearn,
     }
     const [modalProfile, setModalProfile] = useState<IUserWrapperInfo>(user);
-    const [modalActive, setModalActive] = useState(false)
+    const [modalActive, setModalActive] = useState<boolean>(false)
 
     function closeModal () {
         setModalActive(false)

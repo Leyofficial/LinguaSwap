@@ -16,7 +16,7 @@ function PersonalProfile() {
     const [active , setActive ] = useState<boolean>(false)
     const userToken = JSON.parse(localStorage.getItem('loginUser') || '');
     const dispatch = useDispatch();
-    console.log(currentUser)
+
     useEffect(() => {
         if (id) {
             UserProfile.getProfile(id).then(res => {
