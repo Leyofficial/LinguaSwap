@@ -5,7 +5,6 @@ import ChatSingleMessage from "./ChatSingleMessage/ChatSingleMessage.jsx";
 import MainChatSearch from "./MainChatSearch/MainChatSearch.jsx";
 import style from './MainChat.module.scss'
 import {Outlet} from "react-router-dom";
-import {mainChatRequests} from "../../ApiRequests/MainChat/MainChat.js";
 
 
 const MainChat = () => {
@@ -17,11 +16,11 @@ const MainChat = () => {
   const [foundChats, setFoundChats] = useState([])
 
   useEffect(() => {
-
-    dispatch(getChatsThunkCreator(currentUser?._id))
+    if (currentUser)
+      dispatch(getChatsThunkCreator(currentUser?._id))
   }, [currentUser])
 
-
+  console.log(mainChats)
   return (
     <>
       <article className={style.container}>
@@ -31,10 +30,8 @@ const MainChat = () => {
           </section>
 
           <div className={style.containerDialogs}>
-            {!foundChats.length >= 1 ? mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser}
-                                                                                   dialog={dialog}></ChatSingleMessage>) : foundChats?.map(dialog =>
-              <ChatSingleMessage currentUser={currentUser}
-                                 dialog={dialog}></ChatSingleMessage>)}
+            {mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser}
+                                                         dialog={dialog}></ChatSingleMessage>)}
           </div>
         </aside>
         <main>
