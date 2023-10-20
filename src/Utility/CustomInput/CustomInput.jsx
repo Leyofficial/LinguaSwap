@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import style from './CustomInput.module.scss'
 import { useDispatch } from 'react-redux'
-import { setUserTagAC } from '../../Redux/Profile/UserTag/setUserTagAC'
+import { setUserTagAC } from '../../Redux/Profile/UserTag/setUserTagAC.js'
 import {setNameAC} from "../../Redux/Profile/Name/setNameAC.ts";
 
 
