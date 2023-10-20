@@ -20,7 +20,7 @@ const MainChat = () => {
       dispatch(getChatsThunkCreator(currentUser?._id))
   }, [currentUser])
 
-  console.log(mainChats)
+
   return (
     <>
       <article className={style.container}>

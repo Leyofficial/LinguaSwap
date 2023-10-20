@@ -14,54 +14,31 @@ const authUsers = require('./Modules/AuthorizationModules.cjs')
 const {Server} = require('socket.io')
 
 const io = new Server(server, {
-   cors: {
-      origin: "*",
-      methods: ["GET", "POST", "DELETE", "PATCH"]
-   }
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST", "DELETE", "PATCH"]
+  }
 });
 
 // working with socket
-io.on("connection", (socket) => {
 
-   //  users
-   authUsers.find({online: true}).then(users => {
-      socket.emit("onlineUsers", users)
-   });
-   io.emit("connectedSocket", socket.id)
+io.on("connection",socket => {
 
-   // messages
-   // socket.on("message", (data) => {
-   //    io.emit("response", data)
-   // })
-   socket.on("privateMessage", (id) => {
-      io.emit("privateResponse", id)
-   })
 
-// users
-   socket.on('newUser', (userId) => {
-      socket.userId = userId
-      authUsers.findByIdAndUpdate(userId, {online: true}, {new: true}).then(user => {
-         io.emit("userConnected", user);
-      })
-   })
+  socket.emit('message', 'Welcome to chat')
 
-   //typing
-   socket.on("typing",(user) => {
-      io.emit("userTyping",user)
-   })
+  // Broadcast when a user  connects
+  socket.broadcast.emit("message",'A user has joined the chat');
 
-   // disconnect  / set online false for  user who was log out
-   socket.on("disconnect", () => {
+  // Runs when client disconnect
 
-      if (socket.userId) {
-         authUsers.findByIdAndUpdate(socket.userId, {
-            online: false
-         }, {new: true}).then(user => {
+  socket.on("disconnect",() => {
+    io.emit('message','A use has left the chat')
 
-            io.emit("userDisconnected",socket.userId)
-         })
-      }
-   })
+  })
+
+
+
 })
 
 
@@ -72,9 +49,9 @@ app.use(helmet());
 app.use(express.json())
 
 mongoose.connect("mongodb+srv://temcenkovova8:brFMAZAjzkX4ighR@cluster0.4dgfzzn.mongodb.net/LinguaSwap?retryWrites=true&w=majority", {
-   useNewUrlParser: true,
-   useCreateIndex: true,
-   useFindAndModify: false,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
 }).then(() => console.log('DB connection successful'));
 
 
@@ -97,13 +74,54 @@ app.use('/onlineUsers', onlineUsersRouter);
 app.use('/mainChat', mainChatRouter);
 
 
-
 app.all('*', (req, res, next) => {
-   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
-   next(new ErrorHandler(`Url with this path ${req.originalUrl} doesnt exist`), 404);
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, PATCH");
+  next(new ErrorHandler(`Url with this path ${req.originalUrl} doesnt exist`), 404);
 })
 
 
 server.listen(PORT, () => {
-   console.log(`App running on ${PORT}`)
+  console.log(`App running on ${PORT}`)
 })
+
+
+// io.on("connection", (socket) => {
+//
+//   // socket.emit("connected", socket.id)
+//   //  users
+//   // authUsers.find({online: true}).then(users => {
+//   //
+//   //   socket.emit("onlineUsers", users)
+//   // });
+//
+//   socket.on("privateMessage", (id) => {
+//     socket.emit("privateResponse", id)
+//   })
+//
+// // users
+//   socket.on('newUser', (userId) => {
+//     console.log('t')
+//     socket.userId = userId
+//     authUsers.findByIdAndUpdate(userId, {online: true}, {new: true}).then(user => {
+//       socket.emit("connected", user);
+//     })
+//   })
+//
+//   //typing
+//   socket.on("typing", (user) => {
+//     io.emit("userTyping", user)
+//   })
+//
+//   // disconnect  / set online false for  user who was log out
+//   socket.on("disconnect", () => {
+//
+//     if (socket.userId) {
+//       authUsers.findByIdAndUpdate(socket.userId, {
+//         online: false
+//       }, {new: true}).then(user => {
+//
+//         io.emit("userDisconnected", socket.userId)
+//       })
+//     }
+//   })
+// })

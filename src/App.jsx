@@ -27,7 +27,6 @@ import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
 
-
 function App() {
 
   const isStart = useSelector((state) => state.isStart)
@@ -39,46 +38,72 @@ function App() {
 
 
   useEffect(() => {
-    if (userToken && !isAuth) {
-      getUserByToken(userToken).then(res => {
+    const socket = socketIO.connect('http://localhost:3000', {
+      "forceNew": true
+    })
+    dispatch(webSocketAC(socket))
 
-        if (res.status === 200 ) {
-          const socket = socketIO.connect('http://localhost:3000')
-          dispatch(webSocketAC(socket))
-          dispatch(loginUserAC(...res.data.users));
-          dispatch(authAC())
-
-        }
-      })
-    }
-
-  }, [userToken, isAuth])
+  }, [])
 
   useEffect(() => {
-    if (newSocket) {
-      newSocket.on("onlineUsers", () => {
-      })
+    newSocket.on('message',message => {
+      console.log(message)
+    })
+  },[newSocket])
+  // useEffect(() => {
+  //   if (userToken && !isAuth) {
+  //     getUserByToken(userToken).then(res => {
+  //
+  //       if (res.status === 200) {
+  //         // newSocket.emit("newUser", currentUser?._id)
+  //         dispatch(loginUserAC(...res.data.users));
+  //         dispatch(authAC())
+  //
+  //       }
+  //     })
+  //   }
+  // }, [userToken, isAuth])
+
+  // useEffect(() => {
+  //
+  //   if (newSocket) {
+  //     newSocket.on("onlineUsers", () => {
+  //     })
+  //
+  //     // newSocket.on("connected", (id) => {
+  //     //   console.log(`user was connected by ${id}`)
+  //     // })
+  //
+  //
+  //     // socket.on("userConnected", (user) => {
+  //     //   console.log(user)
+  //     //   if (user) {
+  //     //     dispatch(addOnlineUserAC(user))
+  //     //     console.log('user was connected')
+  //     //   }
+  //     // })
+  //     newSocket.on("userDisconnected", (userId) => {
+  //       dispatch(removeUserAC(userId))
+  //       console.log(`User disconnected ${userId}`)
+  //     })
+  //
+  //   }
+  // }, [newSocket, currentUser])
 
 
-      newSocket.on("userConnected", (user) => {
-        if (user) {
-          dispatch(addOnlineUserAC(user))
-        }
-      })
-      newSocket.on("userDisconnected", (userId) => {
-        dispatch(removeUserAC(userId))
-        console.log(`User disconnected ${userId}`)
-      })
+  // useEffect(() => {
+  //   if (newSocket)
+  //     newSocket.emit("newUser", currentUser?._id)
+  //
+  // }, [currentUser, newSocket])
 
-    }
-  }, [newSocket, currentUser])
-
-
-  useEffect(() => {
-    if (newSocket)
-      newSocket.emit("newUser", currentUser?._id)
-
-  }, [currentUser, newSocket])
+  // useEffect(() => {
+  //   if(newSocket) {
+  //     newSocket.on("connected", (user) => {
+  //       console.log(user)
+  //     })
+  //   }
+  // })
   return (
     <>
       <Routes>
