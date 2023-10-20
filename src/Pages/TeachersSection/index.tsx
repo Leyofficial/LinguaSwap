@@ -9,17 +9,17 @@ import TeacherCard from "./TeacherCard/TeacherCard.js";
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
 import toast, {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
-import {IWholeUser} from "../PersonalProfile/WholeProfile/types.ts";
 import {Select, Space} from "antd";
-import {ILanguages} from "../../Utility/ModalProfile/types.ts";
 import List from "../../Utility/List/List.tsx";
+import {ILanguagesTypes} from "../../Utility/Languages/languages.ts";
+import {IUserInfo} from "../../types/userTypes.ts";
 
 const TeachersSection = () => {
     const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
 
     const [searchValue, setSearchValue] = useState<string>('')
     const [languageFilter, setLanguageFilter] = useState<string>('')
-    const [foundTeacher, setFoundTeacher] = useState<IWholeUser[] | null>()
+    const [foundTeacher, setFoundTeacher] = useState<IUserInfo[] | null>()
     const [loadTeacher, setLoadTeacher] = useState<boolean>(false)
     const dispatch = useDispatch()
     const teachers = useSelector((state: any) => state.teachers);
@@ -44,7 +44,7 @@ const TeachersSection = () => {
     useEffect(() => {
         if (languageFilter && searchValue && languageFilter !== 'All')  {
             const item = searchTeacherItem();
-            const filterInSearch = item.filter((u: IWholeUser) => u.user.data.languagesKnow.filter((lang: ILanguages) => lang.label === languageFilter));
+            const filterInSearch = item.filter((u: IUserInfo) => u.user.data.languagesKnow.filter((lang: ILanguagesTypes) => lang.label === languageFilter));
             if (filterInSearch.length > 0) {
                 setFoundTeacher(filterInSearch);
             } else {
@@ -64,10 +64,10 @@ const TeachersSection = () => {
     }, [languageFilter, searchValue])
 
 
-    const filterLanguageItem = () => teachers.filter((item: IWholeUser) =>
-        item.user.data.languagesKnow.find((item: ILanguages): boolean => item.label === languageFilter)
+    const filterLanguageItem = () => teachers.filter((item: IUserInfo) =>
+        item.user.data.languagesKnow.find((item: ILanguagesTypes): boolean => item.label === languageFilter)
     )
-    const searchTeacherItem = () => teachers.filter((item: IWholeUser) =>
+    const searchTeacherItem = () => teachers.filter((item: IUserInfo) =>
         item.user.data.userTag.toLowerCase().includes(searchValue.toLowerCase())
     )
 
@@ -96,7 +96,7 @@ const TeachersSection = () => {
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        {!foundTeacher? teachers.map((item: IWholeUser) => {
+                        {!foundTeacher? teachers.map((item: IUserInfo) => {
                             if (!loadTeacher) {
                                 return <Stack spacing={4}>
                                     <Skeleton variant="circular" width={75} height={75}/>
@@ -114,7 +114,7 @@ const TeachersSection = () => {
                                 />
                             }
                         }) : ( foundTeacher.length > 0 ?
-                                <List items={foundTeacher} rerender={(item : IWholeUser) => <TeacherCard
+                                <List items={foundTeacher} rerender={(item : IUserInfo) => <TeacherCard
                                     id={item._id}
                                     name={item.user.data.name}
                                     userTag={item.user.data.userTag}

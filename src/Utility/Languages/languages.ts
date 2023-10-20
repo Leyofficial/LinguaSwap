@@ -1,3 +1,8 @@
+export interface ILanguagesTypes {
+    value : string,
+    label : string,
+    color : string
+}
 export const languageOptions =  [
     { value: 'en', label: 'English', color: '#ff0000' },
     { value: 'ua', label: 'Ukrainian', color: '#00a6ff' },
