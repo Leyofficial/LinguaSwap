@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3000',
+      '/api': 'https://linguaswap-9bebd1d452cf.herokuapp.com',
     },
   },
 })
