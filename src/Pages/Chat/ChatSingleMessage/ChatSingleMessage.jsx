@@ -27,11 +27,11 @@ const ChatSingleMessage = (props) => {
    }, [currentUser, dialog])
 
    useEffect(() => {
-      newSocket.on("onlineUsers", () => {
+      newSocket.on("newUser", () => {
          getInterlocutor(currentUser._id, dialog, setInterlocutor)
 
       })
-      newSocket.on("userDisconnected", (userId) => {
+      newSocket.on("leftUser", () => {
          getInterlocutor(currentUser._id, dialog, setInterlocutor)
       })
 

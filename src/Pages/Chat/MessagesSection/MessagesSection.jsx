@@ -41,7 +41,7 @@ const MessagesSection = () => {
 
       const itemData = {
          message: valueTextarea,
-         author: currentUser._id,
+         author: currentUser?._id,
       }
       if (valueTextarea) {
 
@@ -90,11 +90,11 @@ const MessagesSection = () => {
    useEffect(() => {
       if(newSocket){
          newSocket.on("onlineUsers", () => {
-            getInterlocutor(currentUser._id, chat, setInterlocutor)
+            getInterlocutor(currentUser?._id, chat, setInterlocutor)
 
          })
          newSocket.on("userDisconnected", () => {
-            getInterlocutor(currentUser._id, chat, setInterlocutor)
+            getInterlocutor(currentUser?._id, chat, setInterlocutor)
          })
       }
 

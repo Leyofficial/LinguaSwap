@@ -3,13 +3,13 @@ import axios from "axios";
 
 export const mainChatRequests = {
    getChat(firstMember,secondMember) {
-      return axios.get(`http://localhost:3000/mainChat/chat/${firstMember}/${secondMember}`)
+      return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/mainChat/chat/${firstMember}/${secondMember}`)
    },
    getChats(idUser) {
-      return axios.get(`http://localhost:3000/mainChat/chats/dialogs/${idUser}`)
+      return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/mainChat/chats/dialogs/${idUser}`)
    },
    createChat(first, second) {
-      return axios.post(`http://localhost:3000/mainChat/create`, {
+      return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/mainChat/create`, {
          members:{
             first,
             second
@@ -17,10 +17,10 @@ export const mainChatRequests = {
       })
    },
    getChatById(idChat){
-      return axios.get(`http://localhost:3000/mainChat/chatById/${idChat}`)
+      return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/mainChat/chatById/${idChat}`)
    },
    addMessageItem(idChat,item) {
-      return axios.patch(`http://localhost:3000/mainChat/chatById/${idChat}`,{
+      return axios.patch(`https://linguaswap-9bebd1d452cf.herokuapp.com/mainChat/chatById/${idChat}`,{
          ...item
       })
    }

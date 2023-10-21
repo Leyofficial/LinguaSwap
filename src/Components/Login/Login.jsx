@@ -95,10 +95,10 @@ function Login() {
          if (res.status === 200) {
 
             dispatch(loginUserAC(res.data.user));
-            const socket = socketIO.connect('http://localhost:3000')
+            // const socket = socketIO.connect('https://linguaswap-9bebd1d452cf.herokuapp.com')
 
-            dispatch(webSocketAC(socket))
-            socket.emit("newUser", res.data.user._id)
+            // dispatch(webSocketAC(socket))
+            // socket.emit("newUser", res.data.user._id)
             localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
             dispatch(authAC())
             navigate('/');
