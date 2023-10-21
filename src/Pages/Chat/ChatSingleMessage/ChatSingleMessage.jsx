@@ -28,16 +28,17 @@ const ChatSingleMessage = (props) => {
 
    useEffect(() => {
       newSocket.on("newUser", () => {
+
          getInterlocutor(currentUser._id, dialog, setInterlocutor)
 
       })
       newSocket.on("leftUser", () => {
+
          getInterlocutor(currentUser._id, dialog, setInterlocutor)
       })
 
    }, [newSocket])
 
-   console.log(dialog)
 
    return (
       <NavLink to={`chat/${dialog?._id}`}>
