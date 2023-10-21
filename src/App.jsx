@@ -64,7 +64,6 @@ function App() {
     if(currentUser && newSocket){
       newSocket.emit("newUser", currentUser?._id)
     }
-
   },[currentUser,newSocket])
   // useEffect(() => {
   //   if (userToken && !isAuth) {
