@@ -26,6 +26,7 @@ import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
+import {loginUserThunkCreator} from "./Redux/login/loginUserReducer.ts";
 
 function App() {
 
@@ -36,7 +37,6 @@ function App() {
   const userToken = JSON.parse(localStorage.getItem('loginUser'))
   const newSocket = useSelector((state) => state.socket)
 
-
   useEffect(() => {
     if(currentUser){
       const socket = socketIO.connect('https://linguaswap-9bebd1d452cf.herokuapp.com', {
@@ -44,9 +44,14 @@ function App() {
       })
       dispatch(webSocketAC(socket))
     }
-
-
   }, [currentUser])
+
+  useEffect(() => {
+    if (userToken) {
+      loginUserThunkCreator(userToken)(dispatch)
+      dispatch(authAC())
+    }
+  },[])
 
   // useEffect(() => {
   //   if(newSocket)
@@ -60,7 +65,6 @@ function App() {
       newSocket.emit("newUser", currentUser?._id)
 
     }
-
   },[currentUser,newSocket])
   useEffect(() => {
     if (userToken && !isAuth) {
