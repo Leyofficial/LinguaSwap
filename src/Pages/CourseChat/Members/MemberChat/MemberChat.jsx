@@ -9,18 +9,20 @@ const MemberChat = ({member}) => {
 
 
   useEffect(() => {
+    if (member) {
+      getMembersOfChat(member).then(res => {
 
-    getMembersOfChat(member).then(res => {
-
-      if (res.status === "Succeed") {
-        const dataMember = {
-          name: res.user.user.data?.name,
-          photo: res.user.user.data?.photo,
-          status: res.user.user.data?.status
+        if (res.status === "Succeed") {
+          const dataMember = {
+            name: res.user.user.data?.name,
+            photo: res.user.user.data?.photo,
+            status: res.user.user.data?.status
+          }
+          setCurrentMember(dataMember)
         }
-        setCurrentMember(dataMember)
-      }
-    })
+      })
+    }
+
 
   }, [member])
 

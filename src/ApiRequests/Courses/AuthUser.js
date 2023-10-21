@@ -33,9 +33,9 @@ export const getUserByToken = (token) => {
 }
 
 export const getUser = (idUser) => {
-   if (idUser) {
+
       return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/authorization/${idUser}`)
-   }
+
 
 
 }
