@@ -27,7 +27,6 @@ const StepThree = (props : IStepsProps) => {
     const id = useTypedSelector((state : any) => state.loginUser._id)
 
     const [isOpen , setOpen]  = useState<boolean>(false)
-
     function sendDataToServer() {
         const obj : IUserWrapperInfo = {
             _id : id,
@@ -36,7 +35,7 @@ const StepThree = (props : IStepsProps) => {
             userTag : userTag,
             experience: '0',
             bio: bio,
-            photo:"",
+            photo: photo ,
             languagesKnow: languagesKnow,
             languagesLearn: languagesLearn,
         }
