@@ -70,7 +70,6 @@ function App() {
           // newSocket.emit("newUser", currentUser?._id)
           dispatch(loginUserAC(...res.data.users));
           dispatch(authAC())
-
         }
       })
     }
