@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 
 import {Link, useNavigate} from 'react-router-dom'
 
-import './Login.css';
 import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
