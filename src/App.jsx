@@ -38,7 +38,7 @@ function App() {
 
 
   useEffect(() => {
-    const socket = socketIO.connect('http://localhost:3000', {
+    const socket = socketIO.connect('https://linguaswap-9bebd1d452cf.herokuapp.com', {
       "forceNew": true
     })
     dispatch(webSocketAC(socket))
@@ -46,6 +46,7 @@ function App() {
   }, [])
 
   useEffect(() => {
+    if(newSocket)
     newSocket.on('message',message => {
       console.log(message)
     })
