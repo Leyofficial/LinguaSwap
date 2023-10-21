@@ -4,12 +4,18 @@ const coursesRouter = express.Router();
 
 const coursesFunctions = require('../Functions/CoursesFunctions.cjs')
 
-coursesRouter.route('/')
+coursesRouter.route('/:joinedUserId?')
   .get(coursesFunctions.getCourses)
   .post(coursesFunctions.createCourse)
 
-coursesRouter.route('/:courseId')
+coursesRouter.route('/teacher/:idTeacher')
+  .get(coursesFunctions.getCourses)
+coursesRouter.route('/course/:courseId')
   .get(coursesFunctions.getCourse)
+
+coursesRouter.route('/updateMembers/:courseId')
+  .patch(coursesFunctions.updateCourse)
+
 
 coursesRouter.route('/image')
   .post(file.single('image'), (req, res) => {

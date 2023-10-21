@@ -24,7 +24,9 @@ const authSchema = new mongoose.Schema({
     unique: true,
     lowercase: true,
   },
+  token:String,
   date: String,
+  online:Boolean,
   user: {
     name: {
       type: String,

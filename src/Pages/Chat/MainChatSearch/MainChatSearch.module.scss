@@ -1,0 +1,17 @@
+.container{
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.09);
+  border-radius: 25px;
+  input{
+    width: 100%;
+    color: white;
+    outline: none;
+    background: transparent;
+    border: none;
+    &::placeholder{
+      color: white;
+    }
+
+  }
+}

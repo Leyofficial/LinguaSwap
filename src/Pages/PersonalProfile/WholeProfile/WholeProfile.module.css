@@ -1,0 +1,107 @@
+.container {
+  padding-left: 6rem;
+  margin: 0 auto;
+}
+
+.span {
+  color: dodgerblue;
+}
+
+.block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.leftBlock {
+  border: 1px solid dodgerblue;
+  border-radius: 20px;
+  margin-top: 30px;
+  width: 20rem;
+  padding: 40px;
+  height: 90vh;
+}
+
+.rightBlock {
+  border: 1px solid dodgerblue;
+  border-radius: 20px;
+  margin-top: 30px;
+  align-items: center;
+  width: 38.5%;
+  padding: 40px;
+  height: 90vh;
+}
+
+.avatar {
+  margin-bottom: 25px;
+}
+
+.bio {
+  margin: 20px 0;
+}
+
+.blockCenter {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.avatarBlock {
+  margin-top: 15px;
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.messageBtn {
+  margin-top: 25px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px dodgerblue solid;
+  border-radius: 10px;
+}
+
+.titleRight {
+  color: dodgerblue;
+  padding: 10px;
+  border-bottom: 1px solid dodgerblue;
+  margin-bottom: 50px;
+}
+
+.course {
+  display: flex;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+.languages {
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
+.languagesTitle {
+  margin-bottom: 10px;
+}
+
+.languagesBlock {
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.avatarBlock {
+  margin-bottom: 20px;
+}
+
+.blockRightText {
+  gap: 10px;
+  display: flex;
+}
+
+/*# sourceMappingURL=WholeProfile.module.css.map */

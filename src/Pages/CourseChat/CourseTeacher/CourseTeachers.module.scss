@@ -1,0 +1,27 @@
+.blockItems {
+  background-color: #ffffff;
+  //border-radius: 5px;
+  margin-top: 3vh;
+  h3{
+    color: rgba(210, 209, 209, 0.9);
+    background-color: #1f1d2b;
+    padding: 10px;
+    border: 1px solid rgba(152, 150, 150, 0.42);
+
+  }
+}
+.teacherWrapper {
+  padding: 10px;
+  color: rgba(0, 0, 0, 0.84) !important;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  img {
+    margin-right: 1vh;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}

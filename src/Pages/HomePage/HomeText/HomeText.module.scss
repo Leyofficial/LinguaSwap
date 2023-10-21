@@ -3,7 +3,7 @@
 
   h1 {
     max-width: 80%;
-    font-size: 55px;
+    font-size: 45px;
     line-height: 80px;
 
     span {
@@ -15,11 +15,11 @@
   .wrapperType {
 
     padding-left: 40vh;
-    color: #0c3cda;
+    color: rgba(12, 60, 218, 0.61);
 
     span {
-      border-top: 1px solid rgba(19, 64, 238, 0.3);
-      font-size: 60px !important;
+      border-top: 2px solid rgba(19, 64, 238, 0.1);
+      font-size: 45px !important;
       font-style: italic;
       font-weight: bolder;
     }

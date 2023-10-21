@@ -1,7 +1,7 @@
 .container {
   position: relative;
   background-color: rgba(126, 173, 206, 0.06);
-  padding: 50px 5px;
+  padding: 30px 5px;
   transition: 1s ease-in-out;
 }
 .container .textItem {
@@ -17,8 +17,7 @@
   transition: 1s ease-in-out;
 }
 .container .sliderItems {
-  padding: 200px 0 0;
-  margin-bottom: 10vh;
+  margin: 25vh 0 10vh;
   display: flex;
   align-items: center;
   justify-content: center;

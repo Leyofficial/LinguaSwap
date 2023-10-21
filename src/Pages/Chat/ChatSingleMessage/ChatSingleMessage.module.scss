@@ -1,0 +1,38 @@
+.container {
+margin-bottom:  10px;
+  padding: 15px;
+  .wrapperAuthor {
+    display: flex;
+    color: white;
+    align-items: center;
+    .author {
+
+    }
+  }
+
+  .wrapperItem {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .date {
+      font-size: 13px;
+      color: #ada7a7;
+    }
+
+    .interlocutor {
+      padding-bottom: 10px;
+
+    }
+
+    .message {
+      color: #ada7a7;
+      font-size: 13px;
+    }
+  }
+
+  &:hover{
+    background: rgba(255, 255, 255, 0.06);
+    transition: 0.2s ease-in-out;
+  }
+}

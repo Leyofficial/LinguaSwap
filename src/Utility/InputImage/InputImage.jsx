@@ -1,10 +1,10 @@
 import {useDropzone} from 'react-dropzone';
 import style from './InputImage.module.scss'
 import {Avatar} from "@mui/material";
-import {stringAvatar} from "../AvatarColor/Avatar.js";
+import {stringAvatar} from "../AvatarColor/Avatar.ts";
 import {useDispatch} from "react-redux";
 import {ImCross} from "react-icons/im";
-import {setPhotoAC} from "../../Redux/Profile/Photo/deletePhotoAC.js";
+import {setPhotoAC} from "../../Redux/Profile/Photo/setPhotoAC.ts";
 
 
 export const ImageInput = ({avatarText, actionCreater, selector}) => {
@@ -12,9 +12,12 @@ export const ImageInput = ({avatarText, actionCreater, selector}) => {
 
     const {getRootProps, getInputProps, acceptedFiles = selector} = useDropzone({
         onDrop: (acceptedFiles) => {
+
+            console.log(acceptedFiles)
             dispatch(actionCreater(acceptedFiles[0]));
         },
     });
+
 
     function deleteAvatarImg() {
         dispatch(setPhotoAC())
@@ -64,7 +67,7 @@ export const ImageInput = ({avatarText, actionCreater, selector}) => {
             </div>
             <div {...getRootProps()}>
                 <label>JPG or PNG file:</label>
-                <input {...getInputProps()} type="file" multiple={'false'} accept=".jpg, .png"/>
+                <input  {...getInputProps()} type="file" multiple={false} accept=".jpg, .png"/>
                 <p className={style.dragButton}>Drag files here or click to select files.</p>
             </div>
         </div>

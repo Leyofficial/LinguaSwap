@@ -2,8 +2,8 @@ import CustomInput from "../../../../Utility/CustomInput/CustomInput.jsx";
 import style from "./Inputs.module.scss";
 import {FaHashtag} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
-import {nameInputEmptyCreater} from "../../../../Redux/Profile/Inputs/name/nameInputEmptyCreater.js";
-import {hashInputEmptyAC} from "../../../../Redux/Profile/Inputs/hash/hashInputEmptyAC.js";
+import {nameInputEmptyCreater} from "../../../../Redux/Profile/Inputs/name/nameInputEmptyCreater.ts";
+import {hashInputEmptyAC} from "../../../../Redux/Profile/Inputs/hash/hashInputEmptyAC.ts";
 
 export function  Inputs () {
     const dispatch = useDispatch();

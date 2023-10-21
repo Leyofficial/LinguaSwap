@@ -1,0 +1,59 @@
+.wrapper {
+  p {
+    cursor: pointer;
+  }
+
+  span {
+    //transition: 1s ease-in-out;
+    display: block;
+
+    width: 100%;
+    border-bottom: 2px solid rgba(37, 175, 225, 0.19);
+    //padding-bottom: 1vh;
+
+    margin-bottom: 2vh;
+  }
+
+  .show {
+    overflow: visible;
+    width: 100%;
+    opacity: 1;
+    //height: 100%;
+    //transition: 1s ease-in-out;
+  }
+
+  .hidden {
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    display: block;
+    //opacity: 0;
+    //transition: 1s ease-in-out;
+  }
+  .topic{
+    display: flex;
+    justify-content: space-between;
+    svg{
+      transition: 0.3s ease-in-out;
+
+      rotate: 43deg;
+      font-size: 30px;
+      color: rgba(18, 117, 154, 0.59);
+      &:hover{
+        color: rgba(13, 59, 157, 0.56);
+      }
+    }
+    p{
+      font-size: 18px;
+      color: rgba(18, 117, 154, 0.59);
+    }
+  }
+  .open{
+    rotate: 224deg !important;
+    color: rgba(13, 59, 157, 0.56) !important;
+  }
+  span{
+    color: rgba(64, 69, 70, 0.66);
+    padding: 3vh 0 ;
+  }
+}

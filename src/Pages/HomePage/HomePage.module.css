@@ -1,7 +1,7 @@
 .container {
-  padding: 5px;
+  padding: 15px;
   height: 89vh;
-  margin-top: 5vh;
+  margin-top: 10vh;
   position: relative;
 }
 .container .header {
@@ -21,17 +21,41 @@
   cursor: pointer;
   position: fixed;
   bottom: 150px;
-  right: 130px;
+  right: 110px;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+  z-index: 1;
+  display: none;
 }
 .container .scrollUp svg {
   rotate: -137deg;
   font-size: 40px;
   color: rgba(28, 108, 169, 0.33);
-  animation: color-change 3s infinite;
-  transition: 1s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 .container .scrollUp:hover svg {
   color: #054ab2;
+}
+.container .showScroll {
+  opacity: 1;
+  display: block;
+}
+
+.wrapperInfo {
+  margin-top: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wrapperInfo p {
+  letter-spacing: 1px;
+  line-height: 30px;
+  max-width: 600px;
+  text-align: center;
+  color: rgba(73, 70, 70, 0.81);
+}
+.wrapperInfo p span {
+  color: rgba(12, 60, 218, 0.64);
 }
 
 .wrapperQuestion {

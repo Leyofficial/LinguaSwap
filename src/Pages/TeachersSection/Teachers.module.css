@@ -1,0 +1,48 @@
+.container {
+  padding-left: 6rem;
+  margin: 0 auto;
+}
+
+.span {
+  color: dodgerblue;
+}
+
+.notFound {
+  line-height: 40px;
+  position: absolute;
+  font-size: 30px;
+  text-align: center;
+  width: 100%;
+  top: 45%;
+  left: calc(50% + 3rem);
+  transform: translate(-50%, -50%);
+}
+
+.topBlock {
+  padding-left: 2rem;
+}
+
+.titleBlock {
+  padding: 55px 0 30px 0;
+}
+
+.filtersBlock {
+  margin-bottom: 100px;
+}
+
+.inputBlock {
+  margin-bottom: 25px;
+}
+
+.cardsItems {
+  margin: 0 auto 55px;
+  max-width: 55rem;
+  justify-items: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/*# sourceMappingURL=CourseTeacher.module.css.map */

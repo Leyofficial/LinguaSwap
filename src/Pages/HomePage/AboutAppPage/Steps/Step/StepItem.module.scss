@@ -4,7 +4,7 @@
   padding: 20px;
   border-bottom: 1px solid rgba(57, 144, 206, 0.11);
   border-radius: 5px 15px;
-  transition: 1s ease-in-out;
+  //transition: 0.3s ease-in-out;
   &:hover{
     background-color: rgba(83, 170, 201, 0.24);
   }
@@ -31,7 +31,7 @@
 
   .content {
     height: 0;
-    transition: height 1s ease-in-out;
+    transition: height 0.5s ease-in-out;
     overflow: hidden;
 
     .wrapperContent {
@@ -60,12 +60,9 @@
   .showContent {
     height: 400px;
     opacity: 1;
-    transition-delay: 0.5s;
+    //transition-delay: 0.5s;
     overflow: auto;
 
-    //&::-webkit-scrollbar {
-    //  width: 2px;
-    //}
     &::-webkit-scrollbar{
       background-color: rgba(106, 167, 222, 0.31);
       width: 0;

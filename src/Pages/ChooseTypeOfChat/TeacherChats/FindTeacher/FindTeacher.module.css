@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+.container img {
+  width: 60px;
+  height: 60px;
+  margin-right: 1vh;
+}
+.container .author {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.container .author:hover {
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 5px;
+}
+
+/*# sourceMappingURL=FindTeacher.module.css.map */

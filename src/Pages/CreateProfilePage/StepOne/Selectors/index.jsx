@@ -1,6 +1,6 @@
 import style from "./Selectors.module.scss";
 import {useDispatch, useSelector} from "react-redux";
-import {setStatusActionCreate} from "../../../../Redux/Profile/Status/setStatusActionCreate.js";
+import {setStatusActionCreate} from "../../../../Redux/Profile/Status/setStatusActionCreate.ts";
 
 export function  Selectors () {
     const dispatch = useDispatch();

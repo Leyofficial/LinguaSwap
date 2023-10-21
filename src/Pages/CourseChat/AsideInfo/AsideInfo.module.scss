@@ -1,0 +1,27 @@
+.wrapperIconsMember {
+  overflow: hidden;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  width: 100%;
+  padding: 0;
+  margin: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: rgba(239, 239, 239, 0.91);
+  }
+
+  svg {
+    font-size: 40px;
+    color: #0c3cda;
+    padding: 10px;
+  }
+}
+
+.activeItem {
+  background-color: #1f1d2b;
+}

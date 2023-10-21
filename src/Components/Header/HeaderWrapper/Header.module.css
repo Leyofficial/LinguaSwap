@@ -9,6 +9,10 @@
   background: #1f1d2b;
 }
 
+.text {
+  color: white;
+}
+
 .headerInner {
   align-items: center;
   display: flex;
@@ -34,6 +38,10 @@
 .iconBlock a {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.navItem {
   cursor: pointer;
 }
 

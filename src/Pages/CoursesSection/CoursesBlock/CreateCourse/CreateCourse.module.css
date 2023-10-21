@@ -1,3 +1,12 @@
-
+.container {
+  padding: 10px;
+}
+.container .create {
+  color: rgba(0, 0, 0, 0.85);
+  letter-spacing: 1px;
+  border: 1px solid rgba(0, 0, 0, 0.46);
+  border-radius: 5px;
+  padding: 10px;
+}
 
 /*# sourceMappingURL=CreateCourse.module.css.map */

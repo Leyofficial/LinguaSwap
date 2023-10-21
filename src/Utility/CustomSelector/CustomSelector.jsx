@@ -3,7 +3,7 @@ import React from "react";
 import {useDispatch} from "react-redux";
 import makeAnimated from 'react-select/animated';
 // import {languageStyles} from "../Languages/languagesStyle.js";
-import {languageOptions} from "../Languages/languages.js";
+import {languageOptions} from "../Languages/languages.ts";
 import {languageStyles} from "../Languages/languagesStyle.tsx";
 
 function CustomSelector ({actionCreater , selecter}) {

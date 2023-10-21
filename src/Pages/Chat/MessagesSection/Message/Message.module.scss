@@ -1,0 +1,49 @@
+.container {
+  padding: 5px 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+
+  .author {
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+
+  .item {
+    margin-left: 15px;
+    background-color: rgba(56, 58, 66, 0.72);
+    max-width: 400px;
+    padding: 10px 50px 20px 10px;
+    border-radius: 10px;
+    position: relative;
+
+  }
+  .myItem{
+    margin-left: 15px;
+    background-color: rgba(10, 17, 40, 0.6);
+    max-width: 400px;
+    padding: 10px 50px 20px 10px;
+    border-radius: 10px;
+    position: relative;
+  }
+  .time {
+    position: absolute;
+    right: 5px;
+    color: rgba(241, 241, 241, 0.56);
+    font-size: 13px;
+  }
+  .message{
+    color: #f1f1f1;
+  }
+}
+
+
+
+
+
+
+
