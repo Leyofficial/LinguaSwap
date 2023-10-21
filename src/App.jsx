@@ -26,6 +26,7 @@ import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
+import {loginUserThunkCreator} from "./Redux/login/loginUserReducer.ts";
 
 function App() {
 
@@ -35,7 +36,7 @@ function App() {
   const currentUser = useSelector((state) => state.loginUser)
   const userToken = JSON.parse(localStorage.getItem('loginUser'))
   const newSocket = useSelector((state) => state.socket)
-
+  console.log(isAuth , currentUser)
 
   useEffect(() => {
     if(currentUser){
@@ -44,9 +45,14 @@ function App() {
       })
       dispatch(webSocketAC(socket))
     }
-
-
   }, [currentUser])
+
+  useEffect(() => {
+    if (userToken) {
+      loginUserThunkCreator(userToken)
+      authAC()
+    }
+  },[])
 
   // useEffect(() => {
   //   if(newSocket)
