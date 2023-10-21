@@ -38,12 +38,15 @@ function App() {
 
 
   useEffect(() => {
-    const socket = socketIO.connect('https://linguaswap-9bebd1d452cf.herokuapp.com', {
-      "forceNew": true
-    })
-    dispatch(webSocketAC(socket))
+    if(currentUser){
+      const socket = socketIO.connect('https://linguaswap-9bebd1d452cf.herokuapp.com', {
+        "forceNew": true
+      })
+      dispatch(webSocketAC(socket))
+    }
 
-  }, [])
+
+  }, [currentUser])
 
   useEffect(() => {
     if(newSocket)
