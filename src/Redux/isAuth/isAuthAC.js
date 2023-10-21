@@ -1,13 +1,9 @@
 import {AUTH, LOGOUT} from "./isAuthReducer.js";
 
 export const authAC = () => {
-   return{
-      type : AUTH,
-   }
+   return {type : AUTH}
 }
 
 export const logoutAC = () => {
-   return {
-      type: LOGOUT
-   }
+   return {type: LOGOUT}
 }

@@ -36,7 +36,6 @@ function App() {
   const currentUser = useSelector((state) => state.loginUser)
   const userToken = JSON.parse(localStorage.getItem('loginUser'))
   const newSocket = useSelector((state) => state.socket)
-  console.log(isAuth , currentUser)
 
   useEffect(() => {
     if(currentUser){
@@ -49,8 +48,8 @@ function App() {
 
   useEffect(() => {
     if (userToken) {
-      loginUserThunkCreator(userToken)
-      authAC()
+      loginUserThunkCreator(userToken)(dispatch)
+      dispatch(authAC())
     }
   },[])
 
