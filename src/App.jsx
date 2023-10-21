@@ -48,15 +48,15 @@ function App() {
 
   }, [currentUser])
 
-  useEffect(() => {
-    if(newSocket)
-    newSocket.on('message',message => {
-      console.log(message)
-    })
-  },[newSocket])
+  // useEffect(() => {
+  //   if(newSocket)
+  //   newSocket.on('message',message => {
+  //     console.log(message)
+  //   })
+  // },[newSocket])
 
   useEffect(() => {
-    if(currentUser){
+    if(currentUser && newSocket){
       newSocket.emit("newUser", currentUser?._id)
     }
 
