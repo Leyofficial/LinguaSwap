@@ -58,6 +58,7 @@ function App() {
   useEffect(() => {
     if(currentUser && newSocket){
       newSocket.emit("newUser", currentUser?._id)
+
     }
 
   },[currentUser,newSocket])
