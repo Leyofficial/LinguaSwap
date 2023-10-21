@@ -62,19 +62,19 @@ function App() {
     }
 
   },[currentUser,newSocket])
-  // useEffect(() => {
-  //   if (userToken && !isAuth) {
-  //     getUserByToken(userToken).then(res => {
-  //
-  //       if (res.status === 200) {
-  //         // newSocket.emit("newUser", currentUser?._id)
-  //         dispatch(loginUserAC(...res.data.users));
-  //         dispatch(authAC())
-  //
-  //       }
-  //     })
-  //   }
-  // }, [userToken, isAuth])
+  useEffect(() => {
+    if (userToken && !isAuth) {
+      getUserByToken(userToken).then(res => {
+
+        if (res.status === 200) {
+          // newSocket.emit("newUser", currentUser?._id)
+          dispatch(loginUserAC(...res.data.users));
+          dispatch(authAC())
+
+        }
+      })
+    }
+  }, [userToken, isAuth])
 
   // useEffect(() => {
   //

@@ -30,6 +30,7 @@ const TeachersSection = () => {
     }
 
     useEffect(() => {
+
         Teachers.getTeachers().then(res => {
             if (res.status === 200) {
                 setTimeout(() => {
