@@ -1,42 +1,20 @@
 import style from './CoursesBlock.module.scss'
 import {dateOfCourse} from "../../../Utility/CoutryFlag/DateOfCourse/dateOfCourse.js";
-import test from '../../../images/test.png'
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
 import {GiClockwork} from "react-icons/gi";
 import {NavLink} from "react-router-dom";
-import defaultImage from '../../../images/member.png'
-import {useEffect, useState} from "react";
-import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
+import HeaderBlock from "./HeaderBlock/HeaderBlock.jsx";
 
 
 const CoursesBlock = ({course}) => {
-
-  const [courseImage,setCourseImage] = useState(null)
-
-useEffect(() => {
-   getImageFromServer(course.course.image,setCourseImage)
-},[course])
 
   return (
     <article className={style.container}>
       <NavLink to={`/course/${course._id}`}>
 
       <section className={style.containerWrapper}>
-
-        <header className={style.courseHeader}>
-          <img  src={courseImage ? courseImage : defaultImage} alt={'course'}/>
-          <div className={style.language}>
-            <p>{course.course.language}</p>
-          </div>
-        </header>
-
-        <figure className={style.authorWrapper}>
-          <img src={test} alt={'author'}/>
-          <figcaption className={style.nameOfAuthor}>
-            <p>Tamara Petrovna</p>
-          </figcaption>
-        </figure>
+        <HeaderBlock course={course}></HeaderBlock>
 
         <section className={style.wrapper}>
           <div className={style.titleWrapper}>

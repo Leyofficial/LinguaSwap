@@ -26,7 +26,7 @@ const MainChat = () => {
       <article className={style.container}>
         <aside>
           <section className={style.search}>
-            <MainChatSearch setFoundUsers={setFoundUsers} dialogs={mainChats}></MainChatSearch>
+            {/*<MainChatSearch setFoundUsers={setFoundUsers} dialogs={mainChats}></MainChatSearch>*/}
           </section>
 
           <div className={style.containerDialogs}>

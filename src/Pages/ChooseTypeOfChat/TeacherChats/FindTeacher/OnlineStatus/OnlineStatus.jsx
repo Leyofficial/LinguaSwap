@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyledBadge, StyledBadgeOffline} from "../../../../../Utility/StyleForOnlineStatus/styleForOnlineStatus.js";
 import Avatar from "@mui/material/Avatar";
 import defaultAvatar from "../../../../../images/member.png";
 import style from './OnlineStatus.module.scss'
+import {getImageFromServer} from "../../../../../ApiRequests/ServerFiles/getImage.js";
 
 const OnlineStatus = ({isOnline,teacher,noImage}) => {
+
+   const [avatar,setAvatar] = useState('')
+
+   useEffect(() => {
+      if(teacher)
+      getImageFromServer(teacher?.user.data.photo,setAvatar)
+   },[teacher])
+
+
 
    return (
       <div className={style.container}>
@@ -14,14 +24,14 @@ const OnlineStatus = ({isOnline,teacher,noImage}) => {
             variant="dot"
          >
             {!noImage ?  <Avatar alt="Remy Sharp"
-                    src={teacher?.user?.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/> : null}
+                    src={avatar ? avatar : ""}/> : null}
          </StyledBadge> : <StyledBadgeOffline
             overlap="circular"
             anchorOrigin={{vertical: 'bottom', horizontal: 'right'}}
             variant="dot"
          >
             {!noImage ? <Avatar alt="Remy Sharp"
-                    src={teacher?.user?.data.photo ? `../../../../../${teacher?.user.data.photo}` : defaultAvatar}/> : null}
+                    src={avatar ? avatar : ""}/> : null}
          </StyledBadgeOffline>}
       </div>
    );
