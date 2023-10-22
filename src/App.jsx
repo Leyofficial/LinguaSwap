@@ -62,10 +62,8 @@ function App() {
   useEffect(() => {
     if (userToken && !isAuth) {
       getUserByToken(userToken).then(res => {
-
         if (res.status === 200) {
-          console.log(...res.data.users)
-          dispatch(loginUserAC(...res.data.users));
+          dispatch(loginUserAC(...res.data.users)); // (...res.data.users[0]));
           dispatch(authAC())
         }
       })

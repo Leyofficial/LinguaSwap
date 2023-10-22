@@ -1,7 +1,7 @@
 import {IUserInfo} from "../types/userTypes.ts";
 
 export const initialState = {
-  isStart: true ,
+  isStart: false,
   name: '',
   userTag : '',
   bio : '',
