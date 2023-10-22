@@ -1,17 +1,18 @@
 import style from "./Layout.module.scss";
 import {sidebarList} from "./SidebarList.ts";
 import {Outlet} from "react-router-dom";
-import {useSelector} from "react-redux";
-import Header from "../../Components/Header/index.jsx";
+import Header from "../../Components/Header";
 import {useNavigate, useParams} from "react-router";
 import {sidebarCourses} from "./sidebarCourses.ts";
-import {SideBar} from "../../Components/Sidebar/index.tsx";
+import {SideBar} from "../../Components/Sidebar";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {INavWrapper} from "../../types/headerTypes.ts";
 
-const Layout = (props) => {
-   const isStart = useSelector((state) => state.isStart)
+const Layout = () => {
+   const isStart = useTypedSelector((state) => state.isStart)
    const navigate = useNavigate()
    const params = useParams()
-   const navItemsIcons = [
+   const navItemsIcons : INavWrapper[] = [
       {text: "Overview", link: "Overview"},
       {text: "Features", link: "AboutApp"},
       {text: "Get in touch", link: "Join"},

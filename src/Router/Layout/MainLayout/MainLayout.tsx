@@ -1,10 +1,8 @@
 import style from "../Layout.module.scss";
 import {Outlet} from "react-router-dom";
-import SideBar from "../../../Components/Sidebar/index.tsx";
+import {SideBar} from "../../../Components/Sidebar";
 
 const MainLayout = () => {
-
-
   return (
     <div className={style.container}>
        <aside>

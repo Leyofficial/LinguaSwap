@@ -1,5 +1,5 @@
 import {Route} from "react-router-dom";
-import Layout from "./Router/Layout/Layout.jsx";
+import Layout from "./Router/Layout/Layout.tsx";
 import {Routes} from "react-router-dom";
 import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import CreateProfile from "./Pages/CreateProfilePage/index"
 import AboutAppPage from "./Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import CoursesSection from "./Pages/CoursesSection/CoursesSection.jsx";
-import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.jsx";
+import ErrorUrl from "./Router/ErrorUrl/ErrorUrl.tsx";
 import HomePage from "./Pages/HomePage/HomePage.jsx";
 import CourseSection from "./Pages/CourseSection/CourseSection.jsx";
 import {useEffect} from "react";
