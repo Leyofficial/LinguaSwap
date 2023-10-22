@@ -58,7 +58,6 @@ const CoursesSection = () => {
 
   }, [languageFilter, enrolment])
 
-  console.log(currentCourses)
   return (
     <div className={style.container}>
       <div className={style.searchWrapper}>

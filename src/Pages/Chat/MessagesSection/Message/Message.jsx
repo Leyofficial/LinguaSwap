@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react';
 import style from './Message.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 import {useSelector} from "react-redux";
+import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.js";
 
 
 const Message = (props) => {
-   const {messages,scroll} = props
+   const {messages, scroll} = props
+   const [avatar,setAvatar] = useState("")
 
    const [authorMessage, setAuthorMessage] = useState(null)
    const currentUser = useSelector((state) => state.loginUser)
@@ -14,6 +16,7 @@ const Message = (props) => {
       getUser(messages?.author).then(res => {
          if (res.status === 200) {
             setAuthorMessage(res.data.user)
+            getImageFromServer(authorMessage?.user.data.photo,setAvatar)
          }
       })
 
@@ -29,7 +32,7 @@ const Message = (props) => {
       <>
          <article className={style.container} ref={scroll}>
             <section className={style.author}>
-               <img src={authorMessage?.user.data.photo ? `../../../${authorMessage?.user.data.photo}` : null}
+               <img src={avatar ? avatar : ""}
                     alt={'avatar'}/>
             </section>
             <section className={`${currentUser?._id === messages?.author ? style.myItem : style.item}`}>

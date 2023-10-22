@@ -22,12 +22,17 @@ const ChatSingleMessage = (props) => {
    const formattedDate = `${!time >= 10 ? "0" + time : time} : ${minutes < 10 ? "0" + minutes : minutes}`
 
    useEffect(() => {
-      getInterlocutor(currentUser._id, dialog, setInterlocutor)
+      if(currentUser){
+         console.log(`first ${currentUser}`)
+         getInterlocutor(currentUser._id, dialog, setInterlocutor)
+      }
+
 
    }, [currentUser, dialog])
 
    useEffect(() => {
-
+      if (currentUser) {
+         console.log(`new user ${currentUser}`)
          newSocket.on("newUser", () => {
 
             getInterlocutor(currentUser._id, dialog, setInterlocutor)
@@ -35,12 +40,14 @@ const ChatSingleMessage = (props) => {
          })
 
 
-      newSocket.on("leftUser", () => {
+         newSocket.on("leftUser", () => {
 
-         getInterlocutor(currentUser._id, dialog, setInterlocutor)
-      })
+            getInterlocutor(currentUser._id, dialog, setInterlocutor)
+         })
+      }
 
-   }, [newSocket,currentUser])
+
+   }, [newSocket, currentUser])
 
 
    return (
