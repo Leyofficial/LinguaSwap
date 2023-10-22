@@ -53,12 +53,6 @@ function App() {
     }
   },[])
 
-  // useEffect(() => {
-  //   if(newSocket)
-  //   newSocket.on('message',message => {
-  //     console.log(message)
-  //   })
-  // },[newSocket])
   useEffect(() => {
     if(currentUser && newSocket){
       newSocket.emit("newUser", currentUser?._id)
@@ -70,7 +64,6 @@ function App() {
       getUserByToken(userToken).then(res => {
 
         if (res.status === 200) {
-          // newSocket.emit("newUser", currentUser?._id)
           dispatch(loginUserAC(...res.data.users[0]));
           dispatch(authAC())
         }
@@ -78,46 +71,6 @@ function App() {
     }
   }, [userToken, isAuth])
 
-  // useEffect(() => {
-  //
-  //   if (newSocket) {
-  //     newSocket.on("onlineUsers", () => {
-  //     })
-  //
-  //     // newSocket.on("connected", (id) => {
-  //     //   console.log(`user was connected by ${id}`)
-  //     // })
-  //
-  //
-  //     // socket.on("userConnected", (user) => {
-  //     //   console.log(user)
-  //     //   if (user) {
-  //     //     dispatch(addOnlineUserAC(user))
-  //     //     console.log('user was connected')
-  //     //   }
-  //     // })
-  //     newSocket.on("userDisconnected", (userId) => {
-  //       dispatch(removeUserAC(userId))
-  //       console.log(`User disconnected ${userId}`)
-  //     })
-  //
-  //   }
-  // }, [newSocket, currentUser])
-
-
-  // useEffect(() => {
-  //   if (newSocket)
-  //     newSocket.emit("newUser", currentUser?._id)
-  //
-  // }, [currentUser, newSocket])
-
-  // useEffect(() => {
-  //   if(newSocket) {
-  //     newSocket.on("connected", (user) => {
-  //       console.log(user)
-  //     })
-  //   }
-  // })
   return (
     <>
       <Routes>

@@ -17,6 +17,7 @@ function WholeProfile({user , isMine} : IUserOutside) {
     const currentUser = useSelector((state : any) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
     const startConversation = () => {
 
         getChatThunkCreate(currentUser._id, user._id,navigate)(dispatch)
