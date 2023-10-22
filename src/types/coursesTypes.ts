@@ -1,6 +1,5 @@
 import {TEnrolmentType, TLanguagesItems} from "./coursesTypesLanguages.ts";
 
-
 export interface ICourse {
     _id : string,
     course : {
