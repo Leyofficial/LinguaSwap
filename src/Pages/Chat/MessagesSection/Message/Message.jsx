@@ -16,7 +16,7 @@ const Message = (props) => {
       getUser(messages?.author).then(res => {
          if (res.status === 200) {
             setAuthorMessage(res.data.user)
-            getImageFromServer(authorMessage?.user.data.photo,setAvatar)
+            getImageFromServer(res.data.user.user.data.photo,setAvatar)
          }
       })
 

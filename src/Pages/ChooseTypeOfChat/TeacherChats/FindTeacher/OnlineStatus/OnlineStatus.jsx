@@ -10,6 +10,7 @@ const OnlineStatus = ({isOnline,teacher,noImage}) => {
    const [avatar,setAvatar] = useState('')
 
    useEffect(() => {
+      if(teacher)
       getImageFromServer(teacher?.user.data.photo,setAvatar)
    },[teacher])
 
