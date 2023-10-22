@@ -6,7 +6,7 @@ import style from './MemberChat.module.scss'
 const MemberChat = ({member}) => {
 
   const [currentMember, setCurrentMember] = useState(null)
-
+console.log(currentMember)
 
   useEffect(() => {
     if (member) {

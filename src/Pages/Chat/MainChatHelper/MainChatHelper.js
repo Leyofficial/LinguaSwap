@@ -9,7 +9,7 @@ export const getInterlocutor = (currentUserId,dialog,callback) => {
         callback(res.data.user)
       }
     })
-  } else {
+  } else if(currentUserId) {
     getUser(dialog?.members.second).then(res => {
       if (res.status === 200) {
 
