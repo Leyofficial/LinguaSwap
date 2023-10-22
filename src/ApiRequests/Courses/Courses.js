@@ -8,8 +8,12 @@ export const Course = {
     })
   },
   saveImage(image) {
-
-    return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/image`,image)
+    console.log(image)
+    return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/upload`,image,{
+      headers:{
+        'content-type':'multipart/form-data'
+      }
+    })
   },
 
   getCourses() {

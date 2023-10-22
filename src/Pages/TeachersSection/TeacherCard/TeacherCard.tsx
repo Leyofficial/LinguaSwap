@@ -1,12 +1,14 @@
 import style from './TeacherCard.module.scss'
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Avatar} from "@mui/material";
 import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.tsx";
 import {IUserWrapperInfo} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
+import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
 
 
 const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn, _id} : IUserWrapperInfo) => {
+    const [avatar,setAvatar] = useState("")
     const user : IUserWrapperInfo = {
         _id: _id,
         name: name,
@@ -23,6 +25,9 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
         setModalActive(false)
     }
 
+    useEffect(() => {
+        getImageFromServer(photo,setAvatar)
+    },[photo])
     return (
         <>
             <ModalProfile callback={closeModal} modalActive={modalActive} user={modalProfile}></ModalProfile>
@@ -33,7 +38,7 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
             } className={style.card}>
 
                 <div className={style.avatar}>
-                    <Avatar sx={{width: 74, height: 74, textAlign: 'center'}} src={photo}/>
+                    <Avatar sx={{width: 74, height: 74, textAlign: 'center'}} src={avatar}/>
                 </div>
                 <h2 style={{height: '60px', lineHeight: '30px'}}>{name} <br/> <span
                     className={style.span}>@{userTag}</span></h2>

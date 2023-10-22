@@ -3,14 +3,15 @@ import style from './CourseChats.module.scss'
 import {NavLink} from "react-router-dom";
 import {getCoursesForTeacher, getCoursesForUserChat} from "../../../ApiRequests/Chat.jsx";
 import {useSelector} from "react-redux";
+import SingleCourseChat from "./SingleCourseChat/SingleCourseChat.jsx";
 
 const CourseChats = () => {
 
   const [courses, setCourses] = useState(null)
   const currentUser = useSelector((state) => state.loginUser)
-  const currentCourse = useSelector((state) => state.currentCourseChat)
 
   useEffect(() => {
+
     if (currentUser?.user.data.status === "Student") {
       getCoursesForUserChat(currentUser?._id).then(res => {
         if (res.status === 200) {
@@ -32,12 +33,7 @@ const CourseChats = () => {
   return (
     <>
       <div className={style.courseItems}>
-        {courses && courses.map((course) => <NavLink to={`/course/chat/${course._id}`}>
-          <div className={`${style.item} ${currentCourse && currentCourse?._id === course._id ? style.active : null}`}>
-            <img src={`../../../../${course.course.image}`} alt={'course'}/>
-            <p>{course.course.name}</p>
-          </div>
-        </NavLink>)}
+        {courses && courses.map((course) => <SingleCourseChat  course={course}></SingleCourseChat>)}
         <div className={style.pagination}>
         </div>
       </div>
