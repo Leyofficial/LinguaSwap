@@ -5,7 +5,7 @@ interface IUserTag {
   type : UserTagActions.SET_TAG,
   userTag : TUserTag
 }
-interface TUserTag {
+export interface TUserTag {
   user : string
 }
 

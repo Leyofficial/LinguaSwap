@@ -6,7 +6,7 @@ export enum PhotoActions {
 }
 
 export type IPhoto = {
-    photo : string
+    photo : string | null
 }
 interface ISetPhoto {
     type : PhotoActions.SET_PHOTO,

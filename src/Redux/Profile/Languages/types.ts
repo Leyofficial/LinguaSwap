@@ -13,6 +13,6 @@ export interface ISetLanguageLearn {
     languagesLearn :  TLanguage
 }
 export type TLanguage = {
-    languages : ILanguagesTypes[]
+    languages : ILanguagesTypes[] | null
 }
 export type TLanguagesActions =   ISetLanguageLearn | ISetLanguageKnow

@@ -10,7 +10,7 @@ import googleicon from '../../img/images/googleicon.svg';
 import {useDispatch} from 'react-redux';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import {loginUser} from '/src/ApiRequests/Courses/AuthUser.js';
-import {authAC} from "../../Redux/isAuth/isAuthAC.js";
+import {authAC} from "../../Redux/isAuth/isAuthAC.ts";
 import {loginUserAC} from "../../Redux/login/loginUserAC.ts";
 import socketIO from "socket.io-client";
 import {webSocketAC} from "../../Redux/WebSocket/webSocketReducer.js";

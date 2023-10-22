@@ -1,6 +1,6 @@
 import style from "./HomePage.module.scss";
 import {useDispatch} from "react-redux";
-import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
+import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.ts";
 import HomeText from "./HomeText/HomeText.jsx";
 import HomeImages from "./HomeImages/HomeImages.jsx";
 import HomeOverview from "../../Components/Overview/HomeOverview.jsx";

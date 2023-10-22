@@ -10,7 +10,7 @@ import appleicon from '../../img/images/appleicon.svg';
 import facebookicon from '../../img/images/facebookicon.svg';
 import googleicon from '../../img/images/googleicon.svg';
 import {registerNewUser, saveToken} from '../../ApiRequests/Courses/AuthUser';
-import {authAC} from "../../Redux/isAuth/isAuthAC.js";
+import {authAC} from "../../Redux/isAuth/isAuthAC.ts";
 import {loginUserAC} from "../../Redux/login/loginUserAC.ts";
 
 function TeacherRegister() {

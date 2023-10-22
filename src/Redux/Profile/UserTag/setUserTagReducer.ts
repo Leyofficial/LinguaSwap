@@ -1,8 +1,8 @@
 import { initialState } from "../../initialState.ts";
-import {TUserTagActions, UserTagActions} from "./setUserTagAC.ts";
+import {TUserTag, TUserTagActions, UserTagActions} from "./setUserTagAC.ts";
 
 
-export function setUserTagReducer(state = initialState.userTag, action : TUserTagActions) {
+export function setUserTagReducer(state = initialState.userTag, action : TUserTagActions) : TUserTag | string {
     switch (action.type) {
         case UserTagActions.SET_TAG:
             return action.userTag

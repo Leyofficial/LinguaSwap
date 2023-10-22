@@ -5,7 +5,7 @@ interface ISetStatus {
     type : StatusActions.SET_STATUS,
     status : TStatus
 }
-interface TStatus {
+export interface TStatus {
     status : string
 }
 

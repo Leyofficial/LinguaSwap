@@ -10,6 +10,7 @@ export interface setTeachers {
     teachers : object
 }
 
+
 export function teachersActionCreater(teachers : IUserInfo ) : setTeachers{
     return {type : teacherAction.SET_TEACHERS  ,  teachers : teachers}
 }

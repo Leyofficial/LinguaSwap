@@ -10,7 +10,7 @@ export const initialState = {
   nameDirty : true,
   hashDirty : true,
   languagesKnow : [],
-  languagesLearn : [],
+  languagesLearn : null,
   courses:[],
   teachers : [],
   loginUser: null as unknown as IUserInfo[],
