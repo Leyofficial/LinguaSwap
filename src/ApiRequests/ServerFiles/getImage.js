@@ -10,6 +10,8 @@ export const getImageFromServer = (imageName ,callback , isLoad) => {
             ),
          );
          callback("data:;base64," + base64)
-          isLoad(true)
+          if (isLoad) {
+              isLoad(true)
+          }
       }).catch(() => isLoad(true))
 }
