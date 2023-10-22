@@ -4,14 +4,10 @@ export enum HashActions {
 
 export interface ISetHash {
     type : HashActions.SET_EMPTY_HASH ,
-    hashDirty : THash
-}
-
-export type THash = {
     hashDirty : boolean
 }
 export type THashActions = ISetHash
 
-export function hashInputEmptyAC (value : THash) : THashActions  {
+export function hashInputEmptyAC(value: boolean) : THashActions  {
     return {type : HashActions.SET_EMPTY_HASH , hashDirty : value}
 }

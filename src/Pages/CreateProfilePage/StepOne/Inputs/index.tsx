@@ -4,16 +4,17 @@ import {FaHashtag} from "react-icons/fa";
 import {useDispatch, useSelector} from "react-redux";
 import {nameInputEmptyCreater} from "../../../../Redux/Profile/Inputs/name/nameInputEmptyCreater.ts";
 import {hashInputEmptyAC} from "../../../../Redux/Profile/Inputs/hash/hashInputEmptyAC.ts";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
 
 export function  Inputs () {
     const dispatch = useDispatch();
 
-    const dirtyName = useSelector((state) => state.nameDirty);
-    const dirtyHash = useSelector((state) => state.hashDirty);
-    const name = useSelector((state) => state.name);
-    const userTag = useSelector((state) => state.userTag);
+    const dirtyName = useTypedSelector((state) => state.nameDirty);
+    const dirtyHash = useTypedSelector((state) => state.hashDirty);
+    const name = useTypedSelector((state) => state.name);
+    const userTag = useTypedSelector((state) => state.userTag);
 
-    function checkNameDirty(name) {
+    function checkNameDirty(name : string) {
         if (name.trim().length > 1) {
             dispatch(nameInputEmptyCreater(false));
         } else {
@@ -21,7 +22,7 @@ export function  Inputs () {
         }
     }
 
-    function checkHashDirty(hash) {
+    function checkHashDirty(hash : string) {
         if (hash.trim().length > 1) {
             dispatch(hashInputEmptyAC(false));
         } else {
