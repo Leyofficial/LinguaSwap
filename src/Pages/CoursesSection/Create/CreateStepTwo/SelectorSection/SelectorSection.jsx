@@ -6,7 +6,7 @@ import {
    getDurationAC,
    getLanguageAC,
    getLevelAC
-} from "../../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
+} from "../../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
 import {useDispatch, useSelector} from "react-redux";
 import {durationList, languagesList, levelList} from "../../../../../Utility/CreateCourseLists/createCourseLists.js";
 

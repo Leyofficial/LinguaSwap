@@ -5,7 +5,7 @@ import {ImageInput} from "../../../../Utility/InputImage/InputImage.jsx";
 import {setPhotoAC} from "../../../../Redux/Profile/Photo/setPhotoAC.ts";
 import {useDispatch, useSelector} from "react-redux";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
-import {getTitleAC} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
+import {getTitleAC} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
 import toast, {Toaster} from "react-hot-toast";
 import {Course} from "../../../../ApiRequests/Courses/Courses.js";
 

@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import style from './CreateStepThird.module.scss'
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {getTopicAC} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
+import {getTopicAC} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
 import toast, {Toaster} from "react-hot-toast";
 import TopicDescription from "./TopicDescription/TopicDescription.jsx";
 import {IoListCircleSharp} from "react-icons/io5";
 import {useNavigate} from "react-router-dom";
-import {createCourseThunkCreator} from "../../../../Redux/Courses/CreateCourseData/createCourseReducer.js";
+import {createCourseThunkCreator} from "../../../../Redux/Courses/CreateCourseData/createCourseReducer.ts";
 import CreateTopic from "./CreateTopic/CreateTopic.jsx";
 
 const CreateStepThird = ({moveStepBackCallback, currentStep, photoCourse}) => {

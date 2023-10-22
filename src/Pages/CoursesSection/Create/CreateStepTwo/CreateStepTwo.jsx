@@ -5,7 +5,7 @@ import {
    getDescriptionAC,
    getFinishDateAC,
    getStartDateAC
-} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.js";
+} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
 import CreateTooltip from "../CreateTooltip/CreateTooltip.jsx";
 import CourseInput from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseInput/CourseInput.jsx";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
