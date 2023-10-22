@@ -6,12 +6,17 @@ import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
 import {GiClockwork} from "react-icons/gi";
 import {NavLink} from "react-router-dom";
 import defaultImage from '../../../images/member.png'
+import {useEffect, useState} from "react";
+import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
 
 
 const CoursesBlock = ({course}) => {
 
+  const [courseImage,setCourseImage] = useState(null)
 
-  const membersDefault = [1, 2, 3,4]
+useEffect(() => {
+   getImageFromServer(course.course.image,setCourseImage)
+},[course])
 
   return (
     <article className={style.container}>
@@ -20,7 +25,7 @@ const CoursesBlock = ({course}) => {
       <section className={style.containerWrapper}>
 
         <header className={style.courseHeader}>
-          <img  src={course.course.image ? course.course.image : defaultImage} alt={'course'}/>
+          <img  src={courseImage ? courseImage : defaultImage} alt={'course'}/>
           <div className={style.language}>
             <p>{course.course.language}</p>
           </div>

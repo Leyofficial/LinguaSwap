@@ -28,10 +28,11 @@ const CreateStepOne = ({moveStepCallback, currentStep, setPhoto}) => {
       } else {
 
          const data = new FormData()
-         data.append('image', photo)
+         data.append('file', photo)
 
          Course.saveImage(data).then(res => {
-            setPhoto(res.data.image.path)
+            console.log(res)
+            setPhoto(res.data.file.filename)
 
          }).catch(error => {
             setError(true)

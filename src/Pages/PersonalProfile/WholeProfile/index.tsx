@@ -3,13 +3,14 @@ import {Avatar} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link, useNavigate} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import List from "../../../Utility/List/List.tsx";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch, useSelector} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
 import {IUserOutside} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
+import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
 
 
 function WholeProfile({user , isMine} : IUserOutside) {
@@ -17,11 +18,15 @@ function WholeProfile({user , isMine} : IUserOutside) {
     const currentUser = useSelector((state : any) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [userAvatar,setUserAvatar] = useState("")
     const startConversation = () => {
 
         getChatThunkCreate(currentUser._id, user._id,navigate)(dispatch)
     }
 
+    useEffect(() => {
+        getImageFromServer(user?.user.data.photo,setUserAvatar)
+    },[user])
     return (
         <>
             {isMine ? <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2> : null}
@@ -30,7 +35,7 @@ function WholeProfile({user , isMine} : IUserOutside) {
                     <div className={style.leftBlock}>
                         <div className={style.blockCenter}>
                             <div className={style.avatar}>
-                                <Avatar src={'/' + user?.user.data?.photo}
+                                <Avatar src={userAvatar ? userAvatar : ""}
                                         sx={{width: 104, height: 104, textAlign: 'center'}}/>
 
                             </div>

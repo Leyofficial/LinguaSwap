@@ -15,6 +15,7 @@ import {savePhoto} from "../../../ApiRequests/Courses/AuthUser.js";
 import {IStepsProps} from "../../../types/stepsTypes.ts";
 import {IUserWrapperInfo} from "../../../types/userTypes.ts";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
+import {Course} from "../../../ApiRequests/Courses/Courses.js";
 
 const StepThree = (props : IStepsProps) => {
     const languagesKnow = useTypedSelector((state : any) => state.languagesKnow);
@@ -42,10 +43,11 @@ const StepThree = (props : IStepsProps) => {
         ProfileUser.createProfile(id ,  obj).then(res => {
             if (res.status === 200) {
                 const data : FormData = new FormData()
-                data.append('image', photo)
-                saveProfileImage(data).then(res => {
+                data.append('file', photo)
+                Course.saveImage(data).then(res => {
+                    console.log(res)
                     if(res.status === 200) {
-                        savePhoto(res.data.image.path , id)
+                        savePhoto(res.data.file.filename , id)
                     }
                 })
 

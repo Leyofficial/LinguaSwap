@@ -16,7 +16,8 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
 
     const dispatch = useDispatch()
     const startConversation = () => {
-        getChatThunkCreate(currentUser.id, user._id, navigate)(dispatch)
+        console.log(currentUser)
+        getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
 
     }
     return (
