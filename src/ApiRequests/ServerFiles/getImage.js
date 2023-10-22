@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getImageFromServer = (imageName,callback) => {
+export const getImageFromServer = (imageName ,callback , isLoad) => {
    return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/upload/${imageName}`, { responseType: 'arraybuffer' })
       .then(res => {
          const base64 = btoa(
@@ -10,5 +10,6 @@ export const getImageFromServer = (imageName,callback) => {
             ),
          );
          callback("data:;base64," + base64)
-      });
+          isLoad(true)
+      }).catch(() => isLoad(true))
 }

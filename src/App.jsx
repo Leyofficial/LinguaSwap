@@ -64,7 +64,8 @@ function App() {
       getUserByToken(userToken).then(res => {
 
         if (res.status === 200) {
-          dispatch(loginUserAC(...res.data.users[0]));
+          console.log(...res.data.users)
+          dispatch(loginUserAC(...res.data.users));
           dispatch(authAC())
         }
       })
