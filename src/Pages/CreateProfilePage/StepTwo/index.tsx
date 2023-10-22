@@ -3,7 +3,7 @@ import style from "./StepTwo.module.scss";
 import {ImageInput} from "../../../Utility/InputImage/InputImage.jsx";
 import {useSelector} from "react-redux";
 import {setPhotoAC} from "../../../Redux/Profile/Photo/setPhotoAC.js";
-import {IStepsProps} from "../types.ts";
+import {IStepsProps} from "../../../types/stepsTypes.ts";
 
 const StepTwo = (props : IStepsProps) => {
 

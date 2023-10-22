@@ -5,7 +5,7 @@ import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
 import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
 import {useDispatch, useSelector} from "react-redux";
-import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.js";
+import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.ts";
 import CourseFilters from "./CourseFilters/CourseFilters.jsx";
 import NotFoundItems from "../../Utility/NotFound/NotFoundItems.tsx";
 
@@ -58,7 +58,6 @@ const CoursesSection = () => {
 
   }, [languageFilter, enrolment])
 
-  console.log(currentCourses)
   return (
     <div className={style.container}>
       <div className={style.searchWrapper}>

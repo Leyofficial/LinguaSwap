@@ -1,13 +1,14 @@
 import {useLocation} from "react-router";
-import {useSelector} from "react-redux";
 import {Route} from 'react-router-dom'
 import {Routes} from "react-router-dom";
-import Layout from "./Layout.jsx";
+import Layout from "./Layout.tsx";
+import React from "react";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 
-function RequireAuth({children}) {
+function RequireAuth({children} : any) {
 
     const location = useLocation();
-    const isStart = useSelector((state) => state.isStart);
+    const isStart = useTypedSelector((state) => state.isStart);
 
 
 

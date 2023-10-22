@@ -1,27 +1,34 @@
 import style from './WholeProfile.module.scss'
-import {Avatar} from "@mui/material";
+import {Avatar, Skeleton} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
 import {Link, useNavigate} from "react-router-dom";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import List from "../../../Utility/List/List.tsx";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
 import {IUserOutside} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
+import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
+import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 
 
-function WholeProfile({user , isMine} : IUserOutside) {
-
-    const currentUser = useSelector((state : any) => state.loginUser)
+function WholeProfile({user, isMine}: IUserOutside) {
+    const currentUser = useTypedSelector((state) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [avatar, setUserAvatar] = useState("")
+    const [avatarIsLoad, setLoadAvatar] = useState<boolean>(false)
     const startConversation = () => {
 
-        getChatThunkCreate(currentUser._id, user._id,navigate)(dispatch)
+        getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
     }
 
+    useEffect(() => {
+        getImageFromServer(user?.user.data.photo, setUserAvatar ,setLoadAvatar ).catch((err) => console.log(err));
+
+    }, [user])
     return (
         <>
             {isMine ? <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2> : null}
@@ -30,9 +37,8 @@ function WholeProfile({user , isMine} : IUserOutside) {
                     <div className={style.leftBlock}>
                         <div className={style.blockCenter}>
                             <div className={style.avatar}>
-                                <Avatar src={'/' + user?.user.data?.photo}
-                                        sx={{width: 104, height: 104, textAlign: 'center'}}/>
-
+                                {avatarIsLoad ? <Avatar sx={{width: 105, height: 105, textAlign: 'center'}} src={avatar} /> :
+                                    <Skeleton variant="circular" width={105} height={105}/>}
                             </div>
                             <h2 style={{marginBottom: '10px'}}><b>{user?.user.data?.name}</b></h2>
                             <h3 className={style.span}>@{user?.user.data?.userTag}</h3>
@@ -50,9 +56,9 @@ function WholeProfile({user , isMine} : IUserOutside) {
                             <AiOutlineStar className={style.profile} size={30}/>
                             <p>{user?.user.data?.experience + ' '} experience/s</p>
                         </div>
-                        {isMine ?  null : <Link to={''}>
+                        {isMine ? null : <Link to={''}>
                             <button onClick={startConversation} className={style.messageBtn}>Message</button>
-                        </Link> }
+                        </Link>}
                     </div>
                     <div className={style.rightBlock}>
                         <h2 className={style.titleRight}>Projects & Skills</h2>
@@ -64,7 +70,7 @@ function WholeProfile({user , isMine} : IUserOutside) {
                         <div className={style.languagesBlock}>
                             <List items={user?.user.data?.languagesKnow}
                                   rerender={(item: ILanguagesTypes) => <div key={item.label} className={style.languages}
-                                                                       style={{background: item.color}}>
+                                                                            style={{background: item.color}}>
                                       {item.label}
                                   </div>}></List>
                         </div>
@@ -72,7 +78,7 @@ function WholeProfile({user , isMine} : IUserOutside) {
                         <div className={style.languagesBlock}>
                             <List items={user?.user.data?.languagesLearn}
                                   rerender={(item: ILanguagesTypes) => <div key={item.label} className={style.languages}
-                                                                       style={{background: item.color}}>
+                                                                            style={{background: item.color}}>
                                       {item.label}
                                   </div>}></List>
                         </div>

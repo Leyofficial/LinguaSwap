@@ -7,13 +7,14 @@ import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
 import TeacherCard from "./TeacherCard/TeacherCard.js";
 
 import {teachersActionCreater} from "../../Redux/Teachers/teachersActionCreater.js";
-import toast, {Toaster} from "react-hot-toast";
+import {Toaster} from "react-hot-toast";
 import {Skeleton, Stack} from "@mui/material";
 import {Select, Space} from "antd";
 import List from "../../Utility/List/List.tsx";
 import {ILanguagesTypes} from "../../Utility/Languages/languages.ts";
 import {IUserInfo} from "../../types/userTypes.ts";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {errorToaster} from "../../Utility/Toaster/Toaster.ts";
 
 const TeachersSection = () => {
     const languages: string[] = ['All', 'English', 'Russian', 'Poland', 'Germany', 'Spanish', 'Italy', 'Japan', 'Turkish']
@@ -25,9 +26,6 @@ const TeachersSection = () => {
     const dispatch = useDispatch()
     const teachers = useTypedSelector((state) => state.teachers);
 
-    function errorToaster(text: string) {
-        toast.error(text);
-    }
 
     useEffect(() => {
 

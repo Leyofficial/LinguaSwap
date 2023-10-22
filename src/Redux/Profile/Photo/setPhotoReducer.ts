@@ -1,7 +1,7 @@
 import {initialState} from "../../initialState.ts";
 import {PhotoActions, TPhotoActions} from "./setPhotoAC.ts";
 
-export function setPhotoReducer(state = initialState.photo , action : TPhotoActions){
+export function setPhotoReducer(state = initialState.photo , action : TPhotoActions) {
 switch (action.type) {
     case PhotoActions.SET_PHOTO :
         return   action.photo ;

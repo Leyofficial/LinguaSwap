@@ -1,6 +1,9 @@
 .span {
   color: dodgerblue;
 }
+h3 {
+  margin-bottom: 10px;
+}
 .modal {
   position:fixed;
   transition: .4s ease;
@@ -61,16 +64,18 @@
   gap: 5px;
   flex-wrap: wrap;
   display: flex;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 .languagesLearn {
   margin-top: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   gap: 5px;
   flex-wrap: wrap;
   display: flex;
 }
 .buttons {
+  gap: 10px;
+  float: right;
   align-items: center;
   display: flex;
   justify-content: space-between;

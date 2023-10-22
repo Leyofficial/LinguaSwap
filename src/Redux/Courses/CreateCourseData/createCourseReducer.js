@@ -91,7 +91,7 @@ export const createCourseThunkCreator = (data,setSucceed,navigate,setError) => {
          const response = await Course.create(data)
          if(response.status === 200) {
 
-             await createChatRoomCourse(response.data.createCourse._id)
+             await createChatRoomCourse(response.data.createCourse._id).then(res => console.log(res))
             dispatch(resetCourseAC())
             dispatch(deletePhotoAC())
             setSucceed(true)

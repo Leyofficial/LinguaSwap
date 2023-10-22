@@ -31,9 +31,7 @@
   max-width: 100px;
 }
 .container .wrapperButton {
-  position: absolute;
-  top: -30px;
-  left: 40%;
+ text-align: center;
 }
 .container .wrapperButton div a {
   background: white;

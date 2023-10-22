@@ -3,13 +3,13 @@ import axios from "axios";
 export const Course = {
 
   create(data) {
-    return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses`, {
+    return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/singleCourse`, {
       data
     })
   },
   saveImage(image) {
     console.log(image)
-    return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/image`,image,{
+    return axios.post(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/upload`,image,{
       headers:{
         'content-type':'multipart/form-data'
       }
@@ -17,7 +17,7 @@ export const Course = {
   },
 
   getCourses() {
-    return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses`)
+    return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/singleCourse`)
   },
   getCourse(courseId) {
     console.log(courseId)

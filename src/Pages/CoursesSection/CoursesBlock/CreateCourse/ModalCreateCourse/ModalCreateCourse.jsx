@@ -124,6 +124,7 @@ const ModalCreateCourse = () => {
 
       Course.saveImage(data).then(res => {
          setCourseImage(res.data.image.path)
+        console.log(res)
       }).catch(error => {
          toast.error("Image has different type from PNG, JPEG,JPG or size of image too big");
          setSaveErrorImage(true)

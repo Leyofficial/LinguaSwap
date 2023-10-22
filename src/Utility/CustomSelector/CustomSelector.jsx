@@ -15,7 +15,7 @@ function CustomSelector ({actionCreater , selecter}) {
                     dispatch(actionCreater(choice))
                 }
                 closeMenuOnSelect={true}
-                defaultValue={[...selecter]}
+                defaultValue={selecter}
                 components={animatedComponents}
                 isMulti
                 name="languages"

@@ -22,6 +22,7 @@ export const getCoursesForUserChat =  async (idUser) => {
 }
 
 export const createChatRoomCourse = async (idCourse) => {
+
   return axios.post('https://linguaswap-9bebd1d452cf.herokuapp.com/chat/chatroom', {
     idCourse
   })

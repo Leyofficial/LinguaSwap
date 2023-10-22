@@ -10,13 +10,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../Redux/MainChat/mainChatReducer.js";
 import {ILanguagesTypes} from "../Languages/languages.ts";
 
-function ModalProfile({modalActive, user, callback}: IModalProfile) {
+function ModalProfile({modalActive, user, callback , isMine }: IModalProfile) {
     const currentUser = useSelector((state: any) => state.loginUser)
     const navigate = useNavigate()
 
     const dispatch = useDispatch()
     const startConversation = () => {
-        getChatThunkCreate(currentUser.id, user._id, navigate)(dispatch)
+        console.log(currentUser)
+        getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
 
     }
     return (
@@ -59,9 +60,9 @@ function ModalProfile({modalActive, user, callback}: IModalProfile) {
                             </div>
                         </div>
                         <div className={style.buttons}>
-                            <Link to={''}>
+                            {isMine ? null :  <Link to={''}>
                                 <button onClick={startConversation} className={style.messageBtn}>Message</button>
-                            </Link>
+                            </Link>}
                             <Link to={'find/' + user?._id}>
                                 <button className={style.button}>Profile</button>
                             </Link>

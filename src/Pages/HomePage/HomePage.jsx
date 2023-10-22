@@ -1,8 +1,7 @@
 import style from "./HomePage.module.scss";
 import {useDispatch} from "react-redux";
-import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
+import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.ts";
 import HomeText from "./HomeText/HomeText.jsx";
-import HomeImages from "./HomeImages/HomeImages.jsx";
 import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
 import AboutApp from "../../Components/Overview/AboutApp/AboutApp.jsx";
 import QuestionsSection from "../../Components/FAQ/QuestionsSction.jsx";
@@ -38,7 +37,6 @@ const HomePage = () => {
       <div className={style.container}>
         <div className={style.wrapperHome}>
           <HomeText toLogin={toLogin}></HomeText>
-          <HomeImages></HomeImages>
         </div>
 
           <div className={style.wrapperInfo}>

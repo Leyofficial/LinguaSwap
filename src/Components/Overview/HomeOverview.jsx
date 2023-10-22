@@ -4,7 +4,7 @@ import HowWork from "./HowWorkSection/HowWork.jsx";
 import Skills from "./SkillsSection/Skills.jsx";
 import AdvantageSection from "./AdvantageSection/AdvantageSection.jsx";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
-import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.js";
+import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.ts";
 import {useDispatch} from "react-redux";
 
 

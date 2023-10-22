@@ -10,7 +10,7 @@ import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import Login from "../../Components/Login/Login.jsx";
 
 const CreateProfile: FC = () => {
-    const isAuth = useTypedSelector((state: any) => state.isAuth);
+    const isAuth = useTypedSelector((state) => state.isAuth);
     const [currentStep, setCurrentStep] = useState<number>(1);
 
     const nextStep = (): void => {
