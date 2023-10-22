@@ -1,15 +1,16 @@
 import style from './TeacherCard.module.scss'
 import React, {useEffect, useState} from 'react';
-import {Avatar} from "@mui/material";
+import {Avatar, Skeleton} from "@mui/material";
 import ModalProfile from "../../../Utility/ModalProfile/ModalProfile.tsx";
 import {IUserWrapperInfo} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
 
 
-const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn, _id} : IUserWrapperInfo) => {
-    const [avatar,setAvatar] = useState("")
-    const user : IUserWrapperInfo = {
+const TeacherCard = ({name, photo, userTag, languagesKnow, bio, languagesLearn, _id}: IUserWrapperInfo) => {
+    const [avatar, setAvatar] = useState("")
+    const [avatarIsLoad, setIsLoad] = useState<boolean>(false)
+    const user: IUserWrapperInfo = {
         _id: _id,
         name: name,
         photo: photo,
@@ -21,12 +22,16 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
     const [modalProfile, setModalProfile] = useState<IUserWrapperInfo>(user);
     const [modalActive, setModalActive] = useState<boolean>(false)
 
-    function closeModal () {
+    function closeModal() {
         setModalActive(false)
     }
 
     useEffect(() => {
-        getImageFromServer(photo,setAvatar)
+        getImageFromServer(photo,setAvatar).catch((error) => console.log(error))
+        setTimeout(() => {
+            setIsLoad(true)
+        }, 600)
+
     },[photo])
     return (
         <>
@@ -38,12 +43,13 @@ const TeacherCard = ({name, photo, userTag , languagesKnow, bio, languagesLearn,
             } className={style.card}>
 
                 <div className={style.avatar}>
-                    <Avatar sx={{width: 74, height: 74, textAlign: 'center'}} src={avatar}/>
+                    {avatarIsLoad ? <Avatar sx={{width: 74, height: 74, textAlign: 'center'}} src={avatar}/> :
+                        <Skeleton variant="circular" width={70} height={70}/>}
                 </div>
                 <h2 style={{height: '60px', lineHeight: '30px'}}>{name} <br/> <span
                     className={style.span}>@{userTag}</span></h2>
                 <div className={style.languagesBlock}>
-                    {languagesKnow.map((item : ILanguagesTypes) => {
+                    {languagesKnow.map((item: ILanguagesTypes) => {
                         return <div key={item.label} className={style.languages} style={{background: item.color}}>
                             {item.label}
                         </div>

@@ -19,7 +19,7 @@ export function  Selectors () {
             <form className={style["radio-form"]}>
                 <input onChange={selectStatus} checked={status === 'Student'} value="Student" name="hopping" type="radio" id="a"/>
                 <label htmlFor="a"><span className={style.span}></span>Student</label>
-                <input onChange={() => selectStatus} checked={status === 'Teacher'}  value="Teacher" name="hopping" type="radio" id="b"/>
+                <input onChange={selectStatus} checked={status === 'Teacher'}  value="Teacher" name="hopping" type="radio" id="b"/>
                 <label htmlFor="b"><span className={style.span}></span>Teacher</label>
                 <div className={style.worm}>
                     <div className={style.worm__segment}></div>
