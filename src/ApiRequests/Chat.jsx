@@ -18,7 +18,7 @@ export const sendMessage =  async (data,idChat) => {
   return axios.patch(`https://linguaswap-9bebd1d452cf.herokuapp.com/chat/chatroom/${idChat}`,data)
 }
 export const getCoursesForUserChat =  async (idUser) => {
-  return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/${idUser}`)
+  return axios.get(`https://linguaswap-9bebd1d452cf.herokuapp.com/courses/user/${idUser}`)
 }
 
 export const createChatRoomCourse = async (idCourse) => {

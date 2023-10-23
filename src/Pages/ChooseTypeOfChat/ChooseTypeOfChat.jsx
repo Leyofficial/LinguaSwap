@@ -19,6 +19,7 @@ const ChooseTypeOfChat = () => {
          </nav>
          <section>
            <CourseChats />
+           <footer></footer>
          </section>
         </aside>
          <main>

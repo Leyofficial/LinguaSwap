@@ -13,9 +13,11 @@ const CourseChats = () => {
   useEffect(() => {
 
     if (currentUser?.user.data.status === "Student") {
+      console.log(currentUser)
       getCoursesForUserChat(currentUser?._id).then(res => {
         if (res.status === 200) {
-          setCourses(res.data.courses)
+          console.log(res)
+          setCourses(res.data.foundCourses)
         }
       })
     } else if (currentUser?.user.data.status === 'Teacher') {
@@ -34,8 +36,6 @@ const CourseChats = () => {
     <>
       <div className={style.courseItems}>
         {courses && courses.map((course) => <SingleCourseChat setCourses={setCourses}  course={course}></SingleCourseChat>)}
-        <div className={style.pagination}>
-        </div>
       </div>
     </>
   );

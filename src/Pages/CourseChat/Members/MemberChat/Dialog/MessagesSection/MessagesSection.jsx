@@ -12,10 +12,13 @@ const MessagesSection = (props) => {
    const newSocket = useSelector((state) => state.socket)
    const currentUser = useSelector((state) => state.loginUser)
    // const [typingUserName, setTypingUserName] = useState(null)
+   const [waitResponse,setWaitResponse] = useState(false)
    const submitHandler = () => {
-      if(messages){
-         sendMessageHandler(message)
+      if(messages && !waitResponse){
+         sendMessageHandler(message,setWaitResponse)
          setMessage("")
+      }else{
+         console.log('wait for response')
       }
 
       // setTypingUserName(null)
@@ -60,7 +63,7 @@ const MessagesSection = (props) => {
             </div>
 
             <div className={style.icons}>
-               <LuSend className={!message ? style.disableSubmit : null} onClick={submitHandler} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend>
+               <LuSend  className={!message ? style.disableSubmit : null} onClick={submitHandler} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend>
             </div>
 
          </div>

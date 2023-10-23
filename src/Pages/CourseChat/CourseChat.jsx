@@ -22,7 +22,7 @@ const CourseChat = () => {
   const chat = useSelector((state) => state.currentChat)
   const [asideItem, setAsideItem] = useState("teachers")
   const {idCourse} = useParams()
-  const [hideInfoBlock, setHideInfoBlock] = useState(false)
+  const [hideInfoBlock, setHideInfoBlock] = useState(true)
   const scroll = useRef()
   const socket = useSelector((state) => state.socket)
   const course = useSelector((state) => state.currentCourseChat)
@@ -40,8 +40,8 @@ const CourseChat = () => {
   }, [idCourse])
 
 
-  const sendMessageHandler = (message) => {
-
+  const sendMessageHandler = (message,waitResponseCallback) => {
+    waitResponseCallback(true)
     const messageData = {
       message: message,
       author: currentUser._id,
@@ -50,7 +50,7 @@ const CourseChat = () => {
     if (message && socket) {
 
 
-      dispatch(sendMessageThunkCreator(messageData, chat._id, idCourse))
+      dispatch(sendMessageThunkCreator(messageData, chat._id, idCourse,waitResponseCallback))
       socket.emit("courseMsg",idCourse)
 
     } else {
