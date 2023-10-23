@@ -36,7 +36,6 @@ function PersonalProfile() {
                 }
             })
         } else {
-
                 getUserByToken(userToken).then(res => {
                     if (res.status === 200) {
                         dispatch(loginUserAC({...res.data.users[0]}));

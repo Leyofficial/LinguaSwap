@@ -6,8 +6,7 @@ import React from "react";
 export function SideBarItem ({ name , index , sidebarOpen , path , callback , icon } : ISidebarItem) {
     return (
         <div className={style.sidebarItemBlock}>
-            <NavLink className={ path === '/login' ? '' : style.link} key={index}
-                     // className={({isActive}) => isActive ? style.activeSideBarLink : '' }
+            <NavLink className={ path === '/login' ? '' : ({isActive}) => isActive ? style.activeSideBarLink : '' } key={index}
                      style={sidebarOpen ? { width: "100%" } : { width: "3rem" }}
                      to={path}
                      onClick={() => callback }>

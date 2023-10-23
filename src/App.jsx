@@ -1,7 +1,6 @@
 import {Route} from "react-router-dom";
 import Layout from "./Router/Layout/Layout.tsx";
 import {Routes} from "react-router-dom";
-import Login from "./Components/Login/Login";
 import TeacherRegister from "./Components/TeacherRegister/TeacherRegister";
 import './App.css'
 import {useDispatch, useSelector} from "react-redux";
@@ -27,6 +26,8 @@ import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";
 import {loginUserThunkCreator} from "./Redux/login/loginUserReducer.ts";
+import {backFromLogin, moveToLogin} from "./Redux/isStartToLogin/isStartToLoginAC.ts";
+import Login from "./Components/Login/Login.tsx";
 
 function App() {
 
@@ -34,8 +35,17 @@ function App() {
    const isAuth = useSelector((state) => state.isAuth)
    const dispatch = useDispatch()
    const currentUser = useSelector((state) => state.loginUser)
-   const userToken = JSON.parse(localStorage.getItem('loginUser'))
    const newSocket = useSelector((state) => state.socket)
+   const userToken = JSON.parse(localStorage.getItem('loginUser'));
+    const alreadyStart = JSON.parse(localStorage.getItem('alreadyStart'));
+
+    useEffect(() => {
+        if (alreadyStart) {
+            dispatch(moveToLogin());
+        } else {
+            dispatch(backFromLogin());
+        }
+    }, []);
 
    useEffect(() => {
       if (currentUser) {

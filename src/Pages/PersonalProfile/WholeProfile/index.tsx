@@ -34,6 +34,7 @@ function WholeProfile({user, isMine}: IUserOutside) {
     const logout = () => {
          dispatch(logoutAC());
          dispatch(backFromLogin())
+        localStorage.setItem('alreadyStart' , String(false));
         navigate('/')
         localStorage.setItem("loginUser", String(false));
     }
