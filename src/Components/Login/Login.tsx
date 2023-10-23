@@ -1,16 +1,18 @@
-// import {loginUserAC} from "../../Redux/login/loginUserAC.ts";
-// import {authAC} from "../../Redux/isAuth/isAuthAC.ts";
-//
-// dispatch(loginUserAC(res.data.user));
-// localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
-// dispatch(authAC())
-// navigate('/');
 import {Link, NavLink} from 'react-router-dom';
 import style from './Login.module.scss'
 import {useNavigate} from "react-router";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
-import {useState} from "react";
+import React, {useState} from "react";
 import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
+import {loginUser} from "../../ApiRequests/Courses/AuthUser.js";
+import {loginUserAC} from "../../Redux/login/loginUserAC.ts";
+import socketIO, {io} from "socket.io-client";
+import {webSocketAC} from "../../Redux/WebSocket/webSocketReducer.js";
+import {authAC} from "../../Redux/isAuth/isAuthAC.ts";
+import {useDispatch} from "react-redux";
+import {errorToaster} from "../../Utility/Toaster/Toaster.ts";
+import {Toaster} from "react-hot-toast";
+
 
 interface IInfo {
     email : string,
@@ -22,6 +24,7 @@ function Login () {
         email : '',
         password : '',
     })
+    const dispatch = useDispatch();
     const [email , setEmail] = useState<string>('');
     const [password  , setPassword ] = useState<string>('')
     // title, callback, rotateIcon, path = "#"
@@ -35,11 +38,25 @@ function Login () {
             email : email,
             password : password,
         }
-        UserProfile.getProfile(obj)
+        loginUser(obj).then(res => {
+            if (res.status === 200) {
+                dispatch(loginUserAC(res.data.user));
+                const socket = io('http://localhost:3000');
+                dispatch(webSocketAC(socket))
+                socket.emit("newUser", res.data.user._id)
+                localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
+                dispatch(authAC())
+                navigate('/');
+            }
+        }).catch(err => {
+            errorToaster('Something went wrong (check console)');
+            console.log(err)
+        })
     }
 
     return (
         <>
+            <Toaster position="top-right" reverseOrder={false}/>
             <div className={style.container}>
                 <div className={style.loginBlock}>
                     <div className={style.button}>
@@ -61,11 +78,13 @@ function Login () {
                         <form>
                             <div className={style.inputs}>
                                 <div>
-                                    <input onChange={setEmail(event.target.value)} value={email} className={style.input} type="email" placeholder={'email'}/>
+                                    <input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setEmail(event.target.value)}
+                                           value={email} className={style.input}  placeholder={'email'} type="email" id="email" pattern=".+@globex\.com" size={30} required/>
                                 </div>
-                                <input onChange={setPassword(event.target.value)} className={style.input}  value={password} type="password" placeholder={'password'}/>
+                                <input onChange={(event : React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
+                                       className={style.input}  value={password} type="password" placeholder={'password'}/>
                             </div>
-                            <button onClick={createInfo}>
+                            <button className={style.buttonSub} onClick={createInfo}>
                                 <CustomButton title={'Login'} rotateIcon={false} path={"#"} ></CustomButton>
                             </button>
                         </form>
