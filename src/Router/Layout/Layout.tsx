@@ -6,7 +6,6 @@ import {sidebarCourses} from "./sidebarCourses.ts";
 import {SideBar} from "../../Components/Sidebar";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {INavWrapper} from "../../types/headerTypes.ts";
-import {sidebarList} from "./SidebarList.ts";
 import {ISidebarItems} from "../../Components/Sidebar/types.ts";
 import chat from "../../images/chat.png";
 import courses from "../../img/icons/elearning-2.png";

@@ -1,7 +1,6 @@
 import {NavLink} from "react-router-dom";
 import style from './SideBarItem.module.scss';
 import {ISidebarItem } from "../types";
-import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 import {Avatar} from "@mui/material";
 import React from "react";
 export function SideBarItem ({ name , index , sidebarOpen , path , callback , icon } : ISidebarItem) {
