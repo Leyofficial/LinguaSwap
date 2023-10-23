@@ -1,44 +1,22 @@
-import courses from "../../img/icons/elearning-2.png";
-import teacher from "../../img/icons/teacher.png";
-import team from "../../img/icons/team.png";
-import gear from "../../img/icons/gear.png";
-import profile from "../../img/icons/profile-user.png";
-import previous from "../../img/icons/previous.png";
+
 
 import {ISidebarItems} from "../../Components/Sidebar/types.js";
-import chat from "../../images/chat.png"
+
 import {FC} from "react";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {getImageFromServer} from "../../ApiRequests/ServerFiles/getImage.js";
+import {IUserInfo} from "../../types/userTypes.ts";
 
-export const sidebarList : ISidebarItems[] = [
+interface ISideBar {
+    currentUser : any
+    callback : () => void
+}
+export function sidebarList (currentUser , callback){
+    let photo ;
+    if (currentUser) {
+        getImageFromServer(currentUser , callback);
+        photo = callback
+    }
 
-    {
-      path : "/login",
-        icon: profile,
-        name : 'Your profile'
-    },
-    {
-        path:"/chat",
-        icon:chat,
-        name:"Chat"
-    },
-    {
-        path: "/",
-        icon: courses,
-        name: "Courses",
-    },
-    {
-        path: "/findteacher",
-        icon: teacher,
-        name: "Find teacher",
-    },
-    {
-        path: "/teams",
-        icon: team,
-        name: "Find team",
-    },
-    {
-        path: "/createprofile",
-        icon: gear,
-        name: "Profile",
-    },
-];
+    return sidebarList
+}
