@@ -5,11 +5,13 @@ import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import {currentCourseTeacherAC} from "./currentCourseTeacher/currentCourseTeacherAC.js";
 
 export const SET_CURRENT_COURSE_CHAT = "SET_CURRENT_COURSE_CHAT"
+export const RESET_CURRENT_COURSE_CHAT = "RESET_CURRENT_COURSE_CHAT"
 const currentCourseChatReducer = (currentCourseChat = initialState.currentCourseChat, action) => {
   switch (action.type) {
 
     case SET_CURRENT_COURSE_CHAT :
       return action.newCourseChat
+    case RESET_CURRENT_COURSE_CHAT : return null
     default :
       return currentCourseChat
   }

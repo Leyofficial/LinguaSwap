@@ -7,8 +7,6 @@ import {useSelector} from "react-redux";
 
 const ChooseTypeOfChat = () => {
 
-
-   const currentUser = useSelector((state) => state.loginUser)
    return (
       <div className={style.container}>
         <aside>

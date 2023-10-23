@@ -13,8 +13,10 @@ const MessagesSection = (props) => {
    const currentUser = useSelector((state) => state.loginUser)
    // const [typingUserName, setTypingUserName] = useState(null)
    const [waitResponse,setWaitResponse] = useState(false)
+
    const submitHandler = () => {
-      if(messages && !waitResponse){
+
+      if(message && !waitResponse && idCourse){
          sendMessageHandler(message,setWaitResponse)
          setMessage("")
       }else{
@@ -26,7 +28,7 @@ const MessagesSection = (props) => {
 
    const handlerTextArea = (e) => {
 
-      if (e.key === "Enter" && message) {
+      if (e.key === "Enter" && message && idCourse) {
          sendMessageHandler(message)
          setMessage("")
       }

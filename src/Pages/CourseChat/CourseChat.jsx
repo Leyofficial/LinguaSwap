@@ -13,6 +13,7 @@ import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/Message
 import {getChatThunkCreator, sendMessageThunkCreator} from "../../Redux/Course/Chat/CourseChatReducer.js";
 import {getCurrentCourseForChatThunkCreator} from "../../Redux/Course/Chat/currentCourseChatReducer.js";
 import AsideInfo from "./AsideInfo/AsideInfo.jsx";
+import {resetCurrentCourseChat} from "../../Redux/Course/Chat/currentCourseChat.js";
 
 
 const CourseChat = () => {
@@ -76,6 +77,12 @@ const CourseChat = () => {
   useEffect(() => {
     scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [chat, scroll])
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetCurrentCourseChat())
+    }
+  },[])
 
 
   return (

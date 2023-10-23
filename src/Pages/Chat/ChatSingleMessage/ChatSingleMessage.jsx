@@ -7,6 +7,7 @@ import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/Online
 import {getInterlocutor} from "../MainChatHelper/MainChatHelper.js";
 import {useSelector} from "react-redux";
 import {removeUserAC} from "../../../Redux/OnlineUsers/onlineUsersAC.js";
+import {Skeleton} from "@mui/material";
 
 
 const ChatSingleMessage = (props) => {
@@ -54,10 +55,10 @@ const ChatSingleMessage = (props) => {
       <NavLink to={`chat/${dialog?._id}`}>
          <section className={style.container}>
             <div className={style.wrapperAuthor}>
-               <OnlineStatus teacher={interlocutor} isOnline={interlocutor?.online}></OnlineStatus>
+                <OnlineStatus teacher={interlocutor} isOnline={interlocutor?.online}></OnlineStatus>
                <div className={style.wrapperItem}>
                   <div className={style.author}>
-                     <p className={style.interlocutor}>{interlocutor?.user.data.name}</p>
+                     <p className={style.interlocutor}>{interlocutor?.user.data.name ? interlocutor?.user.data.name : <Skeleton sx={{marginBottom : '20px'}} variant="rectangular" width={200} height={20} />}</p>
                      <p
                         className={style.message}>{dialog?.messages.length >= 1 ? dialog.messages[dialog.messages.length - 1]?.message : null}</p>
                   </div>
