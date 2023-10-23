@@ -1,6 +1,6 @@
 
 .container {
-    width: calc(1050px + 10rem);
+    width: calc(75rem + 10rem);
     margin: 0 auto;
     padding: 50px ;
     padding-left: 6rem;
@@ -47,7 +47,7 @@
     }
 }
 .inputs {
-    margin-top: 40px;
+    margin: 40px 0;
 }
 .input {
     margin-top: 10px;
@@ -56,9 +56,26 @@
     padding: 10px 50px 10px 10px;
     outline: none;
 }
-.buttonSub {
-    margin-top: 40px;
-    outline: none;
-    background-color: transparent;
-    border: none;
+.superTitle {
+    transform: rotate(90deg);
+    //transform-origin: left top 0;
+    position: absolute;
+    top: 0;
+    right: 105px;
+    bottom: 0;
+    font-family: SansSerif;
+    font-size: 100px;
+    color: dodgerblue;
+}
+.label {
+    margin-left: 5px;
+}
+.checkbox {
+    margin-top: 24px;
+}
+
+@media (max-width: '770px') {
+    .superTitle {
+        display: none;
+    }
 }

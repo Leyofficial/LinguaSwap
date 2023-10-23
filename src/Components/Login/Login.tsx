@@ -26,7 +26,8 @@ function Login () {
     })
     const dispatch = useDispatch();
     const [email , setEmail] = useState<string>('');
-    const [password  , setPassword ] = useState<string>('')
+    const [password  , setPassword ] = useState<string>('');
+    const [checkBox , setCheckBox] = useState<boolean>(false)
     // title, callback, rotateIcon, path = "#"
     const navigate = useNavigate();
     function backToLast () {
@@ -56,6 +57,7 @@ function Login () {
 
     return (
         <>
+            <h1 className={style.superTitle}>LINGUA SWAP</h1>
             <Toaster position="top-right" reverseOrder={false}/>
             <div className={style.container}>
                 <div className={style.loginBlock}>
@@ -83,10 +85,13 @@ function Login () {
                                 </div>
                                 <input onChange={(event : React.ChangeEvent<HTMLInputElement>) => setPassword(event.target.value)}
                                        className={style.input}  value={password} type="password" placeholder={'password'}/>
+                                <div className={style.checkbox}>
+                                    <input id='accept' type="checkbox" onChange={() => setCheckBox((prev => !prev))} checked={checkBox}/>
+                                    <label className={style.label} htmlFor="accept">You agree with private policy <br/> and your cookie preferences</label>
+                                </div>
+
                             </div>
-                            <button className={style.buttonSub} onClick={createInfo}>
-                                <CustomButton title={'Login'} rotateIcon={false} path={"#"} ></CustomButton>
-                            </button>
+                                <CustomButton  title={'Login'} rotateIcon={false} callback={createInfo} path={"#"} ></CustomButton>
                         </form>
                     </div>
                 </div>
