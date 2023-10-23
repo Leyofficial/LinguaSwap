@@ -4,14 +4,16 @@ import {NavLink} from "react-router-dom";
 import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.js";
 import {useSelector} from "react-redux";
 
-const SingleCourseChat = ({course}) => {
+const SingleCourseChat = ({course,setCourses}) => {
    const [courseImage, setCourseImage] = useState("")
    const currentCourse = useSelector((state) => state.currentCourseChat)
-   console.log(course)
+
    useEffect(() => {
       getImageFromServer(course.course.image,setCourseImage)
 
    },[course])
+
+
 
    return (
       <>

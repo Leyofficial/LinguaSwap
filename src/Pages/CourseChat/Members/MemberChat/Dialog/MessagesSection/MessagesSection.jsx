@@ -20,7 +20,7 @@ const MessagesSection = (props) => {
 
       // setTypingUserName(null)
    }
-console.log(messages)
+
    const handlerTextArea = (e) => {
 
       if (e.key === "Enter" && message) {
