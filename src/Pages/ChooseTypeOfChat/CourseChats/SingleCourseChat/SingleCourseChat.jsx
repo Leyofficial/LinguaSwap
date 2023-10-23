@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 const SingleCourseChat = ({course}) => {
    const [courseImage, setCourseImage] = useState("")
    const currentCourse = useSelector((state) => state.currentCourseChat)
-   console.log(course)
+
    useEffect(() => {
       getImageFromServer(course.course.image,setCourseImage)
 

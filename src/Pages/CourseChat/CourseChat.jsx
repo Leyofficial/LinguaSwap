@@ -12,6 +12,7 @@ import {GiImbricatedArrows} from "react-icons/gi";
 import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/MessagesSection.jsx";
 import {getChatThunkCreator, sendMessageThunkCreator} from "../../Redux/Course/Chat/CourseChatReducer.js";
 import {getCurrentCourseForChatThunkCreator} from "../../Redux/Course/Chat/currentCourseChatReducer.js";
+import AsideInfo from "./AsideInfo/AsideInfo.jsx";
 
 
 const CourseChat = () => {
@@ -89,18 +90,9 @@ const CourseChat = () => {
           </div>
           <div className={style.members}>
             <div className={style.wrapperItems}>
-              <div className={`${style.wrapperIconsMember} ${asideItem === "teachers" ? style.activeItem : null}`}
-                   onClick={() => setAsideItem("teachers")}>
-                <FaChalkboardTeacher></FaChalkboardTeacher>
-              </div>
-              <div className={`${style.wrapperIconsMember} ${asideItem === "students" ? style.activeItem : null}`}
-                   onClick={() => setAsideItem("students")}>
-                <HiUserGroup></HiUserGroup>
-              </div>
-              <div className={`${style.wrapperIconsMember} ${asideItem === "info" ? style.activeItem : null}`}
-                   onClick={() => setAsideItem("info")}>
-                <BsInfoCircle></BsInfoCircle>
-              </div>
+              <AsideInfo asideItem={asideItem} callback={setAsideItem} item={'teachers'} icon={ <FaChalkboardTeacher></FaChalkboardTeacher>}></AsideInfo>
+              <AsideInfo asideItem={asideItem} callback={setAsideItem} item={'students'} icon={ <HiUserGroup></HiUserGroup>}></AsideInfo>
+              <AsideInfo asideItem={asideItem} callback={setAsideItem} item={'info'} icon={ <BsInfoCircle></BsInfoCircle>}></AsideInfo>
             </div>
             <article className={style.wrapper}>
               {asideItem === 'teachers' ?
