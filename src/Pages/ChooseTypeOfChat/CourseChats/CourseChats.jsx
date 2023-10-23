@@ -33,7 +33,7 @@ const CourseChats = () => {
   return (
     <>
       <div className={style.courseItems}>
-        {courses && courses.map((course) => <SingleCourseChat  course={course}></SingleCourseChat>)}
+        {courses && courses.map((course) => <SingleCourseChat setCourses={setCourses}  course={course}></SingleCourseChat>)}
         <div className={style.pagination}>
         </div>
       </div>
