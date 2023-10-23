@@ -13,6 +13,7 @@ import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/Message
 import {getChatThunkCreator, sendMessageThunkCreator} from "../../Redux/Course/Chat/CourseChatReducer.js";
 import {getCurrentCourseForChatThunkCreator} from "../../Redux/Course/Chat/currentCourseChatReducer.js";
 import AsideInfo from "./AsideInfo/AsideInfo.jsx";
+import {resetCurrentCourseChat} from "../../Redux/Course/Chat/currentCourseChat.js";
 
 
 const CourseChat = () => {
@@ -22,7 +23,7 @@ const CourseChat = () => {
   const chat = useSelector((state) => state.currentChat)
   const [asideItem, setAsideItem] = useState("teachers")
   const {idCourse} = useParams()
-  const [hideInfoBlock, setHideInfoBlock] = useState(false)
+  const [hideInfoBlock, setHideInfoBlock] = useState(true)
   const scroll = useRef()
   const socket = useSelector((state) => state.socket)
   const course = useSelector((state) => state.currentCourseChat)
@@ -40,8 +41,8 @@ const CourseChat = () => {
   }, [idCourse])
 
 
-  const sendMessageHandler = (message) => {
-
+  const sendMessageHandler = (message,waitResponseCallback) => {
+    waitResponseCallback(true)
     const messageData = {
       message: message,
       author: currentUser._id,
@@ -50,7 +51,7 @@ const CourseChat = () => {
     if (message && socket) {
 
 
-      dispatch(sendMessageThunkCreator(messageData, chat._id, idCourse))
+      dispatch(sendMessageThunkCreator(messageData, chat._id, idCourse,waitResponseCallback))
       socket.emit("courseMsg",idCourse)
 
     } else {
@@ -76,6 +77,12 @@ const CourseChat = () => {
   useEffect(() => {
     scroll.current?.scrollIntoView({behavior: "smooth"})
   }, [chat, scroll])
+
+  useEffect(() => {
+    return () => {
+      dispatch(resetCurrentCourseChat())
+    }
+  },[])
 
 
   return (

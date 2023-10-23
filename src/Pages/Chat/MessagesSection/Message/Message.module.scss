@@ -15,30 +15,58 @@
 
   .item {
     margin-left: 15px;
-    background-color: rgba(56, 58, 66, 0.72);
-    max-width: 400px;
-    padding: 10px 50px 20px 10px;
-    border-radius: 10px;
-    position: relative;
+    .wrapperMessage {
+      background: rgba(160, 161, 211, 0.32);
+      .message{
+        color: #ffffff;
+      }
+      .info{
+        p{
+          color: rgba(255, 255, 255, 0.56);
+        }
+      }
+    }
+  }
 
+  .myItem {
+    margin-right: 15px;
+    width: 100%;
+    display: flex;
+    flex-flow: row-reverse;
   }
-  .myItem{
-    margin-left: 15px;
-    background-color: rgba(10, 17, 40, 0.6);
-    max-width: 400px;
-    padding: 10px 50px 20px 10px;
-    border-radius: 10px;
-    position: relative;
-  }
+
   .time {
-    position: absolute;
-    right: 5px;
     color: rgba(241, 241, 241, 0.56);
-    font-size: 13px;
+    font-size: 11px;
+    //padding-left: 5vh;
   }
-  .message{
+
+  .message {
     color: #f1f1f1;
   }
+}
+
+.info {
+  padding-top: 10px;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+
+
+  p {
+    color: rgba(241, 241, 241, 0.56);
+    font-size: 12px;
+  }
+}
+
+.wrapperMessage {
+  background: rgba(3, 15, 70, 0.68);
+  padding: 10px 15px 15px 15px;
+  border-radius: 10px;
+  max-width: 400px;
+  min-width: 200px;
 }
 
 

@@ -6,7 +6,7 @@
   overflow: hidden;
 
   p {
-color: #030303;
+    color: #030303;
   }
 
   img {
@@ -16,10 +16,20 @@ color: #030303;
     border-radius: 5px;
     border: 1px solid rgba(241, 241, 241, 0.15);
   }
-  &:hover{
+
+  &:hover {
     background-color: rgba(0, 0, 0, 0.04);
   }
 }
-.active{
+
+.active {
   background: rgba(57, 58, 59, 0.12) !important;
+}
+
+.skeleton {
+  width: 50px;
+  height: 50px;
+  margin-right: 4vh;
+  border-radius: 5px;
+  border: 1px solid rgba(241, 241, 241, 0.15);
 }

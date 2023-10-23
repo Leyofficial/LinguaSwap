@@ -30,9 +30,8 @@ const Message = ({messages,scroll}) => {
                {messages.map((message, index) => {
                   return (
                      <div ref={scroll} className={currentUser?._id === message.author ? style.myMessage : style.message}>
-                        <Avatar idAuthor={message?.author}></Avatar>
                         <div className={style.messageItems}>
-                           <SingleMessage isMyMessage={currentUser?._id === message.author} messageData={message} index={index}></SingleMessage>
+                           <SingleMessage author={message.author} isMyMessage={currentUser?._id === message.author} messageData={message} index={index}></SingleMessage>
                         </div>
 
                      </div>
