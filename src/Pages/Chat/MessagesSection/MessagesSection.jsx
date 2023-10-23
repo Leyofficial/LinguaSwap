@@ -22,6 +22,7 @@ const MessagesSection = () => {
    const dispatch = useDispatch()
    const newSocket = useSelector((state) => state.socket)
    const scroll = useRef()
+   const [waitResponse,setWaitResponse] = useState(false)
    useEffect(() => {
       if (idChat) {
          mainChatRequests.getChatById(idChat).then(res => {
@@ -43,12 +44,13 @@ const MessagesSection = () => {
          message: valueTextarea,
          author: currentUser?._id,
       }
-      if (valueTextarea) {
-
+      if (valueTextarea && !waitResponse) {
+         setWaitResponse(true)
          mainChatRequests.addMessageItem(chat._id, itemData).then(res => {
             if (res.status === 200) {
                newSocket.emit("privateMessage", chat._id)
                dispatch(getChatsThunkCreator(currentUser?._id))
+               setWaitResponse(false)
                mainChatRequests.getChatById(idChat).then(res => {
                   if (res.status === 200) {
                      setChat(res.data.foundChat)
@@ -56,7 +58,11 @@ const MessagesSection = () => {
                })
                setValueTextarea("")
             }
+         }).catch(err => {
+            setWaitResponse(false)
          })
+      }else{
+         console.log('pls,wait for response')
       }
    }
 

@@ -61,7 +61,10 @@ const ChatSingleMessage = (props) => {
                      <p
                         className={style.message}>{dialog?.messages.length >= 1 ? dialog.messages[dialog.messages.length - 1]?.message : null}</p>
                   </div>
-                  <p className={style.date}>{dialog?.messages.length >= 1 ? formattedDate : null}</p>
+                  <div className={style.wrapperDate}>
+                     <p className={style.date}>{dialog?.messages.length >= 1 ? formattedDate : null}</p>
+                  </div>
+
                </div>
             </div>
          </section>
