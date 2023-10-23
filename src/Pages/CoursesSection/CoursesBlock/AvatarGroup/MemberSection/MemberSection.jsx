@@ -10,7 +10,7 @@ const MemberSection = ({avatars,maxCount}) => {
       <Avatar.Group maxCount={maxCount} maxStyle={{color: '#f56a00', backgroundColor: '#fde3cf', cursor: 'pointer'}}
                     size="large">
          {avatars?.length >= 1 ? avatars?.map(item => <Member avatarName={item}></Member>) :
-            <p>You will be first</p>}
+            <p style={{color:'black'}}>You will be first</p>}
       </Avatar.Group>
 
    );

@@ -49,8 +49,9 @@ const CourseChat = () => {
     }
     if (message && socket) {
 
-      socket.emit("message", messageData)
+
       dispatch(sendMessageThunkCreator(messageData, chat._id, idCourse))
+      socket.emit("courseMsg",idCourse)
 
     } else {
       console.log("Write some text pls ")
@@ -60,9 +61,10 @@ const CourseChat = () => {
 
   useEffect(() => {
     if (socket) {
-      socket.on("response", (data) => {
-        if (data) {
-          dispatch(addSocketMessage(data))
+      socket.on("courseMsgResponse", (idCourse) => {
+        if (idCourse) {
+          // dispatch(addSocketMessage(data))
+          dispatch(getChatThunkCreator(idCourse))
         }
 
       })
