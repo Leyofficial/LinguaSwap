@@ -9,14 +9,35 @@ import {Link, NavLink} from 'react-router-dom';
 import style from './Login.module.scss'
 import {useNavigate} from "react-router";
 import CustomButton from "../../Utility/CustomButton/CustomButton.jsx";
+import {useState} from "react";
+import {UserProfile} from "../../ApiRequests/Profile/UserProfile.js";
+
+interface IInfo {
+    email : string,
+    password : string
+}
 
 function Login () {
-    const []
+    const [info , setInfo] = useState<IInfo>({
+        email : '',
+        password : '',
+    })
+    const [email , setEmail] = useState<string>('');
+    const [password  , setPassword ] = useState<string>('')
     // title, callback, rotateIcon, path = "#"
     const navigate = useNavigate();
     function backToLast () {
         navigate(-1);
     }
+
+    function createInfo() {
+        const obj = {
+            email : email,
+            password : password,
+        }
+        UserProfile.getProfile(obj)
+    }
+
     return (
         <>
             <div className={style.container}>
@@ -40,12 +61,11 @@ function Login () {
                         <form>
                             <div className={style.inputs}>
                                 <div>
-                                    <input onChange={} className={style.input} type="email" placeholder={'email'}/>
+                                    <input onChange={setEmail(event.target.value)} value={email} className={style.input} type="email" placeholder={'email'}/>
                                 </div>
-
-                                <input className={style.input}  type="password" placeholder={'password'}/>
+                                <input onChange={setPassword(event.target.value)} className={style.input}  value={password} type="password" placeholder={'password'}/>
                             </div>
-                            <button className={style.buttonSub}>
+                            <button onClick={createInfo}>
                                 <CustomButton title={'Login'} rotateIcon={false} path={"#"} ></CustomButton>
                             </button>
                         </form>
