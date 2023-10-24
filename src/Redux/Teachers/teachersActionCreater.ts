@@ -11,6 +11,6 @@ export interface setTeachers {
 }
 
 
-export function teachersActionCreater(teachers : IUserInfo ) : setTeachers{
+export function teachersActionCreater(teachers : IUserInfo[] ) : setTeachers{
     return {type : teacherAction.SET_TEACHERS  ,  teachers : teachers}
 }

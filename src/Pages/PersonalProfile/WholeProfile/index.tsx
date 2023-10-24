@@ -16,10 +16,11 @@ import {logoutAC} from "../../../Redux/isAuth/isAuthAC.ts";
 import {backFromLogin} from "../../../Redux/isStartToLogin/isStartToLoginAC.ts";
 import {errorToaster} from "../../../Utility/Toaster/Toaster.ts";
 import {Toaster} from "react-hot-toast";
+import {RootState} from "../../../Redux/rootReduce.ts";
 
 
 function WholeProfile({user, isMine}: IUserOutside) {
-    const currentUser: IUserInfo[] = useTypedSelector((state) => state.loginUser)
+    const currentUser: IUserInfo = useTypedSelector((state: any ) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [avatar, setUserAvatar] = useState("")

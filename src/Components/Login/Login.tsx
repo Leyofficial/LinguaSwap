@@ -26,7 +26,6 @@ function Login() {
 
     const {register, handleSubmit, formState : {errors}} = useForm<IInfo>({
         defaultValues: {},
-
     })
 
     const submit: SubmitHandler<IInfo> = data => {
