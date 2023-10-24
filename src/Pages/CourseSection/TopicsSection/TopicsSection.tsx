@@ -1,9 +1,15 @@
 import React, {useState} from 'react';
 import style from "./TopicsSection.module.scss";
-import ShowTopicCourse from "../ShowTopicCourse/ShowTopicCourse.jsx";
+import ShowTopicCourse from "../ShowTopicCourse/ShowTopicCourse.js";
+import {ICourse} from "../../../types/coursesTypes.ts";
 
-const TopicsSection = ({currentCourse}) => {
-   const [currentTopic, setCurrentTopic] = useState(0)
+interface ITopicSectionProps{
+    currentCourse:ICourse
+}
+const TopicsSection = (props : ITopicSectionProps) => {
+
+    const {currentCourse} = props
+   const [currentTopic, setCurrentTopic] = useState<number | null>(0)
 
    return (
       <div className={style.descriptionContainer}>

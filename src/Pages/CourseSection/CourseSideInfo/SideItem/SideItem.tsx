@@ -1,6 +1,11 @@
 import React from 'react';
 import style from "../CourseSideInfo.module.scss";
-const SideItem = ({path,title}) => {
+interface  ISideItemProps{
+    path:string,
+    title:string
+}
+const SideItem = (props:ISideItemProps) => {
+    const {path,title} = props
    return (
       <div className={style.item}>
          <img src={path} alt={'course'}></img>

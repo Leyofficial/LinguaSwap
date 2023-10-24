@@ -1,4 +1,4 @@
-export const getStateOfCourse = (startDate, finishDate) => {
+export const getStateOfCourse = (startDate:string, finishDate:string) => {
 
    const start = new Date(startDate)
    const finish = new Date(finishDate)

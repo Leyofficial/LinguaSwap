@@ -5,7 +5,7 @@ import {getUserAvatar} from "../../../../Utility/GetUserAvatar/getUserAvatar.js"
 import MemberSection from "./MemberSection/MemberSection.js";
 
  interface IAvatarProps {
-   items:[string],
+   items:string[],
    maxCount:number
 }
 const AvatarGroupSection = (props:IAvatarProps) => {

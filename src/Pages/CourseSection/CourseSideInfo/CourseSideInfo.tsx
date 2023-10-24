@@ -6,9 +6,14 @@ import duration from "../../../images/course/duration.png";
 import startCourseDate from "../../../images/course/startDate.png";
 import finishCourseDate from "../../../images/course/finishDate.png";
 import AvatarGroupSection from "../../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.tsx";
-import SideItem from "./SideItem/SideItem.jsx";
+import SideItem from "./SideItem/SideItem.js";
+import {ICourse} from "../../../types/coursesTypes.ts";
 
-const CourseSideInfo = ({currentCourse}) => {
+interface ICourseSideInfoProps {
+    currentCourse:ICourse
+}
+const CourseSideInfo = (props:ICourseSideInfoProps) => {
+    const {currentCourse} = props
    return (
       <div className={style.wrapperSideInfo}>
          <SideItem title={currentCourse?.course.language} path={countryFlag(currentCourse?.course.language)}></SideItem>

@@ -1,13 +1,13 @@
 import style from './CourseSection.module.scss'
 import {useParams} from "react-router";
 import React, {useEffect, useState} from "react";
-import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
+import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.js";
 import {useDispatch} from "react-redux";
 import toast from "react-hot-toast";
 import {getCourseThunkCreator, joinToCourseAndCreateChatThunkCreator} from "../../Redux/Course/courseReducer.js";
-import CourseSideInfo from "./CourseSideInfo/CourseSideInfo.jsx";
-import CourseHeader from "./CourseHeader/CourseHeader.jsx";
-import CoursesSectionSkeleton from "./CoursesSectionSkeleton/CoursesSectionSkeleton.jsx";
+import CourseSideInfo from "./CourseSideInfo/CourseSideInfo.js";
+import CourseHeader from "./CourseHeader/CourseHeader.js";
+import CoursesSectionSkeleton from "./CoursesSectionSkeleton/CoursesSectionSkeleton.js";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {ICourseSubject} from "../CoursesSection/courseType.ts";
 

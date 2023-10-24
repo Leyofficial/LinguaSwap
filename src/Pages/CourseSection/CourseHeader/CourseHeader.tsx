@@ -4,15 +4,20 @@ import {Toaster} from "react-hot-toast";
 import memberImage from "../../../images/member.png";
 import {Stack, Step, StepLabel, Stepper} from "@mui/material";
 import {ColorlibConnector, ColorlibStepIcon} from "../../../Utility/ProgressCourse/ProgressCourse.tsx";
-import {useSelector} from "react-redux";
 import {getStateOfCourse} from "./stateOfCourse.js";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.ts";
+import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 
-const CourseHeader = ({joinHandler, errorJoin}) => {
+interface ICourseHeaderProps{
+   joinHandler:(arg:string) => void,
+   errorJoin:boolean
+}
+const CourseHeader = (props:ICourseHeaderProps) => {
+   const {joinHandler, errorJoin} = props
 
-   const loginUser = useSelector((state) => state.loginUser)
-   const currentCourse = useSelector((state) => state.currentCourse)
+   const loginUser = useTypedSelector((state) => state.loginUser)
+   const currentCourse = useTypedSelector((state) => state.currentCourse)
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
    const [teacherAvatar,setTeacherAvatar] = useState("")
 

@@ -6,7 +6,7 @@ import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
 import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.js";
 import {useDispatch} from "react-redux";
 import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.ts";
-import CourseFilters from "./CourseFilters/CourseFilters.jsx";
+import CourseFilters from "./CourseFilters/CourseFilters.js";
 import NotFoundItems from "../../Utility/NotFound/NotFoundItems.tsx";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {ICourse} from "./courseType.ts";
