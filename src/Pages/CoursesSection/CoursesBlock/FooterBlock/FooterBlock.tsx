@@ -2,8 +2,13 @@ import React from 'react';
 import style from './FooterBlock.module.scss'
 import {GiClockwork} from "react-icons/gi";
 import {dateOfCourse} from "../../../../Utility/CoutryFlag/DateOfCourse/dateOfCourse.js";
+import {ICourse} from "../../courseType.ts";
 
-const FooterBlock = ({course}) => {
+interface IFooterProps{
+    course:ICourse
+}
+const FooterBlock = (props:IFooterProps) => {
+    const {course} = props
    return (
       <>
          <section className={style.wrapperLevel}>

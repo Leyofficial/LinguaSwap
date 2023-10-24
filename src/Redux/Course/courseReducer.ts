@@ -1,11 +1,12 @@
 import {initialState} from "../initialState.ts";
 import {Course} from "../../ApiRequests/Courses/Courses.js";
-import {courseAC} from "./CourseAC.js";
+import {courseAC, ICourseAC} from "./CourseAC.js";
 import {teacherChats} from "../../ApiRequests/TeacherChats/TeacherChats.js";
+import {Dispatch} from "redux";
 
 export const SET_COURSE = "SET_COURSE"
 
-const courseReducer = (course = initialState.currentCourse, action) => {
+const courseReducer = (course = initialState.currentCourse, action:ICourseAC) => {
    switch (action.type) {
       case SET_COURSE:
          return action.newCourse
@@ -16,8 +17,8 @@ const courseReducer = (course = initialState.currentCourse, action) => {
 
 export default courseReducer
 
-export const getCourseThunkCreator = (idCourse, setLeadCourse) => {
-   return async (dispatch) => {
+export const getCourseThunkCreator = (idCourse : string, setLeadCourse : (arg:boolean) => void) => {
+   return async (dispatch:Dispatch) => {
       try {
          const response = await Course.getCourse(idCourse)
          if (response.status === 200) {
@@ -34,8 +35,8 @@ export const getCourseThunkCreator = (idCourse, setLeadCourse) => {
    }
 }
 
-export const joinToCourseAndCreateChatThunkCreator = (courseId, teacherId, userId) => {
-   return async (dispatch) => {
+export const joinToCourseAndCreateChatThunkCreator = (courseId : string, teacherId : string, userId : string) => {
+   return async (dispatch:Dispatch) => {
       try {
          await teacherChats.createChat(teacherId, userId)
          const joinCourseResponse = await Course.addNewMember(userId, courseId)

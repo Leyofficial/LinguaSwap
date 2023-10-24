@@ -7,7 +7,7 @@ import {ColorlibConnector, ColorlibStepIcon} from "../../../Utility/ProgressCour
 import {useSelector} from "react-redux";
 import {getStateOfCourse} from "./stateOfCourse.js";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
-import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
+import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.ts";
 
 const CourseHeader = ({joinHandler, errorJoin}) => {
 

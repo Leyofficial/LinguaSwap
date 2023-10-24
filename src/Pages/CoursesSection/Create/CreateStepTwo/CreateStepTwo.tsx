@@ -7,7 +7,7 @@ import {
    getStartDateAC
 } from "../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
 import CreateTooltip from "../CreateTooltip/CreateTooltip.jsx";
-import CourseInput from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseInput/CourseInput.jsx";
+import CourseInput from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseInput/CourseInput.js";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
 import {Toaster} from "react-hot-toast";
 import SelectorSection from "./SelectorSection/SelectorSection.js";

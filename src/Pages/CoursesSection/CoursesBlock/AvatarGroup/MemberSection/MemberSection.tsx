@@ -1,8 +1,14 @@
 import React from 'react';
 import {Avatar} from "antd";
-import Member from "./Member/Member.jsx";
+import Member from "./Member/Member.js";
 
-const MemberSection = ({avatars,maxCount}) => {
+
+interface IMemberProps{
+   avatars:string[],
+   maxCount:number
+}
+const MemberSection = (props :IMemberProps) => {
+   const {avatars,maxCount} = props
 
 
    return (

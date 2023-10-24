@@ -1,22 +1,25 @@
 import React, {useEffect, useState} from 'react';
 import style from './HeaderBlock.module.scss'
-import defaultImage from "../../../../images/member.png";
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.js";
 import {Skeleton} from "@mui/material";
+import {ICourseProps} from "../CoursesBlock.tsx";
 
-const HeaderBlock = ({course}) => {
+const HeaderBlock = (props:ICourseProps) => {
+   const {course} = props
+
    const [avatar, setAvatar] = useState("")
    const [avatarCourse,setAvatarCourse] = useState("")
    const [isLoadAvatarCourse,setIsLoadAvatarCourse] = useState(false)
    const [isLoadAvatarUser,setIsLoadAvatarUser] = useState(false)
+
    useEffect(() => {
       if (course) {
          const getAuthorAvatar = async () => {
             const gotAvatar = await getUser(course.teacher.id)
 
             if (gotAvatar.status === 200) {
-               getImageFromServer(gotAvatar.data.user.user.data.photo, setAvatar,setIsLoadAvatarUser)
+                getImageFromServer(gotAvatar.data.user.user.data.photo, setAvatar,setIsLoadAvatarUser)
             }
 
          }
@@ -29,7 +32,7 @@ const HeaderBlock = ({course}) => {
    return (
       <>
          <header className={style.courseHeader}>
-            {isLoadAvatarCourse ? <img src={avatarCourse ? avatarCourse : <Skeleton/>} alt={'course'}/> : <Skeleton  variant="rectangular" width={"100%"} height={200} ></Skeleton>}
+            {isLoadAvatarCourse ? <img src={avatarCourse ? avatarCourse : ""} alt={'course'}/> : <Skeleton  variant="rectangular" width={"100%"} height={200} ></Skeleton>}
             <div className={style.language}>
                <p>{course.course.language}</p>
             </div>

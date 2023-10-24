@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Avatar from "@mui/material/Avatar";
 import style from './OnlineStatus.module.scss'
-import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
+import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.ts";
 import {StyledBadge, StyledBadgeOffline} from "../../../Utility/StyleForOnlineStatus/styleForOnlineStatus.js";
 
 

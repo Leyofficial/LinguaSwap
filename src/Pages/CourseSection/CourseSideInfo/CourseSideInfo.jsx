@@ -5,7 +5,7 @@ import {ImageLevelEducation} from "../../../Utility/ImageLevelEducation/imageLev
 import duration from "../../../images/course/duration.png";
 import startCourseDate from "../../../images/course/startDate.png";
 import finishCourseDate from "../../../images/course/finishDate.png";
-import AvatarGroupSection from "../../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.jsx";
+import AvatarGroupSection from "../../CoursesSection/CoursesBlock/AvatarGroup/AvatarGroup.tsx";
 import SideItem from "./SideItem/SideItem.jsx";
 
 const CourseSideInfo = ({currentCourse}) => {

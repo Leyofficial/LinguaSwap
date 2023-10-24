@@ -1,11 +1,16 @@
 import style from './CoursesBlock.module.scss'
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
-import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
+import AvatarGroupSection from "./AvatarGroup/AvatarGroup.js";
 import {NavLink} from "react-router-dom";
-import HeaderBlock from "./HeaderBlock/HeaderBlock.jsx";
-import FooterBlock from "./FooterBlock/FooterBlock.jsx";
+import HeaderBlock from "./HeaderBlock/HeaderBlock.js";
+import FooterBlock from "./FooterBlock/FooterBlock.js";
+import {ICourse} from "../courseType.ts";
 
-const CoursesBlock = ({course}) => {
+export interface ICourseProps {
+    course:ICourse
+}
+const CoursesBlock = (props:ICourseProps) => {
+    const {course} = props
 
   return (
     <article className={style.container}>
@@ -23,7 +28,7 @@ const CoursesBlock = ({course}) => {
           </div>
           <div className={style.infoWrapper}>
             <p style={levelEducation(course.course.level)}>{course.course.level}</p>
-           <p className={style.duration}>{course.course.duration}</p>
+           <p className={style.duration}>{course.course.durationCourse}</p>
           </div>
           <FooterBlock course={course}></FooterBlock>
         </section>

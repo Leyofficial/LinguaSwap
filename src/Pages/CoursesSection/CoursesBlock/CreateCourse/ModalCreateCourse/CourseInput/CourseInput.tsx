@@ -1,8 +1,17 @@
 import style from './CourseInput.module.scss'
 import React from "react";
 
-const CourseInput = (props) => {
-  const {value, callback, type,name,heightInput,changeElement} = props
+interface ICourseInputProps{
+    value:string,
+    callback:(arg:string) => void,
+    type?:string,
+    name:string,
+    heightInput?:string,
+    changeElement?:boolean,
+    placeholder?:string
+}
+const CourseInput = (props:ICourseInputProps) => {
+  const {value,placeholder, callback, type,name,heightInput,changeElement} = props
 
   const styleInput = {
     height:heightInput,

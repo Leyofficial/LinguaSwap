@@ -1,4 +1,4 @@
-export const dateOfCourse = (start) => {
+export const dateOfCourse = (start:string) => {
 
   const startDateObj = new Date(start)
   const currentDate = new Date();

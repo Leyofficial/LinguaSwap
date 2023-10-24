@@ -2,16 +2,20 @@ import React, {useEffect, useState} from 'react';
 
 
 import {getUserAvatar} from "../../../../Utility/GetUserAvatar/getUserAvatar.js";
-import MemberSection from "./MemberSection/MemberSection.jsx";
+import MemberSection from "./MemberSection/MemberSection.js";
 
-
-const AvatarGroupSection = ({items, maxCount}) => {
-   const [avatars, setAvatars] = useState([])
+ interface IAvatarProps {
+   items:[string],
+   maxCount:number
+}
+const AvatarGroupSection = (props:IAvatarProps) => {
+   const {items, maxCount} = props
+   const [avatars, setAvatars] = useState<string[]>([])
 
    useEffect(() => {
       const loadAvatars = async () => {
 
-         const loadedAvatars = await Promise.all(items.map(item => getUserAvatar(item)))
+         const loadedAvatars = await Promise.all(items.map((item : string) => getUserAvatar(item)))
          setAvatars(loadedAvatars)
       }
       loadAvatars()

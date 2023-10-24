@@ -1,9 +1,9 @@
 import style from './CoursesSection.module.scss'
 import {useEffect, useState} from "react";
 import Pagination from "../../Utility/Pagination/Pagination.jsx";
-import CoursesBlock from "./CoursesBlock/CoursesBlock.jsx";
+import CoursesBlock from "./CoursesBlock/CoursesBlock.js";
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
-import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.jsx";
+import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.js";
 import {useDispatch} from "react-redux";
 import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.ts";
 import CourseFilters from "./CourseFilters/CourseFilters.jsx";

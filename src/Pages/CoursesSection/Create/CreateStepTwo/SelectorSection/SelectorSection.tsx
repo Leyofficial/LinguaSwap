@@ -1,6 +1,6 @@
 import React from 'react';
 import style from "./SelectorSection.module.scss";
-import CourseSelect from "../../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.jsx";
+import CourseSelect from "../../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseSelect/CourseSelect.js";
 import CreateTooltip from "../../CreateTooltip/CreateTooltip.jsx";
 import {
    getDurationAC,

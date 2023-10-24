@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+import {Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent} from "@mui/material";
 
 const styleSelector = {
   color:'rgba(9, 89, 134, 0.75)',
@@ -7,11 +7,18 @@ const styleSelector = {
   outline:"none",
   background:"white"
 }
-const CourseSelect = (props) => {
+
+interface ICourseSelectProps {
+  items:string[],
+  title:string,
+  callback:(arg:string) => void,
+  value:string
+}
+const CourseSelect = (props:ICourseSelectProps) => {
   const {items,title,callback,value} = props
 
-  const handleChange = (event) => {
-    callback(event.target.value);
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    callback(event.target.value as string);
   };
 
 

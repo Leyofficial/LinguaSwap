@@ -1,5 +1,5 @@
 import style from './CreateCourse.module.scss'
-import ModalCreateCourse from "./ModalCreateCourse/ModalCreateCourse.jsx";
+import ModalCreateCourse from "./ModalCreateCourse/ModalCreateCourse.js";
 import {NavLink} from "react-router-dom";
 
 

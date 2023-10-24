@@ -2,38 +2,45 @@ import style from './CourseSection.module.scss'
 import {useParams} from "react-router";
 import React, {useEffect, useState} from "react";
 import ShowTopicCourse from "./ShowTopicCourse/ShowTopicCourse.jsx";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import toast from "react-hot-toast";
 import {getCourseThunkCreator, joinToCourseAndCreateChatThunkCreator} from "../../Redux/Course/courseReducer.js";
 import CourseSideInfo from "./CourseSideInfo/CourseSideInfo.jsx";
 import CourseHeader from "./CourseHeader/CourseHeader.jsx";
 import CoursesSectionSkeleton from "./CoursesSectionSkeleton/CoursesSectionSkeleton.jsx";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {ICourseSubject} from "../CoursesSection/courseType.ts";
 
 
 const CourseSection = () => {
    const {idCourse} = useParams()
    const dispatch = useDispatch()
-   const currentCourse = useSelector((state) => state.currentCourse)
+   const currentCourse = useTypedSelector((state) => state.currentCourse)
    const [errorJoin, setErrorJoin] = useState(false)
    const [leadCourse, setLeadCourse] = useState(false)
    const [currentTopic, setCurrentTopic] = useState(0)
 
    useEffect(() => {
-      dispatch(getCourseThunkCreator(idCourse,setLeadCourse))
-
+      if(idCourse){
+         getCourseThunkCreator(idCourse,setLeadCourse)(dispatch)
+      }
    }, [idCourse])
 
-   const joinToCourseHandler = (userId) => {
+   const joinToCourseHandler = (userId:string) => {
 
-      const isAlreadyJoin = currentCourse?.course?.members?.find((member) => member === userId)
+      const isAlreadyJoin = currentCourse?.course?.members?.find((member:string) => member === userId)
 
       if (isAlreadyJoin) {
          toast.error("You've already joined the course");
          setErrorJoin(true)
       } else {
-         dispatch(joinToCourseAndCreateChatThunkCreator(idCourse, currentCourse?.teacher.id, userId))
-         toast.success("Succeed. You were joined to the course")
-         setErrorJoin(true)
+         if(idCourse){
+            joinToCourseAndCreateChatThunkCreator(idCourse, currentCourse?.teacher.id, userId)(dispatch)
+            toast.success("Succeed. You were joined to the course")
+            setErrorJoin(true)
+         }
+
+
       }
    }
 
@@ -49,7 +56,7 @@ const CourseSection = () => {
                      <p>{currentCourse?.course.description}</p>
                   </div>
                   <div className={style.topics}>
-                     {currentCourse?.course.subjects.map((topic, index) => <ShowTopicCourse curIndex={currentTopic}
+                     {currentCourse?.course.subjects.map((topic : ICourseSubject, index : number) => <ShowTopicCourse curIndex={currentTopic}
                                                                                             key={index}
                                                                                             topic={topic}
                                                                                             currentTopicIndex={index}
