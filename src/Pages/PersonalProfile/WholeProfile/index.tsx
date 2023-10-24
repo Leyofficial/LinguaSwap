@@ -8,7 +8,7 @@ import List from "../../../Utility/List/List.tsx";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
-import {IUserOutside} from "../../../types/userTypes.ts";
+import {IUserInfo, IUserOutside} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
@@ -19,7 +19,7 @@ import {Toaster} from "react-hot-toast";
 
 
 function WholeProfile({user, isMine}: IUserOutside) {
-    const currentUser = useTypedSelector((state) => state.loginUser[0])
+    const currentUser: IUserInfo[] = useTypedSelector((state) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [avatar, setUserAvatar] = useState("")
