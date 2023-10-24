@@ -8,7 +8,7 @@ import TeacherRegister from "../Components/TeacherRegister/TeacherRegister.jsx";
 import CreateProfile from "../Pages/CreateProfilePage/index.tsx";
 import TeachersSection from "../Pages/TeachersSection/index.tsx";
 import CourseSection from "../Pages/CourseSection/CourseSection.tsx";
-import CourseChat from "../Pages/CourseChat/CourseChat.jsx";
+import CourseChat from "../Pages/CourseChat/CourseChat.tsx";
 import Create from "../Pages/CoursesSection/Create/Create.tsx";
 import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import MainChat from "../Pages/Chat/MainChat.jsx";

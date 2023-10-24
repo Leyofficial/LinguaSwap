@@ -3,7 +3,7 @@ import {format} from "date-fns";
 import {es} from "date-fns/locale";
 
 
-export const getInterlocutor = (currentUserId,dialog,callback) => {
+export const getInterlocutor = (currentUserId : string,dialog : any,callback:any ) => {
 
   if (currentUserId && currentUserId !== dialog?.members?.first) {
     getUser(dialog?.members?.first).then(res => {
@@ -22,10 +22,10 @@ export const getInterlocutor = (currentUserId,dialog,callback) => {
   }
 }
 
-export  const groupedChatMessage = (chat) => {
+export  const groupedChatMessage = (chat:any) => {
   let data = null
 
-  chat?.reduce((acc, message) => {
+  chat?.reduce((acc:any, message:any) => {
     const newDate = new Date(message.date)
     const date = format(newDate, 'd MMMM', {locale: es});
     if (!acc[date]) {
@@ -38,12 +38,12 @@ export  const groupedChatMessage = (chat) => {
   return data
 }
 
-export const getDateMessage = (date) => {
+export const getDateMessage = (date:any) => {
   const newDate = new Date(date)
   const time = newDate.getHours()
   const minutes = newDate.getMinutes()
 
-  return `${!time >= 10 ? "0" + time : time} : ${minutes < 10 ? "0" + minutes : minutes}`
+  return `${time <= 10 ? "0" + time : time} : ${minutes < 10 ? "0" + minutes : minutes}`
 
 }
 

@@ -2,13 +2,13 @@ import React, {useEffect, useRef, useState} from 'react';
 import style from './MessagesSection.module.scss'
 import {useParams} from "react-router";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
-import {getInterlocutor, groupedChatMessage} from "../MainChatHelper/MainChatHelper.js";
+import {getInterlocutor, groupedChatMessage} from "../MainChatHelper/MainChatHelper.ts";
 import {useDispatch, useSelector} from "react-redux";
 import Message from "./Message/Message.jsx";
 import {getChatsThunkCreator} from "../../../Redux/MainChats/mainChatsReducer.js";
 import {submitMessageHandlerThunkCreator} from "../../../Redux/MainChat/mainChatReducer.js";
 import ChatTextarea from "./ChatTextarea/ChatTextarea.jsx";
-import OnlineStatus from "../../CourseChat/OnlineStatus/OnlineStatus.jsx";
+import OnlineStatus from "../../CourseChat/OnlineStatus/OnlineStatus.tsx";
 
 const MessagesSection = () => {
    const {idChat} = useParams()

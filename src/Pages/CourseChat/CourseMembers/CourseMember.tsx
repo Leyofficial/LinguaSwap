@@ -1,11 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import style from './CourseMembers.module.scss'
-import OnlineStatus from "../OnlineStatus/OnlineStatus.jsx";
+import OnlineStatus from "../OnlineStatus/OnlineStatus.js";
+import {IUser} from "../courseChatTypes.ts";
 
-
-const CourseMember = ({member, idCourse}) => {
-  const [dataMember, setDataMember] = useState(null)
+interface ICourseMemberProps{
+  member:string,
+  idCourse:string | undefined
+}
+const CourseMember = (props:ICourseMemberProps) => {
+  const {member, idCourse} = props
+  const [dataMember, setDataMember] = useState<IUser | null>(null)
 
   useEffect(() => {
     getUser(member).then(res => {

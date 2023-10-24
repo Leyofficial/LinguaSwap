@@ -1,10 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import style from './CourseTeachers.module.scss'
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
-import OnlineStatus from "../OnlineStatus/OnlineStatus.jsx";
+import OnlineStatus from "../OnlineStatus/OnlineStatus.tsx";
+import {IUser} from "../courseChatTypes.ts";
 
-const CourseTeachers = ({teacherId, idCourse}) => {
-  const [teacher, setTeacher] = useState(null)
+interface ICourseTeachersProps{
+    teacherId:string,
+    idCourse:string | undefined
+}
+const CourseTeachers = (props:ICourseTeachersProps) => {
+    const {idCourse,teacherId} = props
+  const [teacher, setTeacher] = useState<IUser | null>(null)
 
   useEffect(() => {
     if (teacherId)

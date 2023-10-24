@@ -3,9 +3,15 @@ import Avatar from "@mui/material/Avatar";
 import style from './OnlineStatus.module.scss'
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.ts";
 import {StyledBadge, StyledBadgeOffline} from "../../../Utility/StyleForOnlineStatus/styleForOnlineStatus.js";
+import {IUser} from "../courseChatTypes.ts";
 
-
-const OnlineStatus = ({isOnline,teacher,noImage}) => {
+interface IOnlineStatusProps{
+   isOnline:boolean | undefined,
+   teacher:IUser | null,
+   noImage?:boolean
+}
+const OnlineStatus = (props:IOnlineStatusProps) => {
+   const {isOnline,teacher,noImage} = props
 
    const [avatar,setAvatar] = useState('')
 

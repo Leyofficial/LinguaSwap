@@ -1,11 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import style from './Message.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
-import {getDateMessage} from "../../../Chat/MainChatHelper/MainChatHelper.js";
+import {getDateMessage} from "../../../Chat/MainChatHelper/MainChatHelper.ts";
+import {IMessage} from "../MessagesSection.tsx";
+import {IUser} from "../../courseChatTypes.ts";
 
-
-const Message = ({messageData, index, isMyMessage, author}) => {
-   const [msgAuthor, setMsgAuthor] = useState(null)
+interface IMessageProps{
+   messageData:IMessage,
+   index:number,
+   isMyMessage:boolean,
+   author:string
+}
+const Message = (props:IMessageProps) => {
+   const {messageData, index, isMyMessage, author} = props
+   const [msgAuthor, setMsgAuthor] = useState<IUser | null>(null)
 
    useEffect(() => {
       if (author) {
