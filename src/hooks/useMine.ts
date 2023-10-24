@@ -3,7 +3,7 @@ import {IUserInfo} from "../types/userTypes.ts";
 export interface IUseMine {
     _id: string | undefined;
     callback: (b: boolean) => void;
-    currentUser : IUserInfo
+    currentUser : IUserInfo | any
 }
 
 export function useMine({ _id , callback , currentUser }: IUseMine) {

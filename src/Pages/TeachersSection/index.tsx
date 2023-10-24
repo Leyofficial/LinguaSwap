@@ -24,7 +24,7 @@ const TeachersSection = () => {
     const [foundTeacher, setFoundTeacher] = useState<IUserInfo[] | null>()
     const [loadTeacher, setLoadTeacher] = useState<boolean>(false)
     const dispatch = useDispatch()
-    const teachers = useTypedSelector((state) => state.teachers);
+    const teachers : any[] = useTypedSelector((state) => state.teachers);
 
 
     useEffect(() => {

@@ -21,7 +21,7 @@ export interface IUserInfo {
 
 export interface IUserOutside {
     isMine? : boolean
-    user: IUserInfo
+    user: IUserInfo | IUserInfo[] | any
 }
 
 export interface IUserWrapperInfo {

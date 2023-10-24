@@ -19,7 +19,7 @@ import {Toaster} from "react-hot-toast";
 
 
 function WholeProfile({user, isMine}: IUserOutside) {
-    const currentUser = useTypedSelector((state) => state.loginUser)
+    const currentUser = useTypedSelector((state) => state.loginUser[0])
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [avatar, setUserAvatar] = useState("")

@@ -63,7 +63,7 @@
     top: 0;
     right: 105px;
     bottom: 0;
-    font-family: SansSerif;
+    font-family: SansSerif, serif;
     font-size: 100px;
     color: dodgerblue;
 }
@@ -72,6 +72,14 @@
 }
 .checkbox {
     margin-top: 24px;
+}
+.invalidInput {
+    border: 1px solid red;
+}
+
+.warning {
+    color:  dodgerblue;
+    margin: 10px 0;
 }
 
 @media (max-width: '770px') {
