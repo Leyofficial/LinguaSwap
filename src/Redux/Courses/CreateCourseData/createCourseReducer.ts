@@ -8,7 +8,7 @@ import {deletePhotoAC} from "../../Profile/Photo/setPhotoAC.ts";
 import {TCreateActions} from "./ICreateCourse.ts";
 import {Dispatch} from "redux";
 import {ICoursesCreateTypes, ICoursesWrapper} from "../../../types/coursesCreateTypes.ts";
-interface ICreateCourse {
+export interface ICreateCourse {
    data : ICoursesCreateTypes,
    setSucceed : (a : boolean) => void,
    navigate : (s: string) => any,

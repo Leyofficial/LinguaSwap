@@ -9,7 +9,7 @@ export interface ICoursesCreateTypes {
         finishCourse:string,
         durationCourse: string,
         members: any[],
-        image: string,
+        image:  string,
         subjects: string,
         level: string,
         language: string,
