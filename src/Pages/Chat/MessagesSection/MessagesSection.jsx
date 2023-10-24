@@ -8,77 +8,61 @@ import {getInterlocutor} from "../MainChatHelper/MainChatHelper.js";
 import {useDispatch, useSelector} from "react-redux";
 import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/OnlineStatus/OnlineStatus.jsx";
 import Message from "./Message/Message.jsx";
-import {addChatMessage} from "../../../Redux/ChatWithTeacher/ChatMessages/chatMessagesAC.js";
 import {getChatsThunkCreator} from "../../../Redux/MainChats/mainChatsReducer.js";
 import {format} from "date-fns";
 import {es} from "date-fns/locale";
+import {submitMessageHandlerThunkCreator} from "../../../Redux/MainChat/mainChatReducer.js";
 
 const MessagesSection = () => {
    const {idChat} = useParams()
    const [chat, setChat] = useState(null)
    const [valueTextarea, setValueTextarea] = useState("")
    const [interlocutor, setInterlocutor] = useState(null)
+   const [waitResponse, setWaitResponse] = useState(false)
    const currentUser = useSelector((state) => state.loginUser)
-   const dispatch = useDispatch()
    const newSocket = useSelector((state) => state.socket)
+
+   const dispatch = useDispatch()
    const scroll = useRef()
-   const [waitResponse,setWaitResponse] = useState(false)
+
    useEffect(() => {
       if (idChat) {
          mainChatRequests.getChatById(idChat).then(res => {
+
             if (res.status === 200) {
                setChat(res.data.foundChat)
-
                getInterlocutor(currentUser?._id, res.data.foundChat, setInterlocutor)
             }
          })
-
       }
-
    }, [idChat])
 
 
    const addMessageItemToChat = () => {
-
       const itemData = {
          message: valueTextarea,
          author: currentUser?._id,
       }
       if (valueTextarea && !waitResponse) {
-         setWaitResponse(true)
-         mainChatRequests.addMessageItem(chat._id, itemData).then(res => {
-            if (res.status === 200) {
-               newSocket.emit("privateMessage", chat._id)
-               dispatch(getChatsThunkCreator(currentUser?._id))
-               setWaitResponse(false)
-               mainChatRequests.getChatById(idChat).then(res => {
-                  if (res.status === 200) {
-                     setChat(res.data.foundChat)
-                  }
-               })
-               setValueTextarea("")
-            }
-         }).catch(err => {
-            setWaitResponse(false)
-         })
-      }else{
+         dispatch(submitMessageHandlerThunkCreator(setWaitResponse, chat, itemData, newSocket, currentUser, idChat, setChat, setValueTextarea))
+      } else {
          console.log('pls,wait for response')
       }
    }
 
    useEffect(() => {
-      if(newSocket)
-      newSocket.on("privateResponse", (id) => {
+      if (newSocket)
+         newSocket.on("privateResponse", (id) => {
 
-         mainChatRequests.getChatById(id).then(res => {
+            mainChatRequests.getChatById(id).then(res => {
 
-            dispatch(getChatsThunkCreator(currentUser?._id))
-            if (res.status === 200) {
-               setChat(res.data.foundChat)
-            }
+               dispatch(getChatsThunkCreator(currentUser?._id))
+               if (res.status === 200) {
+                  setChat(res.data.foundChat)
+               }
+            })
+
          })
-
-      })
    }, [newSocket])
 
 
@@ -94,7 +78,7 @@ const MessagesSection = () => {
       }, {});
 
    useEffect(() => {
-      if(newSocket){
+      if (newSocket) {
          newSocket.on("onlineUsers", () => {
             getInterlocutor(currentUser?._id, chat, setInterlocutor)
 
@@ -133,7 +117,8 @@ const MessagesSection = () => {
                             onChange={(e) => setValueTextarea(e.target.value)}></textarea>
                </div>
                <div className={style.icons}>
-                  <LuSend  onClick={() => addMessageItemToChat()} fontSize={40} color={valueTextarea ? 'rgba(12,87,197,0.98)' : 'rgba(12,87,197,0.12)'}></LuSend>
+                  <LuSend onClick={() => addMessageItemToChat()} fontSize={40}
+                          color={valueTextarea ? 'rgba(12,87,197,0.98)' : 'rgba(12,87,197,0.12)'}></LuSend>
                </div>
 
             </section>

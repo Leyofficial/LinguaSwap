@@ -1,6 +1,7 @@
 import {initialState} from "../initialState.ts";
 import {mainChatRequests} from "../../ApiRequests/MainChat/MainChat.js";
 import {getMainChat} from "./mainChatAC.js";
+import {getChatsThunkCreator} from "../MainChats/mainChatsReducer.js";
 
 export const GET_MAIN_CHAT = "GET_MAIN_CHAT"
 export const mainChatReducer = (chat = initialState.mainChat, action) => {
@@ -12,12 +13,12 @@ export const mainChatReducer = (chat = initialState.mainChat, action) => {
    }
 }
 export const getChatThunkCreate = (currentUserId, choseUserId, navigate) => {
-console.log(choseUserId)
-   console.log(currentUserId)
+
+
    return async (dispatch) => {
       try {
          const response = await mainChatRequests.getChat(currentUserId, choseUserId)
-         console.log(response)
+
          if (response.status === 200) {
             dispatch(getMainChat(response.data.foundChat))
             navigate(`/chat/chat/${choseUserId}`)
@@ -36,11 +37,35 @@ console.log(choseUserId)
 
 export const createChatThunkCreator = (currentUserId, choseUserId) => {
 
-   return async (dispatch) => {
+   return async () => {
       try {
-         const response = await mainChatRequests.createChat(currentUserId, choseUserId)
-         console.log(response)
+        return await mainChatRequests.createChat(currentUserId, choseUserId)
+
       } catch (err) {
+         console.log(err)
+      }
+   }
+}
+export const submitMessageHandlerThunkCreator = (waitForRes,chat,itemData,socket,currentUser,idChat,setChat,resetTextarea) => {
+   return async  (dispatch) => {
+      try{
+         waitForRes(true)
+         const responseChat = await mainChatRequests.addMessageItem(chat._id, itemData)
+
+         if(responseChat.status === 200){
+            socket.emit("privateMessage", chat._id)
+            dispatch(getChatsThunkCreator(currentUser?._id))
+            resetTextarea("")
+            waitForRes(false)
+            const getChatResponse = await mainChatRequests.getChatById(idChat)
+            if(getChatResponse.status === 200) {
+               setChat(getChatResponse.data.foundChat)
+            }
+
+         }
+
+      }catch (err) {
+         waitForRes(false)
          console.log(err)
       }
    }

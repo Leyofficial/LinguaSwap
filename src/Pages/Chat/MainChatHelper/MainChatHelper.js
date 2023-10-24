@@ -1,4 +1,6 @@
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
+import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
+import {getChatsThunkCreator} from "../../../Redux/MainChats/mainChatsReducer.js";
 
 export const getInterlocutor = (currentUserId,dialog,callback) => {
 
@@ -18,3 +20,22 @@ export const getInterlocutor = (currentUserId,dialog,callback) => {
     })
   }
 }
+
+// export const submitMessageHandler = (newSocket,currentUser,itemData,chat,setWaitResponse) => {
+//   setWaitResponse(true)
+//   mainChatRequests.addMessageItem(chat._id, itemData).then(res => {
+//     if (res.status === 200) {
+//       newSocket.emit("privateMessage", chat._id)
+//       dispatch(getChatsThunkCreator(currentUser?._id))
+//       setWaitResponse(false)
+//       mainChatRequests.getChatById(idChat).then(res => {
+//         if (res.status === 200) {
+//           setChat(res.data.foundChat)
+//         }
+//       })
+//       setValueTextarea("")
+//     }
+//   }).catch(err => {
+//     setWaitResponse(false)
+//   })
+// }
