@@ -13,7 +13,7 @@ const MainChat = () => {
   const dispatch = useDispatch()
   const mainChats = useSelector((state) => state.mainChats)
   const [foundUsers, setFoundUsers] = useState(null)
-  const [foundChats, setFoundChats] = useState([])
+
 
   useEffect(() => {
     if (currentUser)
