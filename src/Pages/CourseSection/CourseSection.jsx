@@ -50,6 +50,7 @@ const CourseSection = () => {
                   </div>
                   <div className={style.topics}>
                      {currentCourse?.course.subjects.map((topic, index) => <ShowTopicCourse curIndex={currentTopic}
+                                                                                            key={index}
                                                                                             topic={topic}
                                                                                             currentTopicIndex={index}
                                                                                             changeTopic={setCurrentTopic}></ShowTopicCourse>)}

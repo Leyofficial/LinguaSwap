@@ -86,7 +86,7 @@ const MessagesSection = () => {
          </header>
          <main>
             {interlocutor ? <section className={style.messages}>
-               {groupedMessage && Object?.entries(groupedMessage).map(([date, message]) => <div
+               {groupedMessage && Object?.entries(groupedMessage).map(([date, message],index) => <div key={index}
                   className={style.wrapperMessages}>
                   <h3>{date}</h3>
                   {message?.map((item, index) => <Message scroll={scroll} key={index} messages={item}></Message>)}

@@ -18,7 +18,7 @@ const CourseChats = () => {
   return (
     <>
       <div className={style.courseItems}>
-        {courses && courses.map((course) => <SingleCourseChat setCourses={setCourses}  course={course}></SingleCourseChat>)}
+        {courses && courses.map((course,index) => <SingleCourseChat key={index} setCourses={setCourses}  course={course}></SingleCourseChat>)}
       </div>
     </>
   );

@@ -19,7 +19,7 @@ const Messages = ({messages, scroll}) => {
                      <div ref={scroll}
                           className={currentUser?._id === message.author ? style.myMessage : style.message}>
                         <div className={style.messageItems}>
-                           <Message author={message.author} isMyMessage={currentUser?._id === message.author}
+                           <Message key={index} author={message.author} isMyMessage={currentUser?._id === message.author}
                                     messageData={message} index={index}></Message>
                         </div>
 

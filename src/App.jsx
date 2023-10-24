@@ -20,8 +20,6 @@ import {loginUserAC} from "./Redux/login/loginUserAC.ts";
 import ChooseTypeOfChat from "./Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import socketIO from 'socket.io-client'
 import {webSocketAC} from "./Redux/WebSocket/webSocketReducer.js";
-import {addOnlineUserAC, removeUserAC} from "./Redux/OnlineUsers/onlineUsersAC.js";
-import {onlineUsers} from "./ApiRequests/OnlineUsers/onlineUsers.js";
 import MainChat from "./Pages/Chat/MainChat.jsx";
 import MessagesSection from "./Pages/Chat/MessagesSection/MessagesSection.jsx";
 import Create from "./Pages/CoursesSection/Create/Create.jsx";

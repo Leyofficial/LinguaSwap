@@ -30,7 +30,7 @@ const MainChat = () => {
           </section>
 
           <div className={style.containerDialogs}>
-            {mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser}
+            {mainChats?.map((dialog ,index)=> <ChatSingleMessage key={index} currentUser={currentUser}
                                                          dialog={dialog}></ChatSingleMessage>)}
           </div>
         </aside>
