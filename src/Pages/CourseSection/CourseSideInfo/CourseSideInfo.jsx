@@ -9,8 +9,6 @@ import AvatarGroupSection from "../../CoursesSection/CoursesBlock/AvatarGroup/Av
 import SideItem from "./SideItem/SideItem.jsx";
 
 const CourseSideInfo = ({currentCourse}) => {
-
-
    return (
       <div className={style.wrapperSideInfo}>
          <SideItem title={currentCourse?.course.language} path={countryFlag(currentCourse?.course.language)}></SideItem>

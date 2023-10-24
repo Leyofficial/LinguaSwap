@@ -36,7 +36,6 @@ const CoursesSection = () => {
     dispatch(getCoursesThunkCreator(setLoadCourses))
   }, [])
 
-
   const searchCoursesItem = () => courses.filter(item => item.course.name.toLowerCase().includes(searchValue.toLowerCase()))
 
   useEffect(() => {

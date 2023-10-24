@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import style from './CourseMembers.module.scss'
-import {useSelector} from "react-redux";
-import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/OnlineStatus/OnlineStatus.jsx";
+import OnlineStatus from "../OnlineStatus/OnlineStatus.jsx";
+
 
 const CourseMember = ({member, idCourse}) => {
   const [dataMember, setDataMember] = useState(null)
@@ -11,7 +11,6 @@ const CourseMember = ({member, idCourse}) => {
     getUser(member).then(res => {
 
       if (res.status === 200) {
-
         setDataMember(res.data.user)
       }
     })

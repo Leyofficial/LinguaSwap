@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import style from './CourseChat.module.scss'
 import {useDispatch, useSelector} from "react-redux";
-import {addSocketMessage} from "../../Redux/Course/Chat/CourseChatAC.js";
 import {HiUserGroup} from "react-icons/hi";
 import {FaChalkboardTeacher} from "react-icons/fa";
 import {BsInfoCircle} from "react-icons/bs";
@@ -9,11 +8,12 @@ import CourseTeachers from "./CourseTeacher/CourseTeachers.jsx";
 import CourseMember from "./CourseMembers/CourseMember.jsx";
 import {useParams} from "react-router";
 import {GiImbricatedArrows} from "react-icons/gi";
-import MessagesSection from "./Members/MemberChat/Dialog/MessagesSection/MessagesSection.jsx";
 import {getChatThunkCreator, sendMessageThunkCreator} from "../../Redux/Course/Chat/CourseChatReducer.js";
 import {getCurrentCourseForChatThunkCreator} from "../../Redux/Course/Chat/currentCourseChatReducer.js";
 import AsideInfo from "./AsideInfo/AsideInfo.jsx";
 import {resetCurrentCourseChat} from "../../Redux/Course/Chat/currentCourseChat.js";
+import CourseInfo from "./CourseInfo/CourseInfo.jsx";
+import MessagesSection from "./MessagesSection/MessagesSection.jsx";
 
 
 const CourseChat = () => {
@@ -48,12 +48,10 @@ const CourseChat = () => {
       author: currentUser._id,
       date: new Date()
     }
+
     if (message && socket) {
-
-
       dispatch(sendMessageThunkCreator(messageData, chat._id, idCourse,waitResponseCallback))
       socket.emit("courseMsg",idCourse)
-
     } else {
       console.log("Write some text pls ")
     }
@@ -64,13 +62,10 @@ const CourseChat = () => {
     if (socket) {
       socket.on("courseMsgResponse", (idCourse) => {
         if (idCourse) {
-          // dispatch(addSocketMessage(data))
           dispatch(getChatThunkCreator(idCourse))
         }
-
       })
     }
-
   }, [socket])
 
 
@@ -91,7 +86,6 @@ const CourseChat = () => {
         <MessagesSection idCourse={idCourse} title={"course chat"} name={course?.course.name} messages={chat?.messages}
                          sendMessageHandler={sendMessageHandler} scroll={scroll}
         ></MessagesSection>
-
         <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
           <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
                onClick={() => setHideInfoBlock(!hideInfoBlock)}>
@@ -112,13 +106,7 @@ const CourseChat = () => {
                     {course?.course.members.map((member, index) => <CourseMember index={index} idCourse={idCourse}
                                                                                         member={member}></CourseMember>)}
                   </div>
-                </div> : <div className={style.memberItems}>
-                  <h3>INFO</h3>
-                  <div className={style.items}>
-                    <div>Will be develop in the future</div>
-                  </div>
-                </div>
-              }
+                </div> : <CourseInfo></CourseInfo>}
             </article>
           </div>
         </div>

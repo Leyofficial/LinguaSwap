@@ -4,11 +4,11 @@ import {useParams} from "react-router";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {getInterlocutor, groupedChatMessage} from "../MainChatHelper/MainChatHelper.js";
 import {useDispatch, useSelector} from "react-redux";
-import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/OnlineStatus/OnlineStatus.jsx";
 import Message from "./Message/Message.jsx";
 import {getChatsThunkCreator} from "../../../Redux/MainChats/mainChatsReducer.js";
 import {submitMessageHandlerThunkCreator} from "../../../Redux/MainChat/mainChatReducer.js";
 import ChatTextarea from "./ChatTextarea/ChatTextarea.jsx";
+import OnlineStatus from "../../CourseChat/OnlineStatus/OnlineStatus.jsx";
 
 const MessagesSection = () => {
    const {idChat} = useParams()
@@ -59,7 +59,7 @@ const MessagesSection = () => {
          })
    }, [newSocket])
 
-   const groupedMessage=  groupedChatMessage(chat)
+   const groupedMessage=  groupedChatMessage(chat?.messages)
 
    useEffect(() => {
       if (newSocket) {

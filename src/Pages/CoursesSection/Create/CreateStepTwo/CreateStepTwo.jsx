@@ -9,15 +9,15 @@ import {
 import CreateTooltip from "../CreateTooltip/CreateTooltip.jsx";
 import CourseInput from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseInput/CourseInput.jsx";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
-import toast, {Toaster} from "react-hot-toast";
+import {Toaster} from "react-hot-toast";
 import SelectorSection from "./SelectorSection/SelectorSection.jsx";
+import {validationFields} from "./ValidationFields/validationFields.js";
 
 const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) => {
 
    const [error, setError] = useState(false)
    const createCourseData = useSelector((state) => state.createCourseData)
    const dispatch = useDispatch()
-
    const changeStartDate = (start) => {
       dispatch(getStartDateAC(start))
    }
@@ -29,34 +29,14 @@ const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) =>
    }
 
    const clickHandler = () => {
-      if (!createCourseData.level) {
-         toast.error("Level of course must be in");
-         setError(true)
-      } else if (!createCourseData.duration) {
-         setError(true)
-         toast.error("Duration of lesson must be in");
-      } else if (!createCourseData.language) {
-         setError(true)
-         toast.error("Language of course must be in");
-      } else if (!createCourseData.startDate) {
-         setError(true)
-         toast.error("Start date of course must be in");
-      } else if (!createCourseData.finishDate) {
-         setError(true)
-         toast.error("Finish date of course must be in");
-      } else {
-         moveStepCallback(currentStep)
-      }
-
+      validationFields(createCourseData,moveStepCallback,currentStep,setError)
    }
    return (
       <article className={style.container}>
          <section className={style.wrapeprSelects}>
             {error ? <Toaster position="top-right" reverseOrder={false}/> : null}
             <SelectorSection></SelectorSection>
-
             <div className={style.data}>
-
                <div className={style.wrapperData}>
                   <CourseInput type={'date'} name={'Start course'} value={createCourseData.startDate}
                                callback={changeStartDate}></CourseInput>

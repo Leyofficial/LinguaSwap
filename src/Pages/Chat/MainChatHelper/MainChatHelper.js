@@ -25,7 +25,7 @@ export const getInterlocutor = (currentUserId,dialog,callback) => {
 export  const groupedChatMessage = (chat) => {
   let data = null
 
-  chat?.messages?.reduce((acc, message) => {
+  chat?.reduce((acc, message) => {
     const newDate = new Date(message.date)
     const date = format(newDate, 'd MMMM', {locale: es});
     if (!acc[date]) {

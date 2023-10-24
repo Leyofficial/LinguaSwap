@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import style from './CourseTeachers.module.scss'
-import OnlineStatus from "../../ChooseTypeOfChat/TeacherChats/FindTeacher/OnlineStatus/OnlineStatus.jsx";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
+import OnlineStatus from "../OnlineStatus/OnlineStatus.jsx";
 
 const CourseTeachers = ({teacherId, idCourse}) => {
   const [teacher, setTeacher] = useState(null)

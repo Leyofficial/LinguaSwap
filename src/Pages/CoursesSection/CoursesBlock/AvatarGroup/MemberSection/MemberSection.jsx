@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Avatar} from "antd";
 import Member from "./Member/Member.jsx";
 
