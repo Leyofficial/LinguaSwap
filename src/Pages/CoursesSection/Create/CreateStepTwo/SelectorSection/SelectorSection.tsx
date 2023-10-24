@@ -7,19 +7,20 @@ import {
    getLanguageAC,
    getLevelAC
 } from "../../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {durationList, languagesList, levelList} from "../../../../../Utility/CreateCourseLists/createCourseLists.js";
+import {useTypedSelector} from "../../../../../hooks/useTypedSelector.ts";
 
 const SelectorSection = () => {
    const dispatch = useDispatch()
-   const createCourseData = useSelector((state) => state.createCourseData)
-   const changeLanguage = (language) => {
+   const createCourseData = useTypedSelector((state) => state.createCourseData)
+   const changeLanguage = (language:string) => {
       dispatch(getLanguageAC(language))
    }
-   const changeLevel = (level) => {
+   const changeLevel = (level:string) => {
       dispatch(getLevelAC(level))
    }
-   const changeDuration = (duration) => {
+   const changeDuration = (duration:string) => {
       dispatch(getDurationAC(duration))
    }
 

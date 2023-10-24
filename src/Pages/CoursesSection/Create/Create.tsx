@@ -1,21 +1,21 @@
 import React, {useState} from 'react';
 import style from './Create.module.scss'
 import Points from "../../../Utility/Points/index.jsx";
-import CreateStepOne from "./CreateStepOne/CreateStepOne.jsx";
-import CreateStepTwo from "./CreateStepTwo/CreateStepTwo.jsx";
-import CreateStepThird from "./CreateStepThird/CreateStepThird.jsx";
+import CreateStepOne from "./CreateStepOne/CreateStepOne.js";
+import CreateStepTwo from "./CreateStepTwo/CreateStepTwo.js";
+import CreateStepThird from "./CreateStepThird/CreateStepThird.js";
 
 const Create = () => {
    const [currentStep, setCurrentStep] = useState(1)
-   const [photoCourse, setPhotoCourse] = useState(null)
+   const [photoCourse, setPhotoCourse] = useState("")
 
-   const moveStep = (currentStep) => {
+   const moveStep = (currentStep : number) => {
       if (currentStep < 3) {
          setCurrentStep(currentStep + 1)
       }
    }
 
-   const moveStepBack = (currentStep) => {
+   const moveStepBack = (currentStep : number) => {
       if (currentStep > 1) {
          setCurrentStep(currentStep - 1)
       }

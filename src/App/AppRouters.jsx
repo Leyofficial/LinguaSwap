@@ -1,7 +1,7 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import {useSelector} from "react-redux";
-import CoursesSection from "../Pages/CoursesSection/CoursesSection.jsx";
+import CoursesSection from "../Pages/CoursesSection/CoursesSection.tsx";
 import HomePage from "../Pages/HomePage/HomePage.jsx";
 import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.jsx";
 import TeacherRegister from "../Components/TeacherRegister/TeacherRegister.jsx";
@@ -9,7 +9,7 @@ import CreateProfile from "../Pages/CreateProfilePage/index.tsx";
 import TeachersSection from "../Pages/TeachersSection/index.tsx";
 import CourseSection from "../Pages/CourseSection/CourseSection.jsx";
 import CourseChat from "../Pages/CourseChat/CourseChat.jsx";
-import Create from "../Pages/CoursesSection/Create/Create.jsx";
+import Create from "../Pages/CoursesSection/Create/Create.tsx";
 import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
 import MainChat from "../Pages/Chat/MainChat.jsx";
 import MessagesSection from "../Pages/Chat/MessagesSection/MessagesSection.jsx";

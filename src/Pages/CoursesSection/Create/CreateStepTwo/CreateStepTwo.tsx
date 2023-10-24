@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import style from './CreateStepTwo.module.scss'
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {
    getDescriptionAC,
    getFinishDateAC,
@@ -10,26 +10,34 @@ import CreateTooltip from "../CreateTooltip/CreateTooltip.jsx";
 import CourseInput from "../../CoursesBlock/CreateCourse/ModalCreateCourse/CourseInput/CourseInput.jsx";
 import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
 import {Toaster} from "react-hot-toast";
-import SelectorSection from "./SelectorSection/SelectorSection.jsx";
+import SelectorSection from "./SelectorSection/SelectorSection.js";
 import {validationFields} from "./ValidationFields/validationFields.js";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
+import {ICreateTypesProps} from "../createTypes.ts";
 
-const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) => {
+const CreateStepTwo = (props : ICreateTypesProps) => {
+   const {moveStepCallback, currentStep, moveStepBackCallback} = props
 
    const [error, setError] = useState(false)
-   const createCourseData = useSelector((state) => state.createCourseData)
+   const createCourseData = useTypedSelector((state) => state.createCourseData)
    const dispatch = useDispatch()
-   const changeStartDate = (start) => {
+   const changeStartDate = (start : string) => {
       dispatch(getStartDateAC(start))
    }
-   const changeFinishDate = (finish) => {
+   const changeFinishDate = (finish : string) => {
       dispatch(getFinishDateAC(finish))
    }
-   const changeDescription = (e) => {
-      dispatch(getDescriptionAC(e.target.value))
+   const changeDescription = (event:React.ChangeEvent<HTMLTextAreaElement>) => {
+      dispatch(getDescriptionAC(event.target.value))
    }
 
    const clickHandler = () => {
       validationFields(createCourseData,moveStepCallback,currentStep,setError)
+   }
+
+   const handlerMove = () => {
+      if(moveStepBackCallback)
+      moveStepBackCallback(currentStep)
    }
    return (
       <article className={style.container}>
@@ -49,7 +57,7 @@ const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) =>
          <section className={style.description}>
             <label htmlFor={"description"}>Description</label>
             <div className={style.wrapperTextarea}>
-              <textarea name={'description'} value={createCourseData.description} onChange={changeDescription}
+              <textarea name={'description'} value={createCourseData.description} onChange={(event:React.ChangeEvent<HTMLTextAreaElement>) => changeDescription(event)}
                         placeholder={"Enter a description more then 30 worlds." +
                            "Try to explain what students " +
                            "will do in your course and why they need to chose your course"}>
@@ -58,7 +66,7 @@ const CreateStepTwo = ({moveStepCallback, currentStep, moveStepBackCallback}) =>
 
          </section>
          <div className={style.move}>
-            <CustomButton rotateIcon={true} callback={() => moveStepBackCallback(currentStep)}
+            <CustomButton rotateIcon={true} callback={() => handlerMove}
                           title={"Back"}></CustomButton>
             <CustomButton rotateIcon={false} callback={clickHandler} title={"Next"}></CustomButton>
          </div>

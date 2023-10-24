@@ -1,6 +1,14 @@
 import React, {useState} from 'react';
 import style from './TopicDescription.module.scss'
-const TopicDescription = ({topic,index}) => {
+import {ICourseSubject} from "../../../courseType.ts";
+
+interface ITopicProps {
+    topic:ICourseSubject,
+    index:number
+}
+const TopicDescription = (props:ITopicProps) => {
+
+    const {topic,index} = props
    const [openDescription, setOpenDescription] = useState(false)
    return (
       <div className={style.container}>

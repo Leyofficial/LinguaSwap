@@ -1,6 +1,7 @@
 import toast from "react-hot-toast";
+import {ICreateCourseData} from "../../createTypes.ts";
 
-export const validationFields = (createCourseData,callback,currentStep,setError) => {
+export const validationFields = (createCourseData:ICreateCourseData,moveStepCallback:(currentStep:number) => void,currentStep : number,setError:(arg:boolean) => void) => {
    if (!createCourseData.level) {
       toast.error("Level of course must be in");
       setError(true)
@@ -17,6 +18,6 @@ export const validationFields = (createCourseData,callback,currentStep,setError)
       setError(true)
       toast.error("Finish date of course must be in");
    } else {
-      callback(currentStep)
+      moveStepCallback(currentStep)
    }
 }
