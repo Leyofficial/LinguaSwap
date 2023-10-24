@@ -58,7 +58,7 @@ export const getDescriptionAC = (description : string): TCreateActions => {
    }
 }
 
-export const getTopicAC = (topic : unknown[]): TCreateActions => {
+export const getTopicAC = (topic : {topic:String,description:String}): TCreateActions => {
    return {
       type: createCourseActions.SET_TOPICS,
       topic: topic

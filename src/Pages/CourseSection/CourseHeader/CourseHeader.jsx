@@ -14,13 +14,11 @@ const CourseHeader = ({joinHandler, errorJoin}) => {
    const loginUser = useSelector((state) => state.loginUser)
    const currentCourse = useSelector((state) => state.currentCourse)
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
-   const [teacher, setTeacher] = useState(null)
    const [teacherAvatar,setTeacherAvatar] = useState("")
-   console.log(currentCourse)
+
    useEffect(() => {
       getUser(currentCourse.teacher.id).then(res => {
          if(res.status === 200) {
-            setTeacher(res.data.user)
             getImageFromServer(res.data.user.user.data.photo,setTeacherAvatar)
          }
       })
@@ -35,8 +33,6 @@ const CourseHeader = ({joinHandler, errorJoin}) => {
                   <button onClick={() => joinHandler(loginUser._id)}>Join to course</button> : null}
                {errorJoin ? <Toaster position="top-right" reverseOrder={false}/> : null}
             </div>
-
-
             <div className={style.image}>
                <img src={teacherAvatar ? teacherAvatar : memberImage} alt={'members'}/>
                <p>{currentCourse?.teacher.name}</p>

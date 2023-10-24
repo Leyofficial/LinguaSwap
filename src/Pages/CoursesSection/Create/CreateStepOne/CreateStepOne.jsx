@@ -18,7 +18,6 @@ const CreateStepOne = ({moveStepCallback, currentStep, setPhoto}) => {
    const changeTitle = (e) => {
       dispatch(getTitleAC(e.target.value))
    }
-
    const clickHandler = () => {
 
       if (!createCourseData.title) {
@@ -26,12 +25,10 @@ const CreateStepOne = ({moveStepCallback, currentStep, setPhoto}) => {
          toast.error("Title of course must be in");
 
       } else {
-
          const data = new FormData()
          data.append('file', photo)
 
          Course.saveImage(data).then(res => {
-            console.log(res)
             setPhoto(res.data.file.filename)
 
          }).catch(error => {
@@ -42,9 +39,7 @@ const CreateStepOne = ({moveStepCallback, currentStep, setPhoto}) => {
          })
          moveStepCallback(currentStep)
       }
-
    }
-
    return (
       <>
          <section className={style.step}>

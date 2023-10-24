@@ -13,7 +13,7 @@ const MainChat = () => {
   const dispatch = useDispatch()
   const mainChats = useSelector((state) => state.mainChats)
   const [foundUsers, setFoundUsers] = useState(null)
-  const [foundChats, setFoundChats] = useState([])
+
 
   useEffect(() => {
     if (currentUser)
@@ -30,7 +30,7 @@ const MainChat = () => {
           </section>
 
           <div className={style.containerDialogs}>
-            {mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser}
+            {mainChats?.map((dialog ,index)=> <ChatSingleMessage key={index} currentUser={currentUser}
                                                          dialog={dialog}></ChatSingleMessage>)}
           </div>
         </aside>

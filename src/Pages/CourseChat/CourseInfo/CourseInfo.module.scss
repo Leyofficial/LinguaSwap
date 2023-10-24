@@ -1,0 +1,17 @@
+.container {
+  background-color: #f1f1f1;
+  overflow: auto;
+  height: 78.8vh;
+  margin-top: 3vh;
+  h3 {
+    background-color: #1f1d2b;
+    padding: 10px 15px;
+    border: 1px solid rgba(152, 150, 150, 0.42);
+    color: rgba(210, 209, 209, 0.9);
+  }
+
+  .info {
+    padding: 5px 15px;
+    margin: 0 !important;
+  }
+}

@@ -33,7 +33,7 @@ export interface ISetDescription {
 
 export interface ISetTopic {
     type : createCourseActions.SET_TOPICS,
-    topic : unknown[],
+    topic : {topic:String,description:String},
 }
 export interface IResetCourseData {
     type : createCourseActions.RESET_COURSE_DATA

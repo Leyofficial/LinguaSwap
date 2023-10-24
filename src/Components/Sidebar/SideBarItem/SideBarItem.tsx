@@ -5,8 +5,8 @@ import {Avatar} from "@mui/material";
 import React from "react";
 export function SideBarItem ({ name , index , sidebarOpen , path , callback , icon } : ISidebarItem) {
     return (
-        <div className={style.sidebarItemBlock}>
-            <NavLink className={ path === '/login' ? '' : ({isActive}) => isActive ? style.activeSideBarLink : '' } key={index}
+        <div className={style.sidebarItemBlock}  key={index}>
+            <NavLink  className={ path === '/login' ? '' : ({isActive}) => isActive ? style.activeSideBarLink : '' }
                      style={sidebarOpen ? { width: "100%" } : { width: "3rem" }}
                      to={path}
                      onClick={() => callback }>

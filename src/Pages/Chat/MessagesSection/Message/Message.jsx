@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import style from './Message.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 import {useSelector} from "react-redux";
+import {getDateMessage} from "../../MainChatHelper/MainChatHelper.js";
 
 const Message = (props) => {
    const {messages, scroll} = props
@@ -19,12 +20,6 @@ const Message = (props) => {
    }, [messages])
 
 
-   const newDate = new Date(messages?.date)
-   const time = newDate.getHours()
-   const minutes = newDate.getMinutes()
-
-   const formattedDate = `${!time >= 10 ? "0" + time : time} : ${minutes < 10 ? "0" + minutes : minutes}`
-
    return (
       <>
          <article className={style.container} ref={scroll}>
@@ -33,13 +28,10 @@ const Message = (props) => {
                   <p className={style.message}>{messages.message}</p>
                   <div className={style.info}>
                      <p>{currentUser?._id === messages?.author ? "You" : authorMessage?.user.data.name}</p>
-                     <p className={style.time}>{formattedDate}</p>
+                     <p className={style.time}>{getDateMessage(messages?.date)}</p>
                   </div>
                </div>
-
-
             </section>
-
          </article>
       </>
    );

@@ -1,11 +1,9 @@
 import style from './CoursesBlock.module.scss'
-import {dateOfCourse} from "../../../Utility/CoutryFlag/DateOfCourse/dateOfCourse.js";
 import {levelEducation} from "../../../Utility/CoutryFlag/LevelEducation.js";
 import AvatarGroupSection from "./AvatarGroup/AvatarGroup.jsx";
-import {GiClockwork} from "react-icons/gi";
 import {NavLink} from "react-router-dom";
 import HeaderBlock from "./HeaderBlock/HeaderBlock.jsx";
-
+import FooterBlock from "./FooterBlock/FooterBlock.jsx";
 
 const CoursesBlock = ({course}) => {
 
@@ -27,20 +25,7 @@ const CoursesBlock = ({course}) => {
             <p style={levelEducation(course.course.level)}>{course.course.level}</p>
            <p className={style.duration}>{course.course.duration}</p>
           </div>
-
-          <section className={style.wrapperLevel}>
-            <div>
-              <p className={style.startDate}><span className={style.icon}><GiClockwork/>Start</span><span>{course.course.startCourse}</span></p>
-              <p className={style.finishDate}><span className={style.icon}><GiClockwork/>End</span><span>{course.course.finishCourse}</span></p>
-            </div>
-          </section>
-
-          <section className={style.author}>
-            <div>{dateOfCourse(course.course.startCourse) ?
-              <p className={style.start}>Enrol</p> :
-              <p className={style.finish}>Now</p>}</div>
-          </section>
-
+          <FooterBlock course={course}></FooterBlock>
         </section>
       </section>
       </NavLink>

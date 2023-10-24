@@ -42,9 +42,9 @@ function Login () {
         loginUser(obj).then(res => {
             if (res.status === 200) {
                 dispatch(loginUserAC(res.data.user));
-                const socket = io('http://localhost:3000');
-                dispatch(webSocketAC(socket))
-                socket.emit("newUser", res.data.user._id)
+                // const socket = io('http://localhost:3000');
+                // dispatch(webSocketAC(socket))
+                // socket.emit("newUser", res.data.user._id)
                 localStorage.setItem('loginUser', JSON.stringify(res.data.user.token))
                 dispatch(authAC())
                 navigate('/');
