@@ -81,8 +81,27 @@
     color:  dodgerblue;
     margin: 10px 0;
 }
+.btn {
+    transition: .4s linear;
+    border-radius: 5px;
+    padding: 10px 25px;
+    color:  white;
+    background-color: dodgerblue;
+    &:hover {
+        transform: scale(1.08);
+    }
+}
 
-@media (max-width: '770px') {
+.passwordBlock {
+    position: relative;
+}
+.eye {
+    left: 15rem;
+    top: 25px;
+    position: absolute;
+}
+
+@media (max-width: 770px) {
     .superTitle {
         display: none;
     }

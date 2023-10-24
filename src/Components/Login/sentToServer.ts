@@ -19,9 +19,11 @@ export function createInfo(email: string, password: string) {
                 dispatch(loginUserAC(res.data.user));
                 localStorage.setItem('loginUser', JSON.stringify(res.data.user.token));
                 dispatch(authAC());
+            } else if  (res.status === 401) {
+                errorToaster('Account not found or password incorrect!')
             }
         } catch (err) {
-            errorToaster('Something went wrong (check console)');
+            errorToaster('Something went wrong (check console)')
             console.log(err);
         }
     };

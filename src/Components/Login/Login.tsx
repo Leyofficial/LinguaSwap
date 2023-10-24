@@ -9,6 +9,7 @@ import {errorToaster} from "../../Utility/Toaster/Toaster.ts";
 import {SubmitErrorHandler, SubmitHandler, useForm} from "react-hook-form";
 import {Toaster} from "react-hot-toast";
 import {createInfo} from "./sentToServer.ts";
+import {FaEye, FaEyeSlash} from "react-icons/fa";
 
 
 interface IInfo {
@@ -17,7 +18,7 @@ interface IInfo {
 }
 
 function Login() {
-
+    const [showPassword , setShowPassword] = useState<boolean>(false)
     const [checkBox, setCheckBox] = useState<boolean>(false)
     // title, callback, rotateIcon, path = "#"
     const navigate = useNavigate();
@@ -72,22 +73,28 @@ function Login() {
                                         id="email" size={30}/>
                                     <div className={style.warning}>{errors?.email  && <b>{errors?.email.message || 'Error!'}</b>}</div>
                                 </div>
-                                <input
-                                    {...register("password" , {required : 'Input fields are required' , minLength : {
-                                        value : 5,
-                                        message : 'The input field must be more than 5 characters'
-                                        }})}
-                                    className={`${style.input} ${errors.password ? style.invalidInput : ''  } `} type="password" placeholder={'password'}/>
-                                <div className={style.warning}>{errors?.password  && <b>{errors?.password.message || 'Error!'}</b>}</div>
-                                <div className={style.checkbox}>
+                                <div className={style.passwordBlock}>
+                                    <input
+                                        {...register("password" , {required : 'Input fields are required' , minLength : {
+                                                value : 5,
+                                                message : 'The input field must be more than 5 characters'
+                                            }})}
+                                        className={`${style.input} ${errors.password ? style.invalidInput : ''  } `} type={ showPassword ? "text" : "password"} placeholder={'password'}/>
+                                    <div className={style.eye} onClick={() => setShowPassword((prev) => !prev)}>
+                                        {!showPassword ? <FaEyeSlash/> : <FaEye/>}
+                                    </div>
+                                    <div className={style.warning}>{errors?.password  && <b>{errors?.password.message || 'Error!'}</b>}</div>
+
+                                </div>
+                                 <div className={style.checkbox}>
                                     <input id='accept' type="checkbox" onChange={() => setCheckBox((prev => !prev))}
                                            checked={checkBox}/>
                                     <label className={style.label} htmlFor="accept">You agree with private
                                         policy <br/> and your cookie preferences</label>
                                 </div>
                             </div>
-                            <button >
-                                Click
+                            <button className={style.btn} >
+                                Login
                             </button>
 
                         </form>
