@@ -1,4 +1,5 @@
 import {IUserInfo} from "../types/userTypes.ts";
+import {ICreateCourseData} from "../Pages/CoursesSection/Create/createTypes.ts";
 
 export const initialState = {
   isStart: false,

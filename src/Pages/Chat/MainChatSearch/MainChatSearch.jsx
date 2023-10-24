@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import style from './MainChatSearch.module.scss'
-import {getInterlocutor} from "../MainChatHelper/MainChatHelper.js";
+import {getInterlocutor} from "../MainChatHelper/MainChatHelper.ts";
 import {useSelector} from "react-redux";
 
 const MainChatSearch = ({dialogs, setFoundUsers}) => {

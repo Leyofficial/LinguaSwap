@@ -2,10 +2,10 @@ import React, {useEffect, useState} from 'react';
 import style from './ChatSingleMessage.module.scss'
 import {NavLink} from "react-router-dom";
 
-import {getDateMessage, getInterlocutor} from "../MainChatHelper/MainChatHelper.js";
+import {getDateMessage, getInterlocutor} from "../MainChatHelper/MainChatHelper.ts";
 import {useSelector} from "react-redux";
 import {Skeleton} from "@mui/material";
-import OnlineStatus from "../../CourseChat/OnlineStatus/OnlineStatus.jsx";
+import OnlineStatus from "../../CourseChat/OnlineStatus/OnlineStatus.tsx";
 
 
 const ChatSingleMessage = (props) => {

@@ -6,6 +6,7 @@ export interface ICourse {
         members : string[]
         durationCourse : string,
         finishCourse : string,
+        description:string,
         image : string,
         name : string,
         startCourse : string,
@@ -20,7 +21,7 @@ export interface ICourse {
     }
 }
 
-interface ISubjects {
+export interface ISubjects {
     _id : string,
     topic : string,
     description : string

@@ -19,7 +19,8 @@ const coursesReducer = (courses = initialState.courses, action : TCoursesActions
    }
 }
 export default coursesReducer
-export const filterCourseThunkCreator = (language : TLanguagesItems , enrolment : TEnrolmentType) => {
+export const filterCourseThunkCreator = (language : string , enrolment : string) => {
+
    return async (dispatch  : Dispatch ) => {
       try {
          let coursesResponse = await Course.getCourses()
