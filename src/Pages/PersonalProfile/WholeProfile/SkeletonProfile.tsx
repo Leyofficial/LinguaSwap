@@ -66,12 +66,6 @@ function SkeletonProfile ({user} : IUserOutside) {
                         <Skeleton variant="rectangular" width={50} height={30} />
                     </div>}></List>
                 </div>
-                <p className={style.languagesTitle}>Languages learn :</p>
-                <div className={style.languagesBlock}>
-                    <List items={user?.user.data?.languagesLearn} rerender={(item : ILanguagesTypes) => <div key={item.label}>
-                        <Skeleton variant="rectangular" width={50} height={30} />
-                    </div>}></List>
-                </div>
             </div>
             </div>
         </Stack>

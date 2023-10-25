@@ -8,21 +8,36 @@ import List from "../../../Utility/List/List.tsx";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../../Redux/MainChat/mainChatReducer.js";
-import {IUserOutside} from "../../../types/userTypes.ts";
+import {IUserInfo, IUserOutside} from "../../../types/userTypes.ts";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.js";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
+import {logoutAC} from "../../../Redux/isAuth/isAuthAC.ts";
+import {backFromLogin} from "../../../Redux/isStartToLogin/isStartToLoginAC.ts";
+import {errorToaster} from "../../../Utility/Toaster/Toaster.ts";
+import {Toaster} from "react-hot-toast";
+import {RootState} from "../../../Redux/rootReduce.ts";
 
 
 function WholeProfile({user, isMine}: IUserOutside) {
-    const currentUser = useTypedSelector((state) => state.loginUser)
+    const currentUser: IUserInfo = useTypedSelector((state: any ) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [avatar, setUserAvatar] = useState("")
     const [avatarIsLoad, setLoadAvatar] = useState<boolean>(false)
     const startConversation = () => {
-
-        getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
+        if (currentUser) {
+            getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
+        } else {
+            errorToaster('First you have to login!')
+        }
+    }
+    const logout = () => {
+         dispatch(logoutAC());
+         dispatch(backFromLogin())
+        localStorage.setItem('alreadyStart' , String(false));
+        navigate('/')
+        localStorage.setItem("loginUser", String(false));
     }
 
     useEffect(() => {
@@ -31,7 +46,11 @@ function WholeProfile({user, isMine}: IUserOutside) {
     }, [user])
     return (
         <>
-            {isMine ? <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2> : null}
+            {isMine ? <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2> : null};
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <div className={style.container}>
                 <div className={style.block}>
                     <div className={style.leftBlock}>
@@ -56,7 +75,8 @@ function WholeProfile({user, isMine}: IUserOutside) {
                             <AiOutlineStar className={style.profile} size={30}/>
                             <p>{user?.user.data?.experience + ' '} experience/s</p>
                         </div>
-                        {isMine ? null : <Link to={''}>
+                        {isMine ?
+                            <button onClick={logout} className={style.messageBtn}>Logout</button> : <Link to={''}>
                             <button onClick={startConversation} className={style.messageBtn}>Message</button>
                         </Link>}
                     </div>

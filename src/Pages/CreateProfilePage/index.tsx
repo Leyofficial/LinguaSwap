@@ -7,7 +7,7 @@ import Points from "../../Utility/Points";
 import ModalWindow from "../../Utility/ModalWindow/ModalWindow.js";
 import {FC, useState} from "react";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
-import Login from "../../Components/Login/Login.jsx";
+import Login from "../../Components/Login/Login.js";
 
 const CreateProfile: FC = () => {
     const isAuth = useTypedSelector((state) => state.isAuth);

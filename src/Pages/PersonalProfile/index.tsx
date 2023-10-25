@@ -10,12 +10,13 @@ import SkeletonProfile from "./WholeProfile/SkeletonProfile.jsx";
 import {loginUserThunkCreator} from "../../Redux/login/loginUserReducer.js";
 import {useMine} from "../../hooks/useMine.ts";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {IUserInfo} from "../../types/userTypes.ts";
 
 function PersonalProfile() {
     const {id} = useParams<string>();
     const [contentLoad , setContentLoad] = useState<boolean>(false)
-    const [actualProfile , setActualProfile ] = useState<object>();
-    const currentUser = useTypedSelector((state) => state.loginUser);
+    const [actualProfile , setActualProfile ] = useState<IUserInfo>();
+    const currentUser    = useTypedSelector((state) => state.loginUser);
     const [active , setActive ] = useState<boolean>(false)
     const userTokenString = localStorage.getItem('loginUser');
     let userToken: string | null = null;
@@ -36,7 +37,6 @@ function PersonalProfile() {
                 }
             })
         } else {
-
                 getUserByToken(userToken).then(res => {
                     if (res.status === 200) {
                         dispatch(loginUserAC({...res.data.users[0]}));
@@ -53,8 +53,12 @@ function PersonalProfile() {
 
     return (
         <>
-            {contentLoad  ?  <WholeProfile  user={active ? actualProfile : currentUser} isMine={!active}/>  : <SkeletonProfile user={active ? actualProfile : currentUser}/>}
-        </>
+            {contentLoad ? (
+                <WholeProfile user={active ? actualProfile : currentUser} isMine={!active} />
+    ) : (
+        <SkeletonProfile user={active ? actualProfile : currentUser} />
+    )}
+</>
     )
 }
 export default PersonalProfile

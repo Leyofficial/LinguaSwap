@@ -6,9 +6,9 @@ const CustomButton = (props) => {
   return (
      <div>
        <NavLink onClick={callback} className={style.item} to={path}>
-           <button className={style.button}>
+           <div className={style.button}>
                <span  className={`${rotateIcon ? style.left : style.right} ${style.span}`}>{title}</span>
-           </button>
+           </div>
        </NavLink>
      </div>
   );

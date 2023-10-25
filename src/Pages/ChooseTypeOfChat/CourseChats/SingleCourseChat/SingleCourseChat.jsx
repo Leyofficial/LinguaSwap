@@ -1,24 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import style from './SingleCourseChat.module.scss'
 import {NavLink} from "react-router-dom";
-import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.js";
+import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.ts";
 import {useSelector} from "react-redux";
+import {Skeleton} from "@mui/material";
 
-const SingleCourseChat = ({course}) => {
+const SingleCourseChat = ({course,setCourses}) => {
    const [courseImage, setCourseImage] = useState("")
    const currentCourse = useSelector((state) => state.currentCourseChat)
-   console.log(course)
+   const [isLoad,setIsLoad] = useState(false)
+
    useEffect(() => {
-      getImageFromServer(course.course.image,setCourseImage)
+      getImageFromServer(course.course.image,setCourseImage,setIsLoad)
 
    },[course])
+
+
 
    return (
       <>
          <NavLink to={`/course/chat/${course._id}`}>
             <div
                className={`${style.item} ${currentCourse && currentCourse?._id === course._id ? style.active : null}`}>
-               <img src={courseImage ? courseImage : ""} alt={'course'}/>
+               {isLoad ? <img src={courseImage ? courseImage :  <Skeleton className={style.skeleton} ></Skeleton>} alt={'course'}/> : <Skeleton className={style.skeleton} ></Skeleton>}
                <p>{course.course.name}</p>
             </div>
          </NavLink>

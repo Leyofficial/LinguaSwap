@@ -15,6 +15,7 @@ const HomeOverview = () => {
    const sliderItems = ["How it works", "What skills can you achieve", "Advantages"]
    const navigateToMainContent = () => {
       dispatch(moveToLogin())
+       localStorage.setItem('alreadyStart' , String (true));
    }
 
    return (

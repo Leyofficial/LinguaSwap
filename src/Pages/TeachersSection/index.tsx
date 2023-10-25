@@ -24,7 +24,7 @@ const TeachersSection = () => {
     const [foundTeacher, setFoundTeacher] = useState<IUserInfo[] | null>()
     const [loadTeacher, setLoadTeacher] = useState<boolean>(false)
     const dispatch = useDispatch()
-    const teachers = useTypedSelector((state) => state.teachers);
+    const teachers : any[] = useTypedSelector((state) => state.teachers);
 
 
     useEffect(() => {
@@ -96,15 +96,16 @@ const TeachersSection = () => {
                 </div>
                 <>
                     <ul className={style.cardsItems}>
-                        {!foundTeacher? teachers.map((item: IUserInfo) => {
+                        {!foundTeacher? teachers.map((item: IUserInfo,index:number) => {
                             if (!loadTeacher) {
-                                return <Stack spacing={4}>
+                                return <Stack spacing={4} key={index}>
                                     <Skeleton variant="circular" width={75} height={75}/>
                                     <Skeleton variant="rectangular" width={210} height={60}/>
                                     <Skeleton variant="rounded" width={210} height={60}/>
                                 </Stack>
                             } else {
                                 return <TeacherCard _id={item._id}
+                                                    key={index}
                                                     name={item.user.data.name}
                                                     userTag={item.user.data.userTag}
                                                     photo={item.user.data.photo}
@@ -114,7 +115,8 @@ const TeachersSection = () => {
                                 />
                             }
                         }) : ( foundTeacher.length > 0 ?
-                                <List items={foundTeacher} rerender={(item : IUserInfo) => <TeacherCard
+                                <List items={foundTeacher} rerender={(item : IUserInfo,index) => <TeacherCard
+                                    key={index}
                                     _id={item._id}
                                     name={item.user.data.name}
                                     userTag={item.user.data.userTag}

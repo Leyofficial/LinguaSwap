@@ -26,19 +26,21 @@
 }
 .authorWrapper {
   position: absolute;
-  top: 160px;
+  top: 167px;
   left: 20px;
   display: flex;
-  align-items: baseline;
+  align-items: flex-end;
 
   img {
-    max-width: 70px;
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
     border-radius: 5px;
     border: 1px solid rgba(252, 248, 252, 0.6);
   }
 }
 .nameOfAuthor {
-  padding-left: 3vh;
+  //padding-left: 3vh;
   p {
     padding-left: 15px;
     color: rgba(0, 0, 0, 0.68);

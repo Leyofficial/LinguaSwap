@@ -19,7 +19,8 @@ const coursesReducer = (courses = initialState.courses, action : TCoursesActions
    }
 }
 export default coursesReducer
-export const filterCourseThunkCreator = (language : TLanguagesItems , enrolment : TEnrolmentType) => {
+export const filterCourseThunkCreator = (language : string , enrolment : string) => {
+
    return async (dispatch  : Dispatch ) => {
       try {
          let coursesResponse = await Course.getCourses()
@@ -48,17 +49,18 @@ export interface ISetLoadCourses {
 }
 
 export const getCoursesThunkCreator = (setLoadCourses: ISetLoadCourses) => {
+   setLoadCourses(true);
    return async (dispatch: Dispatch) => {
       try {
+
          const response = await Course.getCourses();
          if (response.status === 200) {
             dispatch(getCoursesAC(response.data.courses));
-            setTimeout(() => {
-               setLoadCourses(true);
-            }, 1000);
+               setLoadCourses(false);
          }
       } catch (err) {
          console.log(err);
+         setLoadCourses(false);
       }
    };
 };

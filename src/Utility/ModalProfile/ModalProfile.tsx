@@ -9,6 +9,8 @@ import {mainChatRequests} from "../../ApiRequests/MainChat/MainChat.js";
 import {useDispatch, useSelector} from "react-redux";
 import {createChatThunkCreator, getChatThunkCreate} from "../../Redux/MainChat/mainChatReducer.js";
 import {ILanguagesTypes} from "../Languages/languages.ts";
+import {errorToaster} from "../Toaster/Toaster.ts";
+import {Toaster} from "react-hot-toast";
 
 function ModalProfile({modalActive, user, callback , isMine }: IModalProfile) {
     const currentUser = useSelector((state: any) => state.loginUser)
@@ -16,13 +18,19 @@ function ModalProfile({modalActive, user, callback , isMine }: IModalProfile) {
 
     const dispatch = useDispatch()
     const startConversation = () => {
-        console.log(currentUser)
-        getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
-
+       if (currentUser) {
+           getChatThunkCreate(currentUser._id, user._id, navigate)(dispatch)
+       } else{
+           errorToaster('First you have to login!')
+       }
     }
     return (
         <>
             <div style={modalActive ? {display: 'block'} : {display: 'none'}} className={style.overlay}></div>
+            <Toaster
+                position="top-right"
+                reverseOrder={false}
+            />
             <div className={style.modal + ` ${modalActive ? style.modalHere : style.modalGone}`}>
                 <img onClick={callback} className={style.closeBtn} src={closeBtn} alt="X"/>
                 <div className={style.topContent}>

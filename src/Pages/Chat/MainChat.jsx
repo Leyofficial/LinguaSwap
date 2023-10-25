@@ -13,7 +13,7 @@ const MainChat = () => {
   const dispatch = useDispatch()
   const mainChats = useSelector((state) => state.mainChats)
   const [foundUsers, setFoundUsers] = useState(null)
-  const [foundChats, setFoundChats] = useState([])
+
 
   useEffect(() => {
     if (currentUser)
@@ -26,11 +26,11 @@ const MainChat = () => {
       <article className={style.container}>
         <aside>
           <section className={style.search}>
-            {/*<MainChatSearch setFoundUsers={setFoundUsers} dialogs={mainChats}></MainChatSearch>*/}
+            <MainChatSearch setFoundUsers={setFoundUsers} dialogs={mainChats}></MainChatSearch>
           </section>
 
           <div className={style.containerDialogs}>
-            {mainChats?.map(dialog => <ChatSingleMessage currentUser={currentUser}
+            {mainChats?.map((dialog ,index)=> <ChatSingleMessage key={index} currentUser={currentUser}
                                                          dialog={dialog}></ChatSingleMessage>)}
           </div>
         </aside>

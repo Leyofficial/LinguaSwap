@@ -42,12 +42,13 @@ export const getChatThunkCreator = (idCourse) => {
   }
 }
 
-export const sendMessageThunkCreator = (messageData, chatId, idCourse) => {
+export const sendMessageThunkCreator = (messageData, chatId, idCourse,waitResponseCallback) => {
   return async (dispatch) => {
     try {
 
       const response = await sendMessage(messageData, chatId)
       if (response.status === 200) {
+        waitResponseCallback(false)
         scroll.current?.scrollIntoView({behavior: "smooth"})
         const chatResponse = await getChat(idCourse)
         if (chatResponse.status === 200) {
@@ -56,6 +57,7 @@ export const sendMessageThunkCreator = (messageData, chatId, idCourse) => {
       }
     } catch (err) {
       console.log("send message error")
+      waitResponseCallback(false)
     }
   }
 }
