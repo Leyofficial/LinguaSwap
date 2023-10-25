@@ -1,8 +1,13 @@
 
 import style from "../WorkSection/WorkSection.module.scss";
 
-
-const WorkSection = (props) => {
+interface IWorkSectionProps{
+    image:string,
+    title:string,
+    text:string,
+    count:number
+}
+const WorkSection = (props:IWorkSectionProps) => {
   const {image,title,text,count} = props
   return (
     <div className={style.wrapper}>

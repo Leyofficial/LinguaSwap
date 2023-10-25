@@ -1,11 +1,11 @@
 import style from './AdvantageSection.module.scss'
 import gear from "../../../images/Overview/gear.png";
-import Skill from "../SkillsSection/Skill/Skill.jsx";
+import Skill from "../SkillsSection/Skill/Skill.tsx";
 import {CiGrid2V, CiGrid31, CiGrid32, CiGrid41, CiGrid42} from "react-icons/ci";
 import {useEffect, useState} from "react";
 const AdvantageSection = () => {
 
-  const [show,setShow] = useState(false)
+  const [show,setShow] = useState<boolean>(false)
 
 
   useEffect(() => {

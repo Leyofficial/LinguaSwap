@@ -2,10 +2,14 @@ import style from './Question.module.scss'
 import {useState} from "react";
 import {AiOutlineMinus, AiOutlinePlus} from "react-icons/ai";
 
-const Question = (props) => {
+interface IQuestionProps{
+    answer:string,
+    question:string
+}
+const Question = (props:IQuestionProps) => {
   const {answer, question} = props
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
   return (
     <section>
       <div className={style.container}>

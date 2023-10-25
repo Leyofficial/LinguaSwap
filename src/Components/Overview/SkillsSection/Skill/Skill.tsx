@@ -1,5 +1,11 @@
 import style from './Skill.module.scss'
-const Skill = (props) => {
+import {ReactNode} from "react";
+interface ISkillProps{
+    text:string,
+    icon:ReactNode,
+    title:string
+}
+const Skill = (props:ISkillProps) => {
 
   const {text, icon, title} = props
   return (

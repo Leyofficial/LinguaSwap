@@ -1,4 +1,4 @@
-import Skill from "./Skill/Skill.jsx";
+import Skill from "./Skill/Skill.js";
 import {BsBook} from "react-icons/bs";
 import style from './Skills.module.scss'
 import {VscCommentUnresolved} from "react-icons/vsc";
@@ -9,7 +9,7 @@ import {useEffect, useState} from "react";
 
 const Skills = () => {
 
-  const [show,setShow] = useState(false)
+  const [show,setShow] = useState<boolean>(false)
 
   useEffect(() => {
     setShow(true)

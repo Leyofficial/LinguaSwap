@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import {useSelector} from "react-redux";
 import CoursesSection from "../Pages/CoursesSection/CoursesSection.tsx";
 import HomePage from "../Pages/HomePage/HomePage.tsx";
 import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.tsx";
@@ -17,10 +16,14 @@ import ErrorUrl from "../Router/ErrorUrl/ErrorUrl.tsx";
 import Layout from "../Router/Layout/Layout.tsx";
 import PersonalProfile from "../Pages/PersonalProfile/index.tsx";
 import Login from "../Components/Login/Login.tsx";
+import {useTypedSelector} from "../hooks/useTypedSelector.ts";
+interface  IAppRoutersProps{
+   isAuth:boolean
+}
+const AppRouters = (props:IAppRoutersProps) => {
+   const {isAuth} = props
 
-const AppRouters = ({isAuth}) => {
-
-   const isStart = useSelector((state) => state.isStart)
+   const isStart = useTypedSelector((state) => state.isStart)
    return (
      <>
         <Routes>

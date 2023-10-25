@@ -1,5 +1,5 @@
 import style from './QuestionSection.module.scss'
-import Question from "./Question/Question.jsx";
+import Question from "./Question/Question.js";
 
 const QuestionsSection = () => {
   return (

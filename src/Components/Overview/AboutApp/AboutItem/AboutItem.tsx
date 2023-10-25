@@ -1,9 +1,19 @@
 import style from './AbouItem.module.scss'
 import {GiImbricatedArrows} from "react-icons/gi";
 import {NavLink} from "react-router-dom";
+import {ReactNode} from "react";
 
-
-const AboutItem = (props) => {
+interface IText{
+    icon:ReactNode,
+    text:string
+}
+interface IAboutItemProps{
+    title:string,
+    icon:ReactNode,
+    text:IText[],
+    path:string
+}
+const AboutItem = (props:IAboutItemProps) => {
   const {title, icon,text,path} = props
 
 

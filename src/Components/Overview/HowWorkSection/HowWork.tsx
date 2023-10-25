@@ -1,6 +1,6 @@
 import style from './HowWork.module.scss'
 import tutor from '../../../images/HomePage/third.png'
-import WorkSection from "./WorkSection/WorkSection.jsx";
+import WorkSection from "./WorkSection/WorkSection.js";
 import brain from "../../../images/Overview/goal.png";
 import {useEffect, useState} from "react";
 
@@ -11,7 +11,7 @@ const HowWork = () => {
   const textVirtual = "When it’s lesson time, connect with your tutor through our comprehensive video platform"
   const textEnjoy = "Keep track of your learning progress. Improve your speaking and vocabulary with our Learning plans"
 
-  const [show,setShow] = useState(false)
+  const [show,setShow] = useState<boolean>(false)
 
 
   useEffect(() => {

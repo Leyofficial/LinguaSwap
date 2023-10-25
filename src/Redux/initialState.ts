@@ -1,5 +1,6 @@
 import {IUserInfo} from "../types/userTypes.ts";
 import {ICreateCourseData} from "../Pages/CoursesSection/Create/createTypes.ts";
+import {ICourse} from "../types/coursesTypes.ts";
 
 export const initialState = {
   isStart: false,
@@ -17,7 +18,7 @@ export const initialState = {
   loginUser: null as unknown as IUserInfo,
   registerUser: null,
   isAuth:false,
-  currentCourse:null,
+  currentCourse:null as unknown as ICourse,
   currentChat:[],
   socket:null,
   chatStatus:"course",

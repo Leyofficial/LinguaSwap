@@ -1,5 +1,10 @@
 import style from './NetworkItem.module.scss'
-const NetworkItem = (props) => {
+import {ReactNode} from "react";
+interface INetworkItemProps{
+  icon:ReactNode,
+  path:string
+}
+const NetworkItem = (props:INetworkItemProps) => {
 
   const {icon, path} = props
   return (

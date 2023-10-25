@@ -1,5 +1,5 @@
 import style from './AboutApp.module.scss'
-import AboutItem from "./AboutItem/AboutItem.jsx";
+import AboutItem from "./AboutItem/AboutItem.js";
 import {PiStudentFill} from "react-icons/pi";
 import {GiTeacher} from "react-icons/gi";
 import {FaBusinessTime} from "react-icons/fa";
