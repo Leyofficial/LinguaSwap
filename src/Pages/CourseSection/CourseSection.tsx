@@ -10,12 +10,11 @@ import CourseHeader from "./CourseHeader/CourseHeader.js";
 import CoursesSectionSkeleton from "./CoursesSectionSkeleton/CoursesSectionSkeleton.js";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {ICourseSubject} from "../CoursesSection/courseType.ts";
-import {IUser} from "../CourseChat/courseChatTypes.ts";
 import {ICourse} from "../../types/coursesTypes.ts";
 
 
 const CourseSection = () => {
-   const {idCourse} = useParams()
+   const {idCourse} = useParams<string>()
    const dispatch = useDispatch()
    const currentCourse:ICourse = useTypedSelector((state) => state.currentCourse)
    const [errorJoin, setErrorJoin] = useState(false)

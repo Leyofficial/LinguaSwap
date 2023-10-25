@@ -8,6 +8,7 @@ import {getStateOfCourse} from "./stateOfCourse.js";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.ts";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
+import {ICourse} from "../../../types/coursesTypes.ts";
 
 interface ICourseHeaderProps{
    joinHandler:(arg:string) => void,
@@ -17,7 +18,7 @@ const CourseHeader = (props:ICourseHeaderProps) => {
    const {joinHandler, errorJoin} = props
 
    const loginUser = useTypedSelector((state) => state.loginUser)
-   const currentCourse = useTypedSelector((state) => state.currentCourse)
+   const currentCourse : ICourse = useTypedSelector((state) => state.currentCourse)
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
    const [teacherAvatar,setTeacherAvatar] = useState("")
 
@@ -28,6 +29,8 @@ const CourseHeader = (props:ICourseHeaderProps) => {
          }
       })
    },[currentCourse])
+
+
    return (
       <div className={style.containerHeader}>
 
