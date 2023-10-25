@@ -1,30 +1,34 @@
 import style from './StepItem.module.scss'
 import {ReactNode, useEffect, useState} from "react";
+import {AiOutlineMinus, AiOutlinePlus} from "react-icons/ai";
 
 interface IStepItemProps{
   image:string,
   indexStart?:number,
   icon:ReactNode,
-  title:string
+  title:string,
+  isOpen:boolean | undefined
 }
 const StepItem = (props:IStepItemProps) => {
 
-  const {image, indexStart, icon, title} = props
-  const [showContent, setShowContent] = useState(false)
+  const {image, indexStart, icon, title,isOpen} = props
+  const [showContent, setShowContent] = useState<boolean>(false)
 
 
   useEffect(() => {
 
-    if (indexStart) {
+    if (isOpen) {
       setShowContent(true)
     }
-  }, [indexStart])
+  }, [isOpen])
+
 
   return (
-    <div  className={style.container} onClick={() => setShowContent(!showContent)}>
+    <div  className={style.container}>
       <div className={style.wrapper}>
         {icon}
-        <p>Step</p>
+        {showContent ? <AiOutlineMinus onClick={() => setShowContent(!showContent)} className={style.plus}></AiOutlineMinus> :  <AiOutlinePlus onClick={() => setShowContent(!showContent)} className={style.plus}></AiOutlinePlus>}
+
       </div>
 
       <div className={`${style.content} ${showContent  ? style.showContent : null}`}>

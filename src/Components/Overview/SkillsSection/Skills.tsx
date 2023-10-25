@@ -17,9 +17,9 @@ const Skills = () => {
 
   return (
     <div className={`${style.container} ${show ? style.show : null}`}>
-      <div className={style.headerIcon}>
-        <img src={brain} alt={'icon'}/>
-      </div>
+      {/*<div className={style.headerIcon}>*/}
+      {/*  <img src={brain} alt={'icon'}/>*/}
+      {/*</div>*/}
       <div className={style.header}>
         <h2>Focus on the skills you need</h2>
         <p>Prepare to achieve your goals with private tutors</p>

@@ -2,18 +2,11 @@
   position: relative;
   .backButton{
     position: absolute;
-    top:-100px;
-    //left: -150px;
-    svg{
-      rotate: 135deg;
-      font-size: 40px;
-      color: rgba(20, 151, 232, 0.65);
+    top:-120px;
+    img{
+      rotate: 180deg;
+      max-width: 40px;
       cursor: pointer;
-      transition: 0.5s ease-in-out;
-      &:hover{
-        color: rgba(30, 88, 208, 0.72);
-      }
     }
-
   }
 }

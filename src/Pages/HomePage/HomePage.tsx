@@ -10,6 +10,7 @@ import HomeFooter from "../../Components/HomeFooter/HomeFooter.js";
 import {useEffect, useState} from "react";
 import {GiImbricatedArrows} from "react-icons/gi";
 import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
+import {AiOutlineArrowUp} from "react-icons/ai";
 
 const HomePage = () => {
 
@@ -66,7 +67,7 @@ const HomePage = () => {
           <HomeFooter></HomeFooter>
         </div>
         <div onClick={scrollUp} className={`${style.scrollUp} ${showScrollUp ? style.showScroll : null}`}>
-          <GiImbricatedArrows></GiImbricatedArrows>
+          <AiOutlineArrowUp></AiOutlineArrowUp>
         </div>
       </div>
     </>

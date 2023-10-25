@@ -1,21 +1,19 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   margin-bottom: 2vh;
   border-radius: 10px;
 
   .icon {
-    color: rgb(11 136 187 / 69%);
+    color: black;
     padding: 15px;
-    background-color: rgb(18 160 197 / 13%);
     border-radius: 36px 13px;
-    transition: 1s ease;
     cursor: pointer;
 
     &:hover {
-      color: #08348f;
-      background-color: rgba(42, 146, 178, 0.45);
+      color: dodgerblue;
     }
 
     svg {
@@ -26,15 +24,15 @@
   .question {
     font-size: 20px;
     padding-left: 2vh;
-    color: rgba(25, 145, 182, 0.83);
+    color: #000000;
   }
 }
 
 .answerWrapper {
   height: 0;
   opacity: 0;
-  transition: 0.5s ease-in-out;
-  border-bottom: 1px solid rgba(23, 165, 215, 0.29);
+  transition: 0.2s ease-in-out;
+  border-bottom: 1px solid rgba(37, 38, 38, 0.15);
   border-radius: 5px 15px;
   margin-bottom: 5px;
 
@@ -49,7 +47,7 @@
 .openAnswer {
   display: block;
   height: 70px;
-  transition: 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
   opacity: 1;
 }
 

@@ -14,9 +14,9 @@ const AdvantageSection = () => {
 
   return (
     <div className={`${style.container} ${show ? style.show : null}`}>
-      <div className={style.headerIcon}>
-        <img src={gear} alt={'icon'}/>
-      </div>
+      {/*<div className={style.headerIcon}>*/}
+      {/*  <img src={gear} alt={'icon'}/>*/}
+      {/*</div>*/}
       <div className={style.header}>
         <h2>Make the world your comfort zone</h2>
         <p>Speak naturally with professional online tutors from 185 countries</p>

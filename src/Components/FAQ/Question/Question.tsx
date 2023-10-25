@@ -13,10 +13,10 @@ const Question = (props:IQuestionProps) => {
   return (
     <section>
       <div className={style.container}>
-        <div className={style.icon} onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <AiOutlineMinus></AiOutlineMinus> : <AiOutlinePlus></AiOutlinePlus>}
-        </div>
         <p className={style.question}>{question}</p>
+          <div className={style.icon} onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <AiOutlineMinus></AiOutlineMinus> : <AiOutlinePlus></AiOutlinePlus>}
+          </div>
       </div>
       <div className={`${style.answerWrapper}  ${isOpen ? style.openAnswer : null}`}>
         <p>{answer}</p>

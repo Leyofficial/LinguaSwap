@@ -14,7 +14,6 @@ const WorkSection = (props:IWorkSectionProps) => {
 
       <div className={style.wrapperText}>
         <div className={style.wrapperCount}>
-          <p>{count}</p>
         </div>
         <div className={style.containerInfo}>
           <p className={style.title}>{title}</p>
