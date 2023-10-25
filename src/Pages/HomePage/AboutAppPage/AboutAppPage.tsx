@@ -1,10 +1,10 @@
 import style from './AboutAppPage.module.scss'
-import StepsSection from "./Steps/StepsSection.jsx";
+import StepsSection from "./Steps/StepsSection.js";
 import {useParams} from "react-router";
 
 const AboutAppPage = () => {
 
-  const {userType} = useParams()
+  const {userType} = useParams<string>()
   return (
     <div className={style.container}>
       <header>

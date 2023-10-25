@@ -1,18 +1,18 @@
 import style from './StepsSection.module.scss'
-import StepItem from "./Step/StepItem.jsx";
+import StepItem from "./Step/StepItem.js";
 import {PiNumberFiveBold, PiNumberFourBold, PiNumberOneBold, PiNumberThreeBold, PiNumberTwoBold} from "react-icons/pi";
 import formImage from '../../../../images/joinImage.png'
 import {GiImbricatedArrows} from "react-icons/gi";
 import {useNavigate} from "react-router";
 import {useState} from "react";
 
-const StepsSection = (props) => {
+const StepsSection = (props:{userType:string | undefined}) => {
 
    const {userType} = props
 
    const navigate = useNavigate()
 
-   const [isOpen, setIsOpen] = useState(true)
+   const [isOpen, setIsOpen] = useState<boolean>(true)
 
    const moveBack = () => {
       navigate(-1)
@@ -35,14 +35,14 @@ const StepsSection = (props) => {
       <div className={style.container}>
          {userType === 'student' ?
             <>
-               {forStudent.map(item => <StepItem setIsOpen={setIsOpen} callback={isOpen}
+               {forStudent.map(item => <StepItem
                                                  icon={item.icon} image={item.image}
                                                  title={item.title}
                ></StepItem>)}
             </>
             :
             <>
-               {forTeacher.map(item => <StepItem setIsOpen={setIsOpen} callback={isOpen}
+               {forTeacher.map(item => <StepItem
                                                  icon={item.icon} image={item.image}
                                                  title={item.title}
                ></StepItem>)}

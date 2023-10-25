@@ -7,7 +7,7 @@ import {IUser} from "../courseChatTypes.ts";
 
 interface IOnlineStatusProps{
    isOnline:boolean | undefined,
-   teacher:IUser | null,
+   teacher?:IUser | null,
    noImage?:boolean
 }
 const OnlineStatus = (props:IOnlineStatusProps) => {

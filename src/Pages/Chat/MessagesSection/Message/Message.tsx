@@ -1,14 +1,21 @@
-import React, {useEffect, useState} from 'react';
+import React, {LegacyRef, useEffect, useState} from 'react';
 import style from './Message.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 import {useSelector} from "react-redux";
 import {getDateMessage} from "../../MainChatHelper/MainChatHelper.ts";
+import {IMessage} from "../../../CourseChat/MessagesSection/MessagesSection.tsx";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
+import {IUser} from "../../../CourseChat/courseChatTypes.ts";
 
-const Message = (props) => {
+interface IMessageProps{
+   messages:IMessage,
+   scroll:LegacyRef<HTMLElement>
+}
+const Message = (props:IMessageProps) => {
    const {messages, scroll} = props
 
-   const [authorMessage, setAuthorMessage] = useState(null)
-   const currentUser = useSelector((state) => state.loginUser)
+   const [authorMessage, setAuthorMessage] = useState<IUser | null>(null)
+   const currentUser = useTypedSelector((state) => state.loginUser)
 
    useEffect(() => {
       getUser(messages?.author).then(res => {

@@ -1,7 +1,7 @@
 import style from "./HomePage.module.scss";
 import {useDispatch} from "react-redux";
 import {moveToLogin} from "../../Redux/isStartToLogin/isStartToLoginAC.ts";
-import HomeText from "./HomeText/HomeText.jsx";
+import HomeText from "./HomeText/HomeText.js";
 import HomeOverview from "../../Components/Overview/HomeOverview.jsx";
 import AboutApp from "../../Components/Overview/AboutApp/AboutApp.jsx";
 import QuestionsSection from "../../Components/FAQ/QuestionsSction.jsx";
@@ -14,7 +14,7 @@ import {scrollUp} from "../../Utility/ScrollUp/ScrollUp.jsx";
 const HomePage = () => {
 
   const dispatch = useDispatch()
-  const [showScrollUp,setShowScrollUp] = useState(false)
+  const [showScrollUp,setShowScrollUp] = useState<boolean>(false)
 
   const toLogin = () => {
     dispatch(moveToLogin())
@@ -36,7 +36,7 @@ const HomePage = () => {
     <>
       <div className={style.container}>
         <div className={style.wrapperHome}>
-          <HomeText toLogin={toLogin}></HomeText>
+          <HomeText></HomeText>
         </div>
 
           <div className={style.wrapperInfo}>

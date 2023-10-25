@@ -1,8 +1,13 @@
 import style from './StepItem.module.scss'
-import {useEffect, useState} from "react";
+import {ReactNode, useEffect, useState} from "react";
 
-
-const StepItem = (props) => {
+interface IStepItemProps{
+  image:string,
+  indexStart?:number,
+  icon:ReactNode,
+  title:string
+}
+const StepItem = (props:IStepItemProps) => {
 
   const {image, indexStart, icon, title} = props
   const [showContent, setShowContent] = useState(false)

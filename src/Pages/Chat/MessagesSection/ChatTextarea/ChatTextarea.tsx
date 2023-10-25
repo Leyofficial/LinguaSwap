@@ -3,7 +3,13 @@ import style from './ChatTextarea.module.scss'
 import {AiOutlinePaperClip} from "react-icons/ai";
 import {LuSend} from "react-icons/lu";
 
-const ChatTextarea = ({valueTextarea,setValueTextarea,submitCallback}) => {
+interface IChatTextarea{
+    valueTextarea:string,
+    setValueTextarea:(arg:string) => void,
+    submitCallback:() => void
+}
+const ChatTextarea = (props:IChatTextarea) => {
+    const {valueTextarea,setValueTextarea,submitCallback} = props
    return (
       <section className={style.wrapperTextarea}>
          <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>

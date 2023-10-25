@@ -1,23 +1,25 @@
 import React, {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {getChatsThunkCreator} from "../../Redux/MainChats/mainChatsReducer.js";
-import ChatSingleMessage from "./ChatSingleMessage/ChatSingleMessage.jsx";
-import MainChatSearch from "./MainChatSearch/MainChatSearch.jsx";
+import ChatSingleMessage from "./ChatSingleMessage/ChatSingleMessage.js";
+import MainChatSearch from "./MainChatSearch/MainChatSearch.js";
 import style from './MainChat.module.scss'
 import {Outlet} from "react-router-dom";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import {IDialog} from "./mainChatTypes.ts";
 
 
 const MainChat = () => {
 
-  const currentUser = useSelector((state) => state.loginUser)
+  const currentUser = useTypedSelector((state) => state.loginUser)
   const dispatch = useDispatch()
-  const mainChats = useSelector((state) => state.mainChats)
+  const mainChats = useTypedSelector((state) => state.mainChats)
   const [foundUsers, setFoundUsers] = useState(null)
 
 
   useEffect(() => {
     if (currentUser)
-      dispatch(getChatsThunkCreator(currentUser?._id))
+      getChatsThunkCreator(currentUser?._id)(dispatch)
   }, [currentUser])
 
 
@@ -30,7 +32,7 @@ const MainChat = () => {
           </section>
 
           <div className={style.containerDialogs}>
-            {mainChats?.map((dialog ,index)=> <ChatSingleMessage key={index} currentUser={currentUser}
+            {mainChats?.map((dialog:IDialog ,index:number)=> <ChatSingleMessage key={index} currentUser={currentUser}
                                                          dialog={dialog}></ChatSingleMessage>)}
           </div>
         </aside>
