@@ -14,7 +14,7 @@ export const initialState = {
   languagesLearn : null,
   courses:[],
   teachers : [],
-  loginUser: null as unknown as IUserInfo[],
+  loginUser: null as unknown as IUserInfo,
   registerUser: null,
   isAuth:false,
   currentCourse:null,

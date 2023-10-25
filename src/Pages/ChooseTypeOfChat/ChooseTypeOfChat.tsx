@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './ChooseTypeOfChat.module.scss'
-import CourseChats from "./CourseChats/CourseChats.jsx";
+import CourseChats from "./CourseChats/CourseChats.js";
 import {Outlet} from "react-router-dom";
 
 

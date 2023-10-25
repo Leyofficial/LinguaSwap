@@ -10,7 +10,7 @@ import TeachersSection from "../Pages/TeachersSection/index.tsx";
 import CourseSection from "../Pages/CourseSection/CourseSection.tsx";
 import CourseChat from "../Pages/CourseChat/CourseChat.tsx";
 import Create from "../Pages/CoursesSection/Create/Create.tsx";
-import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.jsx";
+import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.tsx";
 import MainChat from "../Pages/Chat/MainChat.jsx";
 import MessagesSection from "../Pages/Chat/MessagesSection/MessagesSection.jsx";
 import ErrorUrl from "../Router/ErrorUrl/ErrorUrl.tsx";

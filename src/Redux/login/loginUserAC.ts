@@ -6,9 +6,9 @@ export enum loginActions {
 
 export interface setLoginUser {
     type : loginActions.SET_LOGIN_USER ,
-    user : IUserInfo[]
+    user : IUserInfo
 }
 
-export function loginUserAC (user : IUserInfo[]) : setLoginUser  {
+export function loginUserAC (user : IUserInfo) : setLoginUser  {
     return {type : loginActions.SET_LOGIN_USER , user : user}
 }

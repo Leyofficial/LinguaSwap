@@ -4,10 +4,16 @@ import {NavLink} from "react-router-dom";
 import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.ts";
 import {useSelector} from "react-redux";
 import {Skeleton} from "@mui/material";
+import {ICourse} from "../../../../types/coursesTypes.ts";
+import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
 
-const SingleCourseChat = ({course,setCourses}) => {
+interface ISingleCourseProps{
+   course:ICourse,
+}
+const SingleCourseChat = (props:ISingleCourseProps) => {
+   const {course} = props
    const [courseImage, setCourseImage] = useState("")
-   const currentCourse = useSelector((state) => state.currentCourseChat)
+   const currentCourse = useTypedSelector((state) => state.currentCourseChat)
    const [isLoad,setIsLoad] = useState(false)
 
    useEffect(() => {
@@ -21,8 +27,8 @@ const SingleCourseChat = ({course,setCourses}) => {
       <>
          <NavLink to={`/course/chat/${course._id}`}>
             <div
-               className={`${style.item} ${currentCourse && currentCourse?._id === course._id ? style.active : null}`}>
-               {isLoad ? <img src={courseImage ? courseImage :  <Skeleton className={style.skeleton} ></Skeleton>} alt={'course'}/> : <Skeleton className={style.skeleton} ></Skeleton>}
+               className={`${style.item} ${currentCourse && currentCourse?._id === course._id ? style.active : ""}`}>
+               {isLoad ? <img src={courseImage ? courseImage : ""} alt={'course'}/> : <Skeleton className={style.skeleton} ></Skeleton>}
                <p>{course.course.name}</p>
             </div>
          </NavLink>
