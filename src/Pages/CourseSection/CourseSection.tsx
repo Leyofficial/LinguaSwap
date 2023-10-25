@@ -10,12 +10,11 @@ import CourseHeader from "./CourseHeader/CourseHeader.js";
 import CoursesSectionSkeleton from "./CoursesSectionSkeleton/CoursesSectionSkeleton.js";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {ICourseSubject} from "../CoursesSection/courseType.ts";
-import {IUser} from "../CourseChat/courseChatTypes.ts";
 import {ICourse} from "../../types/coursesTypes.ts";
 
 
 const CourseSection = () => {
-   const {idCourse} = useParams()
+   const {idCourse} = useParams<string>()
    const dispatch = useDispatch()
    const currentCourse:ICourse = useTypedSelector((state) => state.currentCourse)
    const [errorJoin, setErrorJoin] = useState(false)
@@ -37,7 +36,7 @@ const CourseSection = () => {
          setErrorJoin(true)
       } else {
          if(idCourse){
-            joinToCourseAndCreateChatThunkCreator(idCourse, currentCourse?.teachers.id, userId)(dispatch)
+            joinToCourseAndCreateChatThunkCreator(idCourse, currentCourse?.teacher.id, userId)(dispatch)
             toast.success("Succeed. You were joined to the course")
             setErrorJoin(true)
          }
