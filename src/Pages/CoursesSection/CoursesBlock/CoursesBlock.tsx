@@ -5,32 +5,35 @@ import {NavLink} from "react-router-dom";
 import HeaderBlock from "./HeaderBlock/HeaderBlock.js";
 import FooterBlock from "./FooterBlock/FooterBlock.js";
 import {ICourse} from "../courseType.ts";
+import {Skeleton} from "@mui/material";
+import React from "react";
 
 export interface ICourseProps {
     course:ICourse
+    isLoad? : boolean
 }
 const CoursesBlock = (props:ICourseProps) => {
-    const {course} = props
+    const {course , isLoad} = props
 
   return (
     <article className={style.container}>
       <NavLink to={`/course/${course._id}`}>
 
       <section className={style.containerWrapper}>
-        <HeaderBlock course={course}></HeaderBlock>
+        <HeaderBlock isLoad={isLoad} course={course}></HeaderBlock>
 
         <section className={style.wrapper}>
           <div className={style.titleWrapper}>
-            <h3>{course.course.name}</h3>
+            <h2>{ isLoad ?  course.course.name : <Skeleton variant={'rectangular'} width={150} height={25} />}</h2>
           </div>
           <div className={style.members}>
             {<AvatarGroupSection maxCount={2} items={course.course.members}></AvatarGroupSection>}
           </div>
           <div className={style.infoWrapper}>
-            <p style={levelEducation(course.course.level)}>{course.course.level}</p>
-           <p className={style.duration}>{course.course.durationCourse}</p>
+            <p style={levelEducation(course.course.level)}>  { isLoad ? course.course.level : <Skeleton variant={'rectangular'} width={70} height={20} />}</p>
+           <p className={style.duration}>{ isLoad ? course.course.durationCourse : <Skeleton variant={'rectangular'} width={50} height={20} />}</p>
           </div>
-          <FooterBlock course={course}></FooterBlock>
+          <FooterBlock isLoad={isLoad}  course={course}></FooterBlock>
         </section>
       </section>
       </NavLink>

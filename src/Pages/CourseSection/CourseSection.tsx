@@ -37,7 +37,7 @@ const CourseSection = () => {
          setErrorJoin(true)
       } else {
          if(idCourse){
-            joinToCourseAndCreateChatThunkCreator(idCourse, currentCourse?.teachers.id, userId)(dispatch)
+            joinToCourseAndCreateChatThunkCreator(idCourse, currentCourse?.teacher.id, userId)(dispatch)
             toast.success("Succeed. You were joined to the course")
             setErrorJoin(true)
          }

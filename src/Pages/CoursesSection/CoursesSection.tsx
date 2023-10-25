@@ -20,9 +20,9 @@ const CoursesSection = () => {
     const [courseForOnePage, setCourseForOnePage] = useState(6)
     const [currentCoursePage, setCurrentCoursePage] = useState(1)
     const [foundCourse, setFoundCourse] = useState([])
-    const [loadCourses, setLoadCourses] = useState(false)
+    const [loadCourses, setLoadCourses] = useState<boolean>(false)
     const currentUser = useTypedSelector((state) => state.loginUser)
-    const courses = useTypedSelector((state) => state.courses)
+    const courses = useTypedSelector((state : any) => state.courses)
     const dispatch = useDispatch()
     const paginate = (numberPage: number) => setCurrentCoursePage(numberPage)
 
@@ -30,7 +30,7 @@ const CoursesSection = () => {
     const indexOfFirstCourse = indexOfLastCourse - courseForOnePage
 
     const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse)
-
+    console.log(foundCourse)
 
     useEffect(() => {
         getCoursesThunkCreator(setLoadCourses)(dispatch)
@@ -40,21 +40,18 @@ const CoursesSection = () => {
 
     useEffect(() => {
         if (searchValue) {
-            const item = searchCoursesItem()
+            const item = searchCoursesItem();
             setFoundCourse(item)
         } else {
             setFoundCourse([])
         }
-
     }, [courses, searchValue])
 
 
     useEffect(() => {
-
         if (languageFilter || enrolment) {
            filterCourseThunkCreator(languageFilter, enrolment)(dispatch)
         }
-
     }, [languageFilter, enrolment])
 
     return (
@@ -73,15 +70,8 @@ const CoursesSection = () => {
                 </div>
             </div>
             <div className={style.coursesWrapper}>
-
-                {!currentCourses.length && !foundCourse ? <NotFoundItems></NotFoundItems> : (
-                    !foundCourse.length ? currentCourses.map((course : ICourse, index : number) => <CoursesBlock key={index}
-                                                                                       course={course}></CoursesBlock>) :
-                        foundCourse.map((foundItems : ICourse, index : number) => <CoursesBlock key={index}
-                                                                             course={foundItems}></CoursesBlock>)
-
-                )}
-
+                {currentCourses.length >= 1 && foundCourse.length === 0 && searchValue.length === 0 ? currentCourses.map((course : ICourse,index : number) => <CoursesBlock isLoad={loadCourses} course={course} key={index}></CoursesBlock>) : (
+                    foundCourse.length >= 1 ? foundCourse.map((foundItems,index) => <CoursesBlock isLoad={loadCourses} course={foundItems} key={index}></CoursesBlock>) :<NotFoundItems></NotFoundItems> )}
             </div>
             <div className={style.paginationWrapper}>
 

@@ -19,8 +19,10 @@ const Member = (props :IMemberProps ) => {
    }, [avatarName])
 
    return (
+   <div style={{border : '1px solid rgba(40, 40, 42, 0.13)' , padding : '1px' , borderRadius : '50%' }}>
+      <Avatar style={{width : 50 , height : 50 }} src={loadAvatar ? avatar : <Skeleton variant="circular" width={50} height={50}/>}/>
+   </div>
 
-      <Avatar src={loadAvatar ? avatar : <Skeleton variant="circular" width={40} height={40}/>}/>
 
    );
 };

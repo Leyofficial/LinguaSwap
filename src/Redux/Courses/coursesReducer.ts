@@ -49,14 +49,14 @@ export interface ISetLoadCourses {
 }
 
 export const getCoursesThunkCreator = (setLoadCourses: ISetLoadCourses) => {
-   setLoadCourses(true);
    return async (dispatch: Dispatch) => {
       try {
-
          const response = await Course.getCourses();
          if (response.status === 200) {
             dispatch(getCoursesAC(response.data.courses));
-               setLoadCourses(false);
+            setTimeout(() => {
+               setLoadCourses(true);
+            } , 1000)
          }
       } catch (err) {
          console.log(err);

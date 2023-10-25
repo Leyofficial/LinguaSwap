@@ -76,11 +76,6 @@
   width: 100%;
   left: 0;
   padding-top: 5px;
-  background: rgba(21, 186, 206, 0.25); /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, rgba(13, 167, 185, 0.21), rgba(9, 193, 220, 0.14)); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, rgba(13, 89, 143, 0.5), rgba(16, 200, 239, 0.14)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
   img {
     max-width: 40px;
   }
@@ -98,4 +93,13 @@
 
 .finish {
   background-color: rgba(173, 21, 39, 0.57);
+}
+
+.date {
+  margin-top: 2rem;
+}
+.dateWrapper {
+  align-items: center;
+  display: flex;
+  gap: 15px;
 }
