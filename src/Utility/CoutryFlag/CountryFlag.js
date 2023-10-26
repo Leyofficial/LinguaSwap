@@ -8,6 +8,7 @@ import japan from '../../images/Flags/Japan.png'
 import russian from '../../images/Flags/russia.png'
 import ukraine from '../../images/Flags/ukraine.png'
 import french from '../../images/Flags/france.png'
+import korean from '../../images/Flags/korea.png'
 export const countryFlag = (country) => {
   switch (country) {
     case 'English' : return england
@@ -20,6 +21,7 @@ export const countryFlag = (country) => {
     case 'Russian' : return russian
     case 'Ukraine' : return ukraine
     case 'French' : return french
+    case 'Korean' : return korean
 
 
     default : return

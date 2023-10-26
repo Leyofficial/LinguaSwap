@@ -53,6 +53,7 @@ const CreateStepThird = (props: ICreateTypesProps) => {
 
     }
     const createCourseHandler = () => {
+
         if (createCourseData.topics.length === 3) {
 
             if (currentUser._id) {

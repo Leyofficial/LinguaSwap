@@ -57,6 +57,7 @@ export function QontoStepIcon(props:any) {
    const { active, completed, className } = props;
 
    return (
+       //@ts-ignore
        <QontoStepIconRoot ownerState={{ active }} className={className}>
           {completed ? (
               <Check className="QontoStepIcon-completedIcon" />
@@ -135,8 +136,11 @@ export function ColorlibStepIcon(props : any) {
       3: <FaHourglassStart fontSize={30} style={{rotate:"180deg"}} />,
    };
 
+
    return (
+       //@ts-ignore
        <ColorlibStepIconRoot ownerState={{ completed, active }} className={className}>
+          {/*// @ts-ignore*/}
           {icons[String(props.icon)]}
        </ColorlibStepIconRoot>
    );

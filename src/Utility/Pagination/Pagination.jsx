@@ -21,7 +21,7 @@ const Pagination = (props) => {
     <div className={style.container}>
       <ul>
       {pageNumbers.map(item => {
-        return item === 1 ? "" : <li className={currentCoursePage === item ? style.active : null} onClick={() => changeActivePage(item)} key={item}>{item}</li>
+        return item === 1 && totalCourses <= coursesForOnePage ? "" : <li className={currentCoursePage === item ? style.active : null} onClick={() => changeActivePage(item)} key={item}>{item}</li>
 
 
       })}
