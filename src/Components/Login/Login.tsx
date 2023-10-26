@@ -3,7 +3,7 @@ import socketIO, {io} from "socket.io-client";
 import {webSocketAC} from "../../Redux/WebSocket/webSocketReducer.js";
 import  {FormItem, IInfo} from "../Form/FormItem.tsx";
 import {SubmitErrorHandler, SubmitHandler} from "react-hook-form";
-import {createInfo} from "./sentToServer.ts";
+import {createInfo} from "../Form/sentToServer.ts";
 import {errorToaster} from "../../Utility/Toaster/Toaster.ts";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router";

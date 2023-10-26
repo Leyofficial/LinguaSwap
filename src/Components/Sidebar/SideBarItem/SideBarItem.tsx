@@ -4,7 +4,6 @@ import {ISidebarItem } from "../types";
 import {Avatar} from "@mui/material";
 import React from "react";
 export function SideBarItem ({ name , index , sidebarOpen , path , callback , icon } : ISidebarItem) {
-    console.log(path)
     return (
         <div className={style.sidebarItemBlock}  key={index}>
             <NavLink  className={ path === '/login' ? '' : ({isActive}) => isActive ? style.activeSideBarLink : '' }

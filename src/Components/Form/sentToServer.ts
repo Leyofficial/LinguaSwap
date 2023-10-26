@@ -27,24 +27,20 @@ export function createInfo(email: string, password: string) {
     };
 }
 
-export function createProfile ( email : string , password : string ) {
-    const obj  = {
+export async function createProfile(email: string, password: string) {
+    const obj = {
         email: email,
         password: password,
     }
-    return async () => {
-        try {
-            const res = await registerNewUser(obj);
-            if (res.status === 200) {
-                successToaster('Success!')
-            } else if  (res.status === 401) {
-                errorToaster('Error!')
-            }
-        } catch (err) {
-            errorToaster('Something went wrong (check console)')
-            console.log(err);
+    try {
+        const res = await registerNewUser(obj);
+        if (res.status === 200) {
+            successToaster('Success!')
+        } else if (res.status === 401) {
+            errorToaster('Error!')
         }
-    };
+    } catch (err) {
+        errorToaster('Something went wrong (check console)')
+    }
 }
-
 

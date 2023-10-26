@@ -52,7 +52,6 @@ const AppRouters = (props:IAppRoutersProps) => {
                  <Route index element={<MessagesSection/>}></Route>
               </Route>
               <Route path={"*"} element={<ErrorUrl/>}/>
-
            </Route>
         </Routes>
      </>
