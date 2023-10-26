@@ -13,13 +13,13 @@ import {Toaster} from "react-hot-toast";
 import SelectorSection from "./SelectorSection/SelectorSection.js";
 import {validationFields} from "./ValidationFields/validationFields.js";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
-import {ICreateTypesProps} from "../createTypes.ts";
+import {ICreateCourseData, ICreateTypesProps} from "../createTypes.ts";
 
 const CreateStepTwo = (props : ICreateTypesProps) => {
    const {moveStepCallback, currentStep, moveStepBackCallback} = props
 
    const [error, setError] = useState(false)
-   const createCourseData = useTypedSelector((state) => state.createCourseData)
+   const createCourseData:ICreateCourseData = useTypedSelector((state) => state.createCourseData)
    const dispatch = useDispatch()
    const changeStartDate = (start : string) => {
       dispatch(getStartDateAC(start))
@@ -32,6 +32,7 @@ const CreateStepTwo = (props : ICreateTypesProps) => {
    }
 
    const clickHandler = () => {
+      //@ts-ignore
       validationFields(createCourseData,moveStepCallback,currentStep,setError)
    }
 

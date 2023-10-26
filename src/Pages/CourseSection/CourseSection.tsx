@@ -44,7 +44,7 @@ const CourseSection = () => {
 
       }
    }
-
+console.log(currentCourse)
    return (
       <div className={style.container}>
          {leadCourse ?  <>
@@ -54,7 +54,7 @@ const CourseSection = () => {
                <div className={style.descriptionContainer}>
                   <div className={style.description}>
                      <h2>What you will learn </h2>
-                     <p>{currentCourse?.course.description ? currentCourse?.course.description : "asdsadsadsadsadsadasdasdasdsad"}</p>
+                     <p>{currentCourse?.course.description}</p>
                   </div>
                   <div className={style.topics}>
                      {currentCourse?.course.subjects.map((topic : ICourseSubject, index : number) => <ShowTopicCourse curIndex={currentTopic}

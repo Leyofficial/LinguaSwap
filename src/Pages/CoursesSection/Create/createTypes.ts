@@ -1,7 +1,7 @@
 import {ICourseSubject} from "../courseType.ts";
 
 export interface ICreateTypesProps {
-    moveStepCallback? : (currentStep:number) => void,
+    moveStepCallback? : (currentStep:number) => void ,
     currentStep:number,
     setPhoto?:(filename:string) => void,
     moveStepBackCallback?:(currentStep:number) => void,
