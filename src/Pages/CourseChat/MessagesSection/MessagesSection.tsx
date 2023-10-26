@@ -1,8 +1,9 @@
-import React, {LegacyRef, useState} from 'react';
+import React, { useState} from 'react';
 import style from './MessagesSection.module.scss'
 import {AiOutlinePaperClip} from "react-icons/ai";
 import {LuSend} from "react-icons/lu";
 import Messages from "./Messages/Messages.js";
+import {ColorRing} from "react-loader-spinner";
 
 export interface IMessage{
    author:string,
@@ -60,7 +61,15 @@ const MessagesSection = (props:IMessagesProps) => {
                <textarea placeholder={'Type a message'} value={message} onKeyPress={(e) => handlerTextArea(e)} onChange={handlerChangeTextarea}></textarea>
             </div>
             <div className={style.icons}>
-               <LuSend  className={!message ? style.disableSubmit : ""} onClick={submitHandler} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend>
+               {waitResponse ? <div className={style.waitResponse}><ColorRing
+                   visible={true}
+                   height="40"
+                   width="40"
+                   ariaLabel="blocks-loading"
+                   wrapperStyle={{}}
+                   wrapperClass="blocks-wrapper"
+                   colors={["dodgerblue","dodgerblue","dodgerblue","dodgerblue","dodgerblue"]}
+               /></div> : <LuSend  className={!message ? style.disableSubmit : ""} onClick={submitHandler} fontSize={40} color={'rgba(12,87,197,0.98)'}></LuSend> }
             </div>
 
          </div>

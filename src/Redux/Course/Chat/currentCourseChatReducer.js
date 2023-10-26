@@ -11,7 +11,8 @@ const currentCourseChatReducer = (currentCourseChat = initialState.currentCourse
 
     case SET_CURRENT_COURSE_CHAT :
       return action.newCourseChat
-    case RESET_CURRENT_COURSE_CHAT : return null
+    case RESET_CURRENT_COURSE_CHAT :
+      return null
     default :
       return currentCourseChat
   }
@@ -19,18 +20,24 @@ const currentCourseChatReducer = (currentCourseChat = initialState.currentCourse
 
 export default currentCourseChatReducer
 
-export const getCurrentCourseForChatThunkCreator = (idCourse) => {
+export const getCurrentCourseForChatThunkCreator = (idCourse, setLoad) => {
+  setLoad(true)
   return async (dispatch) => {
-    const response = await Course.getCourse(idCourse)
+    try {
+      const response = await Course.getCourse(idCourse)
 
-    if (response.status === 200) {
-      dispatch(currentCourseChat(response.data.course))
-
-      const responseUser = await getUser(response.data.course.teacher.id)
-
-      if (responseUser) {
-        dispatch(currentCourseTeacherAC(responseUser.data.user))
+      if (response.status === 200) {
+        setLoad(false)
+        dispatch(currentCourseChat(response.data.course))
+        const responseUser = await getUser(response.data.course.teacher.id)
+        if (responseUser) {
+          dispatch(currentCourseTeacherAC(responseUser.data.user))
+        }
       }
+    } catch (err) {
+      console.log(err)
+      setLoad(false)
     }
+
   }
 }

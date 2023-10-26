@@ -15,6 +15,8 @@ import {resetCurrentCourseChat} from "../../Redux/Course/Chat/currentCourseChat.
 import CourseInfo from "./CourseInfo/CourseInfo.js";
 import MessagesSection from "./MessagesSection/MessagesSection.js";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
+import CircularUnderLoad from "../Chat/ChatSingleMessage/LoaderChat/LoaderChat.jsx";
+import {AiOutlineArrowRight} from "react-icons/ai";
 
 
 const CourseChat = () => {
@@ -28,11 +30,11 @@ const CourseChat = () => {
     const scroll = useRef<HTMLElement | undefined>()
     const socket = useTypedSelector((state) => state.socket)
     const course = useTypedSelector((state) => state.currentCourseChat)
-
+    const [load, setLoad] = useState(false)
 
     useEffect(() => {
         if (idCourse)
-            getCurrentCourseForChatThunkCreator(idCourse)(dispatch)
+            getCurrentCourseForChatThunkCreator(idCourse,setLoad)(dispatch)
 
     }, [idCourse])
 
@@ -89,14 +91,14 @@ const CourseChat = () => {
     return (
         <>
             <div className={style.container}>
-                <MessagesSection idCourse={idCourse} title={"course chat"} name={course?.course.name}
+                {load ?<CircularUnderLoad/>  :  <MessagesSection idCourse={idCourse} title={"course chat"} name={course?.course.name}
                                  messages={chat?.messages}
                                  sendMessageHandler={sendMessageHandler} scroll={scroll?.current}
-                ></MessagesSection>
+                ></MessagesSection>}
                 <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
                     <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
                          onClick={() => setHideInfoBlock(!hideInfoBlock)}>
-                        <GiImbricatedArrows></GiImbricatedArrows>
+                        <AiOutlineArrowRight></AiOutlineArrowRight>
                     </div>
                     <div className={style.members}>
                         <div className={style.wrapperItems}>
