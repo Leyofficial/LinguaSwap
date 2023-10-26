@@ -4,6 +4,7 @@ import {ISidebarItem } from "../types";
 import {Avatar} from "@mui/material";
 import React from "react";
 export function SideBarItem ({ name , index , sidebarOpen , path , callback , icon } : ISidebarItem) {
+    console.log(path)
     return (
         <div className={style.sidebarItemBlock}  key={index}>
             <NavLink  className={ path === '/login' ? '' : ({isActive}) => isActive ? style.activeSideBarLink : '' }
@@ -19,7 +20,7 @@ export function SideBarItem ({ name , index , sidebarOpen , path , callback , ic
                             : { justifyContent: "center" }
                     }
                 >
-                    {path === '/login' ?  <Avatar sx={{width: 35, height: 35, textAlign: 'center'}} src={icon} /> : <img src={icon} style={{maxWidth : '30px'}} className={style.itemIcon}  alt="" />}
+                    {path === 'auth' || path === 'auth/login' ?  <Avatar sx={{width: 35, height: 35, textAlign: 'center'}} src={icon} /> : <img src={icon} style={{maxWidth : '30px'}} className={style.itemIcon}  alt="" />}
                     <p
                         style={
                             sidebarOpen ? {opacity : '1' , position : 'unset' ,  pointerEvents : 'all'  } : {  opacity : '0'  , position : 'absolute' , pointerEvents : 'none' }

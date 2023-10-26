@@ -20,6 +20,7 @@ import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
 
 const Layout = () => {
    const isStart = useTypedSelector((state) => state.isStart);
+   const isAuth = useTypedSelector((state) => state.isAuth);
    const [ photo , setPhoto ] = useState(profile)
    const [isLoadPhoto , setLoad] = useState<boolean>(false);
    const navigate = useNavigate()
@@ -49,7 +50,7 @@ const Layout = () => {
 
    const sidebarList : ISidebarItems[] = [
       {
-         path : "/login",
+         path : isAuth ? 'auth' : 'auth/login',
          icon: photo,
          name : 'Your profile'
       },

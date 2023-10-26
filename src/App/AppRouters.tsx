@@ -17,6 +17,8 @@ import Layout from "../Router/Layout/Layout.tsx";
 import PersonalProfile from "../Pages/PersonalProfile/index.tsx";
 import Login from "../Components/Login/Login.tsx";
 import {useTypedSelector} from "../hooks/useTypedSelector.ts";
+import SignUp from "../Components/SignUp/SignUp.tsx";
+import Form from "../Components/Form/Form.tsx";
 interface  IAppRoutersProps{
    isAuth:boolean
 }
@@ -30,9 +32,12 @@ const AppRouters = (props:IAppRoutersProps) => {
            <Route path={'/'} element={<Layout/>}>
               <Route index={true} element={isStart ? <CoursesSection/> : <HomePage/>}/>
               <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
-              <Route path={"/login"} element={isAuth ? <PersonalProfile/> : <Login/>}/>
+              <Route path={ 'auth'} element={ isAuth ? <PersonalProfile/> : <Form/>}>
+                 <Route path={'login'} element={<Login />}/>
+                 <Route path={'signup'} element={<SignUp/>} />
+              </Route>
               <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
-              <Route path={"/createprofile"} element={<CreateProfile/>}/>
+              <Route path={ "/createprofile"} element={ <CreateProfile/>}/>
               <Route path={"/findteacher"} element={<TeachersSection/>}/>
               <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
               <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>

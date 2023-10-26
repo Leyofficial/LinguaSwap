@@ -5,8 +5,8 @@ export interface IUserInfo {
     email: string;
     date: string;
     token: string;
-    online: boolean,
-    password: string,
+    online: boolean;
+    password: string;
     user: {
         data: {
             name: string;
@@ -20,6 +20,7 @@ export interface IUserInfo {
         };
     };
 }
+
 
 export interface IUserResponse {
     users: IUserInfo[]
