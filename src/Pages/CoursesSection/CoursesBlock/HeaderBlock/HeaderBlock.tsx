@@ -41,7 +41,6 @@ const HeaderBlock = (props:ICourseProps) => {
          <figure className={style.authorWrapper}>
             {isLoadAvatarUser ? <Avatar sx={{ height : 70 , width : 70 }} src={avatar  ? avatar : ""} alt={'author'}/> : <Skeleton  variant="circular" width={70} height={70}/>}
             <figcaption className={style.nameOfAuthor}>
-             {/*<p>{course.teacher.name}</p>*/}
             </figcaption>
          </figure>
       </>

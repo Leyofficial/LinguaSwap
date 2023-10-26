@@ -3,9 +3,9 @@ import {Select, Space} from "antd";
 import {categoryTypes, enrolmentType, languageItems} from "./filterItems.js";
 
 interface ICourseFiltersProps {
-    setLanguageFilter: () => void,
-    setEnrolment: () => void,
-    setCategory: () => void
+    setLanguageFilter: (arg:string) => void,
+    setEnrolment: (arg:string) => void,
+    setCategory: (arg:string) => void
 }
 
 const CourseFilters = (props: ICourseFiltersProps) => {

@@ -30,7 +30,6 @@ const CoursesSection = () => {
     const indexOfFirstCourse = indexOfLastCourse - courseForOnePage
 
     const currentCourses = courses.slice(indexOfFirstCourse, indexOfLastCourse)
-    console.log(foundCourse)
 
     useEffect(() => {
         getCoursesThunkCreator(setLoadCourses)(dispatch)

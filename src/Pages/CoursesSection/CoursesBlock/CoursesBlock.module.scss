@@ -1,6 +1,6 @@
 .container {
   margin: 20px 0;
-  height: 30rem;
+  height: 32rem;
   width: 80%;
   cursor: pointer;
   border-radius: 10px;
@@ -113,7 +113,7 @@
     }
 
     .members {
-      padding: 15px 5px;
+      padding: 15px 10px;
       height: 50px;
 
       img {
@@ -130,15 +130,17 @@
     }
     .titleWrapper{
       padding-top: 4vh;
-      h2{
-        font-size: 22px;
+      h4{
+        font-size: 20px;
+        height: 50px;
         color: dodgerblue;
+        overflow: hidden;
       }
     }
   }
 
   .infoWrapper {
-    padding-top: 2vh;
+    padding-top: 4vh;
     display: flex;
     justify-content: space-between;
 
@@ -147,18 +149,7 @@
       padding: 10px 10px;
       border-radius: 5px;
       color: black;
-    }
-
-    .start {
-      background-color: rgba(21, 173, 49, 0.44);
-    }
-
-    .finish {
-      background-color: rgba(173, 21, 39, 0.57);
-    }
-
-    div {
-
+      //background: #84858617
     }
     .duration{
       color: #000000;
@@ -270,6 +261,14 @@
       padding: 10px 30px;
       //margin-left: 4vh;
     }
+  }
+}
+.durationInfo{
+  display: flex;
+  align-items: center;
+  svg{
+    font-size: 30px;
+    color: dodgerblue;
   }
 }
 

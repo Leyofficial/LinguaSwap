@@ -13,6 +13,7 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 import {IDialog} from "../mainChatTypes.ts";
 import {IUser} from "../../CourseChat/courseChatTypes.ts";
 import {IMessage} from "../../CourseChat/MessagesSection/MessagesSection.tsx";
+import CircularUnderLoad from "../ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 
 const MessagesSection = () => {
    const {idChat} = useParams<string>()
@@ -25,14 +26,17 @@ const MessagesSection = () => {
 
    const dispatch = useDispatch()
    const scroll = useRef<HTMLElement | null>(null)
+   const [load,setLoad] = useState<boolean>(false)
 
    useEffect(() => {
       if (idChat) {
+         setLoad(true)
          mainChatRequests.getChatById(idChat).then(res => {
 
             if (res.status === 200) {
                setChat(res.data.foundChat)
                getInterlocutor(currentUser?._id, res.data.foundChat, setInterlocutor)
+               setLoad(false)
             }
          })
       }
@@ -89,14 +93,14 @@ const MessagesSection = () => {
             {interlocutor ? <OnlineStatus noImage={true} isOnline={interlocutor?.online}></OnlineStatus> : null}
          </header>
          <main>
-            {interlocutor ? <section className={style.messages}>
+            { load ? <CircularUnderLoad/> : (interlocutor ? <section className={style.messages}>
                {groupedMessage && Object?.entries<IMessage[]>(groupedMessage).map(([date, message],index) => <div key={index}
                   className={style.wrapperMessages}>
                   <h3>{date}</h3>
                   {message?.map((item:IMessage, index : number) => <Message scroll={scroll} key={index} messages={item}></Message>)}
                </div>)}
-            </section> : <div className={style.defaultMessage}><p>Select a chat to start messaging</p></div>}
-            <ChatTextarea setValueTextarea={setValueTextarea} valueTextarea={valueTextarea} submitCallback={addMessageItemToChat}></ChatTextarea>
+            </section> : <div className={style.defaultMessage}><p>Select a chat to start messaging</p></div>)}
+            <ChatTextarea waitResponse={waitResponse} setValueTextarea={setValueTextarea} valueTextarea={valueTextarea} submitCallback={addMessageItemToChat}></ChatTextarea>
          </main>
       </article>
    );
