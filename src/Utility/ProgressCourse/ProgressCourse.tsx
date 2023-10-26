@@ -17,31 +17,31 @@ export const QontoConnector = styled(StepConnector)(({ theme }) => ({
    },
    [`&.${stepConnectorClasses.active}`]: {
       [`& .${stepConnectorClasses.line}`]: {
-         borderColor: '#784af4',
+         borderColor: '#0e96d0',
       },
    },
    [`&.${stepConnectorClasses.completed}`]: {
       [`& .${stepConnectorClasses.line}`]: {
-         borderColor: '#784af4',
+         borderColor: '#1466b2',
       },
    },
    [`& .${stepConnectorClasses.line}`]: {
-      borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
+      borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#166caf',
       borderTopWidth: 3,
       borderRadius: 1,
    },
 }));
 
-export const QontoStepIconRoot = styled('div')(({ theme, ownerState }) => ({
-   color: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#eaeaf0',
+export const QontoStepIconRoot = styled('div')(({ theme, ownerState } : any) => ({
+   color: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#1e63a4',
    display: 'flex',
    height: 22,
    alignItems: 'center',
    ...(ownerState.active && {
-      color: '#784af4',
+      color: 'linear-gradient(#363795, #005C97)',
    }),
    '& .QontoStepIcon-completedIcon': {
-      color: '#784af4',
+      color: '#1d46a6',
       zIndex: 1,
       fontSize: 18,
    },
@@ -49,11 +49,11 @@ export const QontoStepIconRoot = styled('div')(({ theme, ownerState }) => ({
       width: 8,
       height: 8,
       borderRadius: '50%',
-      backgroundColor: 'currentColor',
+      backgroundColor: 'linear-gradient(#363795, #005C97)',
    },
 }));
 
-export function QontoStepIcon(props) {
+export function QontoStepIcon(props:any) {
    const { active, completed, className } = props;
 
    return (
@@ -87,14 +87,14 @@ export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
    },
    [`&.${stepConnectorClasses.active}`]: {
       [`& .${stepConnectorClasses.line}`]: {
-         backgroundImage:
-             "linear-gradient( 136deg, rgb(40 180 173 / 85%) 0%, rgb(30 155 169 / 48%) 50%, rgb(53 113 230) 100%)"
-      },
+         backgroundImage: "linear-gradient(#363795, #005C97)"
+
+},
    },
    [`&.${stepConnectorClasses.completed}`]: {
       [`& .${stepConnectorClasses.line}`]: {
          backgroundImage:
-             "linear-gradient( 136deg, rgb(40 180 173 / 85%) 0%, rgb(30 155 169 / 48%) 50%, rgb(53 113 230) 100%)"
+             "linear-gradient(#363795, #005C97)"
       },
    },
    [`& .${stepConnectorClasses.line}`]: {
@@ -106,7 +106,7 @@ export const ColorlibConnector = styled(StepConnector)(({ theme }) => ({
    },
 }));
 
-const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
+const ColorlibStepIconRoot = styled('div')(({ theme, ownerState } : any) => ({
    backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : '#ccc',
    zIndex: 1,
    color: '#fff',
@@ -117,16 +117,16 @@ const ColorlibStepIconRoot = styled('div')(({ theme, ownerState }) => ({
    justifyContent: 'center',
    alignItems: 'center',
    ...(ownerState.active && {
-      backgroundImage:"linear-gradient( 136deg, rgb(40 180 173 / 85%) 0%, rgb(30 155 169 / 48%) 50%, rgb(53 113 230) 100%)",
+      backgroundImage:"linear-gradient(#363795, #005C97)",
       boxShadow: '0 4px 10px 0 rgba(0,0,0,.25)',
    }),
    ...(ownerState.completed && {
       backgroundImage:
-          "linear-gradient( 136deg, rgb(40 180 173 / 85%) 0%, rgb(30 155 169 / 48%) 50%, rgb(53 113 230) 100%)",
+          "linear-gradient(#363795, #005C97)",
    }),
 }));
 
-export function ColorlibStepIcon(props) {
+export function ColorlibStepIcon(props : any) {
    const { active, completed, className } = props;
 
    const icons = {

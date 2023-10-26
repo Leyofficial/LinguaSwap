@@ -83,17 +83,20 @@
 
 
     .description {
-      max-width: 600px;
+      max-width: 700px;
       margin-bottom: 7vh;
 
       h2 {
         padding-bottom: 2vh;
+        color: dodgerblue;
 
 
       }
 
       p {
-        color: rgba(89, 89, 91, 0.89);
+        color: rgba(89, 89, 91, 0.93);
+        letter-spacing: 0.5px;
+        line-height: 29px;
 
       }
     }

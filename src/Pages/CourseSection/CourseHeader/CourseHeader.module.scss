@@ -15,6 +15,7 @@
     }
   }
 }
+
 .headerTitle {
   width: 100%;
   //border-bottom: 3px solid rgba(37, 174, 222, 0.12);
@@ -38,7 +39,8 @@
       animation-duration: 5s;
       animation-iteration-count: infinite;
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(17, 86, 136, 0.4) 0px 2px 6px 2px;
-      &:hover{
+
+      &:hover {
         color: #f1f1f1;
       }
     }
@@ -48,6 +50,7 @@
     display: flex;
     align-items: center;
     padding-top: 2vh;
+    position: relative;
 
     img {
 
@@ -56,13 +59,26 @@
       height: 70px;
       border-radius: 50%;
       object-fit: cover;
+      z-index: 1;
+    }
+
+    .teacherToga {
+      position: absolute;
+      top: -10px;
+      left:17px;
+      rotate: 30deg;
+      img{
+        width: 70px;
+        padding-bottom: 20px;
+      }
     }
   }
 
   h1 {
-    color: rgba(29, 156, 197, 0.63);
+    color: dodgerblue;
   }
 }
+
 .stepsWrapper {
   margin: 3vh 0;
   padding: 3vh 0;

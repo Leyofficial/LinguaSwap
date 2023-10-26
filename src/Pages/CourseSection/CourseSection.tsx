@@ -53,8 +53,8 @@ const CourseSection = () => {
             <div className={style.wrapperDescription}>
                <div className={style.descriptionContainer}>
                   <div className={style.description}>
-                     <h2>We will learn</h2>
-                     <p>{currentCourse?.course.description}</p>
+                     <h2>What you will learn </h2>
+                     <p>{currentCourse?.course.description ? currentCourse?.course.description : "asdsadsadsadsadsadasdasdasdsad"}</p>
                   </div>
                   <div className={style.topics}>
                      {currentCourse?.course.subjects.map((topic : ICourseSubject, index : number) => <ShowTopicCourse curIndex={currentTopic}
