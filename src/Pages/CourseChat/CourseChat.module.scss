@@ -6,7 +6,6 @@
   position: relative;
 
 
-
   .wrapperMebmers {
 
     transition: 0.3s ease-in-out;
@@ -29,6 +28,7 @@
 
       div {
         transition: 0.3s ease-in-out;
+
         p {
           display: flex;
           justify-content: space-between;
@@ -61,7 +61,7 @@
     }
   }
 
-  .hide{
+  .hide {
     transition: 0.3s ease-in-out;
     width: 10%;
     background-color: #1f1d2b;
@@ -71,16 +71,18 @@
     justify-content: center;
     position: relative;
 
-    .wrapper{
+    .wrapper {
       display: none;
     }
-    .wrapperItems{
+
+    .wrapperItems {
       transition: 0.3s ease-in-out;
       display: flex;
       flex-direction: column;
       align-items: center;
 
     }
+
     .wrapperIconsMember {
       overflow: hidden;
       background-color: #f8f8f8;
@@ -95,6 +97,7 @@
       width: 100%;
       padding: 0;
       margin: 5px 10px;
+
       &:hover {
         background-color: rgba(239, 239, 239, 0.91);
       }
@@ -105,9 +108,11 @@
         padding: 10px;
       }
     }
-    .members{
+
+    .members {
     }
   }
+
   .membersWrapper {
     overflow: hidden;
     background-color: #f1f1f1;
@@ -124,6 +129,7 @@
     }
 
   }
+
   .hiddenMembers {
     opacity: 0;
     height: 0;
@@ -163,6 +169,7 @@
   overflow: auto;
   height: 78.8vh;
   margin-top: 3vh;
+
   h3 {
     background-color: #1f1d2b;
     padding: 10px 15px;
@@ -188,17 +195,19 @@
   }
 
 }
-.activeItem{
-  background-color:#1f1d2b;
+
+.activeItem {
+  background-color: #1f1d2b;
 }
 
-.hideBlock{
+.hideBlock {
   position: absolute;
   transition: 0.1s ease-in-out;
   cursor: pointer;
   top: 0;
   left: -20px;
-  svg{
+
+  svg {
     font-size: 40px;
     background-color: #ffffff;
     padding: 5px 0;
@@ -206,9 +215,26 @@
     border-radius: 55px;
   }
 }
-.reverseIcons{
+
+.reverseIcons {
   rotate: 180deg !important;
   top: -5px;
+}
+
+@media screen and (max-width: 700px) {
+  .wrapperMebmers {
+    display: none;
+  }
+  .members{
+    display: none;
+  }
+  .hideBlock{
+    display: none;
+  }
+  .hide{
+    display: none !important;
+  }
+
 }
 
 

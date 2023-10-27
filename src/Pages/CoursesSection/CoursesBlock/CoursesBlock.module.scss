@@ -6,7 +6,7 @@
   border-radius: 10px;
   transition: all 0.5s;
   position: relative;
-  background:  linear-gradient(163deg, rgb(240 244 245 / 15%) 0%, rgb(196 199 201 / 12%) 100%);
+  background: linear-gradient(163deg, rgb(240 244 245 / 15%) 0%, rgb(196 199 201 / 12%) 100%);
 
   .containerWrapper {
     height: 100%;
@@ -128,9 +128,11 @@
         }
       }
     }
-    .titleWrapper{
+
+    .titleWrapper {
       padding-top: 4vh;
-      h4{
+
+      h4 {
         font-size: 20px;
         height: 50px;
         color: dodgerblue;
@@ -151,7 +153,8 @@
       color: black;
       //background: #84858617
     }
-    .duration{
+
+    .duration {
       color: #000000;
     }
   }
@@ -263,12 +266,25 @@
     }
   }
 }
-.durationInfo{
+
+.durationInfo {
   display: flex;
   align-items: center;
-  svg{
+
+  svg {
     font-size: 30px;
     color: dodgerblue;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    height: 28rem;
+    margin: 5px auto;
+
+    .members {
+      display: none;
+    }
   }
 }
 

@@ -14,8 +14,11 @@ import {useTypedSelector} from "../hooks/useTypedSelector.ts";
 
 
 import CircularUnderLoad from "../Pages/Chat/ChatSingleMessage/LoaderChat/LoaderChat.jsx";
-interface  IAppRoutersProps{
-   isAuth:boolean
+import CourseInfo from "../Pages/CourseChat/CourseInfo/CourseInfo.tsx";
+import SmallChats from "../Pages/CourseChat/SmallChats/SmallChats.tsx";
+
+interface IAppRoutersProps {
+    isAuth: boolean
 }
 
 const TeachersSection = React.lazy(() => import ("../Pages/TeachersSection/index.tsx"));
@@ -56,6 +59,8 @@ const AppRouters = (props:IAppRoutersProps) => {
               <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
                  <Route path={'/course/chat/:idCourse'} element={<Suspense fallback={<CircularUnderLoad/>}><CourseChat/></Suspense>}></Route>
                  <Route index element={<Suspense fallback={<CircularUnderLoad/>}><CourseChat/></Suspense>}></Route>
+                 <Route path={'/course/chat/:idCourse/info'} element={<CourseInfo/>}></Route>
+                 <Route path={'/course/chat/lists'} element={<SmallChats/>}></Route>
               </Route>
               <Route path={'/chat'} element={<MainChat></MainChat>}>
                  <Route path={'chat/:idChat'} element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>

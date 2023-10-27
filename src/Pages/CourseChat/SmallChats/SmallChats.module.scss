@@ -1,0 +1,17 @@
+.search{
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  svg{
+    font-size: 25px;
+    margin:  0 10px ;
+  }
+}
+@media screen and (min-width:701px )  {
+.container{
+  display: none;
+}
+.search{
+  display: none;
+}
+}

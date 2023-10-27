@@ -8,9 +8,9 @@
 
   .coursesWrapper {
     display: grid;
-    grid-template-columns: repeat(3 , 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding-bottom: 6px;
-    justify-content:space-around;
+    justify-content: space-around;
 
     width: 100%;
   }
@@ -35,7 +35,25 @@
     justify-content: center;
   }
 }
-.create{
+
+.create {
   padding: 10px 0;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    .coursesWrapper {
+      grid-template-columns: repeat(1, 1fr);
+      margin: 0 auto;
+      justify-content: flex-end;
+    }
+
+    .searchWrapper {
+      padding: 1vh 5px;
+    }
+    .filterWrapper{
+      padding: 1vh 5px;
+    }
+  }
 }
 

@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import style from './SingleCourseChat.module.scss'
 import {NavLink} from "react-router-dom";
 import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.ts";
-import {useSelector} from "react-redux";
 import {Skeleton} from "@mui/material";
 import {ICourse} from "../../../../types/coursesTypes.ts";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
@@ -17,11 +16,10 @@ const SingleCourseChat = (props:ISingleCourseProps) => {
    const [isLoad,setIsLoad] = useState(false)
 
    useEffect(() => {
+
       getImageFromServer(course.course.image,setCourseImage,setIsLoad)
 
    },[course])
-
-
 
    return (
       <>

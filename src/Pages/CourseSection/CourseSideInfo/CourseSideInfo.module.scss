@@ -38,3 +38,10 @@
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 700px) {
+.wrapperSideInfo{
+  margin-top: 5vh;
+  width: 100%;
+}
+
+}
