@@ -5,22 +5,24 @@
     li {
       margin: 0 5px;
       padding: 15px;
-      border-radius: 5px 15px;
-      background-color: rgba(48, 138, 175, 0.35);
-      transition: 0.5s ease-in-out;
+      border-radius: 25%;
+      //background-color: rgba(48, 138, 175, 0.35);
+      transition: 0.2s ease-in-out;
       cursor: pointer;
       font-size: 13px;
-      color: rgba(28, 78, 117, 0.56);
+      color: rgba(0, 0, 0, 0.99);
+      border: 1px solid black;
 
       &:hover {
-        background-color: rgba(48, 138, 175, 0.52);
-        color: rgba(34, 52, 66, 0.34);
+        //background-color: rgba(48, 138, 175, 0.52);
+        //color: rgba(34, 52, 66, 0.34);
       }
     }
   }
 
   .active {
-    background-color: rgba(4, 98, 218, 0.55);
-    color: #000000;
+    //background-color: rgba(7, 7, 7, 0.17);
+    //border: 1px solid rgba(7, 7, 7, 0.17);
+   transform: scale(1.10);
   }
 }
