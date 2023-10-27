@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {Suspense, useEffect, useState} from 'react';
 import style from './ChatSingleMessage.module.scss'
 import {NavLink} from "react-router-dom";
 import {getDateMessage, getInterlocutor} from "../MainChatHelper/MainChatHelper.ts";
@@ -12,6 +12,8 @@ interface IChatSingleMessageProps{
    dialog:IDialog,
    currentUser:IUser
 }
+
+
 const ChatSingleMessage = (props:IChatSingleMessageProps) => {
    const {dialog, currentUser} = props
    const [interlocutor, setInterlocutor] = useState<IUser | null>(null)
@@ -45,7 +47,10 @@ const ChatSingleMessage = (props:IChatSingleMessageProps) => {
       <NavLink to={`chat/${dialog?._id}`}>
          <section className={style.container}>
             <div className={style.wrapperAuthor}>
-                <OnlineStatus teacher={interlocutor} isOnline={interlocutor?.online}></OnlineStatus>
+
+                  <OnlineStatus teacher={interlocutor} isOnline={interlocutor?.online}></OnlineStatus>
+
+
                <div className={style.wrapperItem}>
                   <div className={style.author}>
                      <p className={style.interlocutor}>{interlocutor?.user.data.name ? interlocutor?.user.data.name : <Skeleton sx={{marginBottom : '20px'}} variant="rectangular" width={200} height={20} />}</p>

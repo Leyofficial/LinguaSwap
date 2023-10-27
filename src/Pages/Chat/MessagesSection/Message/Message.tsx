@@ -1,7 +1,6 @@
 import React, {LegacyRef, useEffect, useState} from 'react';
 import style from './Message.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
-import {useSelector} from "react-redux";
 import {getDateMessage} from "../../MainChatHelper/MainChatHelper.ts";
 import {IMessage} from "../../../CourseChat/MessagesSection/MessagesSection.tsx";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";

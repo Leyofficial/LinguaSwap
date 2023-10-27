@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {Route, Routes} from "react-router-dom";
 import CoursesSection from "../Pages/CoursesSection/CoursesSection.tsx";
 import HomePage from "../Pages/HomePage/HomePage.tsx";
@@ -6,12 +6,8 @@ import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.tsx";
 import TeacherRegister from "../Components/TeacherRegister/TeacherRegister.jsx";
 import CreateProfile from "../Pages/CreateProfilePage/index.tsx";
 import TeachersSection from "../Pages/TeachersSection/index.tsx";
-import CourseSection from "../Pages/CourseSection/CourseSection.tsx";
-import CourseChat from "../Pages/CourseChat/CourseChat.tsx";
-import Create from "../Pages/CoursesSection/Create/Create.tsx";
 import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.tsx";
 import MainChat from "../Pages/Chat/MainChat.tsx";
-import MessagesSection from "../Pages/Chat/MessagesSection/MessagesSection.tsx";
 import ErrorUrl from "../Router/ErrorUrl/ErrorUrl.tsx";
 import Layout from "../Router/Layout/Layout.tsx";
 import PersonalProfile from "../Pages/PersonalProfile/index.tsx";
@@ -19,9 +15,15 @@ import Login from "../Components/Login/Login.tsx";
 import {useTypedSelector} from "../hooks/useTypedSelector.ts";
 import SignUp from "../Components/SignUp/SignUp.tsx";
 import Form from "../Components/Form/Form.tsx";
+import CircularUnderLoad from "../Pages/Chat/ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 interface  IAppRoutersProps{
    isAuth:boolean
 }
+
+const CourseSection = React.lazy(() => import("../Pages/CourseSection/CourseSection.tsx"))
+const MessagesSection = React.lazy(() => import("../Pages/Chat/MessagesSection/MessagesSection.tsx"))
+const CourseChat = React.lazy(() => import("../Pages/CourseChat/CourseChat.tsx"))
+const Create = React.lazy(() => import("../Pages/CoursesSection/Create/Create.tsx"))
 const AppRouters = (props:IAppRoutersProps) => {
    const {isAuth} = props
 
@@ -40,16 +42,16 @@ const AppRouters = (props:IAppRoutersProps) => {
               <Route path={ "/createprofile"} element={ <CreateProfile/>}/>
               <Route path={"/findteacher"} element={<TeachersSection/>}/>
               <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
-              <Route path={"/course/:idCourse"} element={<CourseSection/>}></Route>
-              <Route path={"/course/:idCourse/chat"} element={<CourseChat/>}></Route>
-              <Route path={'/course/create'} element={<Create/>}></Route>
+              <Route path={"/course/:idCourse"} element={<Suspense fallback={<CircularUnderLoad/>}><CourseSection/></Suspense>}></Route>
+              <Route path={"/course/:idCourse/chat"} element={<Suspense fallback={<CircularUnderLoad/>}><CourseChat/></Suspense>}></Route>
+              <Route path={'/course/create'} element={<Suspense fallback={<CircularUnderLoad/>}><Create/></Suspense>}></Route>
               <Route path={"/course/chat"} element={<ChooseTypeOfChat/>}>
-                 <Route path={'/course/chat/:idCourse'} element={<CourseChat/>}></Route>
-                 <Route index element={<CourseChat/>}></Route>
+                 <Route path={'/course/chat/:idCourse'} element={<Suspense fallback={<CircularUnderLoad/>}><CourseChat/></Suspense>}></Route>
+                 <Route index element={<Suspense fallback={<CircularUnderLoad/>}><CourseChat/></Suspense>}></Route>
               </Route>
               <Route path={'/chat'} element={<MainChat></MainChat>}>
-                 <Route path={'chat/:idChat'} element={<MessagesSection/>}></Route>
-                 <Route index element={<MessagesSection/>}></Route>
+                 <Route path={'chat/:idChat'} element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
+                 <Route index element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
               </Route>
               <Route path={"*"} element={<ErrorUrl/>}/>
            </Route>

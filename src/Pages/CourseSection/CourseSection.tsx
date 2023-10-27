@@ -44,7 +44,7 @@ const CourseSection = () => {
 
       }
    }
-console.log(currentCourse)
+
    return (
       <div className={style.container}>
          {leadCourse ?  <>

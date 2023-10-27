@@ -1,16 +1,18 @@
 import style from './CoursesSection.module.scss'
-import {useEffect, useState} from "react";
+import React, {Suspense, useEffect, useState} from "react";
 import Pagination from "../../Utility/Pagination/Pagination.jsx";
-import CoursesBlock from "./CoursesBlock/CoursesBlock.js";
+// import CoursesBlock from "./CoursesBlock/CoursesBlock.tsx";
 import SearchInput from "../../Utility/SearchInput/SearchInput.tsx";
-import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.js";
+import CreateCourse from "./CoursesBlock/CreateCourse/CreateCourse.tsx";
 import {useDispatch} from "react-redux";
 import {filterCourseThunkCreator, getCoursesThunkCreator} from "../../Redux/Courses/coursesReducer.ts";
-import CourseFilters from "./CourseFilters/CourseFilters.js";
+import CourseFilters from "./CourseFilters/CourseFilters.tsx";
 import NotFoundItems from "../../Utility/NotFound/NotFoundItems.tsx";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {ICourse} from "./courseType.ts";
+import CircularUnderLoad from "../Chat/ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 
+const CoursesBlock = React.lazy(() => import("./CoursesBlock/CoursesBlock.tsx"))
 const CoursesSection = () => {
 
     const [searchValue, setSearchValue] = useState("")
@@ -69,9 +71,10 @@ const CoursesSection = () => {
                 </div>
             </div>
             <div className={style.coursesWrapper}>
-                {currentCourses.length >= 1 && foundCourse.length === 0 && searchValue.length === 0 ? currentCourses.map((course : ICourse,index : number) => <CoursesBlock isLoad={loadCourses} course={course} key={index}></CoursesBlock>) : (
-                    foundCourse.length >= 1 ? foundCourse.map((foundItems,index) => <CoursesBlock isLoad={loadCourses} course={foundItems} key={index}></CoursesBlock>) :<NotFoundItems></NotFoundItems> )}
-            </div>
+
+                {currentCourses.length >= 1 && foundCourse.length === 0 && searchValue.length === 0 ? currentCourses.map((course : ICourse,index : number) => <Suspense fallback={<CircularUnderLoad/>}> <CoursesBlock isLoad={loadCourses} course={course} key={index}></CoursesBlock></Suspense>) : (
+                    foundCourse.length >= 1 ? foundCourse.map((foundItems,index) => <Suspense fallback={<CircularUnderLoad/>}><CoursesBlock isLoad={loadCourses} course={foundItems} key={index}></CoursesBlock> </Suspense>) :<NotFoundItems></NotFoundItems>)}
+                </div>
             <div className={style.paginationWrapper}>
 
                 <Pagination paginate={paginate} coursesForOnePage={courseForOnePage}

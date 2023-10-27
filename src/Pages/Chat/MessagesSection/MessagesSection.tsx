@@ -1,10 +1,9 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {Suspense, useEffect, useRef, useState} from 'react';
 import style from './MessagesSection.module.scss'
 import {useParams} from "react-router";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {getInterlocutor, groupedChatMessage} from "../MainChatHelper/MainChatHelper.ts";
 import {useDispatch} from "react-redux";
-import Message from "./Message/Message.js";
 import {getChatsThunkCreator} from "../../../Redux/MainChats/mainChatsReducer.js";
 import {submitMessageHandlerThunkCreator} from "../../../Redux/MainChat/mainChatReducer.js";
 import ChatTextarea from "./ChatTextarea/ChatTextarea.js";
@@ -15,6 +14,7 @@ import {IUser} from "../../CourseChat/courseChatTypes.ts";
 import {IMessage} from "../../CourseChat/MessagesSection/MessagesSection.tsx";
 import CircularUnderLoad from "../ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 
+const Message = React.lazy(() => import("./Message/Message.tsx"))
 const MessagesSection = () => {
    const {idChat} = useParams<string>()
    const [chat, setChat] = useState<IDialog | null>(null)
@@ -97,7 +97,9 @@ const MessagesSection = () => {
                {groupedMessage && Object?.entries<IMessage[]>(groupedMessage).map(([date, message],index) => <div key={index}
                   className={style.wrapperMessages}>
                   <h3>{date}</h3>
+                  <Suspense fallback={<CircularUnderLoad/>} >
                   {message?.map((item:IMessage, index : number) => <Message scroll={scroll} key={index} messages={item}></Message>)}
+                  </Suspense>
                </div>)}
             </section> : <div className={style.defaultMessage}><p>Select a chat to start messaging</p></div>)}
             <ChatTextarea waitResponse={waitResponse} setValueTextarea={setValueTextarea} valueTextarea={valueTextarea} submitCallback={addMessageItemToChat}></ChatTextarea>
