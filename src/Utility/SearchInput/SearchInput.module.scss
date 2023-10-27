@@ -30,5 +30,19 @@
 @media screen and (max-width: 700px) {
   .container {
    width: 93%;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background: rgba(3, 8, 49, 0.07);
+    svg{
+      display: none;
+    }
+    input{
+      color: #000000 !important;
+      &::placeholder{
+        color: rgb(0, 0, 0);
+        font-size: 12px !important;
+      }
+    }
   }
 }

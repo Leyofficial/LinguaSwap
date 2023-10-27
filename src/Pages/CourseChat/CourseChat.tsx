@@ -94,6 +94,8 @@ const CourseChat = () => {
                 {load ?<CircularUnderLoad/>  :  <MessagesSection idCourse={idCourse} title={"course chat"} name={course?.course.name}
                                  messages={chat?.messages}
                                  sendMessageHandler={sendMessageHandler} scroll={scroll?.current}
+                                                                 teacherId={course?.teacher.id}
+                                                                 course={course}
                 ></MessagesSection>}
                 <div className={` ${hideInfoBlock ? style.hide : style.wrapperMebmers}`}>
                     <div className={`${style.hideBlock} ${hideInfoBlock ? style.reverseIcons : null}`}
