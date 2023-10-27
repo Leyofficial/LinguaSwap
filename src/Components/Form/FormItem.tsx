@@ -16,7 +16,8 @@ interface IForm {
 
 export interface IInfo {
     email: string,
-    password: string
+    password: string,
+    checkbox : boolean
 }
 
 export function FormItem ({submit , error , showPassword , setShowPassword , checkBox , setCheckBox , isSignUp } : IForm) {
@@ -45,10 +46,15 @@ export function FormItem ({submit , error , showPassword , setShowPassword , che
 
                     </div>
                     <div className={style.checkbox}>
-                        <input id='accept' type="checkbox" onChange={() => setCheckBox((prev => !prev))}
+
+                        <input  {...register("checkbox" , {required : 'You have to agree with it!' , minLength : {
+                                value : 1,
+                                message : 'The checkbox should be accepted!'
+                            }})} id='accept' type="checkbox" onChange={() => setCheckBox((prev => !prev))}
                                checked={checkBox}/>
-                        <label className={style.label} htmlFor="accept">You agree with private
+                        <label className={style.label}  htmlFor="accept">You agree with private
                             policy <br/> and your cookie preferences</label>
+                        <div className={style.warning}>{errors?.checkbox  && <b>{errors?.checkbox.message || 'Error!'}</b>}</div>
                     </div>
                 </div>
                 <button className={style.btn} >

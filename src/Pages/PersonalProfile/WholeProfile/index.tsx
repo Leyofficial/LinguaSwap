@@ -2,7 +2,7 @@ import style from './WholeProfile.module.scss'
 import {Avatar, Skeleton} from "@mui/material";
 import {CgProfile} from "react-icons/cg";
 import {AiOutlineMail, AiOutlineStar} from "react-icons/ai";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, NavLink, useNavigate} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import List from "../../../Utility/List/List.tsx";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
@@ -16,10 +16,11 @@ import {logoutAC} from "../../../Redux/isAuth/isAuthAC.ts";
 import {backFromLogin} from "../../../Redux/isStartToLogin/isStartToLoginAC.ts";
 import {errorToaster} from "../../../Utility/Toaster/Toaster.ts";
 import {Toaster} from "react-hot-toast";
-import {RootState} from "../../../Redux/rootReduce.ts";
+import {getDate} from "../../../Utility/Date/getDate.ts";
 
 
 function WholeProfile({user, isMine}: IUserOutside) {
+    debugger
     const currentUser: IUserInfo = useTypedSelector((state: any ) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -41,12 +42,23 @@ function WholeProfile({user, isMine}: IUserOutside) {
     }
 
     useEffect(() => {
-        getImageFromServer(user?.user.data.photo, setUserAvatar ,setLoadAvatar ).catch((err) => console.log(err));
-
+        // if (!user.user.photo) {
+        //     return
+        // }
+        // if (user?.user.photo) {
+        //     getImageFromServer(user?.user.photo, setUserAvatar ,setLoadAvatar ).catch((err) => console.log(err));
+        // } else {
+            getImageFromServer(user?.user.data.photo, setUserAvatar ,setLoadAvatar ).catch((err) => console.log(err));
+        // }
     }, [user])
     return (
         <>
-            {isMine ? <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2> : null};
+            {isMine ?
+                <div>
+                    <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2>
+                    <h3 className={style.title}>You can change your profile <NavLink to={'/createprofile'} className={style.link}>here</NavLink></h3>
+                </div>
+                : null};
             <Toaster
                 position="top-right"
                 reverseOrder={false}
@@ -73,7 +85,7 @@ function WholeProfile({user, isMine}: IUserOutside) {
                         </div>
                         <div className={style.avatarBlock}>
                             <AiOutlineStar className={style.profile} size={30}/>
-                            <p>{user?.user.data?.experience + ' '} experience/s</p>
+                            <p>{user?.user.data?.experience   }   experience/s</p>
                         </div>
                         {isMine ?
                             <button onClick={logout} className={style.messageBtn}>Logout</button> : <Link to={''}>
@@ -82,7 +94,7 @@ function WholeProfile({user, isMine}: IUserOutside) {
                     </div>
                     <div className={style.rightBlock}>
                         <h2 className={style.titleRight}>Projects & Skills</h2>
-                        On the site since : <b className={style.span}>{user?.date}</b>
+                        On the site since : <b className={style.span}>{getDate(user?.date)}</b>
                         <div className={style.course}>
                             On course :
                         </div>

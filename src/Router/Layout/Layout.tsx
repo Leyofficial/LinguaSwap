@@ -42,7 +42,9 @@ const Layout = () => {
       if (userToken) {
          getUserByToken(userToken).then(res => {
             if (res.status === 200) {
-               getImageFromServer(res.data.users[0].user.data.photo , setPhoto , setLoad );
+               if (res.data.users[0].user.photo) {
+                  getImageFromServer(res.data.users[0].user.photo , setPhoto , setLoad );
+               }
             }
          })
       }

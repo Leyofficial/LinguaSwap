@@ -5,6 +5,11 @@
 .span {
   color: dodgerblue;
 }
+.link {
+  color: dodgerblue;
+  cursor: pointer;
+  border-bottom: 1px solid dodgerblue;
+}
 .block {
   display: flex;
   flex-wrap: wrap;
