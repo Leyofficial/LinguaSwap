@@ -1,24 +1,32 @@
 import React, {Suspense} from 'react';
 import {Route, Routes} from "react-router-dom";
-import HomePage from "../Pages/HomePage/HomePage.tsx";
+
 import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.tsx";
 import TeacherRegister from "../Components/TeacherRegister/TeacherRegister.jsx";
-import CreateProfile from "../Pages/CreateProfilePage/index.tsx";
-import TeachersSection from "../Pages/TeachersSection/index.tsx";
+
+
 import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.tsx";
 import MainChat from "../Pages/Chat/MainChat.tsx";
-import ErrorUrl from "../Router/ErrorUrl/ErrorUrl.tsx";
-import Layout from "../Router/Layout/Layout.tsx";
-import PersonalProfile from "../Pages/PersonalProfile/index.tsx";
-import Login from "../Components/Login/Login.tsx";
+
+
+
 import {useTypedSelector} from "../hooks/useTypedSelector.ts";
-import SignUp from "../Components/SignUp/SignUp.tsx";
-import Form from "../Components/Form/Form.tsx";
+
+
 import CircularUnderLoad from "../Pages/Chat/ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 interface  IAppRoutersProps{
    isAuth:boolean
 }
 
+const TeachersSection = React.lazy(() => import ("../Pages/TeachersSection/index.tsx"));
+const HomePage = React.lazy(() =>  import( "../Pages/HomePage/HomePage.tsx" ));
+const ErrorUrl = React.lazy(() => import("../Router/ErrorUrl/ErrorUrl.tsx")) ;
+const CreateProfile = React.lazy(() => import ("../Pages/CreateProfilePage/index.tsx"));
+const PersonalProfile = React.lazy(() => import ("../Pages/PersonalProfile/index.tsx"));
+const Layout = React.lazy(() => import ("../Router/Layout/Layout.tsx" )) ;
+const SignUp = React.lazy(() => import("../Components/SignUp/SignUp.tsx"));
+const Login = React.lazy( () =>  import ("../Components/Login/Login.tsx"));
+const Form = React.lazy(  () => import("../Components/Form/Form.tsx"));
 const CourseSection = React.lazy(() => import("../Pages/CourseSection/CourseSection.tsx"))
 const MessagesSection = React.lazy(() => import("../Pages/Chat/MessagesSection/MessagesSection.tsx"))
 const CourseChat = React.lazy(() => import("../Pages/CourseChat/CourseChat.tsx"))
@@ -31,17 +39,17 @@ const AppRouters = (props:IAppRoutersProps) => {
    return (
      <>
         <Routes>
-           <Route path={'/'} element={<Layout/>}>
-              <Route index={true} element={isStart ? <Suspense fallback={<CircularUnderLoad/>}><CoursesSection/></Suspense> : <HomePage/>}/>
+           <Route path={'/'} element={<Suspense fallback={<CircularUnderLoad/>}><Layout/></Suspense> }>
+              <Route index={true} element={isStart ? <Suspense fallback={<CircularUnderLoad/>}><CoursesSection/></Suspense> :<Suspense fallback={<CircularUnderLoad/>}><HomePage/></Suspense>}/>
               <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
-              <Route path={ 'auth'} element={ isAuth ? <PersonalProfile/> : <Form/>}>
+              <Route path={ 'auth'} element={ isAuth ? <PersonalProfile/> : <Suspense fallback={<CircularUnderLoad/>}><Form/></Suspense>}>
                  <Route path={'login'} element={<Login />}/>
                  <Route path={'signup'} element={<SignUp/>} />
               </Route>
               <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
-              <Route path={ "/createprofile"} element={ <CreateProfile/>}/>
-              <Route path={"/findteacher"} element={<TeachersSection/>}/>
-              <Route path={"/findteacher/find/:id"} element={<PersonalProfile/>}/>
+              <Route path={ "/createprofile"} element={ <Suspense fallback={<CircularUnderLoad/>}><CreateProfile/></Suspense>}/>
+              <Route path={"/findteacher"} element={<Suspense fallback={<CircularUnderLoad/>}><TeachersSection/></Suspense>}/>
+              <Route path={"/findteacher/find/:id"} element={ <Suspense fallback={<CircularUnderLoad/>}><PersonalProfile/></Suspense>}/>
               <Route path={"/course/:idCourse"} element={<Suspense fallback={<CircularUnderLoad/>}><CourseSection/></Suspense>}></Route>
               <Route path={"/course/:idCourse/chat"} element={<Suspense fallback={<CircularUnderLoad/>}><CourseChat/></Suspense>}></Route>
               <Route path={'/course/create'} element={<Suspense fallback={<CircularUnderLoad/>}><Create/></Suspense>}></Route>
@@ -53,7 +61,7 @@ const AppRouters = (props:IAppRoutersProps) => {
                  <Route path={'chat/:idChat'} element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
                  <Route index element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
               </Route>
-              <Route path={"*"} element={<ErrorUrl/>}/>
+              <Route path={"*"} element={<Suspense fallback={<CircularUnderLoad/>}><ErrorUrl/></Suspense>}/>
            </Route>
         </Routes>
      </>
