@@ -20,7 +20,6 @@ import {getDate} from "../../../Utility/Date/getDate.ts";
 
 
 function WholeProfile({user, isMine}: IUserOutside) {
-    debugger
     const currentUser: IUserInfo = useTypedSelector((state: any ) => state.loginUser)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -58,7 +57,7 @@ function WholeProfile({user, isMine}: IUserOutside) {
                     <h2 className={style.title}>Your <span className={style.span}>profile</span>:</h2>
                     <h3 className={style.title}>You can change your profile <NavLink to={'/createprofile'} className={style.link}>here</NavLink></h3>
                 </div>
-                : null};
+                : null}
             <Toaster
                 position="top-right"
                 reverseOrder={false}

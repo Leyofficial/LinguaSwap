@@ -10,7 +10,7 @@ h3 {
   font-weight: 1000;
   z-index: 5;
   background-color: white;
-  width: 40rem;
+  width: 45%;
   border: 1px solid dodgerblue;
   border-radius: 20px;
   top: 20%;
@@ -96,4 +96,20 @@ h3 {
 .closeBtn{
   cursor: pointer;
   float: right;
+}
+
+@media (max-width: 900px) {
+  .modal {
+    left: 18%;
+    width: 70%;
+  }
+}
+@media (max-width: 500px) {
+  .modal {
+    left: 5.5%;
+    width: 90%;
+  }
+  .languagesLearn {
+    margin-bottom: 40px;
+  }
 }

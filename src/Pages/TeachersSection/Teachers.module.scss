@@ -42,3 +42,25 @@
   flex-wrap: wrap;
   gap: 20px;
 }
+
+@media (max-width: 1000px) {
+  .cardsItems {
+    justify-content: center;
+    grid-template-columns: repeat(2 , 1fr);
+  }
+}
+@media (max-width: 868px) {
+  .container {
+    padding: 40px;
+  }
+}
+@media (max-width: 650px) {
+  .cardsItems {
+    grid-template-columns: repeat(1,1fr);
+  }
+}
+@media (max-width: 400px) {
+  .topBlock {
+    padding-left: 0;
+  }
+}
