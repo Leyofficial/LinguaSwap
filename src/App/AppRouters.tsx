@@ -1,6 +1,5 @@
 import React, {Suspense} from 'react';
 import {Route, Routes} from "react-router-dom";
-import CoursesSection from "../Pages/CoursesSection/CoursesSection.tsx";
 import HomePage from "../Pages/HomePage/HomePage.tsx";
 import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.tsx";
 import TeacherRegister from "../Components/TeacherRegister/TeacherRegister.jsx";
@@ -24,6 +23,7 @@ const CourseSection = React.lazy(() => import("../Pages/CourseSection/CourseSect
 const MessagesSection = React.lazy(() => import("../Pages/Chat/MessagesSection/MessagesSection.tsx"))
 const CourseChat = React.lazy(() => import("../Pages/CourseChat/CourseChat.tsx"))
 const Create = React.lazy(() => import("../Pages/CoursesSection/Create/Create.tsx"))
+const CoursesSection = React.lazy(() => import("../Pages/CoursesSection/CoursesSection.tsx"))
 const AppRouters = (props:IAppRoutersProps) => {
    const {isAuth} = props
 
@@ -32,7 +32,7 @@ const AppRouters = (props:IAppRoutersProps) => {
      <>
         <Routes>
            <Route path={'/'} element={<Layout/>}>
-              <Route index={true} element={isStart ? <CoursesSection/> : <HomePage/>}/>
+              <Route index={true} element={isStart ? <Suspense fallback={<CircularUnderLoad/>}><CoursesSection/></Suspense> : <HomePage/>}/>
               <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
               <Route path={ 'auth'} element={ isAuth ? <PersonalProfile/> : <Form/>}>
                  <Route path={'login'} element={<Login />}/>
