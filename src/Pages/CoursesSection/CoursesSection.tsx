@@ -22,6 +22,7 @@ const CoursesSection = () => {
     const [currentCoursePage, setCurrentCoursePage] = useState(1)
     const [foundCourse, setFoundCourse] = useState([])
     const [loadCourses, setLoadCourses] = useState<boolean>(false)
+    const [loadFilter,setLoadFilter] = useState<boolean>(false)
     const currentUser = useTypedSelector((state) => state.loginUser)
     const courses = useTypedSelector((state : any) => state.courses)
     const dispatch = useDispatch()
@@ -50,7 +51,7 @@ const CoursesSection = () => {
 
     useEffect(() => {
         if (languageFilter || enrolment) {
-           filterCourseThunkCreator(languageFilter, enrolment)(dispatch)
+           filterCourseThunkCreator(languageFilter, enrolment,setLoadFilter)(dispatch)
         }
     }, [languageFilter, enrolment])
 
@@ -64,6 +65,7 @@ const CoursesSection = () => {
                 <CourseFilters setLanguageFilter={setLanguageFilter}
                                setEnrolment={setEnrolment}
                                setCategory={setCategory}
+                               loadFilter={loadFilter}
                 ></CourseFilters>
                 <div className={style.create}>
                     {currentUser && currentUser?.user.data?.status === "Teacher" ? <CreateCourse></CreateCourse> : null}
@@ -76,7 +78,7 @@ const CoursesSection = () => {
             <div className={style.paginationWrapper}>
 
                 <Pagination paginate={paginate} coursesForOnePage={courseForOnePage}
-                            totalCourses={courses.length}></Pagination>
+                            totalCourses={ foundCourse.length === 0 && searchValue.length === 0 ? courses.length : foundCourse.length}></Pagination>
             </div>
         </div>
     );
