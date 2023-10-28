@@ -20,3 +20,10 @@
     padding: 20px 0;
     border-bottom: 1px dotted gray;
 }
+@media (max-width: 450px) {
+    .buttonsThree {
+        margin: 0 auto;
+        gap: 8px;
+        justify-content: center;
+    }
+}

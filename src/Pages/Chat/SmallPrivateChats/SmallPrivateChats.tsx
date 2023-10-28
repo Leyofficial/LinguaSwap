@@ -1,6 +1,5 @@
 import React, {Suspense, useEffect, useState} from 'react';
 import style from './SmallPrivateChats.module.scss'
-import MainChat from "../MainChat.tsx";
 import CircularUnderLoad from "../ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 import {IDialog} from "../mainChatTypes.ts";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
@@ -22,10 +21,12 @@ const SmallPrivateChats = () => {
     return (
         <div className={style.containerDialogs}>
             <SearchInput value={value} callback={searchValue} placeholder={'Search'}></SearchInput>
+            <div className={style.dialogContainer}>
             {load ? <CircularUnderLoad/> : mainChats?.map((dialog: IDialog, index: number) => <Suspense
                 fallback={<CircularUnderLoad/>}> <ChatSingleMessage key={index}
                                                                     currentUser={currentUser}
                                                                     dialog={dialog}></ChatSingleMessage></Suspense>)}
+            </div>
         </div>
     );
 };

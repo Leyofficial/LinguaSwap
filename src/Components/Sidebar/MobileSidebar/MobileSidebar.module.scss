@@ -17,8 +17,11 @@
 
 
 .burger {
-  float: right;
-  position: relative;
+  margin: 20px;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 30px;
   height: 25px;
   background: transparent;
@@ -49,12 +52,25 @@
 .burger input {
   display: none;
 }
-
-.burger span {
+.active {
   display: block;
   position: absolute;
   height: 4px;
   width: 100%;
+
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+  background: white;
+}
+.usualSpan{
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+
   background: dodgerblue;
   border-radius: 9px;
   opacity: 1;
@@ -64,7 +80,7 @@
 }
 
 .burger span:nth-of-type(1) {
-  top: 0px;
+  top: 0;
   transform-origin: left center;
 }
 
@@ -87,7 +103,7 @@
 }
 
 .burger input:checked ~ span:nth-of-type(2) {
-  width: 0%;
+  width: 0;
   opacity: 0;
 }
 
@@ -120,11 +136,32 @@
     margin: 0;
   }
   .title{
+    margin-top: 15px ;
+    margin-bottom: 50px;
     font-size: 18px;
   }
   .sItem{
     a{
-      font-size: 18px;
+      font-size: 28px;
     }
+  }
+}
+
+.avatarBlock {
+  gap: 1rem;
+  align-items: center;
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid grey;
+}
+
+@media (max-width: 900px) {
+  .menuItems {
+    margin-top: 25%;
+  }
+}
+@media (max-width: 500px) {
+  .menuItems {
+    margin-top: 80%;
   }
 }

@@ -44,6 +44,7 @@ const Layout = () => {
 
     const sidebarList: ISidebarItems[] = [
         {
+            thisIsAvatar : true,
             path: isAuth ? 'auth' : 'auth/login',
             icon: photo,
             name: 'Your profile'

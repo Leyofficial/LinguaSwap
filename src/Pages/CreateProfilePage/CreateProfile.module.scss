@@ -22,3 +22,14 @@ button {
     left: 24%;
     transform: translate(-50%, -50%);
 }
+@media (max-width: 900px) {
+    .points {
+        display: none;
+    }
+}
+@media (max-width: 700px) {
+    .firework {
+        width: 500px;
+        height: 300px;
+    }
+}

@@ -50,11 +50,20 @@
   }
 }
 @media (max-width: 868px) {
+  .topBlock {
+    padding: 0;
+  }
   .container {
     padding: 40px;
   }
 }
 @media (max-width: 650px) {
+  .titleBlock {
+    padding: 0 0 23px 0;
+  }
+  .filtersBlock {
+    margin-bottom: 50px;
+  }
   .cardsItems {
     grid-template-columns: repeat(1,1fr);
   }

@@ -5,7 +5,6 @@ import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
 import {getCoursesHelper} from "../../ChooseTypeOfChat/CourseChatsHelper.ts";
 import SearchInput from "../../../Utility/SearchInput/SearchInput.tsx";
 import style from './SmallChats.module.scss'
-import {RxHamburgerMenu} from "react-icons/rx";
 
 const SmallChats = () => {
     const [courses, setCourses] = useState<ICourse[] | null>(null)
@@ -20,8 +19,10 @@ const SmallChats = () => {
             <div className={style.search}>
                 <SearchInput placeholder={'Search'} value={search} callback={setSearch}></SearchInput>
             </div>
+            <div className={style.coursesContainer}>
             {courses && courses.map((course, index: number) => <SingleCourseChat key={index}
                                                                                  course={course}></SingleCourseChat>)}
+            </div>
         </div>
     );
 };

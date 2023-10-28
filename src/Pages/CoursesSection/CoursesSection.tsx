@@ -57,7 +57,7 @@ const CoursesSection = () => {
 
     return (
         <div className={style.container}>
-            <div className={style.searchWrapper}>
+            <div className={style.searchWrapper} >
                 <SearchInput value={searchValue} callback={setSearchValue}
                              placeholder={'Type course or teacher name'}></SearchInput>
             </div>
