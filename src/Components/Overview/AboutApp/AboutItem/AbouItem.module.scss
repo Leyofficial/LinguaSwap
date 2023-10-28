@@ -75,3 +75,26 @@
     color: rgba(37, 150, 222, 0.87);
   }
 }
+
+
+@media screen and (max-width: 700px){
+  .container{
+
+      h1{
+        font-size: 25px !important;
+      }
+      p{
+        font-size: 20px !important;
+      }
+    }
+  .listWrapper{
+    ul{
+      display: none;
+    }
+  }
+  .navigateArrow{
+    width: 100% !important;
+    text-align: center;
+  }
+
+}

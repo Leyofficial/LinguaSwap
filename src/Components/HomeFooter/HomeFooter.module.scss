@@ -10,21 +10,42 @@
     align-items: center;
     max-width: 1600px;
     margin: 0 auto;
-    p{
+
+    p {
       color: rgba(25, 128, 175, 0.37);
     }
-    .logo{
+
+    .logo {
       letter-spacing: 1.3px;
       font-size: 24px;
-      span{
+
+      span {
         color: #0a6ad7;
         letter-spacing: 1.3px;
       }
     }
-    div{
+
+    div {
       display: flex;
       align-items: center;
       cursor: pointer;
     }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .copy {
+    display: none !important;
+  }
+  .copyMB {
+    text-align: center;
+    p{
+      color: rgba(30, 144, 255, 0.49);
+    }
+  }
+}
+@media screen and (min-width: 701px) {
+  .copyMB {
+    display: none !important;
   }
 }

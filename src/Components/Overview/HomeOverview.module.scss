@@ -60,3 +60,18 @@
   cursor: pointer;
   color: dodgerblue;
 }
+
+@media screen  and (max-width: 700px){
+  .sliderItems{
+    display: block !important;
+    margin: 15vh 0 0 !important;
+    .textItem{
+      font-size: 15px;
+      padding: 30px 5px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+
+}

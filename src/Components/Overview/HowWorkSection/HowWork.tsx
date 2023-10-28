@@ -22,9 +22,6 @@ const HowWork = () => {
   
   return (
     <div className={`${style.container} ${show ? style.show : null}`}>
-      {/*<div className={style.headerIcon}>*/}
-      {/*  <img src={brain} alt={'icon'}/>*/}
-      {/*</div>*/}
       <div className={style.header}>
         <h2>How Lingua works</h2>
         <p>Learn online with the worlds best tutors</p>

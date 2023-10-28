@@ -1,4 +1,4 @@
-import style from "../Header.module.scss";
+import style from './Header.module.scss'
 import headerIcon from "../../../img/icons/ukraine.png";
 import {INavItems, INavWrapper} from "../../../types/headerTypes.ts";
 import {Link} from "react-scroll";

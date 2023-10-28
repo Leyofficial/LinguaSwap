@@ -17,6 +17,7 @@ import {getImageFromServer} from "../../ApiRequests/ServerFiles/getImage.js";
 import {useEffect, useState} from "react";
 import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
 import MobileSidebar from "../../Components/Sidebar/MobileSidebar";
+import MobileHeader from "../../Components/Header/MobileHeader/MobileHeader.tsx";
 
 
 const Layout = () => {
@@ -105,8 +106,8 @@ const Layout = () => {
                     (window.innerWidth > 900 ? <SideBar defaultOpen={!!params.idCourse}
                                                         menuItems={params.idCourse ? sidebarCourses() : sidebarList}/> :
                         <MobileSidebar menuItems={sidebarList}/>)
-                    :
-                    <Header navItems={navItemsIcons}/>}
+                    : (window.innerWidth <= 700 ?<MobileHeader navItems={navItemsIcons}/> : <Header navItems={navItemsIcons}/> )
+                   }
                 <main>
                     <Outlet></Outlet>
                 </main>

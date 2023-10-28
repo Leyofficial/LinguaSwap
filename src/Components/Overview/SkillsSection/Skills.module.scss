@@ -55,3 +55,13 @@
 .show {
   opacity: 1;
 }
+@media screen and (max-width: 700px){
+.header{
+  h2{
+    font-size: 25px !important;
+  }
+  p{
+    font-size: 15px !important;
+  }
+}
+}

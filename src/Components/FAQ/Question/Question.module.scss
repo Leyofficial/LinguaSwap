@@ -50,4 +50,14 @@
   transition: 0.2s ease-in-out;
   opacity: 1;
 }
+@media screen and (max-width: 700px){
+.question{
+  font-size: 15px !important;
+}
+  .answerWrapper{
+    p{
+      font-size: 13px;
+    }
+  }
+}
 
