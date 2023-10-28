@@ -11,11 +11,11 @@ import {createChatThunkCreator, getChatThunkCreate} from "../../Redux/MainChat/m
 import {ILanguagesTypes} from "../Languages/languages.ts";
 import {errorToaster} from "../Toaster/Toaster.ts";
 import {Toaster} from "react-hot-toast";
+import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 
 function ModalProfile({modalActive, user, callback , isMine }: IModalProfile) {
-    const currentUser = useSelector((state: any) => state.loginUser)
+    const currentUser = useTypedSelector((state) => state.loginUser)
     const navigate = useNavigate()
-
     const dispatch = useDispatch()
     const startConversation = () => {
        if (currentUser) {
