@@ -8,6 +8,10 @@
   transition: 0.6s ease;
 }
 
+.sidebarHidden {
+  transform: translateX(-1000);
+}
+
 .titleBlock {
   transition: 1s ease;
 
@@ -47,11 +51,6 @@
   }
 }
 
-@media screen and (max-width: 900px) {
-  .sidebarContainer {
-    display: none;
-  }
-}
 
 
 

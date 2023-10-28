@@ -16,6 +16,7 @@ import profile from "../../img/icons/profile-user.png";
 import {getImageFromServer} from "../../ApiRequests/ServerFiles/getImage.js";
 import {useEffect, useState} from "react";
 import {getUserByToken} from "../../ApiRequests/Courses/AuthUser.js";
+import MobileSidebar from "../../Components/Sidebar/MobileSidebar";
 
 
 const Layout = () => {
@@ -26,6 +27,7 @@ const Layout = () => {
    const navigate = useNavigate()
    const params = useParams()
    const userTokenString = localStorage.getItem('loginUser');
+
    let userToken: string | null = null;
    if (userTokenString) {
       userToken = JSON.parse(userTokenString);
@@ -38,19 +40,7 @@ const Layout = () => {
       {text: "Help", link: "Footer"},
    ];
 
-   useEffect(() => {
-      if (userToken) {
-         getUserByToken(userToken).then(res => {
-            if (res.status === 200) {
-               if (res.data.users[0].user.photo) {
-                  getImageFromServer(res.data.users[0].user.photo , setPhoto , setLoad );
-               }
-            }
-         })
-      }
-   },[])
-
-   const sidebarList : ISidebarItems[] = [
+    const sidebarList : ISidebarItems[] = [
       {
          path : isAuth ? 'auth' : 'auth/login',
          icon: photo,
@@ -83,17 +73,32 @@ const Layout = () => {
       },
    ];
 
+   useEffect(() => {
+      if (userToken) {
+         getUserByToken(userToken).then(res => {
+            if (res.status === 200) {
+               if (res.data.users[0].user.photo) {
+                  getImageFromServer(res.data.users[0].user.photo , setPhoto , setLoad );
+               }
+            }
+         })
+      }
+   },[])
+
+
    const backStep = () => navigate(-1)
    return (
       <>
          <div className={style.container}>
-            {isStart ? <SideBar defaultOpen={!!params.idCourse} // boolean
-                                menuItems={params.idCourse ? sidebarCourses() : sidebarList }/> :
-               <Header navItems={navItemsIcons}/>}
+            {isStart ?
+                (window.innerWidth > 900 ? <SideBar defaultOpen={!!params.idCourse} menuItems={params.idCourse ? sidebarCourses() : sidebarList }/> : <MobileSidebar menuItems={sidebarList}/> )
+                :
+                <Header navItems={navItemsIcons}/>}
             <main>
                <Outlet></Outlet>
             </main>
          </div>
+
       </>)
 }
 
