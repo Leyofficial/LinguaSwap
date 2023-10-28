@@ -64,3 +64,15 @@
   color: rgba(213, 9, 9, 0.87);
   padding-top: 1vh;
 }
+@media screen  and (max-width: 700px){
+ .createTopics{
+   width: 100%;
+ }
+  .description{
+    height: 234px !important;
+    textarea{
+      height: 100% !important;
+    }
+  }
+
+}

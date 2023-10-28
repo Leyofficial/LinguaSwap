@@ -8,7 +8,7 @@ import CustomButton from "../../../../Utility/CustomButton/CustomButton.jsx";
 import {getTitleAC} from "../../../../Redux/Courses/CreateCourseData/createCourseAC.ts";
 import toast, {Toaster} from "react-hot-toast";
 import {Course} from "../../../../ApiRequests/Courses/Courses.js";
-import {ICreateTypesProps} from "../createTypes.ts";
+import {ICreateCourseData, ICreateTypesProps} from "../createTypes.ts";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
 
 const CreateStepOne = (props: ICreateTypesProps) => {
@@ -17,7 +17,7 @@ const CreateStepOne = (props: ICreateTypesProps) => {
 
     const [error, setError] = useState(false)
     const photo = useTypedSelector((state) => state.photo)
-    const createCourseData = useTypedSelector((state) => state.createCourseData)
+    const createCourseData:ICreateCourseData = useTypedSelector((state) => state.createCourseData)
     const dispatch = useDispatch()
     const changeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(getTitleAC(e.target.value))
@@ -39,12 +39,15 @@ const CreateStepOne = (props: ICreateTypesProps) => {
 
 
             }).catch(error => {
-                setError(true)
                 toast.error("Image has different type from PNG, JPEG,JPG or size of image too big");
+                setError(true)
                 console.log(error)
 
             })
-            moveStepCallback(currentStep)
+            if(moveStepCallback){
+                moveStepCallback(currentStep)
+            }
+
         }
     }
     return (

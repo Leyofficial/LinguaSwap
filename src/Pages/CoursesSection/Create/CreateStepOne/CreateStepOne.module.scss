@@ -30,7 +30,18 @@
 }
 
 .move {
-  position: absolute;
-  bottom: 50px;
-  right: 0;
+  //position: absolute;
+  //bottom: 50px;
+  //right: 0;
+}
+
+@media screen and (max-width: 700px){
+  .step{
+    label{
+      font-size: 18px !important;
+    }
+    .move{
+    position: relative;
+    }
+  }
 }
