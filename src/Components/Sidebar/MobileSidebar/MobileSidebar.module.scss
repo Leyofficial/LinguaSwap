@@ -142,7 +142,7 @@
   }
   .sItem{
     a{
-      font-size: 28px;
+      font-size: 18px;
     }
   }
 }
@@ -153,6 +153,7 @@
   display: flex;
   padding: 12px 0;
   border-bottom: 1px solid grey;
+
 }
 
 @media (max-width: 900px) {
@@ -163,5 +164,10 @@
 @media (max-width: 500px) {
   .menuItems {
     margin-top: 80%;
+  }
+  .avatarBlock{
+    h2{
+      font-size: 18px;
+    }
   }
 }
