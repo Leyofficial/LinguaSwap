@@ -2,11 +2,13 @@
   max-width: calc(1300px - 11rem);
   margin: 0 auto;
 }
+
 .title {
   text-align: center;
 }
+
 .sidebarBlock {
-  margin:25px 0;
+  margin: 25px 0;
 }
 
 .span {
@@ -94,15 +96,35 @@
   top: 21.5px;
   left: 4px;
 }
+
 .here {
   transform: translateX(0);
 }
+
 .gone {
   transform: translateX(-1000px);
 }
+
 .sItem {
   a {
-  font-size: 30px;
+    font-size: 30px;
   }
 
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper{
+    padding:5px;
+  }
+  .sidebarBlock {
+    margin: 0;
+  }
+  .title{
+    font-size: 18px;
+  }
+  .sItem{
+    a{
+      font-size: 18px;
+    }
+  }
 }

@@ -18,7 +18,6 @@ const SmallChats = () => {
     return (
         <div className={style.container}>
             <div className={style.search}>
-                <RxHamburgerMenu></RxHamburgerMenu>
                 <SearchInput placeholder={'Search'} value={search} callback={setSearch}></SearchInput>
             </div>
             {courses && courses.map((course, index: number) => <SingleCourseChat key={index}

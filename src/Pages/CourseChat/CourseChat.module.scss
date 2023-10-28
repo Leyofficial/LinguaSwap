@@ -222,6 +222,9 @@
 }
 
 @media screen and (max-width: 700px) {
+  .container{
+    height: calc(100vh - 31px);
+  }
   .wrapperMebmers {
     display: none;
   }
