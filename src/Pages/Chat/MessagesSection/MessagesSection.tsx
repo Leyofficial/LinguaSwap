@@ -1,6 +1,6 @@
 import React, {Suspense, useEffect, useRef, useState} from 'react';
 import style from './MessagesSection.module.scss'
-import {useParams} from "react-router";
+import {useNavigate, useParams} from "react-router";
 import {mainChatRequests} from "../../../ApiRequests/MainChat/MainChat.js";
 import {getInterlocutor, groupedChatMessage} from "../MainChatHelper/MainChatHelper.ts";
 import {useDispatch} from "react-redux";
@@ -13,6 +13,7 @@ import {IDialog} from "../mainChatTypes.ts";
 import {IUser} from "../../CourseChat/courseChatTypes.ts";
 import {IMessage} from "../../CourseChat/MessagesSection/MessagesSection.tsx";
 import CircularUnderLoad from "../ChatSingleMessage/LoaderChat/LoaderChat.jsx";
+import {AiOutlineArrowLeft} from "react-icons/ai";
 
 const Message = React.lazy(() => import("./Message/Message.tsx"))
 const MessagesSection = () => {
@@ -27,6 +28,7 @@ const MessagesSection = () => {
    const dispatch = useDispatch()
    const scroll = useRef<HTMLElement | null>(null)
    const [load,setLoad] = useState<boolean>(false)
+   const navigate = useNavigate()
 
    useEffect(() => {
       if (idChat) {
@@ -86,9 +88,14 @@ const MessagesSection = () => {
       scroll.current?.scrollIntoView({behavior: "smooth"})
    }, [chat, scroll])
 
+
+   const moveBack = () => {
+      navigate(-1)
+   }
    return (
       <article className={style.container}>
          <header className={style.header}>
+            <AiOutlineArrowLeft onClick={moveBack} className={style.back}></AiOutlineArrowLeft>
             <h1>{interlocutor?.user.data.name}</h1>
             {interlocutor ? <OnlineStatus noImage={true} isOnline={interlocutor?.online}></OnlineStatus> : null}
          </header>

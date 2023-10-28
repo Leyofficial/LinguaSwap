@@ -16,6 +16,7 @@ import {useTypedSelector} from "../hooks/useTypedSelector.ts";
 import CircularUnderLoad from "../Pages/Chat/ChatSingleMessage/LoaderChat/LoaderChat.jsx";
 import CourseInfo from "../Pages/CourseChat/CourseInfo/CourseInfo.tsx";
 import SmallChats from "../Pages/CourseChat/SmallChats/SmallChats.tsx";
+import SmallPrivateChats from "../Pages/Chat/SmallPrivateChats/SmallPrivateChats.tsx";
 
 interface IAppRoutersProps {
     isAuth: boolean
@@ -63,8 +64,9 @@ const AppRouters = (props:IAppRoutersProps) => {
                  <Route path={'/course/chat/lists'} element={<SmallChats/>}></Route>
               </Route>
               <Route path={'/chat'} element={<MainChat></MainChat>}>
-                 <Route path={'chat/:idChat'} element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
+                 <Route path={'/chat/:idChat'} element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
                  <Route index element={<Suspense fallback={<CircularUnderLoad/>}><MessagesSection/></Suspense>}></Route>
+                 <Route path={"/chat/mb/private"} element={<SmallPrivateChats/>}></Route>
               </Route>
               <Route path={"*"} element={<Suspense fallback={<CircularUnderLoad/>}><ErrorUrl/></Suspense>}/>
            </Route>

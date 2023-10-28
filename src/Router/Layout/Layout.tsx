@@ -20,86 +20,98 @@ import MobileSidebar from "../../Components/Sidebar/MobileSidebar";
 
 
 const Layout = () => {
-   const isStart = useTypedSelector((state) => state.isStart);
-   const isAuth = useTypedSelector((state) => state.isAuth);
-   const [ photo , setPhoto ] = useState(profile)
-   const [isLoadPhoto , setLoad] = useState<boolean>(false);
-   const navigate = useNavigate()
-   const params = useParams()
-   const userTokenString = localStorage.getItem('loginUser');
+    const isStart = useTypedSelector((state) => state.isStart);
+    const isAuth = useTypedSelector((state) => state.isAuth);
+    const [photo, setPhoto] = useState(profile)
+    const [isLoadPhoto, setLoad] = useState<boolean>(false);
+    const navigate = useNavigate()
+    const params = useParams()
+    const userTokenString = localStorage.getItem('loginUser');
 
-   let userToken: string | null = null;
-   if (userTokenString) {
-      userToken = JSON.parse(userTokenString);
-   }
-   const navItemsIcons : INavWrapper[] = [
-      {text: "Overview", link: "Overview"},
-      {text: "Features", link: "AboutApp"},
-      {text: "Get in touch", link: "Join"},
-      {text: "FAQ", link: "FAQ"},
-      {text: "Help", link: "Footer"},
-   ];
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-    const sidebarList : ISidebarItems[] = [
-      {
-         path : isAuth ? 'auth' : 'auth/login',
-         icon: photo,
-         name : 'Your profile'
-      },
-      {
-         path:"/chat",
-         icon:chat,
-         name:"Chat"
-      },
-      {
-         path: "/",
-         icon: courses,
-         name: "Courses",
-      },
-      {
-         path: "/findteacher",
-         icon: teacher,
-         name: "Find teacher",
-      },
-      {
-         path: "/teams",
-         icon: team,
-         name: "Find team",
-      },
-      {
-         path: "/createprofile",
-         icon: gear,
-         name: "Profile",
-      },
-   ];
+    let userToken: string | null = null;
+    if (userTokenString) {
+        userToken = JSON.parse(userTokenString);
+    }
+    const navItemsIcons: INavWrapper[] = [
+        {text: "Overview", link: "Overview"},
+        {text: "Features", link: "AboutApp"},
+        {text: "Get in touch", link: "Join"},
+        {text: "FAQ", link: "FAQ"},
+        {text: "Help", link: "Footer"},
+    ];
 
-   useEffect(() => {
-      if (userToken) {
-         getUserByToken(userToken).then(res => {
-            if (res.status === 200) {
-               if (res.data.users[0].user.photo) {
-                  getImageFromServer(res.data.users[0].user.photo , setPhoto , setLoad );
-               }
-            }
-         })
-      }
-   },[])
+    const sidebarList: ISidebarItems[] = [
+        {
+            path: isAuth ? 'auth' : 'auth/login',
+            icon: photo,
+            name: 'Your profile'
+        },
+        {
+            path: windowWidth > 700 ? "/chat" : "/chat/mb/private",
+            icon: chat,
+            name: "Chat"
+        },
+        {
+            path: "/",
+            icon: courses,
+            name: "Courses",
+        },
+        {
+            path: "/findteacher",
+            icon: teacher,
+            name: "Find teacher",
+        },
+        {
+            path: "/teams",
+            icon: team,
+            name: "Find team",
+        },
+        {
+            path: "/createprofile",
+            icon: gear,
+            name: "Profile",
+        },
+    ];
 
+    useEffect(() => {
+        if (userToken) {
+            getUserByToken(userToken).then(res => {
+                if (res.status === 200) {
+                    if (res.data.users[0].user.photo) {
+                        getImageFromServer(res.data.users[0].user.photo, setPhoto, setLoad);
+                    }
+                }
+            })
+        }
+    }, [])
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(window.innerWidth);
+        }
 
-   const backStep = () => navigate(-1)
-   return (
-      <>
-         <div className={style.container}>
-            {isStart ?
-                (window.innerWidth > 900 ? <SideBar defaultOpen={!!params.idCourse} menuItems={params.idCourse ? sidebarCourses() : sidebarList }/> : <MobileSidebar menuItems={sidebarList}/> )
-                :
-                <Header navItems={navItemsIcons}/>}
-            <main>
-               <Outlet></Outlet>
-            </main>
-         </div>
+        window.addEventListener('resize', handleResize);
 
-      </>)
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
+
+    const backStep = () => navigate(-1)
+    return (
+        <>
+            <div className={style.container}>
+                {isStart ?
+                    (window.innerWidth > 900 ? <SideBar defaultOpen={!!params.idCourse}
+                                                        menuItems={params.idCourse ? sidebarCourses() : sidebarList}/> :
+                        <MobileSidebar menuItems={sidebarList}/>)
+                    :
+                    <Header navItems={navItemsIcons}/>}
+                <main>
+                    <Outlet></Outlet>
+                </main>
+            </div>
+
+        </>)
 }
 
 export default Layout;

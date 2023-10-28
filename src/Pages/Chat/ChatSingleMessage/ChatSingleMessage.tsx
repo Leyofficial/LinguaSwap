@@ -44,7 +44,7 @@ const ChatSingleMessage = (props:IChatSingleMessageProps) => {
 
 
    return (
-      <NavLink to={`chat/${dialog?._id}`}>
+      <NavLink to={`/chat/${dialog?._id}`}>
          <section className={style.container}>
             <div className={style.wrapperAuthor}>
 
