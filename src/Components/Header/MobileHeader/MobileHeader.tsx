@@ -9,9 +9,6 @@ const MobileHeader = ({navItems} : INavItems) => {
     return (
         <header className={style.container}>
             <div className={active ? style.active : ""}>
-            {/*<div className={`${style.headerBurger}`} onClick={() => setActive(!active)}>*/}
-            {/*    <span></span>*/}
-            {/*</div>*/}
                 <div className={`${style.headerBurger}`}>
                     <label className={style.burger}  htmlFor="burger">
                         <input onChange={() => setActive(!active)} checked={active}  type="checkbox" id="burger" />
