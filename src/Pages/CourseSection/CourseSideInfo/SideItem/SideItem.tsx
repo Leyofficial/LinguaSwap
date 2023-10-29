@@ -1,7 +1,7 @@
 import React from 'react';
 import style from "../CourseSideInfo.module.scss";
 interface  ISideItemProps{
-    path:string,
+    path:string | undefined,
     title:string
 }
 const SideItem = (props:ISideItemProps) => {

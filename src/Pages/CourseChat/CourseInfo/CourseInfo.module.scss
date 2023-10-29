@@ -3,6 +3,7 @@
   overflow: auto;
   height: 78.8vh;
   margin-top: 3vh;
+
   h3 {
     background-color: #1f1d2b;
     padding: 10px 15px;
@@ -13,5 +14,21 @@
   .info {
     padding: 5px 15px;
     margin: 0 !important;
+  }
+
+  .back {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container{
+    margin-top: 0;
+  }
+  .info {
+    .back {
+      display: block;
+
+    }
   }
 }

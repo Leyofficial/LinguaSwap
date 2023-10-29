@@ -1,3 +1,5 @@
+import {ICourseSubject} from "../Pages/CoursesSection/courseType.ts";
+
 export interface ICoursesCreateTypes {
     teacher: {
         id:string,
@@ -10,7 +12,7 @@ export interface ICoursesCreateTypes {
         durationCourse: string,
         members: any[],
         image:  string,
-        subjects: string,
+        subjects: ICourseSubject[],
         level: string,
         language: string,
         enrolment:string,

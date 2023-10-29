@@ -5,10 +5,10 @@
   margin: 0 auto;
   background-color: white;
   border-radius: 15px;
-  padding: 40px;
+  //padding:  40px;
   position: relative;
-  border-top: 1px solid rgba(10, 211, 246, 0.6);
-  transition: 1s ease-in-out;
+  //border-top: 1px solid black;
+  transition: 0.5s ease-in-out;
   opacity: 0;
   .headerIcon{
     position: absolute;
@@ -30,7 +30,7 @@
     h2 {
       font-size: 40px;
       font-weight: 600;
-      color: rgba(30, 96, 194, 0.74);
+      color: dodgerblue;
     }
 
     p {
@@ -42,4 +42,16 @@
 }
 .show{
   opacity: 1;
+}
+
+@media screen  and (max-width: 700px){
+  .header{
+    h2{
+      font-size: 25px !important;
+    }
+    p{
+      font-size: 17px !important;
+    }
+  }
+
 }

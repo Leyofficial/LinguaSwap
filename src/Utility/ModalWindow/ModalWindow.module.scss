@@ -12,8 +12,16 @@
   padding: 50px 20px;
 }
 .button {
+  z-index: 100;
   padding: 20px;
   bottom: 0;
   position: absolute;
   right: 0;
 }
+@media (max-width: 800px) {
+  .modal {
+    width: 75%;
+    left: 50% ;
+  }
+}
+

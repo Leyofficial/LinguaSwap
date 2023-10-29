@@ -8,7 +8,6 @@ import List from "../../../Utility/List/List.tsx";
 import {ILanguagesTypes} from "../../../Utility/Languages/languages.ts";
 
 function SkeletonProfile ({user} : IUserOutside) {
-
     return (
         <div className={style.container}>
         <Stack spacing={1}>
@@ -47,8 +46,7 @@ function SkeletonProfile ({user} : IUserOutside) {
                 </div>
                 <p className={style.languagesTitle}>Languages know :</p>
                 <div className={style.languagesBlock}>
-
-                    {user?.user.data.languagesKnow.map((item : ILanguagesTypes) => {
+                    { user?.user?.data?.languagesKnow.length === 0 ? <Skeleton variant="rectangular" width={50} height={30} />  : user?.user?.data?.languagesKnow.map((item : ILanguagesTypes) => {
                         return <div key={item.label}>
                             <Skeleton variant="rectangular" width={50} height={30} />
                         </div>
@@ -56,15 +54,11 @@ function SkeletonProfile ({user} : IUserOutside) {
                 </div>
                 <p className={style.languagesTitle}>Languages learn :</p>
                 <div className={style.languagesBlock}>
-                    {user?.user.data.languagesLearn.map((item : ILanguagesTypes) => {
+                    { user?.user?.data?.languagesLearn.length === 0 ? <Skeleton variant="rectangular" width={50} height={30} /> : user?.user?.data?.languagesLearn.map((item : ILanguagesTypes) => {
                         return <div key={item.label}>
                             <Skeleton variant="rectangular" width={50} height={30} />
                         </div>
                     })}
-
-                    <List items={user?.user.data?.languagesKnow} rerender={(item : ILanguagesTypes) =><div key={item.label}>
-                        <Skeleton variant="rectangular" width={50} height={30} />
-                    </div>}></List>
                 </div>
             </div>
             </div>

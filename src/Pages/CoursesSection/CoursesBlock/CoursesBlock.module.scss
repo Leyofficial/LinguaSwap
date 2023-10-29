@@ -1,22 +1,20 @@
 .container {
   margin: 20px 0;
-  height: 37rem;
-  width: 30%;
+  height: 32rem;
+  width: 80%;
   cursor: pointer;
-  background-image: linear-gradient(163deg, rgba(31, 172, 192, 0.13) 0%, rgba(20, 162, 220, 0.3) 100%);
   border-radius: 10px;
   transition: all 0.5s;
   position: relative;
+  background: linear-gradient(163deg, rgb(240 244 245 / 15%) 0%, rgb(196 199 201 / 12%) 100%);
 
   .containerWrapper {
-    border-radius: 10px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.45);
     transition: all 0.5s;
 
     &:hover {
-      //transform: scale(0.98);
-      border-radius: 20px;
+      transform: scale(0.98);
+
     }
 
     .courseHeader {
@@ -115,7 +113,8 @@
     }
 
     .members {
-      padding: 15px 5px;
+      padding: 15px 10px;
+      height: 50px;
 
       img {
         max-width: 50px;
@@ -129,17 +128,21 @@
         }
       }
     }
-    .titleWrapper{
+
+    .titleWrapper {
       padding-top: 4vh;
-      h3{
-        font-size: 17px;
-        color: rgba(80, 140, 210, 0.78);
+
+      h4 {
+        font-size: 20px;
+        height: 50px;
+        color: dodgerblue;
+        overflow: hidden;
       }
     }
   }
 
   .infoWrapper {
-    padding-top: 2vh;
+    padding-top: 4vh;
     display: flex;
     justify-content: space-between;
 
@@ -148,20 +151,10 @@
       padding: 10px 10px;
       border-radius: 5px;
       color: black;
+      //background: #84858617
     }
 
-    .start {
-      background-color: rgba(21, 173, 49, 0.44);
-    }
-
-    .finish {
-      background-color: rgba(173, 21, 39, 0.57);
-    }
-
-    div {
-
-    }
-    .duration{
+    .duration {
       color: #000000;
     }
   }
@@ -236,9 +229,6 @@
   }
 
   &:hover {
-    box-shadow: 0px 0px 30px 1px rgba(48, 50, 51, 0.42);
-    border-radius: 20px;
-
     .author {
       border-radius: 0 0 20px 20px;
       transition: 1s all;
@@ -273,6 +263,27 @@
       font-size: 18px;
       padding: 10px 30px;
       //margin-left: 4vh;
+    }
+  }
+}
+
+.durationInfo {
+  display: flex;
+  align-items: center;
+
+  svg {
+    font-size: 30px;
+    color: dodgerblue;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    height: 28rem;
+    margin: 5px auto;
+
+    .members {
+      display: none;
     }
   }
 }

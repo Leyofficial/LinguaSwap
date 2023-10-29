@@ -38,3 +38,23 @@
     //padding-left: 30vh;
   }
 }
+
+@media screen and (max-width: 700px){
+  .support{
+    font-size: 14px;
+    display: none;
+  }
+  .wrapperText{
+    h1{
+      line-height: 45px;
+      font-size: 25px;
+    }
+    .wrapperType{
+      margin-top: 15px;
+      span{
+        font-size: 25px !important;
+      }
+
+    }
+  }
+}

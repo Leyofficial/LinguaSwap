@@ -19,14 +19,15 @@ const coursesReducer = (courses = initialState.courses, action : TCoursesActions
    }
 }
 export default coursesReducer
-export const filterCourseThunkCreator = (language : string , enrolment : string) => {
-
+export const filterCourseThunkCreator = (language : string , enrolment : string,setLoadFilter:(arg:boolean) => void) => {
+   setLoadFilter(true)
    return async (dispatch  : Dispatch ) => {
       try {
          let coursesResponse = await Course.getCourses()
          let filterData = null
          if (coursesResponse.status === 200) {
             filterData = coursesResponse.data.courses
+
 
             if (language && language !== 'All') {
                filterData = filterData.filter((item : ICourse) => item.course.language === language)
@@ -36,8 +37,10 @@ export const filterCourseThunkCreator = (language : string , enrolment : string)
             }
 
             dispatch(filterCourseAC(filterData))
+            setLoadFilter(false)
          }
       } catch (error) {
+         setLoadFilter(false)
          console.log(error)
       }
    }
@@ -49,14 +52,14 @@ export interface ISetLoadCourses {
 }
 
 export const getCoursesThunkCreator = (setLoadCourses: ISetLoadCourses) => {
-   setLoadCourses(true);
    return async (dispatch: Dispatch) => {
       try {
-
          const response = await Course.getCourses();
          if (response.status === 200) {
             dispatch(getCoursesAC(response.data.courses));
-               setLoadCourses(false);
+            setTimeout(() => {
+               setLoadCourses(true);
+            } , 1000)
          }
       } catch (err) {
          console.log(err);

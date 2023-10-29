@@ -7,12 +7,12 @@ import Points from "../../Utility/Points";
 import ModalWindow from "../../Utility/ModalWindow/ModalWindow.js";
 import {FC, useState} from "react";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
-import Login from "../../Components/Login/Login.js";
+import {useNavigate} from "react-router";
+import NotAuth from "../../Components/NotAuth";
 
 const CreateProfile: FC = () => {
     const isAuth = useTypedSelector((state) => state.isAuth);
     const [currentStep, setCurrentStep] = useState<number>(1);
-
     const nextStep = (): void => {
         setCurrentStep(currentStep + 1);
     };
@@ -68,7 +68,7 @@ const CreateProfile: FC = () => {
 
     return (
         <div>
-            {isAuth ? <div className={style.container}>{renderStep()}</div> : <Login/>}
+            {isAuth ? <div className={style.container}>{renderStep()}</div> : <NotAuth/> }
         </div>
     );
 };

@@ -8,7 +8,7 @@ import socketIO from 'socket.io-client'
 import {webSocketAC} from "../Redux/WebSocket/webSocketReducer.js";
 import {loginUserThunkCreator} from "../Redux/login/loginUserReducer.ts";
 import {backFromLogin, moveToLogin} from "../Redux/isStartToLogin/isStartToLoginAC.ts";
-import AppRouters from "./AppRouters.jsx";
+import AppRouters from "./AppRouters.tsx";
 
 function App() {
 

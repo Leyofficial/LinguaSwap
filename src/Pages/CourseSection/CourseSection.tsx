@@ -10,15 +10,16 @@ import CourseHeader from "./CourseHeader/CourseHeader.js";
 import CoursesSectionSkeleton from "./CoursesSectionSkeleton/CoursesSectionSkeleton.js";
 import {useTypedSelector} from "../../hooks/useTypedSelector.ts";
 import {ICourseSubject} from "../CoursesSection/courseType.ts";
+import {ICourse} from "../../types/coursesTypes.ts";
 
 
 const CourseSection = () => {
-   const {idCourse} = useParams()
+   const {idCourse} = useParams<string>()
    const dispatch = useDispatch()
-   const currentCourse = useTypedSelector((state) => state.currentCourse)
+   const currentCourse:ICourse = useTypedSelector((state) => state.currentCourse)
    const [errorJoin, setErrorJoin] = useState(false)
    const [leadCourse, setLeadCourse] = useState(false)
-   const [currentTopic, setCurrentTopic] = useState(0)
+   const [currentTopic, setCurrentTopic] = useState<number | null>(0)
 
    useEffect(() => {
       if(idCourse){
@@ -52,7 +53,7 @@ const CourseSection = () => {
             <div className={style.wrapperDescription}>
                <div className={style.descriptionContainer}>
                   <div className={style.description}>
-                     <h2>We will learn</h2>
+                     <h2>What you will learn </h2>
                      <p>{currentCourse?.course.description}</p>
                   </div>
                   <div className={style.topics}>

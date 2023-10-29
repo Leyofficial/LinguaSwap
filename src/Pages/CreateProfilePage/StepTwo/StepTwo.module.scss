@@ -15,3 +15,13 @@
 .wholeContent {
     padding: 40px 10px ;
 }
+
+@media (max-width: 700px) {
+    .title {
+        text-align: center;
+    }
+    .wholeContent {
+        padding: 1px 10px;
+    }
+
+}

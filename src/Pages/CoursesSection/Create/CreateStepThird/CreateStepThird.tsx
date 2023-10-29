@@ -13,7 +13,7 @@ import {
 } from "../../../../Redux/Courses/CreateCourseData/createCourseReducer.ts";
 import CreateTopic from "./CreateTopic/CreateTopic.js";
 import {useTypedSelector} from "../../../../hooks/useTypedSelector.ts";
-import {ICreateTypesProps} from "../createTypes.ts";
+import {ICreateCourseData, ICreateTypesProps} from "../createTypes.ts";
 import {ICourseSubject} from "../../courseType.ts";
 
 const CreateStepThird = (props: ICreateTypesProps) => {
@@ -23,7 +23,7 @@ const CreateStepThird = (props: ICreateTypesProps) => {
     const [description, setDescription] = useState("")
     const [error, setError] = useState(false)
     const [succeed, setSucceed] = useState(false)
-    const createCourseData = useTypedSelector((state) => state.createCourseData)
+    const createCourseData:ICreateCourseData = useTypedSelector((state) => state.createCourseData)
     const currentUser = useTypedSelector((state) => state.loginUser)
     const dispatch = useDispatch()
     const [toastError, setToastError] = useState(false)
@@ -53,6 +53,7 @@ const CreateStepThird = (props: ICreateTypesProps) => {
 
     }
     const createCourseHandler = () => {
+
         if (createCourseData.topics.length === 3) {
 
             if (currentUser._id) {

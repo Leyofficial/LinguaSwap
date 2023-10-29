@@ -6,8 +6,8 @@ import CreateStepTwo from "./CreateStepTwo/CreateStepTwo.js";
 import CreateStepThird from "./CreateStepThird/CreateStepThird.js";
 
 const Create = () => {
-   const [currentStep, setCurrentStep] = useState(1)
-   const [photoCourse, setPhotoCourse] = useState("")
+   const [currentStep, setCurrentStep] = useState<number>(1)
+   const [photoCourse, setPhotoCourse] = useState<string>("")
 
    const moveStep = (currentStep : number) => {
       if (currentStep < 3) {

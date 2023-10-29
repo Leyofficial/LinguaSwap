@@ -21,14 +21,15 @@ export const getChatThunkCreate = (currentUserId, choseUserId, navigate) => {
 
          if (response.status === 200) {
             dispatch(getMainChat(response.data.foundChat))
-            navigate(`/chat/chat/${choseUserId}`)
+            console.log(response)
+            navigate(`/chat/${response.data.foundChat._id}`)
          }
 
       } catch (err) {
          console.log(err)
          if (err.response.status === 404) {
             dispatch(createChatThunkCreator(currentUserId, choseUserId))
-            navigate(`/chat/chat/${choseUserId}`)
+            navigate(`/chat/${choseUserId}`)
 
          }
       }

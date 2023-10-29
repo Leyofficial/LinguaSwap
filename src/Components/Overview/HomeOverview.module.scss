@@ -1,29 +1,26 @@
 .container {
   position: relative;
-  background-color: rgba(126, 173, 206, 0.06);
-  padding: 30px 5px;
+  //background-color: rgba(126, 173, 206, 0.06);
+  padding: 15px;
   transition: 1s ease-in-out;
 
 
   .textItem {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 900;
-    color: rgba(12, 60, 218, 0.61);
+    //color: dodgerblue;
     padding: 0 30px;
     cursor: pointer;
-    transition: 1s ease-in-out;
+    //transition: 1s ease-in-out;
 
-    &:hover {
-      color: rgba(14, 96, 236, 0.7);
-      transition: 1s ease-in-out;
-    }
   }
 
   .sliderItems {
-    margin: 25vh 0 10vh;
+    margin: 15vh 0 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap:15px;
   }
 
   .wrapperIcon {
@@ -55,11 +52,26 @@
 }
 
 .active {
-  border: 2px solid rgba(39, 122, 173, 0.54);
-  font-size: 30px;
-  border-radius: 5px 15px;
+  border: 1px solid dodgerblue;
+  font-size: 25px;
+  border-radius:10px;
   font-weight: 900;
-  color: rgba(13, 106, 171, 0.61);
-  padding: 5px 30px;
+  padding: 15px;
   cursor: pointer;
+  color: dodgerblue;
+}
+
+@media screen  and (max-width: 700px){
+  .sliderItems{
+    display: block !important;
+    margin: 15vh 0 0 !important;
+    .textItem{
+      font-size: 15px;
+      padding: 30px 5px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+
 }

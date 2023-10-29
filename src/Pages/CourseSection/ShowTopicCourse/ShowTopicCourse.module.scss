@@ -1,6 +1,11 @@
 .wrapper {
   p {
     cursor: pointer;
+    color: black;
+  }
+  svg{
+    margin-right: 5px;
+    font-size: 20px;
   }
 
   span {
@@ -8,7 +13,7 @@
     display: block;
 
     width: 100%;
-    border-bottom: 2px solid rgba(37, 175, 225, 0.19);
+    //border-bottom: 1px solid rgba(106, 107, 108, 0.21);
     //padding-bottom: 1vh;
 
     margin-bottom: 2vh;
@@ -18,8 +23,7 @@
     overflow: visible;
     width: 100%;
     opacity: 1;
-    //height: 100%;
-    //transition: 1s ease-in-out;
+    transition: 0.5s ease-in-out;
   }
 
   .hidden {
@@ -28,7 +32,6 @@
     height: 0;
     display: block;
     //opacity: 0;
-    //transition: 1s ease-in-out;
   }
   .topic{
     display: flex;
@@ -38,22 +41,20 @@
 
       rotate: 43deg;
       font-size: 30px;
-      color: rgba(18, 117, 154, 0.59);
-      &:hover{
-        color: rgba(13, 59, 157, 0.56);
-      }
+      color: rgba(0, 0, 0, 0.96);
     }
     p{
       font-size: 18px;
-      color: rgba(18, 117, 154, 0.59);
+      color: rgb(0, 0, 0);
     }
   }
   .open{
     rotate: 224deg !important;
-    color: rgba(13, 59, 157, 0.56) !important;
+    color: rgba(147, 147, 147, 0.56) !important;
   }
   span{
-    color: rgba(64, 69, 70, 0.66);
+    color: rgba(64, 69, 70, 0.75);
     padding: 3vh 0 ;
+    letter-spacing: 0.5px;
   }
 }

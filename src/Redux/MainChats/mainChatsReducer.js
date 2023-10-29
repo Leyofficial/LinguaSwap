@@ -15,18 +15,21 @@ const mainChatsReducer = (chats = initialState.mainChats, action) => {
 
 export default mainChatsReducer
 
-export const getChatsThunkCreator = (idUser) => {
+export const getChatsThunkCreator = (idUser,setLoad) => {
 
   return async (dispatch) => {
     try {
+      setLoad(true)
       const response = await mainChatRequests.getChats(idUser)
 
       if (response.status === 200) {
         dispatch(getMainChats(response.data.foundChats))
+        setLoad(false)
       }
     } catch (err) {
 
       if (err) {
+        setLoad(false)
         console.log(err)
         return err.response
       }

@@ -1,4 +1,5 @@
 export interface  ISidebarItems {
+    thisIsAvatar? : boolean
     path : string,
     name : string,
     icon : string | undefined,

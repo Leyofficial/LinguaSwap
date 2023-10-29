@@ -8,7 +8,9 @@ import {getStateOfCourse} from "./stateOfCourse.js";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
 import {getImageFromServer} from "../../../ApiRequests/ServerFiles/getImage.ts";
 import {useTypedSelector} from "../../../hooks/useTypedSelector.ts";
-
+import {ICourse} from "../../../types/coursesTypes.ts";
+import CustomButton from "../../../Utility/CustomButton/CustomButton.jsx";
+import toga from '../../../images/crown.png'
 interface ICourseHeaderProps{
    joinHandler:(arg:string) => void,
    errorJoin:boolean
@@ -17,7 +19,7 @@ const CourseHeader = (props:ICourseHeaderProps) => {
    const {joinHandler, errorJoin} = props
 
    const loginUser = useTypedSelector((state) => state.loginUser)
-   const currentCourse = useTypedSelector((state) => state.currentCourse)
+   const currentCourse : ICourse = useTypedSelector((state) => state.currentCourse)
    const steps = ['Group Recruitment', 'Start of the course', 'Finish of the  course']
    const [teacherAvatar,setTeacherAvatar] = useState("")
 
@@ -28,6 +30,11 @@ const CourseHeader = (props:ICourseHeaderProps) => {
          }
       })
    },[currentCourse])
+
+   const joinCourseHandler = () => {
+      joinHandler(loginUser._id)
+   }
+
    return (
       <div className={style.containerHeader}>
 
@@ -35,11 +42,14 @@ const CourseHeader = (props:ICourseHeaderProps) => {
             <div className={style.wrapperTitle}>
                <h1>{currentCourse?.course.name}</h1>
                {loginUser?.user.data?.status !== "Teacher" ?
-                  <button onClick={() => joinHandler(loginUser._id)}>Join to course</button> : null}
+                  <CustomButton callback={joinCourseHandler} title={"Join to course"}></CustomButton> : null}
                {errorJoin ? <Toaster position="top-right" reverseOrder={false}/> : null}
             </div>
             <div className={style.image}>
-               <img src={teacherAvatar ? teacherAvatar : memberImage} alt={'members'}/>
+               <div className={style.teacherToga}>
+                  <img src={toga} alt={'author'}/>
+               </div>
+               <img src={teacherAvatar ? teacherAvatar : memberImage} alt={'author'}/>
                <p>{currentCourse?.teacher.name}</p>
             </div>
 

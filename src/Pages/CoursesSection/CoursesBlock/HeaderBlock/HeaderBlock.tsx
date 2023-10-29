@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import style from './HeaderBlock.module.scss'
 import {getUser} from "../../../../ApiRequests/Courses/AuthUser.js";
 import {getImageFromServer} from "../../../../ApiRequests/ServerFiles/getImage.js";
-import {Skeleton} from "@mui/material";
+import {Avatar, Skeleton} from "@mui/material";
 import {ICourseProps} from "../CoursesBlock.tsx";
 
 const HeaderBlock = (props:ICourseProps) => {
-   const {course} = props
+   const {course , isLoad} = props
 
    const [avatar, setAvatar] = useState("")
    const [avatarCourse,setAvatarCourse] = useState("")
@@ -32,16 +32,15 @@ const HeaderBlock = (props:ICourseProps) => {
    return (
       <>
          <header className={style.courseHeader}>
-            {isLoadAvatarCourse ? <img src={avatarCourse ? avatarCourse : ""} alt={'course'}/> : <Skeleton  variant="rectangular" width={"100%"} height={200} ></Skeleton>}
-            <div className={style.language}>
-               <p>{course.course.language}</p>
+            {isLoadAvatarCourse ? <img src={avatarCourse ? avatarCourse : ""} alt={'course'}/> : <Skeleton  variant="rectangular" width={"100%"} height={150} ></Skeleton>}
+            <div className={  style.language}>
+               <p>{ isLoad ? course.course.language : <Skeleton variant={'rectangular'} width={50} height={20} />}</p>
             </div>
          </header>
 
          <figure className={style.authorWrapper}>
-            {isLoadAvatarUser ? <img src={avatar  ? avatar : ""} alt={'author'}/> : <Skeleton  variant="rectangular" width={50} height={50}/>}
+            {isLoadAvatarUser ? <Avatar sx={{ height : 70 , width : 70 }} src={avatar  ? avatar : ""} alt={'author'}/> : <Skeleton  variant="circular" width={70} height={70}/>}
             <figcaption className={style.nameOfAuthor}>
-             <p>{course.teacher.name}</p>
             </figcaption>
          </figure>
       </>

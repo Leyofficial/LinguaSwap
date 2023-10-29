@@ -12,7 +12,7 @@
     margin: 0;
   }
   .wrapperOverview {
-    margin-top: 10vh;
+    margin-top: 2vh;
   }
 
   .scrollUp {
@@ -25,15 +25,17 @@
     z-index: 1;
     display: none;
     svg {
-      rotate: -137deg;
-      font-size: 40px;
-      color: rgba(28, 108, 169, 0.33);
-      transition: 0.5s ease-in-out;
+      //rotate: -137deg;
+      font-size: 50px;
+      color: dodgerblue;
+      transition: 0.2s ease-in-out;
+      //border: 1px solid dodgerblue;
+      border-radius: 5px;
     }
 
     &:hover {
       svg {
-        color: #054ab2;
+        color: rgba(30, 144, 255, 0.64);
       }
     }
   }
@@ -50,18 +52,17 @@
   justify-content: center;
 
   p{
-    letter-spacing: 1px;
+    //letter-spacing: 1px;
     line-height: 30px;
     max-width: 600px;
     text-align: center;
-    color: rgba(73, 70, 70, 0.81);
     span{
-      color: rgba(12, 60, 218, 0.64);
+      color: dodgerblue;
     }
   }
 }
 .wrapperQuestion {
-  background-color: rgba(126, 173, 206, 0.06);
+  //background-color: rgba(126, 173, 206, 0.06);
 
   header {
     text-align: center;
@@ -70,7 +71,7 @@
     h1 {
       font-size: 40px;
       font-weight: 600;
-      color: rgba(30, 96, 194, 0.74);
+      color: dodgerblue;
     }
 
     p {
@@ -92,6 +93,29 @@
   100% {
     font-size: 40px;
   }
+}
+
+@media screen  and (max-width: 700px){
+  .container{
+    margin-top: 0 !important;
+    padding: 0 15px;
+  }
+  .wrapperInfo{
+    display: none;
+  }
+  .wrapperQuestion{
+    header{
+      h1{
+        font-size: 25px;
+      }
+      p{
+        font-size: 16px;
+      }
+    }
+  }
+.scrollUp{
+  right: 0 !important;
+}
 }
 
 

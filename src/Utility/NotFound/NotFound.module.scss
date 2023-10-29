@@ -3,11 +3,17 @@
   position: absolute;
   font-size: 30px;
   text-align: center;
-  //width: 100%;
+
   top: 45%;
   left: calc(50% + 3rem);
   transform: translate(-50%, -50%);
 }
 .span {
   color: dodgerblue;
+}
+@media (max-width: 800px) {
+  .notFound {
+    width: 100%;
+    left: 50%;
+  }
 }

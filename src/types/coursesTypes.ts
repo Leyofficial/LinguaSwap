@@ -15,7 +15,7 @@ export interface ICourse {
         language : TLanguagesItems,
         enrolment :  TEnrolmentType
     },
-    teachers : {
+    teacher : {
         id : string,
         name : string
     }

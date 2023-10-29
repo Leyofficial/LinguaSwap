@@ -1,0 +1,42 @@
+.container {
+  text-align: center;
+  margin: 0 auto;
+  width: calc(80%  + 1rem );
+}
+.span {
+  color: dodgerblue;
+}
+.textBlock {
+  padding-top: 25vh;
+  margin-bottom: 35px;
+}
+.title {
+  margin-bottom: 10px;
+}
+.firstBtn {
+  margin-bottom: 15px;
+  transition: .4s linear;
+  border-radius: 5px;
+  padding: 10px 25px;
+  color:  white;
+  width: 15rem;
+  background-color: dodgerblue;
+  &:hover {
+    transform: scale(1.08);
+  }
+}
+
+.secondBtn {
+  transition: .4s linear;
+  border-radius: 5px;
+  width: 15rem;
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 1px solid dodgerblue;
+  a {
+    color: black;
+  }
+  &:hover {
+    transform: scale(1.08);
+  }
+}

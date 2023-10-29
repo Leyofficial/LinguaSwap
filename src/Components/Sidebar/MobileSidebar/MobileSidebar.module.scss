@@ -1,0 +1,173 @@
+.container {
+  max-width: calc(1300px - 11rem);
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+}
+
+.sidebarBlock {
+  margin: 25px 0;
+}
+
+.span {
+  color: dodgerblue;
+}
+
+
+.burger {
+  margin: 20px;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.menuItems {
+  flex-direction: column;
+  display: flex;
+  gap: 3rem;
+  margin-top: 50%;
+}
+
+.burgerBlock {
+  padding-top: 50%;
+  padding: 20px;
+  top: 0;
+  position: fixed;
+  z-index: 10;
+  color: white;
+  height: 100vh;
+  transition: .5s ease;
+  width: 50%;
+  background-color: #1f1d2b;
+}
+
+.burger input {
+  display: none;
+}
+.active {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+  background: white;
+}
+.usualSpan{
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+
+  background: dodgerblue;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 21.5px;
+  left: 4px;
+}
+
+.here {
+  transform: translateX(0);
+}
+
+.gone {
+  transform: translateX(-1000px);
+}
+
+.sItem {
+  a {
+    font-size: 30px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  .wrapper{
+    padding:5px;
+  }
+  .sidebarBlock {
+    margin: 0;
+  }
+  .title{
+    margin-top: 15px ;
+    margin-bottom: 50px;
+    font-size: 18px;
+  }
+  .sItem{
+    a{
+      font-size: 18px;
+    }
+  }
+}
+
+.avatarBlock {
+  gap: 1rem;
+  align-items: center;
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid grey;
+
+}
+
+@media (max-width: 900px) {
+  .menuItems {
+    margin-top: 25%;
+  }
+}
+@media (max-width: 500px) {
+  .menuItems {
+    margin-top: 80%;
+  }
+  .avatarBlock{
+    h2{
+      font-size: 18px;
+    }
+  }
+}

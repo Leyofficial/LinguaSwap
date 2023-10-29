@@ -6,6 +6,7 @@
   .wrapeprSelects {
     //max-width: 500px;
     width: 50%;
+
     .wrapperData {
       border: 1px solid rgba(28, 27, 27, 0.17);
       padding: 10px;
@@ -52,18 +53,40 @@
         }
       }
     }
-    label{
+
+    label {
       color: rgba(0, 0, 0, 0.72);
       font-size: 17px;
       font-weight: bolder;
     }
   }
 }
-.move{
+
+.move {
   display: flex;
   align-items: center;
   position: absolute;
   bottom: 0;
   right: 30px;
   //max-width: 300px;
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    display: block;
+
+    .move {
+      position: relative;
+      margin: 15px;
+    }
+
+    .description {
+      width: 100%;
+      height: 50%;
+    }
+    .wrapeprSelects{
+      width: 100%;
+    }
+  }
+
 }

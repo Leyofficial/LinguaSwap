@@ -10,8 +10,8 @@
       padding: 15px;
       border-radius: 32px 15px;
       font-size: 30px;
-      color: rgba(6, 164, 199, 0.53);
-      background-color: rgba(30, 144, 255, 0.11);
+      color: dodgerblue;
+      //background-color: rgba(30, 144, 255, 0.11);
     }
   }
 
@@ -32,7 +32,7 @@
     .title{
       font-size: 20px;
       font-weight: 900;
-      color: rgba(25, 70, 224, 0.73);
+      color: dodgerblue;
       letter-spacing: 0.8px;
     }
     .text{
@@ -44,4 +44,23 @@
       color: rgba(0, 0, 0, 0.64);
     }
   }
+}
+
+@media screen  and (max-width: 700px){
+  .wrapper{
+    display: block;
+    .text{
+      padding-bottom: 15px;
+    }
+    .wrapperImages{
+      padding-left: 20px !important;
+    }
+    .wrapperImageItems{
+      //text-align: center;
+      img{
+        max-width: 250px !important;
+      }
+    }
+  }
+
 }

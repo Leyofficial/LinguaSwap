@@ -1,11 +1,20 @@
-.container{
-  padding: 10px;
+.container {
+  padding: 10px 0;
 
-  .create{
+  .create {
     color: rgba(0, 0, 0, 0.85);
     letter-spacing: 1px;
     border: 1px solid rgba(0, 0, 0, 0.46);
     border-radius: 5px;
     padding: 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    padding: 10px 30px;
+    .create {
+      font-size: 12px;
+    }
   }
 }

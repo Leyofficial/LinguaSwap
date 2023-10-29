@@ -7,21 +7,31 @@
   padding: 1rem;
   transition: 0.6s ease;
 }
+
+.sidebarHidden {
+  transform: translateX(-1000);
+}
+
 .titleBlock {
   transition: 1s ease;
+
   a {
     color: white;
     transition: 0.4s ease;
   }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   span {
     color: dodgerblue;
   }
+
   p {
     font-size: 30px;
   }
+
   margin: 25px 0 150px 0;
 }
 
@@ -31,13 +41,21 @@
   border: none;
   background-color: transparent;
   transition: 0.4s ease;
+
   &:hover {
     color: dodgerblue;
   }
+
   &:active {
     opacity: 0;
   }
 }
+@media screen and (max-width: 700px) {
+.sidebarContainer{
+  display: none;
+}
+}
+
 
 
 

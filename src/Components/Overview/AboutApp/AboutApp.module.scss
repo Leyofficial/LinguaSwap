@@ -1,5 +1,5 @@
 .container {
-  background-color: rgba(126, 173, 206, 0.06);
+  margin-top: 5vh;
   header {
     padding: 50px 0 ;
     display: flex;
@@ -8,16 +8,16 @@
     h1 {
       font-size: 40px;
       font-weight: 600;
-      color: rgba(30, 96, 194, 0.74);
+      color: dodgerblue;
       letter-spacing: 1px;
     }
     p{
-      color: rgba(0, 0, 0, 0.46);
       padding-top: 10px;
-      font-size: 17px;
+      //font-size: 17px;
       max-width: 700px;
-      letter-spacing: 1px;
+      letter-spacing: 0.6px;
       text-align: center;
+      color: #6b6666;
     }
   }
 
@@ -30,5 +30,24 @@
     justify-content: space-between;
     width: 100%;
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .container{
+   header{
+     padding: 50px 40px;
+     h1{
+       font-size: 25px;
+     }
+     p{
+       font-size: 14px;
+       letter-spacing: 1px;
+       line-height: 25px;
+     }
+   }
+  }
+  section{
+    padding: 0 !important;
   }
 }
