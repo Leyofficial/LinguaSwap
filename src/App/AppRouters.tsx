@@ -2,7 +2,6 @@ import React, {Suspense} from 'react';
 import {Route, Routes} from "react-router-dom";
 
 import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.tsx";
-import TeacherRegister from "../Components/TeacherRegister/TeacherRegister.jsx";
 
 
 import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.tsx";
@@ -50,7 +49,6 @@ const AppRouters = (props:IAppRoutersProps) => {
                  <Route path={'login'} element={<Login />}/>
                  <Route path={'signup'} element={<SignUp/>} />
               </Route>
-              <Route path={"/teacherregister"} element={<TeacherRegister/>}/>
               <Route path={ "/createprofile"} element={ <Suspense fallback={<CircularUnderLoad/>}><CreateProfile/></Suspense>}/>
               <Route path={"/findteacher"} element={<Suspense fallback={<CircularUnderLoad/>}><TeachersSection/></Suspense>}/>
               <Route path={"/findteacher/find/:id"} element={ <Suspense fallback={<CircularUnderLoad/>}><PersonalProfile/></Suspense>}/>
