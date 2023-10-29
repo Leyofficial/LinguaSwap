@@ -4,11 +4,11 @@ import style from "../WorkSection/WorkSection.module.scss";
 interface IWorkSectionProps{
     image:string,
     title:string,
-    text:string,
-    count:number
+    count:number,
+    description:string
 }
 const WorkSection = (props:IWorkSectionProps) => {
-  const {image,title,text,count} = props
+  const {image,title,description,count} = props
   return (
     <div className={style.wrapper}>
 
@@ -17,7 +17,7 @@ const WorkSection = (props:IWorkSectionProps) => {
         </div>
         <div className={style.containerInfo}>
           <p className={style.title}>{title}</p>
-          <p className={style.text}>{text}</p>
+          <p className={style.text}>{description}</p>
         </div>
       </div>
       <div className={style.wrapperImages}>
