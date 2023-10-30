@@ -48,11 +48,14 @@ img {
   height: auto;
 }
 
+@media (max-width: 580px) {
+  input, select {
+    font-size: 16px;
+  }
+}
 
-/* .active  {
-    background-color : dodgerblue;
-} */
-
-/*.active  {*/
-/*    background-color : dodgerblue;*/
-/*}*/
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  select:focus, textarea:focus, input:focus {
+    font-size: 16px;
+  }
+}
