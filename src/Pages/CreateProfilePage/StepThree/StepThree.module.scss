@@ -21,9 +21,10 @@
     border-bottom: 1px dotted gray;
 }
 @media (max-width: 450px) {
+    .wholeContent {
+        padding: 15px 10px;
+    }
     .buttonsThree {
         margin: 0 auto;
-        gap: 8px;
-        justify-content: center;
     }
 }

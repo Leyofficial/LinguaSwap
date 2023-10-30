@@ -2,6 +2,9 @@
   padding: 5px;
 
   .logo {
+    z-index: 1000;
+    right: 0;
+    position: fixed;
     justify-content: end;
     display: flex;
     align-items: center;
@@ -10,6 +13,12 @@
       padding-right: 5px;
     }
   }
+}
+
+.block {
+  padding: 10px 5px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .burger {
