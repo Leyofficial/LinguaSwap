@@ -98,7 +98,7 @@
 
 .burger input:checked ~ span:nth-of-type(1) {
   transform: rotate(45deg);
-  top: 0px;
+  top: 0;
   left: 5px;
 }
 
@@ -163,7 +163,7 @@
 }
 @media (max-width: 500px) {
   .menuItems {
-    margin-top: 80%;
+    margin-top: 55%;
   }
   .avatarBlock{
     h2{

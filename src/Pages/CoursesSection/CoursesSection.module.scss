@@ -8,7 +8,8 @@
 
   .coursesWrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    padding-left: 10rem;
     padding-bottom: 6px;
     justify-content: space-around;
 
@@ -17,6 +18,7 @@
 
   .searchWrapper {
     padding-top: 1vh;
+    padding-left: 7rem;
       margin: 0 auto;
     width: 100%;
   }
@@ -38,6 +40,21 @@
 .create {
   padding: 10px 0;
 }
+
+
+@media (max-width: 900px) {
+  .searchWrapper {
+    padding-left: 0;
+  }
+  .container {
+    .coursesWrapper {
+      padding-left: 0;
+      justify-items: center;
+    }
+  }
+}
+
+
 
 @media screen and (max-width: 700px) {
   .container {
