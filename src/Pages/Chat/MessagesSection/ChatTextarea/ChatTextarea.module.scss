@@ -64,5 +64,16 @@
   svg{
     font-size: 20px !important;
   }
+}
 
+@media screen  and (max-width: 700px){
+.wrapperTextarea{
+  height: 9vh;
+  .clip{
+    display: none;
+  }
+  .textarea{
+    height: 80%;
+  }
+}
 }

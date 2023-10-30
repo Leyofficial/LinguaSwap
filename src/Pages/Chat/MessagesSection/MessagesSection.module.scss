@@ -71,10 +71,13 @@
   }
 }
 @media screen and (max-width: 700px){
+  .container{
+    margin-top: 15px;
+  }
   main{
-    height: calc(100vh - 156px) !important;
+    height: calc(100vh - 121px) !important;
     .messages {
-      height: 69vh !important;
+      height: 72vh !important;
       overflow: auto;
     }
   }

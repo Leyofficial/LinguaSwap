@@ -196,6 +196,7 @@
     padding-right: 0;
     position: relative;
     width: 100%;
+    height: calc(100vh - 46px);
 
     h2 {
       max-width: 200px;
@@ -268,7 +269,7 @@
     }
   }
   .contentMessage{
-    height: 67vh !important;
+    height: 73vh !important;
   }
 }
 
