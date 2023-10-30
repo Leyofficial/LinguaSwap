@@ -7,8 +7,6 @@ import AboutAppPage from "../Pages/HomePage/AboutAppPage/AboutAppPage.tsx";
 import ChooseTypeOfChat from "../Pages/ChooseTypeOfChat/ChooseTypeOfChat.tsx";
 import MainChat from "../Pages/Chat/MainChat.tsx";
 
-
-
 import {useTypedSelector} from "../hooks/useTypedSelector.ts";
 
 
@@ -19,14 +17,13 @@ import SmallPrivateChats from "../Pages/Chat/SmallPrivateChats/SmallPrivateChats
 import {
    CourseChat, CourseSection,
    CoursesSection, CreateProfile,
-   ErrorUrl,
+   ErrorUrl, Form,
    HomePage,
    Layout,
    Login,
    MessagesSection,
    PersonalProfile, SignUp, TeachersSection
 } from "./Lazy/Lazy.tsx";
-import {Form} from "antd";
 import Create from "../Pages/CoursesSection/Create/Create.tsx";
 
 interface IAppRoutersProps {
@@ -38,7 +35,6 @@ const AppRouters = (props: IAppRoutersProps) => {
 
    const {isAuth} = props
    const isStart = useTypedSelector((state) => state.isStart);
-
    return (
        <>
           <Routes>
@@ -48,7 +44,7 @@ const AppRouters = (props: IAppRoutersProps) => {
                            <Suspense fallback={<CircularUnderLoad/>}><HomePage/></Suspense>}/>
                 <Route path={'aboutApp/:userType'} element={<AboutAppPage/>}></Route>
                 <Route path={'auth'} element={isAuth ? <PersonalProfile/> :
-                    <Suspense fallback={<CircularUnderLoad/>}><Form/></Suspense>}>
+                    <Suspense fallback={<CircularUnderLoad/>}><Form></Form></Suspense>}>
                    <Route path={'login'} element={<Login/>}/>
                    <Route path={'signup'} element={<SignUp/>}/>
                 </Route>
