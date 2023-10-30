@@ -14,7 +14,7 @@ const ChatTextarea = (props:IChatTextarea) => {
     const {valueTextarea,setValueTextarea,submitCallback,waitResponse} = props
    return (
       <section className={style.wrapperTextarea}>
-         <AiOutlinePaperClip fontSize={40}></AiOutlinePaperClip>
+         <AiOutlinePaperClip className={style.clip} fontSize={40}></AiOutlinePaperClip>
          <div className={style.textarea}>
                   <textarea placeholder={'Type a message'} value={valueTextarea}
                             onChange={(e) => setValueTextarea(e.target.value)}></textarea>

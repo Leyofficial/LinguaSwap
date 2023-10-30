@@ -2,6 +2,8 @@
   padding: 5px;
   display: flex;
   align-items: center;
+  max-width: 80%;
+  margin: 25px auto;
   svg{
     font-size: 25px;
     margin:  0 10px ;
@@ -9,7 +11,8 @@
 }
 
 .coursesContainer {
-  margin-top: 55px;
+  margin-top: 15px;
+  overflow: auto;
 }
 
 @media screen and (min-width:701px )  {
