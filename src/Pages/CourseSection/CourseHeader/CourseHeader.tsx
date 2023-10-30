@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import style from './CourseHeader.module.scss'
 import {Toaster} from "react-hot-toast";
 import memberImage from "../../../images/member.png";
-import {Stack, Step, StepLabel, Stepper} from "@mui/material";
+import { Skeleton, Stack, Step, StepLabel, Stepper} from "@mui/material";
 import {ColorlibConnector, ColorlibStepIcon} from "../../../Utility/ProgressCourse/ProgressCourse.tsx";
 import {getStateOfCourse} from "./stateOfCourse.js";
 import {getUser} from "../../../ApiRequests/Courses/AuthUser.js";
@@ -49,7 +49,7 @@ const CourseHeader = (props:ICourseHeaderProps) => {
                <div className={style.teacherToga}>
                   <img src={toga} alt={'author'}/>
                </div>
-               <img src={teacherAvatar ? teacherAvatar : memberImage} alt={'author'}/>
+               {teacherAvatar ? <img src={teacherAvatar} alt={'author'}/> : <Skeleton variant="circular" width={'5rem'} height={'5rem'} />}
                <p>{currentCourse?.teacher.name}</p>
             </div>
 
