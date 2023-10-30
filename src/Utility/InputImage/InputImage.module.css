@@ -40,4 +40,10 @@
   opacity: 1;
 }
 
+@media (max-width: 600px) {
+  .dragBlock {
+    padding-bottom: 75px;
+  }
+}
+
 /*# sourceMappingURL=InputImage.module.css.map */
