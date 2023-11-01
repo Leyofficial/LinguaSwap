@@ -10,7 +10,7 @@ Key Features 🗝️:
 
 Join LinguaSwap and discover the joy of learning languages in an interactive and supportive online community. Expand your horizons, connect with different cultures, and master a new language.
 
-Stack : TypeScript, JavaScript, React, Vite, Web Sockets (Socket.IO), Axios, React Hooks, Redux, Thunk, React Icons, React Selector, Node.js, Express, Mongodb , MUI, AntD, SCSS, and Router (DOM), 🗂️
+<b>Stack : TypeScript, JavaScript, React, Vite, Web Sockets (Socket.IO), Axios, React Hooks, Redux, Thunk, React Icons, React Selector, Node.js, Express, Mongodb , MUI, AntD, SCSS, and Router (DOM)  🗂️ </b>
 
 The project was carried out for a greater understanding of the above mentioned technologies and to use them on an ongoing basis!
 
