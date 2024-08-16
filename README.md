@@ -1,4 +1,7 @@
 LINGUASWAP: ENHANCING LANGUAGE LEARNING 📚
+![Linguaswap](https://github.com/user-attachments/assets/645a6ac6-cec0-4de1-9f79-f96848887f51)
+
+
 
 Ready for an incredible language-learning adventure? LinguaSwap is the innovative platform that will revolutionize your language journey. With cutting-edge technologies and a user-friendly interface, LinguaSwap will empower you to connect with fellow language enthusiasts, find experienced teachers, and access comprehensive language courses.
 
